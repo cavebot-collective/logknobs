@@ -72,6 +72,12 @@ jobs:
       - name: T14 spelling
         timeout-minutes: 2
         run: npm run -s test:t14
+      - name: T16 no clipped labels
+        timeout-minutes: 15
+        run: npm run -s test:t16
+      - name: T17 mouse-only and keyboard-only parity
+        timeout-minutes: 15
+        run: npm run -s test:t17
       - name: Oracle B (pixels vs real git)
         timeout-minutes: 15
         run: npm run -s test:oracle-b

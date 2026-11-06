@@ -17,7 +17,7 @@ python3 scripts/gen_decoration_corpus.py "$W" "$W/decoration-corpus.json" >/dev/
 mkdir -p "$W/held"; python3 scripts/gen_random_topology.py "$W/rand" "$W/held/graph-heldout.json" 7 11 23 42 101 2026 >/dev/null
 same "$W/held/graph-heldout.json" evidence/topology/graph-heldout.json held-out
 python3 scripts/gen_token_sweep.py "$W" "$W/token-sweep.json" >/dev/null;               same "$W/token-sweep.json" evidence/topology/token-sweep.json tokenize
-python3 scripts/gen_preset_corpus.py "$W" evidence/registry-v0.3.0.json "$W/preset-corpus.json" >/dev/null; same "$W/preset-corpus.json" evidence/topology/preset-corpus.json presets
+python3 scripts/gen_preset_corpus.py "$W" evidence/registry-v0.4.0.json "$W/preset-corpus.json" >/dev/null; same "$W/preset-corpus.json" evidence/topology/preset-corpus.json presets
 node sim/oracle_a.mjs evidence | grep -E "ENGINE|host-supplied \(|T8a |named-format|options \("
 node sim/color_diff.mjs evidence | tail -1 | sed 's/^/  color grammar /'
 for c in graph-corpus.json graph-heldout.json decoration-corpus.json token-sweep.json preset-corpus.json; do node sim/graph_diff.mjs evidence $c | tail -1 | sed "s/^/  $c /"; done

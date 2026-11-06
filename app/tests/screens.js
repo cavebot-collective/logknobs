@@ -1,11 +1,21 @@
 // Screenshots for the delivery record (not a gate).
 const { launch, call } = require("./lib");
 (async () => { const { app, win } = await launch();
-  const S = require("node:path").join(__dirname, "results") + "/";
-  await win.evaluate(() => { const g = window.__logknobs; g.setTemplate("%C(auto)%h%Creset %C(green) -- %Creset%<(14,trunc)%an %s%C(auto)%d", "s"); g.setCase(2); g.select(4); });
-  await win.mouse.move(2, 2); await win.screenshot({ path: S + "screen-single-literal.png" });
-  await win.evaluate(() => { const g = window.__logknobs; g.setPreviewMode("history"); g.setGraph("on"); g.setRefs("all"); g.setTokenView("bnf"); g.select(7); });
-  await win.mouse.move(2, 2); await win.screenshot({ path: S + "screen-history-grammar.png" });
-  await win.evaluate(() => { const g = window.__logknobs; g.applyPreset("lg2"); g.setTheme("One Half Light"); g.setTokenView("blocks"); g.select(-1); });
-  await win.mouse.move(2, 2); await win.screenshot({ path: S + "screen-preset-light.png" });
+  const S = require("node:path").join(__dirname, "results") + "/"; require("node:fs").mkdirSync(S, { recursive: true });
+  const T = "%C(auto)%h%Creset %C(green)-- %Creset%<(14,trunc)%an %C(bold #ff8800)%s%Creset%C(auto)%d";
+  await win.evaluate(t => { const g = window.__logknobs; g.setTemplate(t, "s"); g.setCase(2); g.select(4); }, T);
+  await win.mouse.move(2, 2); await win.screenshot({ path: S + "screen-1-classic-scope.png" });
+  await win.click('#pal-groups [data-branch="author"]'); await win.click('.flyout[data-level="2"] [data-branch="Author date"]');
+  await win.screenshot({ path: S + "screen-2-cascade.png" }); await call(win, "closeMenus");
+  await win.locator('#tokens [data-i="9"]').click({ button: "right" }); await win.screenshot({ path: S + "screen-3-context-menu.png" }); await win.keyboard.press("Escape");
+  await win.evaluate(() => { const g = window.__logknobs; g.setPreviewMode("history"); g.setGraph("on"); g.setRefs("all");
+    g.setGraphColors(["#e06c75", "#98c379", "#61afef", "#c678dd", "bold yellow", "cyan"]); g.select(-1);
+    document.getElementById("right").scrollTop = document.getElementById("graphsec").offsetTop - 60; });
+  await win.mouse.move(2, 2); await win.screenshot({ path: S + "screen-4-graph-section.png" });
+  await win.evaluate(() => { const g = window.__logknobs; g.setLayout("focus"); g.select(7); });
+  await win.mouse.move(2, 2); await win.screenshot({ path: S + "screen-5-focus-preview.png" });
+  await call(win, "setTab", "parts"); await win.mouse.move(2, 2); await win.screenshot({ path: S + "screen-6-focus-parts.png" });
+  await win.evaluate(() => { const g = window.__logknobs; g.setLayout("classic"); document.getElementById("cfgexp").open = true; window.__logknobs.select(-1);
+    const r = document.getElementById("right"); r.scrollTop = r.scrollHeight; });
+  await win.mouse.move(2, 2); await win.screenshot({ path: S + "screen-7-config-export.png" });
   await app.close(); })();

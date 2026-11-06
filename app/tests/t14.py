@@ -26,7 +26,7 @@ targets += sorted((ROOT / ".github/workflows").glob("*.yml"))
 # specs from v0.9.0 on; earlier versions are history files and keep their text (spec section 46)
 targets += [f for f in sorted((ROOT / "docs/spec").glob("*.md")) if f.name >= "gitlog-format-spec-v0.9.0.md" or "v0." not in f.name]
 targets += sorted(ROOT.glob("README*")) + sorted(APP.glob("README*")) + sorted((ROOT / "probe").glob("README*"))
-targets += [ROOT / "probe/evidence/registry-v0.3.0.json"]   # generated this version: must be clean
+targets += [ROOT / "probe/evidence/registry-v0.4.0.json"]   # generated this version: must be clean
 bad = 0
 for f in targets:
     if not f.exists(): print(f"  MISSING {f}"); bad += 1; continue
