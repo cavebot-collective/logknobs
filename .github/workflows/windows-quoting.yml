@@ -1,0 +1,50 @@
+# The copied command and the config-export commands, run through cmd.exe (at
+# the prompt and in a .bat), PowerShell 7 and Windows PowerShell 5.1, compared
+# byte for byte with git invoked directly. Linux cannot run these shells; this
+# job is the only proof the Windows quoting targets work.
+name: windows-quoting
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+concurrency:
+  group: windows-quoting-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  quoting:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        timeout-minutes: 5
+      - uses: actions/setup-node@v4
+        timeout-minutes: 5
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        timeout-minutes: 5
+        with:
+          python-version: "3.12"
+      - name: Versions
+        timeout-minutes: 2
+        run: |
+          git --version
+          pwsh -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+          powershell.exe -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+      - name: Sample repository (path with a space, on purpose)
+        timeout-minutes: 5
+        run: python probe/scripts/build_topology.py "$env:RUNNER_TEMP\lk repo\topo-verbose" verbose
+      - name: Quoting gate
+        timeout-minutes: 10
+        run: node app/tests/win_quoting.mjs "$env:RUNNER_TEMP\lk repo\topo-verbose"
+      - name: Keep results
+        if: always()
+        timeout-minutes: 5
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-quoting-results
+          path: app/tests/results/
+          retention-days: 14

@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>logknobs</title>
+<style>
+:root{--bg:#1b2430;--panel:#232d3b;--panel2:#1f2835;--line:#33404f;--fg:#d5dbe3;--mute:#8592a3;--acc:#e8b04a;--sel:rgba(232,176,74,.18);
+  --ins:#5fc4a8;--ins-bg:rgba(95,196,168,.10);--err:#ff6b6b;--term-bg:#0c0c0c;--term-fg:#cccccc}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:13px/1.45 ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  display:grid;grid-template-columns:250px minmax(0,1fr) 350px;grid-template-rows:auto minmax(0,1fr) auto;height:100vh}
+@media(max-width:1000px){body{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto;height:auto}}
+button,select,input,textarea{font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:3px 6px}
+button{cursor:pointer}button:hover:not(:disabled){border-color:var(--acc)}button:disabled{opacity:.4;cursor:default}
+:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+h2{font-size:12px;font-weight:600;margin:0;text-transform:uppercase;letter-spacing:.06em}
+.hint{color:var(--mute);font-size:12px}.mini{color:var(--mute);font-size:12px;white-space:nowrap}
+.vh{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+code{color:var(--acc)}
+
+/* ---- top bar */
+#top{grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:8px 14px;border-bottom:1px solid var(--line)}
+#lockup{display:block;width:118px;flex:0 0 auto}#lockup svg{display:block;width:100%;height:auto}
+#tpl{flex:1;min-width:0;font-size:14px;padding:6px 8px;background:#121821}
+#tpl.bad{border-color:var(--err)}
+#cmdbox{display:flex;gap:6px;align-items:center}
+
+/* ---- the three regions: visibly different treatments */
+aside,#center{min-height:0;overflow:auto}
+.region{padding:10px 12px;border-bottom:1px solid var(--line)}
+.region>header{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.region>header .what{color:var(--mute);font-size:12px}
+/* Insert: adds new parts. Dashed, mint, every item marked + */
+#insert{border-right:1px dashed var(--ins);background:var(--ins-bg)}
+#insert h2{color:var(--ins)}
+.pal-group{margin:8px 0 2px;color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.chip-ins{display:flex;gap:6px;align-items:baseline;width:100%;text-align:left;margin:2px 0;padding:2px 6px;
+  border:1px dashed color-mix(in srgb,var(--ins) 55%,transparent);background:transparent;border-radius:4px;cursor:grab}
+.chip-ins::before{content:"+";color:var(--ins);font-weight:700}
+.chip-ins:hover{border-color:var(--ins);background:rgba(95,196,168,.12)}
+.chip-ins .tok{color:var(--ins)}.chip-ins .lbl{color:var(--mute);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip-ins.micro{margin-left:12px}
+#lit-row{display:flex;gap:4px;margin-top:6px}#lit-row input{flex:1;min-width:0}
+/* Inspector: modifies the selected part. Solid, amber */
+#inspector{border-left:3px solid var(--acc);background:var(--panel2)}
+#inspector h2{color:var(--acc)}
+.isec{border-top:1px solid var(--line);padding:7px 0}
+.isec>.ih{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}.isec>.ih b{font-weight:600}
+.irow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:3px 0}
+.irow label{display:inline-flex;gap:4px;align-items:center;color:var(--mute)}
+.irow input[type=number]{width:62px}.irow input[type=text]{width:120px}
+.na{color:var(--mute);font-size:12px;border-top:1px dotted var(--line);padding-top:6px;margin-top:4px}
+.err{color:var(--err)}
+/* scope chips: what a setting applies to */
+.scope{display:inline-block;font-size:11px;padding:0 6px;border-radius:9px;border:1px solid var(--line);color:var(--mute);white-space:nowrap}
+.scope[data-scope=until-reset]{border-color:#c678dd;color:#d9a6ec}
+.scope[data-scope=next-placeholder]{border-color:#61afef;color:#9ccdf5}
+.scope[data-scope=until-next-wrap]{border-color:#56b6c2;color:#8fd3db}
+.scope[data-scope=entry]{border-color:#98c379;color:#b9d9a3}
+.scope[data-scope=output]{border-color:#e8b04a;color:#f0cc85}
+.seg{display:inline-flex}.seg button{border-radius:0}.seg button:first-child{border-radius:3px 0 0 3px}.seg button:last-child{border-radius:0 3px 3px 0}
+.seg button[aria-pressed=true]{background:var(--sel);border-color:var(--acc)}
+/* Output: global */
+#output h2{color:var(--fg)}
+.orow{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
+.orow>.olab{min-width:96px;color:var(--mute)}.orow>.scope{margin-left:auto}
+.orow input[type=text]{width:150px}.orow input[type=number]{width:58px}
+#templates details{margin:4px 0}#templates summary{cursor:pointer;color:var(--mute)}
+.tlist{max-height:200px;overflow:auto;margin:4px 0}
+.titem{display:flex;gap:6px;align-items:center;padding:2px 0}.titem .tname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cls{font-size:10px;padding:0 5px;border-radius:8px;border:1px solid var(--line);color:var(--mute)}
+.cls[data-cls=verbatim]{border-color:#98c379}.cls[data-cls=after-source]{border-color:#e8b04a}.cls[data-cls=original]{border-color:#61afef}
+textarea{width:100%;min-height:70px;resize:vertical;background:#121821;font-size:12px}
+
+/* ---- center */
+#center{display:flex;flex-direction:column}
+#toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:8px 14px;border-bottom:1px solid var(--line)}
+.sw{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:12px}
+.sw[aria-checked=true]{background:var(--sel);border-color:var(--acc)}
+.sw::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--line)}
+.sw[aria-checked=true]::before{background:var(--acc)}
+#notice{color:var(--acc);font-size:12px;min-height:1em}
+/* token view (feature-lab-001 renders inside #tokens) */
+#tokwrap{flex:0 0 auto;padding:8px 14px;border-bottom:1px solid var(--line)}
+#tokwrap>header{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+#tokens{overflow:auto;max-height:34vh;padding-bottom:4px}
+.tv-blocks{display:grid;align-items:center;row-gap:2px;width:max-content}
+.tk{padding:2px 6px;border:1px solid var(--line);border-radius:4px;background:var(--panel);cursor:grab;white-space:pre;user-select:none}
+.tk.k-literal{border-style:dotted;color:#c8ced6}.tk.k-color{border-color:#c678dd}.tk.k-pad{border-color:#61afef}.tk.k-wrap{border-color:#56b6c2}
+.tk.sel{background:var(--sel);border-color:var(--acc);outline:1px solid var(--acc)}
+.tk.bad{border-color:var(--err);color:var(--err)}
+.gap{width:8px;align-self:stretch;min-height:22px;border-radius:2px}
+.gap.over{background:var(--ins);width:8px}
+.br{height:16px;min-width:0;border:2px solid;border-top:none;border-radius:0 0 4px 4px;margin:0 2px;overflow:hidden}
+.br{position:relative}.br>span{position:absolute;left:0;right:0;top:0;padding:0 4px;font-size:10px;line-height:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.br[data-scope=until-reset]{border-color:#c678dd;color:#d9a6ec}.br[data-scope=next-placeholder]{border-color:#61afef;color:#9ccdf5}.br[data-scope=until-next-wrap]{border-color:#56b6c2;color:#8fd3db}
+.br.hi{border-width:3px}
+.tv-bnf{font-size:12px;line-height:1.5}
+.tv-bnf .rule{color:var(--mute)}
+.tv-bnf .bl{display:block;padding:0 4px;border-radius:3px;cursor:grab;white-space:pre}
+.tv-bnf .bl.sel{background:var(--sel);outline:1px solid var(--acc)}.tv-bnf .bl.bad{color:var(--err)}
+.tv-bnf .bgap{display:block;height:4px;border-radius:2px}.tv-bnf .bgap.over{background:var(--ins);height:6px}
+.tv-bnf .prod{color:#9ccdf5}.tv-bnf .arg{color:var(--fg)}.tv-bnf .sc{color:var(--mute)}
+/* the terminal */
+#termwrap{flex:1;min-height:160px;display:flex;flex-direction:column}
+#term{flex:1;margin:0;padding:14px 16px;overflow:auto;white-space:pre;font-size:14px;line-height:1.5;background:var(--term-bg);color:var(--term-fg);min-height:120px}
+#term .sp{border-bottom:1px dotted transparent;cursor:pointer}
+#term .sp:hover,#term .sp.hov{border-bottom-color:var(--acc)}
+#term .sp.sel{outline:1px solid var(--acc);background:rgba(232,176,74,.16)}
+#term .fatal{color:var(--err)}#term .empty{color:var(--mute)}
+#term.tformat::after{content:"⏎";color:var(--mute);opacity:.7}
+#status{display:flex;gap:12px;align-items:center;padding:4px 14px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}
+.gauge{display:flex;align-items:center;gap:6px}.gauge svg{display:block}.gauge b{color:var(--fg);font-weight:500}
+/* knob */
+.knobctl{display:inline-flex;align-items:center;gap:6px}.knobctl svg{cursor:ns-resize;touch-action:none}
+.knobctl .kv{font-size:12px}.knobctl .kv b{font-weight:600;color:var(--acc)}
+.knobctl svg:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:50%}
+/* docs */
+/* fixed height: content changing on hover must not shift the layout under the pointer */
+#docs{grid-column:1/-1;border-top:1px solid var(--line);padding:8px 14px;height:118px;overflow:auto;background:var(--panel)}
+#docs h3{font-size:13px;margin:0 0 3px}#docs p{margin:3px 0}#docs ul{margin:3px 0 0 18px;padding:0}
+#docs .tag{color:var(--mute)}
+.git-off{display:none!important}
+</style></head><body>
+
+<div id="top">
+  <span id="lockup" aria-label="logknobs"></span>
+  <span class="mini">--format=</span>
+  <input id="tpl" spellcheck="false" autocomplete="off" aria-label="format template">
+  <button id="undo" title="Undo (Ctrl+Z)">↶ undo</button><button id="redo" title="Redo (Ctrl+Shift+Z)">↷ redo</button>
+  <span id="cmdbox"><select id="shell" aria-label="shell quoting"></select>
+  <button id="copy" title="Copy the git command">copy command</button></span>
+</div>
+
+<aside id="insert" aria-label="Insert">
+  <section class="region" style="border:none">
+    <header><h2>Insert</h2><span class="what">adds a new part — after the selection, or at the end; or drag into the parts row</span></header>
+    <div id="palette"></div>
+    <div class="pal-group">literal text</div>
+    <div id="lit-row"><input id="lit-text" type="text" placeholder="text, e.g.  ·  or [" aria-label="literal text to insert"><button id="lit-add" class="chip-ins" style="width:auto">add</button></div>
+  </section>
+</aside>
+
+<div id="center">
+  <div id="toolbar">
+    <span class="mini">preview</span>
+    <span class="seg" id="pmode"><button data-mode="single">one commit</button><button data-mode="history">history</button></span>
+    <button id="case" title="Which sample: terse / conventional / verbose messages"></button>
+    <label class="mini">theme <select id="theme" aria-label="terminal theme"></select></label>
+    <span class="mini">|</span>
+    <span id="toggles"></span>
+    <label class="mini git-off" id="gitmode"><input type="checkbox" id="realgit"> real git</label>
+    <span id="notice" role="status"></span>
+  </div>
+  <div id="tokwrap">
+    <header><h2>Parts</h2><span class="hint">click to select · drag to reorder · Alt+←/→ moves · Delete removes</span>
+      <span style="flex:1"></span><span class="mini">view</span>
+      <span class="seg" id="tview" title="feature-lab-001: two token views, compared side by side"><button data-v="blocks">blocks</button><button data-v="bnf">grammar</button></span></header>
+    <div id="tokens" aria-label="template parts"></div>
+  </div>
+  <div id="termwrap"><pre id="term" tabindex="0" aria-label="preview"></pre>
+  <div id="status"></div></div>
+</div>
+
+<aside id="right">
+  <section class="region" id="inspector" aria-label="Edit selected part">
+    <header><h2>Edit selected</h2><span class="what" id="insp-what">changes the selected part only</span></header>
+    <div id="insp"></div>
+  </section>
+  <section class="region" id="output" aria-label="Output options">
+    <header><h2>Output</h2><span class="what">global — applies to every entry or the whole output</span></header>
+    <div id="opts"></div>
+    <details id="cfgsec"><summary class="hint">git config colors</summary><div id="cfgopts"></div></details>
+  </section>
+  <section class="region" id="templates" aria-label="Templates">
+    <header><h2>Templates</h2><span class="what">presets, your saved templates, config export</span></header>
+    <details open><summary>presets</summary><div class="tlist" id="presets"></div></details>
+    <details open><summary>saved</summary>
+      <div class="orow"><input id="save-name" type="text" placeholder="name" aria-label="template name"><button id="save">save current</button></div>
+      <div class="tlist" id="saved"></div>
+      <div class="orow"><button id="export">export JSON</button><button id="import">import JSON</button><input id="import-file" type="file" accept="application/json,.json" class="vh"></div>
+    </details>
+    <details id="cfgexp"><summary>export as git config</summary>
+      <div class="orow"><span class="olab">pretty name</span><input id="cx-name" type="text" value="lk"></div>
+      <div class="orow"><span class="olab">alias name</span><input id="cx-alias" type="text" value="lk"></div>
+      <div class="orow"><label class="mini"><input type="checkbox" id="cx-default"> also make it plain git log's default (format.pretty)</label></div>
+      <div class="hint">commands</div><textarea id="cx-cmds" readonly aria-label="git config commands"></textarea>
+      <div class="hint">.gitconfig fragment</div><textarea id="cx-frag" readonly aria-label="gitconfig fragment"></textarea>
+    </details>
+  </section>
+</aside>
+
+<div id="docs"><p class="hint">Hover anything for its documentation.</p></div>
+
+<script type="module">
+/*__SIM__*/
+
+// ======================================================================
+// feature-lab-001 -- the token view. Two options, compared by toggle rather
+// than chosen by argument. Isolation: each option is a function in this
+// closure's table and receives ONE extension point (ext). The table cannot see
+// the core, and the core reaches an option only through the lookup it is
+// handed. Neither option can reach the other.
+// ======================================================================
+const LAB_001 = (() => {
+  const h = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  // Shared DnD + key wiring, applied by each option to its own elements
+  function wireItem(ext, el, i) {
+    el.draggable = true; el.tabIndex = 0; el.dataset.i = i;
+    el.setAttribute("role", "option"); el.setAttribute("aria-selected", String(i === ext.sel));
+    el.onclick = () => ext.onSelect(i);
+    el.onmouseenter = () => ext.onHover(i, true); el.onmouseleave = () => ext.onHover(i, false);
+    el.ondragstart = e => { e.dataTransfer.setData(ext.dragTypes.move, String(i)); e.dataTransfer.effectAllowed = "move"; };
+    el.onkeydown = e => {
+      if (e.altKey && e.key === "ArrowLeft") { ext.onMove(i, i - 1); e.preventDefault(); }
+      else if (e.altKey && e.key === "ArrowRight") { ext.onMove(i, i + 2); e.preventDefault(); }
+      else if (e.key === "Delete" || e.key === "Backspace") { ext.onRemove(i); e.preventDefault(); }
+      else if (e.key === "Enter" || e.key === " ") { ext.onSelect(i); e.preventDefault(); }
+    };
+  }
+  function wireGap(ext, el, at) {
+    el.dataset.at = at;
+    el.ondragover = e => { if ([...e.dataTransfer.types].some(t => t === ext.dragTypes.move || t === ext.dragTypes.insert)) { e.preventDefault(); el.classList.add("over"); } };
+    el.ondragleave = () => el.classList.remove("over");
+    el.ondrop = e => {
+      e.preventDefault(); el.classList.remove("over");
+      const mv = e.dataTransfer.getData(ext.dragTypes.move), ins = e.dataTransfer.getData(ext.dragTypes.insert);
+      if (mv !== "") ext.onMove(+mv, at); else if (ins) ext.onInsert(ins, at);
+    };
+  }
+  // A drop on an item lands before or after it, by which half it hits
+  function wireItemDrop(ext, el, i, horizontal) {
+    el.ondragover = e => { if ([...e.dataTransfer.types].some(t => t === ext.dragTypes.move || t === ext.dragTypes.insert)) e.preventDefault(); };
+    el.ondrop = e => {
+      e.preventDefault(); const r = el.getBoundingClientRect();
+      const after = horizontal ? e.clientX > r.left + r.width / 2 : e.clientY > r.top + r.height / 2;
+      const at = after ? i + 1 : i;
+      const mv = e.dataTransfer.getData(ext.dragTypes.move), ins = e.dataTransfer.getData(ext.dragTypes.insert);
+      if (mv !== "") ext.onMove(+mv, at); else if (ins) ext.onInsert(ins, at);
+    };
+  }
+
+  // option a: blocks -- chips in a row, operator scopes drawn as brackets under
+  // exactly the parts they affect
+  function blocks(ext) {
+    const root = ext.root; root.textContent = ""; root.setAttribute("role", "listbox");
+    const g = h("div", "tv-blocks"); const n = ext.nodes.length;
+    g.style.gridTemplateColumns = `repeat(${2 * n + 1}, auto)`;
+    const col = k => 2 * k + 2;                 // grid column of item k (gaps are odd columns)
+    for (let k = 0; k <= n; k++) {
+      const gap = h("div", "gap"); gap.style.gridColumn = String(2 * k + 1); gap.style.gridRow = "1"; wireGap(ext, gap, k); g.append(gap);
+      if (k === n) break;
+      const nd = ext.nodes[k];
+      const el = h("div", `tk k-${nd.kind}${k === ext.sel ? " sel" : ""}${nd.error ? " bad" : ""}`, nd.label);
+      el.title = nd.describe; el.style.gridColumn = String(col(k)); el.style.gridRow = "1";
+      wireItem(ext, el, k); wireItemDrop(ext, el, k, true); g.append(el);
+    }
+    // brackets, greedy row assignment so overlapping scopes stack
+    const rows = [];
+    for (const r of ext.ranges) {
+      if (r.to < r.from) continue;
+      let row = rows.findIndex(end => end < r.op);
+      if (row < 0) { rows.push(-1); row = rows.length - 1; }
+      rows[row] = r.to;
+      const b = h("div", `br${r.op === ext.sel ? " hi" : ""}`); b.dataset.scope = r.scope; b.dataset.op = r.op;
+      b.style.gridColumn = `${col(r.from)} / ${col(r.to) + 1}`; b.style.gridRow = String(2 + row);
+      b.append(h("span", null, `${ext.nodes[r.op].short} · ${ext.scopeLabel(r.scope)}`));
+      b.title = `${ext.nodes[r.op].label} applies to ${r.to - r.from + 1} part(s): ${ext.scopeText(r.scope)}`;
+      g.append(b);
+    }
+    if (!n) g.append(Object.assign(h("div", "hint", "no parts yet — insert one, or type a template above"), { style: "grid-column:2" }));
+    root.append(g);
+  }
+
+  // option b: grammar -- each part as an instance of its production, indented
+  // by how many operator scopes contain it
+  function bnf(ext) {
+    const root = ext.root; root.textContent = ""; root.setAttribute("role", "listbox");
+    const w = h("div", "tv-bnf");
+    w.append(h("div", "rule", "format ::= part*      part ::= literal | value | modified-value | color | pad | wrap"));
+    const depth = i => ext.ranges.filter(r => r.from <= i && i <= r.to && r.op !== i).length;
+    for (let k = 0; k <= ext.nodes.length; k++) {
+      const gap = h("span", "bgap"); wireGap(ext, gap, k); w.append(gap);
+      if (k === ext.nodes.length) break;
+      const nd = ext.nodes[k];
+      const el = h("span", `bl${k === ext.sel ? " sel" : ""}${nd.error ? " bad" : ""}`);
+      el.append("  ".repeat(depth(k)), Object.assign(h("span", "prod", nd.production), {}), "⟨", h("span", "arg", nd.arg), "⟩");
+      const own = ext.ranges.find(r => r.op === k);
+      if (own) el.append(h("span", "sc", `   ⟵ ${ext.scopeText(own.scope)}${own.to < own.from ? " (nothing follows)" : ""}`));
+      el.title = nd.describe; wireItem(ext, el, k); wireItemDrop(ext, el, k, false); w.append(el);
+    }
+    root.append(w);
+  }
+  return Object.freeze({ blocks, bnf });
+})();
+
+// ======================================================================
+// core
+// ======================================================================
+(function core(document, lab001) {
+const REGISTRY = /*__REGISTRY__*/;
+const LOCKUP = /*__LOCKUP__*/;
+const RECORDS = /*__RECORDS__*/;     // single-commit cases [terse, conventional, verbose]
+const STORES = /*__STORES__*/;       // history repositories, same order, one topology
+const VERSION = /*__VERSION__*/;
+const CASES = ["terse", "conventional", "verbose"];
+const CFG = REGISTRY.config;
+const DIR = Object.fromEntries(REGISTRY.directives.map(d => [d.directive, d]));
+const OPT = REGISTRY.options;
+const BUILTIN = new Set(NAMED_FORMATS);
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const DRAG = { move: "application/x-logknobs-move", insert: "application/x-logknobs-insert" };
+
+// ------------------------------------------------------------ state ----
+// Canonical state: { template, options }. Every view is a projection of it and
+// every edit is a function from it to a new one; history is a list of them.
+// View state (selection, preview mode, theme, ...) is not canonical: undo does
+// not move the selection or the theme.
+const defaults = () => {
+  const o = {}; for (const [k, d] of Object.entries(OPT)) o[k] = d.default;
+  o.config = {};                               // git config keys: log.graphColors, color.decorate.<slot>, color.diff.commit
+  return o;
+};
+let C = { template: "%C(auto)%h%Creset %<(14,trunc)%an %s%C(auto)%d", options: defaults() };
+const V = { sel: -1, caseIdx: 1, preview: "single", theme: REGISTRY.theme_default, tokenView: "blocks",
+            realGit: false, colorScope: "this-part", shell: "bash", prettyBeforeOneline: "tformat", notice: "" };
+const CONFIG_KEYS = ["log.graphColors", "color.decorate.branch", "color.decorate.remoteBranch", "color.decorate.tag",
+                     "color.decorate.stash", "color.decorate.HEAD", "color.diff.commit"];
+
+// ----------------------------------------------------------- history ----
+// Undo/redo is defined on ONE setter, setHistoryIndex. undo and redo are
+// setHistoryIndex(i-1) and (i+1). Every mutation commits one snapshot;
+// keystrokes in the template field within history.coalesce_ms are one step.
+const H = { stack: [], idx: -1, lastAt: 0, lastWhy: null };
+function commit(why, coalesce = false) {
+  const s = JSON.stringify(C);
+  if (H.idx >= 0 && H.stack[H.idx].s === s) return false;
+  const now = performance.now();
+  if (coalesce && H.lastWhy === why && now - H.lastAt < CFG["history.coalesce_ms"] && H.idx === H.stack.length - 1 && H.idx > 0)
+    H.stack[H.idx] = { s, why };
+  else {
+    H.stack.splice(H.idx + 1); H.stack.push({ s, why });
+    while (H.stack.length > CFG["history.limit"]) H.stack.shift();
+    H.idx = H.stack.length - 1;
+  }
+  H.lastAt = now; H.lastWhy = why; return true;
+}
+function setHistoryIndex(n) {
+  if (n < 0 || n >= H.stack.length) return false;
+  H.idx = n; C = JSON.parse(H.stack[n].s); H.lastWhy = null; V.sel = -1;
+  renderAll("history"); return true;
+}
+const undo = () => setHistoryIndex(H.idx - 1), redo = () => setHistoryIndex(H.idx + 1);
+
+// ------------------------------------------------- directive matching ----
+const PAT = {
+  "%xNN": /^%x[0-9a-fA-F]{2}$/, "%C(<spec>)": /^%C\(.*\)$/,
+  "%<(<n>)": /^%<\((?!\|)[^|].*\)$/, "%>(<n>)": /^%>\([^|].*\)$/, "%>>(<n>)": /^%>>\(.*\)$/,
+  "%><(<n>)": /^%><\([^|].*\)$/, "%<|(<n>)": /^%<\|\(.*\)$/, "%>|(<n>)": /^%>\|\(.*\)$/,
+  "%><|(<n>)": /^%><\|\(.*\)$/, "%w(<w>,<i1>,<i2>)": /^%w\(.*\)$/,
+  "%(trailers)": /^%\(trailers(:.*)?\)$/, "%(describe)": /^%\(describe(:.*)?\)$/,
+  "%(decorate)": /^%\(decorate(:.*)?\)$/, "%+<X>": /^%\+.$/, "%-<X>": /^%-.$/, "% <X>": /^% .$/,
+};
+function directiveOf(tok) {
+  if (!tok) return null;
+  if (DIR[tok] && !PAT[tok]) return tok;
+  for (const [d, re] of Object.entries(PAT)) if (re.test(tok)) return d;
+  return null;
+}
+const srcOf = n => n.kind === "literal" ? n.text : n.tok;
+const RESET_TOKS = new Set(["%Creset", "%C(reset)", "%C(always,reset)", "%C(auto,reset)"]);
+const isReset = n => n && n.kind === "color" && RESET_TOKS.has(n.tok);
+const isValueish = n => n && (n.kind === "value" || n.kind === "modifier");
+const nodes = () => tokenize(C.template);
+
+// Scope ranges: which parts each operator affects. Mirrors render(): a color
+// runs to the next color directive; padding buffers through the next value
+// placeholder; a wrap runs to the next wrap.
+function scopeRanges(ns) {
+  const out = [];
+  ns.forEach((n, i) => {
+    let j = i + 1;
+    if (n.kind === "color" && !isReset(n)) { while (j < ns.length && ns[j].kind !== "color") j++; out.push({ op: i, from: i + 1, to: j - 1, scope: "until-reset" }); }
+    else if (n.kind === "pad") { while (j < ns.length && !isValueish(ns[j])) j++; out.push({ op: i, from: i + 1, to: j < ns.length ? j : i, scope: "next-placeholder" }); }
+    else if (n.kind === "wrap") { while (j < ns.length && ns[j].kind !== "wrap") j++; out.push({ op: i, from: i + 1, to: j - 1, scope: "until-next-wrap" }); }
+  });
+  return out;
+}
+const scopeOfNode = n => n.kind === "literal" ? "self" : (DIR[directiveOf(n.tok)]?.scope || "self");
+const scopeChip = s => `<span class="scope" data-scope="${s}" title="${esc(REGISTRY.scopes[s])}">applies to: ${esc(scopeLabel(s))}</span>`;
+function scopeLabel(s) {
+  return { self: "this part", "next-placeholder": "through next placeholder", "until-reset": "until reset",
+           "until-next-wrap": "until next wrap", entry: "every entry", output: "whole output" }[s];
+}
+
+// ------------------------------------------------------ template ops ----
+// Pure: (template, args) -> { template, at } where at is the character offset
+// of the part to select afterwards. Every op that places a token re-tokenizes
+// and checks git would read that token back where it was put -- so an edit
+// can never silently merge with its neighbors ("50%" + "%h" is "50%%h").
+const offsetOf = (ns, i) => i < ns.length ? ns[i].at : C.template.length;
+function placed(t, at, tok) { const n = tokenize(t).find(x => x.at === at); return n && srcOf(n) === tok; }
+class EditRejected extends Error {}
+// The placeholders git reads, in order, ignoring %% (which literal text uses
+// for a percent sign). Edits that only move or retype text must preserve it.
+const tokSeq = t => tokenize(t).filter(n => n.kind !== "literal").map(srcOf).filter(x => x !== "%%");
+function keepsTokens(before, after, why) {
+  const a = tokSeq(before), b = tokSeq(after);
+  if (a.length !== b.length || a.some((x, i) => x !== b[i])) throw new EditRejected(why);
+}
+function opInsert(t, at, tok) {
+  const nt = t.slice(0, at) + tok + t.slice(at);
+  if (!placed(nt, at, tok)) throw new EditRejected(`inserting ${tok} here would change how git reads the text around it`);
+  return { template: nt, at };
+}
+function opRemove(t, n) { return { template: t.slice(0, n.at) + t.slice(n.at + srcOf(n).length), at: n.at }; }
+function opReplace(t, n, tok) {
+  const nt = t.slice(0, n.at) + tok + t.slice(n.at + srcOf(n).length);
+  if (tok && !placed(nt, n.at, tok)) throw new EditRejected(`${tok} would not be read back as one part here`);
+  return { template: nt, at: n.at };
+}
+// literal text: a bare % would start a placeholder, so it is written as %%
+const escLiteral = s => s.replace(/%/g, "%%");
+
+function edit(why, fn, opts = {}) {
+  const ns = nodes();
+  let r;
+  try { r = fn(C.template, ns); }
+  catch (e) { if (e instanceof EditRejected) { V.notice = e.message; renderAll("rejected"); return false; } throw e; }
+  if (!r) return false;
+  C.template = r.template;
+  const nns = tokenize(C.template);
+  V.sel = r.at == null ? -1 : nns.findIndex(n => n.at === r.at || (n.kind === "literal" && n.at <= r.at && r.at < n.at + n.text.length));
+  if (r.selectNode != null) V.sel = r.selectNode(nns);
+  commit(why, !!opts.coalesce); V.notice = opts.notice || ""; renderAll(why); return true;
+}
+
+// ---------------------------------------------------------- setters ----
+// The contract. Toggles in the UI are drawn atop these; none is a "flip".
+function setTemplate(t, why = "template", coalesce = false) {
+  if (typeof t !== "string") throw new TypeError("template must be a string");
+  C.template = t; if (V.sel >= tokenize(t).length) V.sel = -1;
+  commit(why, coalesce); V.notice = ""; renderAll(why);
+}
+function setOption(key, value, why) {
+  const o = OPT[key]; if (!o) throw new Error(`unknown option ${key}`);
+  if (o.kind === "enum" && !o.values.includes(value)) throw new Error(`${key}: ${value} is not one of ${o.values.join(", ")}`);
+  if (o.kind === "int") { value = Math.round(+value); if (!(value >= o.min && value <= o.max)) throw new Error(`${key}: out of range`); }
+  let notice = "";
+  for (const other of o.exclusive_with || [])
+    if (value === "on" && C.options[other] === "on") { C.options[other] = "off"; notice = `${OPT[other].label} turned off: git refuses ${o.label} with ${OPT[other].label}`; }
+  C.options[key] = value; commit(why || "opt:" + key); V.notice = notice; renderAll("opt:" + key);
+}
+const setGraph = m => setOption("graph", m), setOrder = m => setOption("order", m),
+      setFirstParent = m => setOption("first_parent", m), setReverse = m => setOption("reverse", m),
+      setRefs = m => setOption("refs", m), setAbbrevCommit = m => setOption("abbrev_commit", m);
+// --oneline is --pretty=oneline --abbrev-commit: a view over two options
+function setOneline(mode) {
+  if (!["off", "on"].includes(mode)) throw new Error("setOneline: mode is 'off' or 'on'");
+  if (mode === "on") { if (C.options.pretty !== "oneline") V.prettyBeforeOneline = C.options.pretty; C.options.pretty = "oneline"; C.options.abbrev_commit = "on"; }
+  else { if (C.options.pretty === "oneline") C.options.pretty = V.prettyBeforeOneline === "oneline" ? "tformat" : V.prettyBeforeOneline; C.options.abbrev_commit = "off"; }
+  commit("oneline"); V.notice = ""; renderAll("oneline");
+}
+const onelineMode = () => C.options.pretty === "oneline" && C.options.abbrev_commit === "on" ? "on" : "off";
+function setConfig(key, value) {
+  if (!CONFIG_KEYS.includes(key)) throw new Error(`unsupported config key ${key}`);
+  if (value) C.options.config[key] = value; else delete C.options.config[key];
+  commit("config:" + key); renderAll("config");
+}
+function select(i) { V.sel = i; V.notice = ""; renderAll("select"); }
+function setPreviewMode(m) { if (!["single", "history"].includes(m)) throw new Error("preview mode"); V.preview = m; renderAll("preview"); }
+function setCase(i) { V.caseIdx = ((i % 3) + 3) % 3; renderAll("case"); }
+function setTheme(name) { if (!REGISTRY.themes[name]) throw new Error("unknown theme " + name); V.theme = name; renderAll("theme"); }
+function setTokenView(v) { if (!lab001(v)) throw new Error("unknown token view " + v); V.tokenView = v; renderAll("tokenview"); }
+function setColorScope(s) { if (!["this-part", "from-here"].includes(s)) throw new Error("color scope"); V.colorScope = s; renderAll("colorscope"); }
+function setShell(s) { if (!SHELLS.includes(s)) throw new Error("unknown shell " + s); V.shell = s; renderAll("shell"); }
+
+// part-level setters
+const gapOffset = (ns, gap) => offsetOf(ns, gap);
+function insertToken(tok, gap) {      // gap: insert before node index `gap`; default after the selection
+  return edit("insert", (t, ns) => { const g = gap ?? (V.sel >= 0 ? V.sel + 1 : ns.length); return opInsert(t, gapOffset(ns, g), tok); });
+}
+function insertLiteral(text, gap) {
+  if (!text) return false;
+  return edit("insert-literal", (t, ns) => { const g = gap ?? (V.sel >= 0 ? V.sel + 1 : ns.length);
+    const at = gapOffset(ns, g); const nt = t.slice(0, at) + escLiteral(text) + t.slice(at);
+    keepsTokens(t, nt, "that text would merge with a neighboring placeholder and change it"); return { template: nt, at }; });
+}
+function removeNode(i) { return edit("remove", (t, ns) => ns[i] ? { ...opRemove(t, ns[i]), at: null } : null); }
+function moveNode(from, gap) {
+  return edit("move", (t, ns) => {
+    const n = ns[from]; if (!n || gap < 0 || gap > ns.length || gap === from || gap === from + 1) return null;
+    const src = srcOf(n), removed = opRemove(t, n).template;
+    let at = gapOffset(ns, gap); if (gap > from) at -= src.length;
+    const nt = removed.slice(0, at) + src + removed.slice(at);
+    if (n.kind !== "literal" && !placed(nt, at, src)) throw new EditRejected(`moving ${src} there would change how git reads it`);
+    const order = ns.map((x, k) => k); order.splice(from, 1); order.splice(gap > from ? gap - 1 : gap, 0, from);
+    const want = order.map(k => ns[k]).filter(x => x.kind !== "literal").map(srcOf).filter(x => x !== "%%");
+    const got = tokSeq(nt);
+    if (want.length !== got.length || want.some((x, k) => x !== got[k])) throw new EditRejected("that move would merge text into a neighboring placeholder");
+    return { template: nt, at };
+  });
+}
+function replaceNode(i, tok, why = "replace") { return edit(why, (t, ns) => ns[i] ? opReplace(t, ns[i], tok) : null); }
+function setLiteralText(i, text) {
+  return edit("literal-text", (t, ns) => { const n = ns[i]; if (!n || n.kind !== "literal") return null;
+    const e = escLiteral(text); const nt = t.slice(0, n.at) + e + t.slice(n.at + n.text.length);
+    keepsTokens(t, nt, "that text would merge with a neighboring placeholder and change it"); return { template: nt, at: n.at }; }, { coalesce: true });
+}
+function setSpacingModifier(i, mode) {
+  return edit("spacing", (t, ns) => {
+    const n = ns[i]; if (!n) return null;
+    const inner = n.kind === "modifier" ? "%" + n.tok.slice(2) : n.tok;
+    if (!/^%[a-zA-Z]$/.test(inner)) throw new EditRejected("spacing modifiers apply to single-letter placeholders only");
+    const pfx = { none: "%", newline: "%+", space: "% ", strip: "%-" }[mode];
+    if (!pfx) throw new Error("spacing mode");
+    return opReplace(t, n, pfx + inner.slice(1));
+  });
+}
+// The part a color or padding applies to: a value with its padding, or a literal
+function targetRange(ns, i) {
+  let a = i; if (isValueish(ns[i]) && ns[i - 1] && ns[i - 1].kind === "pad") a = i - 1;
+  return [a, i];
+}
+function colorWrapOf(ns, i) {           // [open, close] if the part is wrapped this-part style
+  const [a, b] = targetRange(ns, i);
+  const open = ns[a - 1], close = ns[b + 1];
+  return open && open.kind === "color" && !isReset(open) && isReset(close) ? [a - 1, b + 1] : null;
+}
+/** setColor(i, spec | null, scope: 'this-part'|'from-here'). spec is the inside of %C(...) */
+function setColor(i, spec, scope = V.colorScope) {
+  return edit("color", (t, ns) => {
+    const n = ns[i]; if (!n || !(isValueish(n) || n.kind === "literal")) throw new EditRejected("color applies to a placeholder or literal");
+    const wrap = colorWrapOf(ns, i);
+    if (spec !== null) colorParse(spec.replace(/^(auto|always),/, ""));        // throws on an invalid spec
+    const always = spec && /^always,/.test(spec);
+    const closer = always ? "%C(always,reset)" : "%Creset";
+    if (wrap) {
+      const [o, c] = wrap; const so = srcOf(ns[o]).length;
+      if (spec === null) {                    // remove both ends
+        const t1 = t.slice(0, ns[c].at) + t.slice(ns[c].at + srcOf(ns[c]).length);
+        return { template: t1.slice(0, ns[o].at) + t1.slice(ns[o].at + so), at: ns[o].at };
+      }
+      const t1 = t.slice(0, ns[c].at) + closer + t.slice(ns[c].at + srcOf(ns[c]).length);
+      const open = `%C(${spec})`; const t2 = t1.slice(0, ns[o].at) + open + t1.slice(ns[o].at + so);
+      return { template: t2, at: ns[o].at + open.length + (ns[i].at - ns[o + 1].at) };
+    }
+    if (spec === null) return null;
+    const [a, b] = targetRange(ns, i); const open = `%C(${spec})`;
+    const endAt = ns[b].at + srcOf(ns[b]).length;
+    let nt = scope === "this-part" ? t.slice(0, endAt) + closer + t.slice(endAt) : t;
+    nt = nt.slice(0, ns[a].at) + open + nt.slice(ns[a].at);
+    if (!placed(nt, ns[a].at, open)) throw new EditRejected("the color would not be read as one directive here");
+    return { template: nt, at: ns[i].at + open.length };
+  });
+}
+/** setPadding(i, {mode:'<'|'>'|'>>'|'><'|'<|'|'>|'|'><|', width, truncate} | null) on a value placeholder */
+function setPadding(i, cfg) {
+  return edit("padding", (t, ns) => {
+    const n = ns[i]; if (!isValueish(n)) throw new EditRejected("padding applies to a value placeholder");
+    const prev = ns[i - 1]; const has = prev && prev.kind === "pad";
+    const tok = cfg ? `%${cfg.mode}(${cfg.width}${cfg.truncate && cfg.truncate !== "none" ? "," + cfg.truncate : ""})` : null;
+    if (has && !tok) return { ...opRemove(t, prev), at: prev.at };
+    if (has) { const r = opReplace(t, prev, tok); return { template: r.template, at: n.at - prev.tok.length + tok.length }; }
+    if (!tok) return null;
+    const r = opInsert(t, n.at, tok); return { template: r.template, at: n.at + tok.length };
+  });
+}
+function setParam(i, tok) { return replaceNode(i, tok, "param"); }
+
+// -------------------------------------------------------- rendering ----
+// The preview is a terminal, so git's "auto" settings resolve as they do on a
+// terminal: color on, built-in decorations short.
+const effColor = () => C.options.color === "auto" ? "always" : C.options.color;
+const effDecorate = () => C.options.decorate === "auto" ? "short" : C.options.decorate;
+function simOpts() {
+  const o = C.options;
+  return { color: effColor(), dateStyle: o.date, abbrev: o.abbrev, decorate: effDecorate(), config: o.config };
+}
+function logOpts(extra = {}) {
+  const o = C.options, builtin = BUILTIN.has(o.pretty);
+  return { ...simOpts(), template: builtin ? null : C.template, pretty: o.pretty, graph: o.graph === "on",
+           all: o.refs === "all", order: o.order, firstParent: o.first_parent === "on", reverse: o.reverse === "on",
+           abbrevCommit: o.abbrev_commit === "on", ...extra };
+}
+// One render result for the preview: { text, segs: [{start,end,i}], error }
+function renderModel() {
+  const o = C.options, ns = nodes(), atIdx = new Map(ns.map((n, i) => [n.at, i]));
+  const target = sp => {                  // padding spans are attributed to the placeholder they pad
+    if (sp.node.kind === "pad" && sp.children) { const v = [...sp.children].reverse().find(c => isValueish(c.node)); if (v) return atIdx.get(v.node.at); }
+    return atIdx.get(sp.node.at);
+  };
+  if (V.preview === "single") {
+    const rec = RECORDS[V.caseIdx];
+    if (BUILTIN.has(o.pretty)) {
+      const r = renderLog({ records: { [rec.H]: rec }, refs: [], head: rec.H }, logOpts({ graph: false, all: false, reverse: false }));
+      return { text: r.text.replace(/\n$/, ""), segs: [], error: r.error, builtin: true };
+    }
+    const r = render(C.template, rec, simOpts());
+    return { text: r.text, segs: r.spans.map(sp => ({ start: sp.start, end: sp.end, i: target(sp) })), error: r.error };
+  }
+  const r = renderLog(STORES[V.caseIdx], logOpts({ maxCount: CFG["preview.history.max_commits"] }));
+  const segs = [];
+  for (const e of r.entries || []) for (const sp of e.spans || []) segs.push({ start: sp.start, end: sp.end, i: target(sp) });
+  return { text: r.text, segs, error: r.error, builtin: BUILTIN.has(o.pretty) };
+}
+
+// -------------------------------------------------- terminal painter ----
+// Style is a property of the byte stream, not of an attribution span: pass 1
+// records the style in force at every visible character; pass 2 lays spans
+// over the visible text. Colors resolve through the selected terminal theme.
+function parseAnsi(text) {
+  const vis = [], map = new Array(text.length + 1); let st = {}, i = 0; const re = /\x1b\[([0-9;]*)m/y;
+  while (i < text.length) {
+    re.lastIndex = i; const m = re.exec(text);
+    if (m) {
+      for (let k = i; k < re.lastIndex; k++) map[k] = vis.length;
+      const c = m[1] === "" ? [0] : m[1].split(";").map(Number); st = { ...st };
+      for (let j = 0; j < c.length; j++) {
+        const x = c[j];
+        if (x === 0) st = {};
+        else if (x === 1) st.bold = 1; else if (x === 2) st.dim = 1; else if (x === 3) st.italic = 1; else if (x === 4) st.ul = 1;
+        else if (x === 5) st.blink = 1; else if (x === 7) st.rev = 1; else if (x === 9) st.strike = 1;
+        else if (x === 22) { delete st.bold; delete st.dim; } else if (x === 23) delete st.italic; else if (x === 24) delete st.ul;
+        else if (x === 25) delete st.blink; else if (x === 27) delete st.rev; else if (x === 29) delete st.strike;
+        else if (x >= 30 && x <= 37) st.fg = { i: x - 30 }; else if (x >= 90 && x <= 97) st.fg = { i: x - 90 + 8 };
+        else if (x >= 40 && x <= 47) st.bg = { i: x - 40 }; else if (x >= 100 && x <= 107) st.bg = { i: x - 100 + 8 };
+        else if (x === 39) delete st.fg; else if (x === 49) delete st.bg;
+        else if ((x === 38 || x === 48) && c[j + 1] === 5) { st[x === 38 ? "fg" : "bg"] = { n: c[j + 2] }; j += 2; }
+        else if ((x === 38 || x === 48) && c[j + 1] === 2) { st[x === 38 ? "fg" : "bg"] = { rgb: [c[j + 2], c[j + 3], c[j + 4]] }; j += 4; }
+      }
+      i = re.lastIndex; continue;
+    }
+    map[i] = vis.length; vis.push({ ch: text[i], st }); i++;
+  }
+  map[text.length] = vis.length;
+  return { vis, map };
+}
+function colorOf(c, th) {
+  if (!c) return null;
+  if (c.rgb) return `rgb(${c.rgb.join(",")})`;
+  const n = c.i ?? c.n;
+  if (n < 8) return th.ansi[n]; if (n < 16) return th.bright[n - 8];
+  if (n >= 232) { const v = 8 + (n - 232) * 10; return `rgb(${v},${v},${v})`; }
+  const k = n - 16, r = Math.floor(k / 36), g = Math.floor(k / 6) % 6, b = k % 6, s = x => x ? 55 + x * 40 : 0;
+  return `rgb(${s(r)},${s(g)},${s(b)})`;
+}
+function styleCss(st, th) {
+  let fg = colorOf(st.fg, th), bg = colorOf(st.bg, th);
+  if (st.rev) { const f = fg || th.foreground; fg = bg || th.background; bg = f; }
+  const c = [];
+  if (fg) c.push(`color:${fg}`); if (bg) c.push(`background:${bg}`);
+  if (st.bold) c.push("font-weight:700"); if (st.dim) c.push("opacity:.62"); if (st.italic) c.push("font-style:italic");
+  if (st.ul || st.strike) c.push(`text-decoration:${[st.ul && "underline", st.strike && "line-through"].filter(Boolean).join(" ")}`);
+  return c.join(";");
+}
+function paintRuns(vis, from, to, th) {
+  let out = "", run = "", cur = null;
+  const flush = () => { if (run) out += cur ? `<span style="${cur}">${esc(run)}</span>` : esc(run); run = ""; };
+  for (let k = from; k < to; k++) { const css = styleCss(vis[k].st, th); if (css !== cur) { flush(); cur = css; } run += vis[k].ch; }
+  flush(); return out;
+}
+// Paint text with attribution spans laid over it. chrome=false paints the same
+// span boundaries without the interactive classes: Oracle B paints git's own
+// bytes that way, so the run structure is identical and only the bytes differ.
+function paintSegs(text, segs0, th, chrome) {
+  const { vis, map } = parseAnsi(text); const ns = nodes();
+  const segs = segs0.map(s => ({ vs: map[Math.min(s.start, text.length)], ve: map[Math.min(s.end, text.length)], i: s.i })).sort((a, b) => a.vs - b.vs);
+  let html = "", pos = 0;
+  for (const s of segs) {
+    if (s.vs < pos) continue;
+    if (s.vs > pos) html += paintRuns(vis, pos, s.vs, th);
+    const n = ns[s.i]; const lit = n && n.kind === "literal";
+    html += chrome ? `<span class="sp${lit ? " lit" : ""}${s.i === V.sel ? " sel" : ""}" data-i="${s.i}" title="${esc(lit ? "literal — double-click to edit its text" : n ? n.tok : "")}">${paintRuns(vis, s.vs, s.ve, th)}</span>`
+                   : `<span>${paintRuns(vis, s.vs, s.ve, th)}</span>`;
+    pos = s.ve;
+  }
+  return html + paintRuns(vis, pos, vis.length, th);
+}
+const theme = () => REGISTRY.themes[V.theme];
+function ansiToHtml(text, th = theme()) { const { vis } = parseAnsi(text); return paintRuns(vis, 0, vis.length, th); }
+
+async function renderPreview() {
+  const term = $("term"), th = theme();
+  term.style.setProperty("--term-bg", th.background); term.style.setProperty("--term-fg", th.foreground);
+  term.classList.remove("tformat");
+  if (V.realGit && window.gitlog) {
+    const r = await window.gitlog.run(gitArgs({ forHost: true }));
+    // history mode shows git's bytes as they are; single mode drops the final
+    // terminator, as the simulated single-commit preview does
+    term.innerHTML = r.ok ? ansiToHtml(V.preview === "single" ? r.stdout.replace(/\n$/, "") : r.stdout) : `<span class="fatal">${esc(r.error)}</span>`;
+    $("status").innerHTML = `<span>${r.ok ? "real git" : "real git failed"} · ${esc(r.repo || "")}</span>`; return;
+  }
+  const m = renderModel();
+  if (m.error) {
+    term.innerHTML = `<span class="fatal">fatal: ${esc(m.error)}</span>\n<span class="empty">git prints nothing for this template — it exits with an error.</span>`;
+    $("status").innerHTML = `<span class="err">git would refuse this command</span>`; return;
+  }
+  const html = paintSegs(m.text, m.segs, th, true);
+  term.classList.toggle("tformat", V.preview === "single" && C.options.pretty === "tformat" && !!html && !m.builtin);
+  term.innerHTML = html || `<span class="empty">empty template — insert a part, or type into --format=</span>`;
+  for (const el of term.querySelectorAll(".sp")) {
+    const i = +el.dataset.i;
+    el.onmouseenter = () => hover(i, true); el.onmouseleave = () => hover(i, false);
+    el.onclick = () => select(i);
+    el.ondblclick = () => { select(i); const f = $("insp").querySelector("[data-key=literal-text]"); if (f) { f.focus(); f.select(); } };
+  }
+  const first = m.text.split("\n")[0]; const cols = visibleWidth(first);
+  const lines = m.text ? m.text.split("\n").length : 0;
+  $("status").innerHTML = `<span class="gauge">${gaugeSvg(cols / 80)}<span>first line <b>${cols}</b>/80 cols</span></span>`
+    + `<span>${V.preview === "single" ? "one commit" : `history · ${lines} lines`} · ${esc(CASES[V.caseIdx])} · ${esc(V.theme)}</span>`
+    + (V.preview === "single" && C.options.graph === "on" ? `<span>--graph draws in history mode</span>` : "");
+}
+function hover(i, on) {
+  for (const el of document.querySelectorAll(`#term .sp[data-i="${i}"]`)) el.classList.toggle("hov", on);
+  const n = nodes()[i]; if (on && n) showNodeDocs(n);
+}
+
+// ------------------------------------------------------- token view ----
+function nodeView(n, i, ns) {
+  const d = directiveOf(srcOf(n)); const D = DIR[d];
+  const err = n.kind === "color" ? colorDirectiveError(n.tok, effColor()) : null;
+  const lit = n.kind === "literal";
+  const label = lit ? `“${n.text}”` : n.tok === "%n" ? "⏎ %n" : n.tok;
+  const production = { literal: "literal", value: "value", modifier: "modified-value", color: "color", pad: "pad", wrap: "wrap" }[n.kind] || n.kind;
+  return { kind: n.kind, label, short: n.tok || "", production, arg: lit ? JSON.stringify(n.text) : n.tok,
+           error: err, describe: lit ? "literal text" : (D ? `${D.summary}${err ? " — INVALID: " + err : ""}` : "unknown placeholder: git prints it as written") };
+}
+function renderTokens() {
+  const ns = nodes();
+  const ext = {
+    root: $("tokens"), nodes: ns.map((n, i) => nodeView(n, i, ns)), ranges: scopeRanges(ns), sel: V.sel, dragTypes: DRAG,
+    scopeLabel, scopeText: s => REGISTRY.scopes[s],
+    onSelect: i => select(i === V.sel ? -1 : i), onHover: (i, on) => hover(i, on),
+    onMove: (from, gap) => moveNode(from, gap), onInsert: (tok, gap) => tok.startsWith("literal:") ? insertLiteral(tok.slice(8), gap) : insertToken(tok, gap),
+    onRemove: i => removeNode(i),
+  };
+  const opt = lab001(V.tokenView); opt(ext);
+  if (V.sel >= 0) { const el = $("tokens").querySelector(`[data-i="${V.sel}"]`); if (el && document.activeElement?.closest?.("#tokens")) el.focus(); }
+}
+
+// ------------------------------------------------------ insert palette ----
+// Every control is either in exactly one palette group or declared not
+// insertable, with the reason. Unclassified controls fail at startup (T8 v2).
+const GROUPS = [
+  ["commit", ["commit-hash", "tree-hash", "parent-hashes", "mark"]],
+  ["author", ["author-name", "author-email", "author-date"]],
+  ["committer", ["committer-name", "committer-email", "committer-date"]],
+  ["message", ["subject", "body", "trailers", "notes", "encoding"]],
+  ["refs", ["decoration", "describe", "ref-name"]],
+  ["signature", ["signature"]], ["reflog", ["reflog"]],
+  ["layout", ["escape", "padding", "wrapping"]],
+  ["color", ["color"]],
+];
+const NOT_INSERTABLE = { "spacing-modifier": "a spacing modifier is part of a placeholder, not a part of its own — select a single-letter placeholder and set it in Edit selected" };
+{
+  const seen = new Map(); for (const [g, cs] of GROUPS) for (const c of cs) { if (seen.has(c)) throw new Error(`control ${c} in two palette groups`); seen.set(c, g); }
+  for (const c of Object.keys(REGISTRY.controls)) if (!seen.has(c) && !NOT_INSERTABLE[c]) throw new Error(`control ${c} is neither in the palette nor declared not insertable`);
+}
+function defaultToken(d) {
+  const D = DIR[d], p = D.params || {};
+  if (d === "%xNN") return "%x" + (p.hex?.default ?? "09");
+  if (d === "%C(<spec>)") return `%C(${CFG["insert.color.spec"] ?? "yellow"})`;
+  if (/\(<n>\)$/.test(d)) return d.replace("<n>", String(p.width?.default ?? CFG["pad.width.default"]));
+  if (d.startsWith("%w(")) return `%w(${p.width.default},${p.indent1.default},${p.indent2.default})`;
+  return d;
+}
+function buildPalette() {
+  const pal = $("palette");
+  for (const [g, cs] of GROUPS) {
+    pal.append(Object.assign(document.createElement("div"), { className: "pal-group", textContent: g }));
+    for (const c of cs) {
+      const ctl = REGISTRY.controls[c];
+      const mts = REGISTRY.micro_templates[c];
+      const dirs = mts ? [] : ctl.directives;
+      for (const d of dirs) addChip(pal, defaultToken(d), DIR[d].summary, d);
+      if (mts) {
+        pal.append(Object.assign(document.createElement("div"), { className: "hint", textContent: ctl.label.toLowerCase() + ":" }));
+        for (const m of mts) addChip(pal, m.token, m.label, directiveOf(m.token), true);
+      }
+    }
+  }
+}
+function addChip(pal, tok, label, d, micro) {
+  const b = document.createElement("button"); b.className = "chip-ins" + (micro ? " micro" : ""); b.draggable = true;
+  b.dataset.insert = tok; b.innerHTML = `<span class="tok">${esc(tok)}</span><span class="lbl">${esc(label)}</span>`;
+  b.title = `insert ${tok}`;
+  b.onclick = () => insertToken(tok);
+  b.ondragstart = e => { e.dataTransfer.setData(DRAG.insert, tok); e.dataTransfer.effectAllowed = "copy"; };
+  b.onmouseenter = b.onfocus = () => { const D = DIR[d]; if (D) showDirDocs(D, micro ? tok : null); };
+  pal.append(b);
+}
+
+// ---------------------------------------------------------- inspector ----
+// Shows ONLY the sections that apply to the selected part's kind. Sections
+// that do not apply are absent, and one line says which and why.
+const APPLIES = {   // section -> kinds it applies to (spec section 39)
+  variant: ["value"], params: ["value", "color", "pad", "wrap"], text: ["literal"],
+  color: ["value", "modifier", "literal"], padding: ["value", "modifier"], spacing: ["value", "modifier"],
+};
+const WHY_NOT = {
+  variant: "only placeholders have alternative forms", params: "this part has no parameters",
+  text: "only literals have editable text", color: "color directives and operators are not colored themselves",
+  padding: "padding applies to value placeholders", spacing: "spacing modifiers apply to single-letter placeholders",
+};
+const SEC_NAME = { variant: "form", params: "parameters", text: "text", color: "color", padding: "padding", spacing: "spacing" };
+function renderInspector() {
+  const box = $("insp"); const keep = document.activeElement?.dataset?.key; const ns = nodes(); const n = ns[V.sel];
+  box.innerHTML = "";
+  if (!n) {
+    $("insp-what").textContent = "nothing selected";
+    box.innerHTML = `<p class="hint">Select a part — click it in the preview or in the parts row. To add a new part, use <b style="color:var(--ins)">Insert</b>.</p>`;
+    return;
+  }
+  const d = directiveOf(srcOf(n)), D = DIR[d], ctl = D ? REGISTRY.controls[D.control] : null;
+  $("insp-what").innerHTML = `${n.kind === "literal" ? "literal" : esc(n.tok)} · ${esc(D ? D.summary : n.kind === "literal" ? "literal text" : "unknown placeholder")}`;
+  const kind = n.kind;
+  const singleLetter = (kind === "value" && /^%[a-zA-Z]$/.test(n.tok)) || kind === "modifier";
+  const show = {
+    // escapes (%n %% %xNN) are not alternative forms of one field, so they have no "form"
+    variant: kind === "value" && ctl && ctl.kind !== "multi" && D.control !== "escape" && (ctl.directives.length > 1 || !!REGISTRY.micro_templates[D.control]),
+    params: (kind === "value" && D && Object.keys(D.params || {}).length > 0) || ["color", "pad", "wrap"].includes(kind),
+    text: kind === "literal", color: APPLIES.color.includes(kind), padding: APPLIES.padding.includes(kind),
+    spacing: singleLetter,
+  };
+  const head = (title, scope) => { const s = document.createElement("div"); s.className = "isec";
+    s.innerHTML = `<div class="ih"><b>${esc(title)}</b>${scope ? scopeChip(scope) : ""}</div>`; box.append(s); return s; };
+  const row = sec => { const r = document.createElement("div"); r.className = "irow"; sec.append(r); return r; };
+  const ctlEl = (tag, key, attrs = {}) => { const e = document.createElement(tag); e.dataset.key = key; Object.assign(e, attrs); return e; };
+  const lab = (r, text, el) => { const l = document.createElement("label"); l.append(text, el); r.append(l); return el; };
+
+  // part actions: always applicable
+  { const s = head("part", scopeOfNode(n)); const r = row(s);
+    const rm = ctlEl("button", "remove", { textContent: "remove" }); rm.onclick = () => removeNode(V.sel);
+    const ml = ctlEl("button", "move-left", { textContent: "← move", disabled: V.sel === 0 }); ml.onclick = () => moveNode(V.sel, V.sel - 1);
+    const mr = ctlEl("button", "move-right", { textContent: "move →", disabled: V.sel === ns.length - 1 }); mr.onclick = () => moveNode(V.sel, V.sel + 2);
+    r.append(rm, ml, mr);
+    const rng = scopeRanges(ns).find(x => x.op === V.sel);
+    if (rng) s.append(Object.assign(document.createElement("div"), { className: "hint",
+      textContent: rng.to < rng.from ? "affects nothing: no part follows it" : `affects ${rng.to - rng.from + 1} part(s), bracketed in the parts row` }));
+    const err = kind === "color" ? colorDirectiveError(n.tok, effColor()) : null;
+    if (err) s.append(Object.assign(document.createElement("div"), { className: "err", textContent: `invalid: ${err} — git aborts the whole command` }));
+  }
+  if (show.variant) {
+    const s = head("form", "self"); const r = row(s);
+    const sel = ctlEl("select", "variant"); for (const v of ctl.directives) if (!PAT[v] || v === d) sel.append(new Option(`${v}  ${DIR[v].summary}`, v === d ? n.tok : v));
+    sel.value = n.tok; sel.onchange = () => replaceNode(V.sel, sel.value, "variant"); r.append(sel);
+    const mts = REGISTRY.micro_templates[D.control];
+    if (mts) { const r2 = row(s); const ms = ctlEl("select", "micro"); ms.append(new Option("— preset option set —", ""));
+      for (const m of mts) ms.append(new Option(`${m.label}  ${m.token}`, m.token));
+      ms.value = mts.some(m => m.token === n.tok) ? n.tok : ""; ms.onchange = () => ms.value && replaceNode(V.sel, ms.value, "micro"); lab(r2, "preset", ms); }
+  }
+  if (show.text) {
+    const s = head("text", "self"); const r = row(s);
+    const inp = ctlEl("input", "literal-text", { type: "text", value: n.text.replace(/%%/g, "%") });
+    inp.style.width = "100%"; inp.oninput = () => setLiteralText(V.sel, inp.value); r.append(inp);
+  }
+  if (show.params) paramsSection(n, D, head, row, ctlEl, lab);
+  if (show.color) colorSection(n, ns, head, row, ctlEl, lab);
+  if (show.padding) paddingSection(n, ns, head, row, ctlEl, lab);
+  if (show.spacing) {
+    const s = head("spacing", "self"); const r = row(s); const sel = ctlEl("select", "spacing");
+    for (const [v, l] of [["none", "none"], ["newline", "%+x  newline before, if not empty"], ["space", "% x  space before, if not empty"], ["strip", "%-x  remove preceding line feeds if empty"]]) sel.append(new Option(l, v));
+    sel.value = kind === "modifier" ? n.mode : "none"; sel.onchange = () => setSpacingModifier(V.sel, sel.value); r.append(sel);
+  }
+  // absent sections are named, each with its reason on hover
+  const absent = Object.keys(show).filter(k => !show[k] && !(k === "params" && ["color", "pad", "wrap"].includes(kind)));
+  if (absent.length) { const na = document.createElement("div"); na.className = "na"; na.textContent = "not applicable here: ";
+    absent.forEach((k, j) => { const sp = document.createElement("span"); sp.textContent = SEC_NAME[k]; sp.title = WHY_NOT[k]; sp.style.textDecoration = "underline dotted"; na.append(j ? " · " : "", sp); });
+    box.append(na); }
+  if (keep) { const f = box.querySelector(`[data-key="${keep}"]`); if (f) f.focus(); }
+}
+function paramsSection(n, D, head, row, ctlEl, lab) {
+  if (n.kind === "pad") {                     // the padding directive edits itself (spec section 39)
+    const s = head("padding", "next-placeholder"); padEditor(s, row, ctlEl, lab, n, cfg => replaceNode(V.sel, cfg ? padTok(cfg) : "", "param"), false);
+    return;
+  }
+  if (n.kind === "wrap") {
+    const s = head("wrap", "until-next-wrap"); const r = row(s); const v = { width: n.width, indent1: n.indent1, indent2: n.indent2 };
+    for (const k of ["width", "indent1", "indent2"]) { const i = ctlEl("input", "wrap-" + k, { type: "number", value: v[k], min: 0 }); i.onchange = () => { v[k] = +i.value; replaceNode(V.sel, `%w(${v.width},${v.indent1},${v.indent2})`, "param"); }; lab(r, k, i); }
+    return;
+  }
+  if (n.kind === "color") return colorDirectiveSection(n, head, row, ctlEl, lab);
+  const ps = D.params || {};
+  if (D.directive === "%ad" || D.directive === "%cd") {
+    const s = head("date", "self"); s.append(Object.assign(document.createElement("div"), { className: "hint", innerHTML: `rendered with the <code>--date</code> output option (now <b>${esc(C.options.date)}</b>) — set it under Output; it applies to every entry` }));
+    return;
+  }
+  if (D.directive === "%xNN") {
+    const s = head("byte", "self"); const r = row(s); const i = ctlEl("input", "hex", { type: "text", value: n.tok.slice(2), maxLength: 2 });
+    i.onchange = () => /^[0-9a-fA-F]{2}$/.test(i.value) ? replaceNode(V.sel, "%x" + i.value, "param") : (V.notice = "two hex digits", renderAll("x"));
+    lab(r, "hex", i); return;
+  }
+  const base = D.directive.slice(0, -1);                 // "%(trailers"
+  const cur = {}; const m = /^%\([a-z]+:(.*)\)$/.exec(n.tok);
+  if (m) for (const part of m[1].split(",")) { const k = part.indexOf("="); k < 0 ? cur[part] = true : cur[part.slice(0, k)] = part.slice(k + 1); }
+  const s = head("parameters", "self"); const r = row(s);
+  const compose = () => {
+    const opts = [];
+    for (const [k, p] of Object.entries(ps)) {
+      const el = s.querySelector(`[data-key="p-${k}"]`);
+      if (p.kind === "bool") { if (el.checked) opts.push(k); }
+      else if (p.kind === "enum") { if (el.value !== p.default) opts.push(k === "tags" ? "tags" : `${k}=${el.value}`); }
+      else if (el.value !== "" && el.value !== String(p.default ?? "")) opts.push(`${k}=${el.value}`);
+    }
+    replaceNode(V.sel, opts.length ? `${base}:${opts.join(",")})` : D.directive, "param");
+  };
+  for (const [k, p] of Object.entries(ps)) {
+    let el;
+    if (p.kind === "bool") { el = ctlEl("input", "p-" + k, { type: "checkbox", checked: !!cur[k] }); }
+    else if (p.kind === "enum") { el = ctlEl("select", "p-" + k); for (const v of p.values) el.append(new Option(v, v)); el.value = k === "tags" ? (cur.tags ? "tags" : p.default) : (cur[k] ?? p.default); }
+    else { el = ctlEl("input", "p-" + k, { type: p.kind === "int" ? "number" : "text", value: cur[k] ?? "", placeholder: p.hint || "" }); }
+    el.onchange = compose; lab(r, k, el);
+  }
+}
+const COLOR_NAMES = ["", "normal", "default", "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white",
+  "brightblack", "brightred", "brightgreen", "brightyellow", "brightblue", "brightmagenta", "brightcyan", "brightwhite"];
+const ATTRS = ["bold", "dim", "italic", "ul", "blink", "reverse", "strike"];
+// A color spec editor shared by the color section (on a part) and a selected color directive
+function specEditor(sec, row, ctlEl, lab, init, onApply, applyLabel) {
+  const words = String(init.spec || "").split(/\s+/).filter(Boolean);
+  const cols = words.filter(w => !ATTRS.includes(w) && !ATTRS.some(a => w === "no" + a || w === "no-" + a));
+  const r1 = row(sec);
+  const mode = ctlEl("select", "c-mode"); for (const v of ["auto", "always"]) mode.append(new Option(v === "auto" ? "follows --color" : "always, even piped", v));
+  mode.value = init.mode || "auto"; lab(r1, "mode", mode);
+  const r2 = row(sec);
+  const fg = ctlEl("input", "c-fg", { type: "text", value: cols[0] || "", placeholder: "red · 208 · #ff8800" });
+  const bg = ctlEl("input", "c-bg", { type: "text", value: cols[1] || "", placeholder: "background" });
+  fg.setAttribute("list", "lk-colors"); bg.setAttribute("list", "lk-colors"); lab(r2, "fg", fg); lab(r2, "bg", bg);
+  const r3 = row(sec); const boxes = {};
+  for (const a of ATTRS) { boxes[a] = ctlEl("input", "c-" + a, { type: "checkbox", checked: words.includes(a) }); lab(r3, a, boxes[a]); }
+  const r4 = row(sec); const msg = document.createElement("span"); msg.className = "hint";
+  const apply = ctlEl("button", "c-apply", { textContent: applyLabel }); r4.append(apply, msg);
+  const spec = () => { const parts = [fg.value.trim() || (bg.value.trim() ? "normal" : ""), bg.value.trim(), ...ATTRS.filter(a => boxes[a].checked)].filter(Boolean).join(" ");
+    return (mode.value === "always" ? "always," : "") + (parts || "normal"); };
+  const check = () => { try { const body = spec().replace(/^always,/, ""); const sgr = colorParse(body); msg.className = "hint"; msg.textContent = sgr ? `→ ESC[${sgr.slice(2, -1)}m` : "→ no change"; apply.disabled = false; }
+    catch (e) { msg.className = "err"; msg.textContent = e.message; apply.disabled = true; } };
+  for (const el of [mode, fg, bg, ...Object.values(boxes)]) el.oninput = el.onchange = check;
+  apply.onclick = () => onApply(spec()); check();
+}
+function colorSection(n, ns, head, row, ctlEl, lab) {
+  const wrap = colorWrapOf(ns, V.sel);
+  const s = head("color", wrap || V.colorScope === "this-part" ? "self" : "until-reset");
+  const r = row(s); const seg = document.createElement("span"); seg.className = "seg";
+  for (const [v, l] of [["this-part", "this part only"], ["from-here", "from here on"]]) {
+    const b = document.createElement("button"); b.dataset.key = "cscope-" + v; b.textContent = l; b.setAttribute("aria-pressed", String(V.colorScope === v));
+    b.title = v === "this-part" ? "wraps the part: %C(…) before it, %Creset after" : "opens a color here; it runs until the next color directive or reset (git's raw %C semantics)";
+    b.onclick = () => setColorScope(v); seg.append(b);
+  }
+  r.append(seg);
+  if (wrap) {
+    const open = ns[wrap[0]]; s.append(Object.assign(document.createElement("div"), { className: "hint", textContent: `colored by ${open.tok} … ${ns[wrap[1]].tok}` }));
+    specEditor(s, row, ctlEl, lab, { mode: open.spec.mode, spec: open.spec.spec }, sp => setColor(V.sel, sp), "update color");
+    const rm = ctlEl("button", "c-remove", { textContent: "remove color" }); rm.onclick = () => setColor(V.sel, null); row(s).append(rm);
+  } else specEditor(s, row, ctlEl, lab, { mode: "auto", spec: "" }, sp => setColor(V.sel, sp, V.colorScope), "apply color");
+  if (effColor() === "never") s.append(Object.assign(document.createElement("div"), { className: "hint", innerHTML: "<code>--color=never</code>: only <i>always</i> colors show" }));
+}
+function colorDirectiveSection(n, head, row, ctlEl, lab) {
+  const s = head(isReset(n) ? "reset" : "color directive", isReset(n) ? "self" : "until-reset");
+  if (n.spec.form === "short") { s.append(Object.assign(document.createElement("div"), { className: "hint", textContent: isReset(n) ? "ends the color in force" : "a fixed short form; replace it with a %C(…) spec to edit" })); return; }
+  if (n.spec.form === "auto") { s.append(Object.assign(document.createElement("div"), { className: "hint", textContent: "%C(auto): following %h, %H, %d and %D take git's own colors" })); return; }
+  specEditor(s, row, ctlEl, lab, { mode: n.spec.mode, spec: n.spec.spec }, sp => replaceNode(V.sel, `%C(${sp})`, "param"), "update");
+}
+const PAD_MODES = [["<", "pad right (left-align)"], [">", "pad left (right-align)"], [">>", "pad left, borrow space"], ["><", "center"],
+                   ["<|", "to column, left-align"], [">|", "to column, right-align"], ["><|", "to column, center"]];
+const padTok = cfg => `%${cfg.mode}(${cfg.width}${cfg.truncate && cfg.truncate !== "none" ? "," + cfg.truncate : ""})`;
+// one padding editor, used on a placeholder (adds/edits the directive before
+// it) and on a padding directive itself (edits it in place)
+function padEditor(s, row, ctlEl, lab, pad, onSet, allowNone) {
+  const r = row(s);
+  const mode = ctlEl("select", "pad-mode"); if (allowNone) mode.append(new Option("none", ""));
+  for (const [v, l] of PAD_MODES) mode.append(new Option(`%${v}(n)  ${l}`, v));
+  mode.value = pad ? pad.tok.slice(1, pad.tok.indexOf("(")) : "";
+  const width = ctlEl("input", "pad-width", { type: "number", min: CFG["pad.width.min"], max: CFG["pad.width.max"], value: pad ? pad.width : CFG["pad.width.default"] });
+  const tr = ctlEl("select", "pad-trunc"); for (const v of ["none", "trunc", "ltrunc", "mtrunc"]) tr.append(new Option(v, v)); tr.value = pad ? pad.truncate : "none";
+  lab(r, "mode", mode); lab(row(s), "width", width); lab(row(s), "truncate", tr);
+  const apply = () => onSet(mode.value ? { mode: mode.value, width: +width.value, truncate: tr.value } : null);
+  mode.onchange = width.onchange = tr.onchange = apply;
+  s.append(Object.assign(document.createElement("div"), { className: "hint", textContent: "pads everything from the padding directive through the next placeholder, as one unit" }));
+}
+function paddingSection(n, ns, head, row, ctlEl, lab) {
+  const prev = ns[V.sel - 1]; const has = prev && prev.kind === "pad";
+  padEditor(head("padding", "next-placeholder"), row, ctlEl, lab, has ? prev : null, cfg => setPadding(V.sel, cfg), true);
+}
+
+// -------------------------------------------------- output options ----
+const OUT_KNOBS = [];
+const TOGGLES = [["graph", "--graph", setGraph], ["oneline", "--oneline", setOneline], ["refs", "--all", m => setRefs(m === "on" ? "all" : "head")],
+                 ["first_parent", "--first-parent", setFirstParent], ["reverse", "--reverse", setReverse]];
+const toggleMode = id => id === "oneline" ? onelineMode() : id === "refs" ? (C.options.refs === "all" ? "on" : "off") : C.options[id];
+function buildToggles() {
+  for (const [id, label, setter] of TOGGLES) {
+    const b = document.createElement("button"); b.className = "sw"; b.setAttribute("role", "switch"); b.dataset.toggle = id; b.textContent = label;
+    // the toggle is drawn atop the setter: it reads the mode and SETS the other one
+    b.onclick = () => setter(toggleMode(id) === "on" ? "off" : "on");
+    b.onmouseenter = b.onfocus = () => showOptDocs(id === "oneline" ? "pretty" : id);
+    $("toggles").append(b);
+  }
+}
+function buildOptions() {
+  const box = $("opts");
+  const KNOBBED = ["pretty", "decorate", "date", "color", "order"];
+  for (const id of ["pretty", "abbrev", "abbrev_commit", "decorate", "date", "color", "order"]) {
+    const o = OPT[id]; const r = document.createElement("div"); r.className = "orow"; r.dataset.opt = id;
+    r.innerHTML = `<span class="olab">${esc(o.label)}</span>`;
+    let inp;
+    if (o.kind === "enum") { inp = document.createElement("select"); for (const v of o.values) inp.append(new Option(v, v)); }
+    else { inp = document.createElement("input"); inp.type = "number"; inp.min = o.min; inp.max = o.max; }
+    inp.id = "opt-" + id; inp.onchange = () => setOption(id, o.kind === "int" ? +inp.value : inp.value);
+    r.append(inp);
+    if (KNOBBED.includes(id)) {
+      // the select stays as the canonical input (tests and assistive tech use
+      // it); the knob is a second view over the same setter
+      inp.classList.add("vh");
+      const kw = document.createElement("span"); kw.className = "knobctl"; kw.dataset.knob = id; r.append(kw);
+      OUT_KNOBS.push(makeKnob(kw, { options: o.values, label: o.label, size: 28, get: () => String(C.options[id]), set: v => setOption(id, v) }));
+    }
+    r.insertAdjacentHTML("beforeend", scopeChip(o.scope));
+    r.onmouseenter = () => showOptDocs(id);
+    box.append(r);
+  }
+  const cb = $("cfgopts");
+  for (const k of CONFIG_KEYS) {
+    const r = document.createElement("div"); r.className = "orow";
+    r.innerHTML = `<span class="olab" style="min-width:150px">${esc(k)}</span>`;
+    const i = document.createElement("input"); i.type = "text"; i.id = "cfg-" + k.replace(/\./g, "-"); i.placeholder = k === "log.graphColors" ? "red, 208, #00ff00" : "bold green";
+    i.onchange = () => { const v = i.value.trim(); if (v && k !== "log.graphColors") { try { colorParse(v); } catch (e) { V.notice = `${k}: ${e.message}`; renderAll("cfgbad"); return; } } setConfig(k, v); };
+    r.append(i); r.insertAdjacentHTML("beforeend", scopeChip("output")); cb.append(r);
+  }
+}
+function renderOptions() {
+  for (const id of Object.keys(OPT)) { const el = $("opt-" + id); if (el && el.value !== String(C.options[id])) el.value = String(C.options[id]); }
+  for (const k of OUT_KNOBS) k.render();
+  for (const b of $("toggles").children) b.setAttribute("aria-checked", String(toggleMode(b.dataset.toggle) === "on"));
+  for (const k of CONFIG_KEYS) { const el = $("cfg-" + k.replace(/\./g, "-")); if (el !== document.activeElement) el.value = C.options.config[k] || ""; }
+  const builtin = BUILTIN.has(C.options.pretty);
+  $("tpl").disabled = builtin; $("tpl").title = builtin ? `--pretty=${C.options.pretty} is built in; the template does not apply` : "";
+  for (const el of [$("palette"), $("tokens"), $("insp")]) el.style.opacity = builtin ? .45 : 1;
+}
+
+// ------------------------------------------------------------ command ----
+const quote = s => quoteArg(V.shell, s);       // src/quoting.mjs
+function gitArgs({ forHost = false } = {}) {
+  const o = C.options, a = [];
+  if (o.graph === "on") a.push("--graph");
+  if (o.pretty === "oneline" && o.abbrev_commit === "on") a.push("--oneline");
+  else {
+    a.push(BUILTIN.has(o.pretty) ? `--pretty=${o.pretty}` : (o.pretty === "tformat" ? `--format=${C.template}` : `--pretty=format:${C.template}`));
+    if (o.abbrev_commit === "on") a.push("--abbrev-commit");
+  }
+  if (o.date !== OPT.date.default) a.push("--date=" + o.date);
+  if (forHost) a.push("--decorate=" + effDecorate()); else if (o.decorate !== OPT.decorate.default) a.push("--decorate=" + o.decorate);
+  if (o.abbrev !== OPT.abbrev.default) a.push("--abbrev=" + o.abbrev);
+  if (forHost) a.push("--color=" + effColor()); else if (o.color !== OPT.color.default) a.push("--color=" + o.color);
+  a.push(...OPT.order.flags[o.order]);
+  if (o.first_parent === "on") a.push("--first-parent");
+  if (o.reverse === "on") a.push("--reverse");
+  a.push(...OPT.refs.flags[o.refs]);
+  if (forHost) a.push(V.preview === "single" ? "-3" : "-" + CFG["preview.history.max_commits"]);
+  const cfg = Object.entries(o.config).flatMap(([k, v]) => ["-c", `${k}=${v}`]);
+  return { config: cfg, args: a };
+}
+function command() {
+  const { config, args } = gitArgs();
+  return commandLine(V.shell, "git", [...config, "log", ...args]);
+}
+
+// --------------------------------------------------------- templates ----
+const store = {
+  key: CFG["templates.storage_key"],
+  // Browser storage can be absent or throw (private windows, blocked site
+  // data); the app works without it and says so instead of losing silently.
+  read() { try { const v = JSON.parse(localStorage.getItem(this.key) || "[]"); return Array.isArray(v) ? v : []; } catch { return []; } },
+  write(list) { try { localStorage.setItem(this.key, JSON.stringify(list)); return true; } catch { V.notice = "this browser blocks storage: export to keep templates"; return false; } },
+};
+function savedList() { return store.read(); }
+function saveTemplate(name) {
+  name = String(name || "").trim(); if (!name) throw new Error("a template needs a name");
+  const list = savedList().filter(t => t.name !== name);
+  list.push({ name, template: C.template, options: JSON.parse(JSON.stringify(C.options)), saved_utc: new Date().toISOString() });
+  store.write(list); renderTemplates(); return true;
+}
+function deleteTemplate(name) { store.write(savedList().filter(t => t.name !== name)); renderTemplates(); }
+function renameTemplate(from, to) {
+  to = String(to || "").trim(); if (!to) return false;
+  const list = savedList(); const t = list.find(x => x.name === from); if (!t) return false;
+  store.write(list.filter(x => x.name !== to || x === t).map(x => x === t ? { ...x, name: to } : x)); renderTemplates(); return true;
+}
+function applyState(template, options, why) {
+  C = { template, options: { ...defaults(), ...options, config: { ...(options.config || {}) } } }; V.sel = -1;
+  commit(why); V.notice = ""; renderAll(why);
+}
+function loadTemplate(name) { const t = savedList().find(x => x.name === name); if (!t) return false; applyState(t.template, t.options, "load"); return true; }
+function exportTemplates() { return JSON.stringify({ schema: "logknobs-templates/1", exported_utc: new Date().toISOString(), templates: savedList() }, null, 1); }
+function importTemplates(json) {
+  const doc = typeof json === "string" ? JSON.parse(json) : json;
+  if (doc.schema !== "logknobs-templates/1" || !Array.isArray(doc.templates)) throw new Error("not a logknobs templates file");
+  for (const t of doc.templates) if (typeof t.name !== "string" || typeof t.template !== "string" || typeof t.options !== "object") throw new Error("malformed template entry");
+  const names = new Set(doc.templates.map(t => t.name));
+  store.write([...savedList().filter(t => !names.has(t.name)), ...doc.templates]); renderTemplates(); return doc.templates.length;
+}
+// A preset's args are git flags; map them onto the options they set
+function optionsFromArgs(args) {
+  const o = defaults();
+  for (const a of args) {
+    if (a === "--graph") o.graph = "on"; else if (a === "--all") o.refs = "all";
+    else if (a === "--oneline") { o.pretty = "oneline"; o.abbrev_commit = "on"; }
+    else if (a === "--abbrev-commit") o.abbrev_commit = "on";
+    else if (a === "--decorate") o.decorate = "short";
+    else if (a.startsWith("--date=")) o.date = a.slice(7);
+    else if (a === "--first-parent") o.first_parent = "on"; else if (a === "--reverse") o.reverse = "on";
+    else if (a === "--topo-order") o.order = "topo"; else if (a === "--date-order") o.order = "date";
+    else throw new Error(`preset flag ${a} has no option`);
+  }
+  return o;
+}
+function applyPreset(id) {
+  const p = REGISTRY.presets.find(x => x.id === id); if (!p) throw new Error("unknown preset " + id);
+  const o = optionsFromArgs(p.args); if (p.format === null && o.pretty === "tformat") o.pretty = "medium";
+  applyState(p.format ?? C.template, o, "preset:" + id); return true;
+}
+function renderTemplates() {
+  const pr = $("presets");
+  if (!pr.childElementCount) for (const p of REGISTRY.presets) {
+    const r = document.createElement("div"); r.className = "titem"; r.dataset.preset = p.id;
+    r.innerHTML = `<span class="tname">${esc(p.label)}</span><span class="cls" data-cls="${p.class}">${esc(p.class)}</span>`;
+    const b = document.createElement("button"); b.textContent = "apply"; b.onclick = () => applyPreset(p.id); r.append(b);
+    r.onmouseenter = () => showPresetDocs(p); pr.append(r);
+  }
+  const sv = $("saved"); sv.innerHTML = ""; const list = savedList();
+  if (!list.length) sv.innerHTML = `<div class="hint">none saved yet</div>`;
+  for (const t of list) {
+    const r = document.createElement("div"); r.className = "titem"; r.dataset.saved = t.name;
+    r.innerHTML = `<span class="tname" title="${esc(t.template)}">${esc(t.name)}</span>`;
+    const ap = Object.assign(document.createElement("button"), { textContent: "apply", onclick: () => loadTemplate(t.name) });
+    const rn = Object.assign(document.createElement("button"), { textContent: "rename", onclick: () => { const to = $("save-name").value.trim(); if (to) renameTemplate(t.name, to); else { V.notice = "type the new name in the name field, then rename"; renderAll("x"); } } });
+    const rm = Object.assign(document.createElement("button"), { textContent: "delete", onclick: () => deleteTemplate(t.name) });
+    r.append(ap, rn, rm); sv.append(r);
+  }
+}
+
+// ------------------------------------------------------ config export ----
+// Two layers of escaping: the config file parser, then (for the alias) git's
+// own argument splitting. Gate T13 writes the fragment to a scratch config and
+// checks git reads back exactly this template and produces the same output.
+function gcValue(v) {
+  const s = v.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\t/g, "\\t").replace(/\n/g, "\\n");
+  return /^\s|\s$|[;#"\\]/.test(v) || s !== v ? `"${s}"` : s;
+}
+function configExport(name = $("cx-name").value.trim() || "lk", alias = $("cx-alias").value.trim() || name, asDefault = $("cx-default").checked) {
+  const o = C.options, builtin = BUILTIN.has(o.pretty);
+  const prettyVal = builtin ? null : `${o.pretty === "format" ? "format" : "tformat"}:${C.template}`;
+  const keys = [];
+  if (prettyVal) keys.push(["pretty", name, prettyVal]);
+  if (prettyVal && asDefault) keys.push(["format", "pretty", name]);
+  if (o.date !== OPT.date.default) keys.push(["log", "date", o.date]);
+  if (o.decorate !== OPT.decorate.default) keys.push(["log", "decorate", o.decorate]);
+  if (o.abbrev_commit === "on") keys.push(["log", "abbrevCommit", "true"]);
+  if (o.color !== OPT.color.default) keys.push(["color", "ui", o.color === "always" ? "always" : "never"]);
+  for (const [k, v] of Object.entries(o.config)) { const i = k.indexOf("."); keys.push([k.slice(0, i), k.slice(i + 1), v]); }
+  const flags = [];
+  if (o.graph === "on") flags.push("--graph");
+  if (builtin) flags.push(o.pretty === "oneline" && o.abbrev_commit === "on" ? "--oneline" : `--pretty=${o.pretty}`);
+  else flags.push(`--pretty=${name}`);
+  flags.push(...OPT.order.flags[o.order]); if (o.first_parent === "on") flags.push("--first-parent");
+  if (o.reverse === "on") flags.push("--reverse"); flags.push(...OPT.refs.flags[o.refs]);
+  if (o.abbrev !== OPT.abbrev.default) flags.push("--abbrev=" + o.abbrev);
+  const aliasVal = "log " + flags.join(" ");
+  const sh = s => quote(s);
+  const cmds = [...keys.map(([s, k, v]) => `git config --global ${s}.${k} ${sh(v)}`), `git config --global alias.${alias} ${sh(aliasVal)}`];
+  const sections = {};
+  for (const [s, k, v] of keys) {
+    const dot = k.indexOf(".");                       // color.decorate.HEAD -> [color "decorate"] HEAD
+    const sec = dot < 0 ? `[${s}]` : `[${s} "${k.slice(0, dot)}"]`; const key = dot < 0 ? k : k.slice(dot + 1);
+    (sections[sec] ||= []).push(`\t${key} = ${gcValue(v)}`);
+  }
+  (sections["[alias]"] ||= []).push(`\t${alias} = ${gcValue(aliasVal)}`);
+  const frag = Object.entries(sections).map(([s, ls]) => [s, ...ls].join("\n")).join("\n") + "\n";
+  return { commands: cmds.join("\n"), fragment: frag, alias, aliasValue: aliasVal, prettyName: name, prettyValue: prettyVal };
+}
+
+// --------------------------------------------------------------- docs ----
+function showDirDocs(d, micro) {
+  const ex = (d.examples || []).slice(0, 2).map(e => `<div class="tag">${esc(e.case)}: ${esc(e.output)}</div>`).join("");
+  $("docs").innerHTML = `<h3><code>${esc(micro || d.directive)}</code> ${esc(d.summary)} ${scopeChip(d.scope)}</h3><p>${esc(d.detail)}</p>`
+    + (d.gotchas.length ? `<ul>${d.gotchas.map(g => `<li>${esc(g)}</li>`).join("")}</ul>` : "") + ex;
+}
+function showNodeDocs(n) { if (n.kind === "literal") { $("docs").innerHTML = `<h3>literal ${esc(JSON.stringify(n.text))} ${scopeChip("self")}</h3><p>Printed as written. A % in literal text is written %% so git does not read it as a placeholder.</p>`; return; }
+  const D = DIR[directiveOf(n.tok)]; if (D) showDirDocs(D, n.tok); }
+function showOptDocs(id) {
+  const o = OPT[id]; if (!o) return;
+  $("docs").innerHTML = `<h3><code>${esc(o.label)}</code> ${esc(o.summary)} ${scopeChip(o.scope)} <span class="tag">${esc(o.setter)}</span></h3><p>${esc(o.detail)}</p>`
+    + (o.gotchas?.length ? `<ul>${o.gotchas.map(g => `<li>${esc(g)}</li>`).join("")}</ul>` : "");
+}
+const CLASS_TEXT = { verbatim: "exact bytes obtained from the source", "verbatim-reassembled": "exact, but the source delivers it in pieces; the join is the risk",
+  "after-source": "the source was unreachable here; written after the structure it is known for — not its bytes", "built-in": "git's own flags, no format string", original: "written for logknobs" };
+function showPresetDocs(p) {
+  $("docs").innerHTML = `<h3>${esc(p.label)} <span class="cls" data-cls="${p.class}">${esc(p.class)}</span></h3><p class="tag">${esc(CLASS_TEXT[p.class])}</p>`
+    + `<p><code>git log ${esc(p.args.join(" "))}${p.format ? ` --format='${esc(p.format)}'` : ""}</code></p>`
+    + (p.sources?.length ? `<ul>${p.sources.map(s => `<li>${esc(s.who || "")} — ${esc(s.url)}${s.note ? " (" + esc(s.note) + ")" : ""}</li>`).join("")}</ul>` : "")
+    + (p.license ? `<p class="tag">license: ${esc(p.license)}</p>` : "")
+    + `<p class="tag">executed on real git 2.43 against the sample repositories; the preview reproduces git's bytes (Oracle A, preset family).</p>`;
+}
+
+// ------------------------------------------------- knob + gauge widgets ---
+// Geometry shared with the brand mark (brand/make_brand.py).
+const KNOB = { sweepStart: -135, sweepEnd: 135, ticks: 7 };
+const pol = (cx, cy, r, deg) => [cx + r * Math.sin(deg * Math.PI / 180), cy - r * Math.cos(deg * Math.PI / 180)];
+/* Defined on an explicit INDEX SETTER; drag, wheel and keys are defined atop
+   setIndex, never the reverse. The DOM is built once and mutated on render, so
+   focus and pointer capture survive updates. */
+function makeKnob(el, opts) {
+  const { options, label, get, set, size = 34 } = opts;
+  el.innerHTML = `<svg viewBox="0 0 128 128" width="${size}" height="${size}" tabindex="0" role="slider" aria-label="${esc(label)}" aria-valuemin="1" aria-valuemax="${options.length}">
+      <circle cx="64" cy="64" r="42" fill="none" stroke="var(--fg)" stroke-width="11"/><g class="ticks"></g>
+      <line class="ind" x1="64" y1="64" stroke="var(--acc)" stroke-width="9.4" stroke-linecap="round"/><circle cx="64" cy="64" r="5" fill="var(--acc)"/></svg><span class="kv"><b></b></span>`;
+  const svg = el.querySelector("svg"), ind = el.querySelector(".ind"), tg = el.querySelector(".ticks"), lab = el.querySelector(".kv b");
+  const idx = () => { const i = options.indexOf(get()); return i < 0 ? 0 : i; };
+  const setIndex = n => set(options[Math.max(0, Math.min(options.length - 1, n))]);
+  const render = () => {
+    const i = idx(), R = 42, SW = 11, frac = options.length <= 1 ? 0 : i / (options.length - 1);
+    const ang = KNOB.sweepStart + (KNOB.sweepEnd - KNOB.sweepStart) * frac, n = Math.min(KNOB.ticks, Math.max(2, options.length));
+    let t = "";
+    for (let k = 0; k < n; k++) { const a2 = KNOB.sweepStart + (KNOB.sweepEnd - KNOB.sweepStart) * k / (n - 1);
+      const [x0, y0] = pol(64, 64, R + 9 + SW / 2, a2), [x1, y1] = pol(64, 64, R + 16 + SW / 2, a2);
+      t += `<line x1="${x0.toFixed(1)}" y1="${y0.toFixed(1)}" x2="${x1.toFixed(1)}" y2="${y1.toFixed(1)}" stroke="${a2 <= ang + .01 ? "var(--acc)" : "var(--line)"}" stroke-width="4.6" stroke-linecap="round"/>`; }
+    tg.innerHTML = t; const [ix, iy] = pol(64, 64, R - 9 - SW / 2, ang);
+    ind.setAttribute("x2", ix.toFixed(2)); ind.setAttribute("y2", iy.toFixed(2));
+    svg.setAttribute("aria-valuenow", i + 1); svg.setAttribute("aria-valuetext", options[i]); lab.textContent = options[i];
+  };
+  svg.onkeydown = e => { const i = idx();
+    if (e.key === "ArrowUp" || e.key === "ArrowRight") { setIndex(i + 1); e.preventDefault(); }
+    else if (e.key === "ArrowDown" || e.key === "ArrowLeft") { setIndex(i - 1); e.preventDefault(); }
+    else if (e.key === "Home") { setIndex(0); e.preventDefault(); } else if (e.key === "End") { setIndex(options.length - 1); e.preventDefault(); } };
+  let from = null, base = 0;
+  svg.onpointerdown = e => { from = e.clientY; base = idx(); svg.setPointerCapture(e.pointerId); };
+  svg.onpointermove = e => { if (from !== null) { const n = base + Math.round((from - e.clientY) / 14); if (n !== idx()) setIndex(n); } };
+  svg.onpointerup = svg.onpointercancel = e => { from = null; try { svg.releasePointerCapture(e.pointerId); } catch {} };
+  svg.onwheel = e => { e.preventDefault(); setIndex(idx() + (e.deltaY < 0 ? 1 : -1)); };
+  render(); return { render };
+}
+function gaugeSvg(frac, size = 18) {
+  const R = 42, cx = 64, cy = 64, a = KNOB.sweepStart + (KNOB.sweepEnd - KNOB.sweepStart) * Math.max(0, Math.min(1, frac));
+  const [sx, sy] = pol(cx, cy, R, KNOB.sweepStart), [ex, ey] = pol(cx, cy, R, a), [tx, ty] = pol(cx, cy, R, KNOB.sweepEnd);
+  return `<svg viewBox="0 0 128 128" width="${size}" height="${size}" aria-hidden="true"><path d="M${sx.toFixed(1)},${sy.toFixed(1)} A42,42 0 1,1 ${tx.toFixed(1)},${ty.toFixed(1)}" fill="none" stroke="var(--line)" stroke-width="13" stroke-linecap="round"/>`
+    + `<path d="M${sx.toFixed(1)},${sy.toFixed(1)} A42,42 0 ${a - KNOB.sweepStart > 180 ? 1 : 0},1 ${ex.toFixed(1)},${ey.toFixed(1)}" fill="none" stroke="var(--acc)" stroke-width="13" stroke-linecap="round"/></svg>`;
+}
+
+// ------------------------------------------------------------- update ----
+function renderAll(why) {
+  const tpl = $("tpl");
+  if (document.activeElement !== tpl || tpl.value !== C.template) tpl.value = C.template;
+  const bad = tokenize(C.template).some(n => n.kind === "color" && colorDirectiveError(n.tok, effColor()));
+  tpl.classList.toggle("bad", bad);
+  $("undo").disabled = H.idx <= 0; $("redo").disabled = H.idx >= H.stack.length - 1;
+  $("case").textContent = `${CASES[V.caseIdx]} ${V.caseIdx + 1}/3`;
+  for (const b of $("pmode").children) b.setAttribute("aria-pressed", String(b.dataset.mode === V.preview));
+  for (const b of $("tview").children) b.setAttribute("aria-pressed", String(b.dataset.v === V.tokenView));
+  $("theme").value = V.theme; $("shell").value = V.shell; $("notice").textContent = V.notice;
+  renderOptions(); renderTokens(); renderInspector();
+  if ($("cfgexp").open) { const x = configExport(); $("cx-cmds").value = x.commands; $("cx-frag").value = x.fragment; }
+  renderPreview();
+  document.dispatchEvent(new CustomEvent("logknobs:update", { detail: { why, template: C.template } }));
+}
+
+// --------------------------------------------------------------- wire ----
+$("lockup").innerHTML = LOCKUP;
+for (const s of SHELLS) $("shell").append(new Option(SHELL_LABELS[s], s));
+for (const name of Object.keys(REGISTRY.themes)) $("theme").append(new Option(name + (REGISTRY.themes[name].source === "original" ? " (logknobs)" : ""), name));
+const dl = document.createElement("datalist"); dl.id = "lk-colors"; for (const c of COLOR_NAMES.filter(Boolean)) dl.append(new Option(c)); document.body.append(dl);
+buildPalette(); buildToggles(); buildOptions(); renderTemplates();
+$("tpl").oninput = e => { C.template = e.target.value; V.sel = -1; commit("typing", true); V.notice = ""; renderAll("template"); };
+$("undo").onclick = undo; $("redo").onclick = redo;
+$("case").onclick = () => setCase(V.caseIdx + 1);
+for (const b of $("pmode").children) b.onclick = () => setPreviewMode(b.dataset.mode);
+for (const b of $("tview").children) b.onclick = () => setTokenView(b.dataset.v);
+$("theme").onchange = e => setTheme(e.target.value); $("shell").onchange = e => setShell(e.target.value);
+$("copy").onclick = () => navigator.clipboard?.writeText(command());
+$("copy").onmouseenter = () => { $("docs").innerHTML = `<h3>the command</h3><p><code>${esc(command())}</code></p><p class="tag">quoted for ${esc(V.shell)}. --color is omitted under auto, git's default; the preview shows what a terminal shows.</p>`; };
+$("lit-add").onclick = () => { if (insertLiteral($("lit-text").value)) $("lit-text").value = ""; };
+$("lit-text").onkeydown = e => { if (e.key === "Enter") $("lit-add").click(); };
+$("lit-add").draggable = true; $("lit-add").ondragstart = e => e.dataTransfer.setData(DRAG.insert, "literal:" + $("lit-text").value);
+$("save").onclick = () => { try { saveTemplate($("save-name").value); V.notice = "saved"; } catch (e) { V.notice = e.message; } renderAll("save"); };
+$("export").onclick = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([exportTemplates()], { type: "application/json" })); a.download = "logknobs-templates.json"; a.click(); };
+$("import").onclick = () => $("import-file").click();
+$("import-file").onchange = async e => { const f = e.target.files[0]; if (!f) return; try { V.notice = `imported ${importTemplates(await f.text())}`; } catch (err) { V.notice = err.message; } renderAll("import"); };
+$("cfgexp").ontoggle = () => renderAll("cfgexp");
+for (const id of ["cx-name", "cx-alias", "cx-default"]) $(id).oninput = $(id).onchange = () => renderAll("cfgexp");
+document.addEventListener("keydown", e => {
+  const typing = e.target.closest?.("input,textarea,select,[contenteditable]");
+  if (typing) return;
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z") { (e.shiftKey ? redo : undo)(); e.preventDefault(); }
+  else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "y") { redo(); e.preventDefault(); }
+  else if (e.key === "Escape" && V.sel >= 0) select(-1);
+});
+if (window.gitlog) { $("gitmode").classList.remove("git-off"); $("realgit").onchange = e => { V.realGit = e.target.checked; renderAll("realgit"); }; }
+commit("init");
+// test hooks: the setter contract, as the gates drive it
+window.__logknobs = Object.freeze({
+  get C() { return JSON.parse(JSON.stringify(C)); }, V, H, REGISTRY, RECORDS, STORES, VERSION, KNOB_SWEEP: [KNOB.sweepStart, KNOB.sweepEnd],
+  setTemplate, setOption, setGraph, setOneline, setOrder, setFirstParent, setReverse, setRefs, setAbbrevCommit, setConfig,
+  setHistoryIndex, undo, redo, select, setPreviewMode, setCase, setTheme, setTokenView, setColorScope, setShell,
+  insertToken, insertLiteral, removeNode, moveNode, replaceNode, setLiteralText, setSpacingModifier, setColor, setPadding, setParam,
+  saveTemplate, loadTemplate, deleteTemplate, renameTemplate, exportTemplates, importTemplates, applyPreset,
+  configExport, command, gitArgs, nodes, scopeRanges, renderModel, ansiToHtml, paintSegs, onelineMode, GROUPS, NOT_INSERTABLE, directiveOf,
+});
+renderAll("init");
+})(document, name => LAB_001[name]);
+</script></body></html>

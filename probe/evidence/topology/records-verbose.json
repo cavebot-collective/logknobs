@@ -1,0 +1,1005 @@
+{
+ "repo": "/home/claude/topo-verbose",
+ "core_abbrev": 7,
+ "head": "a8d562aae47f28d8e385ab1e1e62ca5255e47b6e",
+ "refs": [
+  {
+   "name": "refs/heads/feature/a",
+   "oid": "8ba2d9d70da0662ad02f09487c103789774939f0"
+  },
+  {
+   "name": "refs/heads/feature/b",
+   "oid": "66c806e593541da9798dc7889c715f9845b4d873"
+  },
+  {
+   "name": "refs/heads/feature/c",
+   "oid": "7e4bdaf854cb8860f006d8c1e43c9f053a227512"
+  },
+  {
+   "name": "refs/heads/feature/wip",
+   "oid": "89591a4cbad0c9a34b38d59c9c27b0a12d8015ef"
+  },
+  {
+   "name": "refs/heads/gh-pages",
+   "oid": "1577aa74b8bc6aa66d39e3e5721b00a48e2f120e"
+  },
+  {
+   "name": "refs/heads/hotfix",
+   "oid": "83ff39901741c595691ba28f31a97368879a1f8e"
+  },
+  {
+   "name": "refs/heads/main",
+   "oid": "a8d562aae47f28d8e385ab1e1e62ca5255e47b6e"
+  },
+  {
+   "name": "refs/remotes/origin/main",
+   "oid": "5882e6db00ade5f15005ae29629e5ea322a49780"
+  },
+  {
+   "name": "refs/tags/v1.0",
+   "oid": "a2f1a6e7dcbd2d944d79a1258be82ddefc465cd6"
+  },
+  {
+   "name": "refs/tags/v2.0",
+   "oid": "5882e6db00ade5f15005ae29629e5ea322a49780"
+  }
+ ],
+ "host_supplied_fields": [
+  "decoration_short",
+  "decoration_full",
+  "describe",
+  "notes",
+  "sig_status",
+  "sig_signer",
+  "sig_key",
+  "sig_fingerprint",
+  "sig_primary_fingerprint",
+  "sig_trust",
+  "sig_raw",
+  "date_relative_author",
+  "date_relative_committer",
+  "date_human_author",
+  "date_human_committer",
+  "ref_name"
+ ],
+ "records": {
+  "1577aa74b8bc6aa66d39e3e5721b00a48e2f120e": {
+   "H": "1577aa74b8bc6aa66d39e3e5721b00a48e2f120e",
+   "P": [
+    "9c05df3dfe377f3812b3de9bc74d81d0351232b2"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "5f8252fabfaa1e5a242b21fb1cea28ce3992a7cd",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700061200,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700061200,
+    "tz": "+0000"
+   },
+   "message": "docs(site): add a gallery page of example formats\n\nEach example links to the template that produced it.\n",
+   "abbrev": 7,
+   "h": "1577aa7",
+   "t": "5f8252f",
+   "p": [
+    "9c05df3"
+   ],
+   "host": {
+    "decoration_short": " (gh-pages)",
+    "decoration_bare": "gh-pages",
+    "decoration_full_bare": "refs/heads/gh-pages",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "1577aa74b8bc6aa66d39e3e5721b00a48e2f120e",
+    "mark": ">"
+   }
+  },
+  "9c05df3dfe377f3812b3de9bc74d81d0351232b2": {
+   "H": "9c05df3dfe377f3812b3de9bc74d81d0351232b2",
+   "P": [],
+   "encoding": "",
+   "signed": false,
+   "T": "cd05f9f71f8289dc90233a19929dd35b7ea7ecca",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700057600,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700057600,
+    "tz": "+0000"
+   },
+   "message": "docs(site): start the project site on an orphan branch\n\nThe site shares no history with the code.\n",
+   "abbrev": 7,
+   "h": "9c05df3",
+   "t": "cd05f9f",
+   "p": [],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "9c05df3dfe377f3812b3de9bc74d81d0351232b2",
+    "mark": ">"
+   }
+  },
+  "89591a4cbad0c9a34b38d59c9c27b0a12d8015ef": {
+   "H": "89591a4cbad0c9a34b38d59c9c27b0a12d8015ef",
+   "P": [
+    "5882e6db00ade5f15005ae29629e5ea322a49780"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "7135fec49dae42d6619157de1cb04d3efaaf4400",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700054000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700054000,
+    "tz": "+0000"
+   },
+   "message": "feat(graph): sketch the column model for graph rendering\n\nUnfinished. Columns map to commits; mapping tracks where each\nedge is heading on the next row.\n",
+   "abbrev": 7,
+   "h": "89591a4",
+   "t": "7135fec",
+   "p": [
+    "5882e6d"
+   ],
+   "host": {
+    "decoration_short": " (feature/wip)",
+    "decoration_bare": "feature/wip",
+    "decoration_full_bare": "refs/heads/feature/wip",
+    "describe": "v1.0-9-g89591a4",
+    "describe_tags": "v2.0-1-g89591a4",
+    "describe_abbrev8": "v1.0-9-g89591a4c",
+    "describe_match": "v1.0-9-g89591a4",
+    "describe_exclude": "v1.0-9-g89591a4",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "89591a4cbad0c9a34b38d59c9c27b0a12d8015ef",
+    "mark": ">"
+   }
+  },
+  "a8d562aae47f28d8e385ab1e1e62ca5255e47b6e": {
+   "H": "a8d562aae47f28d8e385ab1e1e62ca5255e47b6e",
+   "P": [
+    "5882e6db00ade5f15005ae29629e5ea322a49780"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "011da358a4fe2bb37298f5e17e7461de780a0864",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700050400,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700050400,
+    "tz": "+0000"
+   },
+   "message": "chore(release): bump the version to 2.0.0 and update the changelog\n\nChangelog entries are generated from conventional commit subjects.\n",
+   "abbrev": 7,
+   "h": "a8d562a",
+   "t": "011da35",
+   "p": [
+    "5882e6d"
+   ],
+   "host": {
+    "decoration_short": " (HEAD -> main)",
+    "decoration_bare": "HEAD -> main",
+    "decoration_full_bare": "HEAD -> refs/heads/main",
+    "describe": "v1.0-9-ga8d562a",
+    "describe_tags": "v2.0-1-ga8d562a",
+    "describe_abbrev8": "v1.0-9-ga8d562aa",
+    "describe_match": "v1.0-9-ga8d562a",
+    "describe_exclude": "v1.0-9-ga8d562a",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "a8d562aae47f28d8e385ab1e1e62ca5255e47b6e",
+    "mark": ">"
+   }
+  },
+  "5882e6db00ade5f15005ae29629e5ea322a49780": {
+   "H": "5882e6db00ade5f15005ae29629e5ea322a49780",
+   "P": [
+    "e811fbc89079d6b611aa523afd0df42b88b8b301",
+    "66c806e593541da9798dc7889c715f9845b4d873",
+    "7e4bdaf854cb8860f006d8c1e43c9f053a227512",
+    "83ff39901741c595691ba28f31a97368879a1f8e"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "584dd5ebfa2094636db43c22a5ca1f931568675b",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700046800,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700046800,
+    "tz": "+0000"
+   },
+   "message": "merge: integrate color, docs and the hotfix for release 2.0\n\nOctopus merge of three ready branches. None of them touch the same\nfiles, so no resolution was needed.\n\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+   "abbrev": 7,
+   "h": "5882e6d",
+   "t": "584dd5e",
+   "p": [
+    "e811fbc",
+    "66c806e",
+    "7e4bdaf",
+    "83ff399"
+   ],
+   "host": {
+    "decoration_short": " (tag: v2.0, origin/main)",
+    "decoration_bare": "tag: v2.0, origin/main",
+    "decoration_full_bare": "tag: refs/tags/v2.0, refs/remotes/origin/main",
+    "describe": "v1.0-8-g5882e6d",
+    "describe_tags": "v2.0",
+    "describe_abbrev8": "v1.0-8-g5882e6db",
+    "describe_match": "v1.0-8-g5882e6d",
+    "describe_exclude": "v1.0-8-g5882e6d",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "5882e6db00ade5f15005ae29629e5ea322a49780",
+    "mark": ">"
+   }
+  },
+  "e811fbc89079d6b611aa523afd0df42b88b8b301": {
+   "H": "e811fbc89079d6b611aa523afd0df42b88b8b301",
+   "P": [
+    "a2f1a6e7dcbd2d944d79a1258be82ddefc465cd6"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "f2871775ae9b1d28a7b48e897f690049e2d08878",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700043200,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700043200,
+    "tz": "+0000"
+   },
+   "message": "refactor(core): extract the renderer from the evaluation loop\n\nRendering and evaluation were interleaved, which made spans hard to\nattribute. They are now separate passes over the same nodes.\n",
+   "abbrev": 7,
+   "h": "e811fbc",
+   "t": "f287177",
+   "p": [
+    "a2f1a6e"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "v1.0-1-ge811fbc",
+    "describe_tags": "v1.0-1-ge811fbc",
+    "describe_abbrev8": "v1.0-1-ge811fbc8",
+    "describe_match": "v1.0-1-ge811fbc",
+    "describe_exclude": "v1.0-1-ge811fbc",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "e811fbc89079d6b611aa523afd0df42b88b8b301",
+    "mark": ">"
+   }
+  },
+  "66c806e593541da9798dc7889c715f9845b4d873": {
+   "H": "66c806e593541da9798dc7889c715f9845b4d873",
+   "P": [
+    "5830ea55f572d6f0a0f9c84bc6d532be0ca36f31",
+    "a2f1a6e7dcbd2d944d79a1258be82ddefc465cd6"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "578000c99b69dde5a2931c183cf85cb738587ee4",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700039600,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700039600,
+    "tz": "+0000"
+   },
+   "message": "merge: update feature/b with the parser from main\n\nColor parsing needs the typed node list that landed on main.\n",
+   "abbrev": 7,
+   "h": "66c806e",
+   "t": "578000c",
+   "p": [
+    "5830ea5",
+    "a2f1a6e"
+   ],
+   "host": {
+    "decoration_short": " (feature/b)",
+    "decoration_bare": "feature/b",
+    "decoration_full_bare": "refs/heads/feature/b",
+    "describe": "v1.0-3-g66c806e",
+    "describe_tags": "v1.0-3-g66c806e",
+    "describe_abbrev8": "v1.0-3-g66c806e5",
+    "describe_match": "v1.0-3-g66c806e",
+    "describe_exclude": "v1.0-3-g66c806e",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "66c806e593541da9798dc7889c715f9845b4d873",
+    "mark": ">"
+   }
+  },
+  "83ff39901741c595691ba28f31a97368879a1f8e": {
+   "H": "83ff39901741c595691ba28f31a97368879a1f8e",
+   "P": [
+    "a2f1a6e7dcbd2d944d79a1258be82ddefc465cd6"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "7b62b27b844ab8b1b520bf45e05e58feb30513a7",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700012000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700036000,
+    "tz": "+0000"
+   },
+   "message": "fix: correct the default abbreviation length in the exporter\n\nThe exporter assumed seven characters; the fixture pins core.abbrev,\nbut real repositories grow past it.\n\nFixes: #31\n",
+   "abbrev": 7,
+   "h": "83ff399",
+   "t": "7b62b27",
+   "p": [
+    "a2f1a6e"
+   ],
+   "host": {
+    "decoration_short": " (hotfix)",
+    "decoration_bare": "hotfix",
+    "decoration_full_bare": "refs/heads/hotfix",
+    "describe": "v1.0-1-g83ff399",
+    "describe_tags": "v1.0-1-g83ff399",
+    "describe_abbrev8": "v1.0-1-g83ff3990",
+    "describe_match": "v1.0-1-g83ff399",
+    "describe_exclude": "v1.0-1-g83ff399",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "83ff39901741c595691ba28f31a97368879a1f8e",
+    "mark": ">"
+   }
+  },
+  "7e4bdaf854cb8860f006d8c1e43c9f053a227512": {
+   "H": "7e4bdaf854cb8860f006d8c1e43c9f053a227512",
+   "P": [
+    "e96646bbc0bbd7c998341abe033a3ad069ad263e"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "c2ceb92739c4e70a3a99300ee6d2c00c0de3d650",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700032400,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700032400,
+    "tz": "+0000"
+   },
+   "message": "docs: add a section on wrapping and soft line breaks\n\nA source newline is soft only before an ASCII alphanumeric; every\nother character forces a hard break.\n\nReviewed-by: Alan Turing <alan@example.org>\n",
+   "abbrev": 7,
+   "h": "7e4bdaf",
+   "t": "c2ceb92",
+   "p": [
+    "e96646b"
+   ],
+   "host": {
+    "decoration_short": " (feature/c)",
+    "decoration_bare": "feature/c",
+    "decoration_full_bare": "refs/heads/feature/c",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "7e4bdaf854cb8860f006d8c1e43c9f053a227512",
+    "mark": ">"
+   }
+  },
+  "5830ea55f572d6f0a0f9c84bc6d532be0ca36f31": {
+   "H": "5830ea55f572d6f0a0f9c84bc6d532be0ca36f31",
+   "P": [
+    "bc9afb40b91bcf0d01dc548fa3f9df5cb48b0d7b"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "539eef0a92c6376d378c29868f70262298e11d70",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700028800,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700028800,
+    "tz": "+0000"
+   },
+   "message": "feat(color): support background colors and 24-bit values\n\nThe second color in a spec is the background. Short hex is rejected\nbecause the pinned git binary rejects it.\n",
+   "abbrev": 7,
+   "h": "5830ea5",
+   "t": "539eef0",
+   "p": [
+    "bc9afb4"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "5830ea55f572d6f0a0f9c84bc6d532be0ca36f31",
+    "mark": ">"
+   }
+  },
+  "a2f1a6e7dcbd2d944d79a1258be82ddefc465cd6": {
+   "H": "a2f1a6e7dcbd2d944d79a1258be82ddefc465cd6",
+   "P": [
+    "0ae3f958448fe3783637ceacd68ac969c3ccd1bf",
+    "8ba2d9d70da0662ad02f09487c103789774939f0"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "fa4bb89026a6820b416efaa62729726055c414a5",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700025200,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700025200,
+    "tz": "+0000"
+   },
+   "message": "merge: bring the parser work from feature/a into main\n\nThe parser is complete enough to replace the prototype tokenizer.\n",
+   "abbrev": 7,
+   "h": "a2f1a6e",
+   "t": "fa4bb89",
+   "p": [
+    "0ae3f95",
+    "8ba2d9d"
+   ],
+   "host": {
+    "decoration_short": " (tag: v1.0)",
+    "decoration_bare": "tag: v1.0",
+    "decoration_full_bare": "tag: refs/tags/v1.0",
+    "describe": "v1.0",
+    "describe_tags": "v1.0",
+    "describe_abbrev8": "v1.0",
+    "describe_match": "v1.0",
+    "describe_exclude": "v1.0",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "a2f1a6e7dcbd2d944d79a1258be82ddefc465cd6",
+    "mark": ">"
+   }
+  },
+  "e96646bbc0bbd7c998341abe033a3ad069ad263e": {
+   "H": "e96646bbc0bbd7c998341abe033a3ad069ad263e",
+   "P": [
+    "0ae3f958448fe3783637ceacd68ac969c3ccd1bf"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "ff681273f929b2fbd438030842e54c7bae5797b7",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700009000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700021600,
+    "tz": "+0000"
+   },
+   "message": "docs: describe padding and truncation semantics for wide glyphs\n\nRight truncation admits the straddling character; left truncation\ndoes not. The asymmetry is deliberate and documented here.\n",
+   "abbrev": 7,
+   "h": "e96646b",
+   "t": "ff68127",
+   "p": [
+    "0ae3f95"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "e96646bbc0bbd7c998341abe033a3ad069ad263e",
+    "mark": ">"
+   }
+  },
+  "bc9afb40b91bcf0d01dc548fa3f9df5cb48b0d7b": {
+   "H": "bc9afb40b91bcf0d01dc548fa3f9df5cb48b0d7b",
+   "P": [
+    "0ae3f958448fe3783637ceacd68ac969c3ccd1bf"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "61ecdb3bc02bc7fbb4278d7eeeb464eb8f153ab8",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700018000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700018000,
+    "tz": "+0000"
+   },
+   "message": "feat(color): parse color specifications into SGR sequences\n\nForeground first, background second; attributes form a set emitted\nin ascending order regardless of how they were written.\n",
+   "abbrev": 7,
+   "h": "bc9afb4",
+   "t": "61ecdb3",
+   "p": [
+    "0ae3f95"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "bc9afb40b91bcf0d01dc548fa3f9df5cb48b0d7b",
+    "mark": ">"
+   }
+  },
+  "8ba2d9d70da0662ad02f09487c103789774939f0": {
+   "H": "8ba2d9d70da0662ad02f09487c103789774939f0",
+   "P": [
+    "952ab643200fbcc4c24d6c7609cfdead7674a66c"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "2f219bd130b2aa200d96126668e98fb8d37a0cd0",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700014400,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700014400,
+    "tz": "+0000"
+   },
+   "message": "feat(parser): support nested option lists inside %(...) forms\n\nOption values may themselves contain commas when hex-escaped, so\nthe splitter honors %x2C rather than splitting on every comma.\n",
+   "abbrev": 7,
+   "h": "8ba2d9d",
+   "t": "2f219bd",
+   "p": [
+    "952ab64"
+   ],
+   "host": {
+    "decoration_short": " (feature/a)",
+    "decoration_bare": "feature/a",
+    "decoration_full_bare": "refs/heads/feature/a",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "8ba2d9d70da0662ad02f09487c103789774939f0",
+    "mark": ">"
+   }
+  },
+  "0ae3f958448fe3783637ceacd68ac969c3ccd1bf": {
+   "H": "0ae3f958448fe3783637ceacd68ac969c3ccd1bf",
+   "P": [
+    "85b43bd6f058a377d0ca40e5bd33e99aef564d1b"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "18a2db82796fa2a3c4bebb8cb965bf6847b69281",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700010800,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700010800,
+    "tz": "+0000"
+   },
+   "message": "fix(core): guard against an empty template reaching the evaluator\n\nAn empty --format previously reached the loop with no nodes and\nwrote a stray terminator.\n\nFixes: #19\nSigned-off-by: Grace Hopper <grace@example.org>\n",
+   "abbrev": 7,
+   "h": "0ae3f95",
+   "t": "18a2db8",
+   "p": [
+    "85b43bd"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "0ae3f958448fe3783637ceacd68ac969c3ccd1bf",
+    "mark": ">"
+   }
+  },
+  "952ab643200fbcc4c24d6c7609cfdead7674a66c": {
+   "H": "952ab643200fbcc4c24d6c7609cfdead7674a66c",
+   "P": [
+    "85b43bd6f058a377d0ca40e5bd33e99aef564d1b"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "1d7a22ca1036eab678ca4415dc0513c0ea55c9bb",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700007200,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700007200,
+    "tz": "+0000"
+   },
+   "message": "feat(parser): tokenize format strings into a typed node list\n\nLiterals, value placeholders and operators become distinct node\nkinds, because operators modify the rendering of what follows them.\n\nRefs: #12\n",
+   "abbrev": 7,
+   "h": "952ab64",
+   "t": "1d7a22c",
+   "p": [
+    "85b43bd"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "952ab643200fbcc4c24d6c7609cfdead7674a66c",
+    "mark": ">"
+   }
+  },
+  "85b43bd6f058a377d0ca40e5bd33e99aef564d1b": {
+   "H": "85b43bd6f058a377d0ca40e5bd33e99aef564d1b",
+   "P": [
+    "a3837b0a25da8756379ab636bab9c3ca12a9f32f"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "b63a965e6a06fec4f9cb010549a7e26d64b9e406",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700003600,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700003600,
+    "tz": "+0000"
+   },
+   "message": "feat(core): add the evaluation loop over parsed templates\n\nThe loop walks the token list once per commit and writes into a\nsingle buffer, so rendering cost is linear in template length.\n",
+   "abbrev": 7,
+   "h": "85b43bd",
+   "t": "b63a965",
+   "p": [
+    "a3837b0"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 14 2023",
+    "ch": "Nov 14 2023",
+    "ref_name": "85b43bd6f058a377d0ca40e5bd33e99aef564d1b",
+    "mark": ">"
+   }
+  },
+  "a3837b0a25da8756379ab636bab9c3ca12a9f32f": {
+   "H": "a3837b0a25da8756379ab636bab9c3ca12a9f32f",
+   "P": [],
+   "encoding": "",
+   "signed": false,
+   "T": "7f4be4d1d08320ee5f7898496283e65dd9afd83a",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700000000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700000000,
+    "tz": "+0000"
+   },
+   "message": "chore: initialize the repository with a README and license\n\nStart from an empty tree so later history has a clean root.\n",
+   "abbrev": 7,
+   "h": "a3837b0",
+   "t": "7f4be4d",
+   "p": [],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 14 2023",
+    "ch": "Nov 14 2023",
+    "ref_name": "a3837b0a25da8756379ab636bab9c3ca12a9f32f",
+    "mark": ">"
+   }
+  }
+ }
+}

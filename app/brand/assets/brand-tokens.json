@@ -1,0 +1,22 @@
+{
+ "config": {
+  "knob.radius": 42,
+  "knob.stroke": 11,
+  "knob.hub.radius": 5,
+  "knob.indicator.inset": 9,
+  "knob.sweep.start_deg": -135,
+  "knob.sweep.end_deg": 135,
+  "knob.tick.count": 7,
+  "knob.tick.len": 7,
+  "knob.tick.gap": 9,
+  "wordmark.angle.first_o": -135,
+  "wordmark.angle.second_o": 68
+ },
+ "colors": {
+  "ink": "#e8eaed",
+  "accent": "#e8b04a",
+  "mute": "#7d8a9a",
+  "surface": "#121821",
+  "panel": "#232d3b"
+ }
+}

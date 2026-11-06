@@ -1,0 +1,539 @@
+{
+ "repo": "/home/claude/fixture",
+ "core_abbrev": 7,
+ "host_supplied_fields": [
+  "decoration_short",
+  "decoration_full",
+  "describe",
+  "notes",
+  "sig_status",
+  "sig_signer",
+  "sig_key",
+  "sig_fingerprint",
+  "sig_primary_fingerprint",
+  "sig_trust",
+  "sig_raw",
+  "date_relative_author",
+  "date_relative_committer",
+  "date_human_author",
+  "date_human_committer",
+  "ref_name"
+ ],
+ "records": {
+  "4953276715b5fdb1c7a9d7bd708d537af29eec97": {
+   "H": "4953276715b5fdb1c7a9d7bd708d537af29eec97",
+   "P": [],
+   "encoding": "",
+   "signed": false,
+   "T": "630d6318c448969f13151d7d945d9900ab0cafe1",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700349300,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700349300,
+    "tz": "-0400"
+   },
+   "message": "Notes added by 'git notes add'\n",
+   "abbrev": 7,
+   "h": "4953276",
+   "t": "630d631",
+   "p": [],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 19 2023",
+    "ch": "Nov 18 2023",
+    "ref_name": "4953276715b5fdb1c7a9d7bd708d537af29eec97",
+    "mark": ">"
+   }
+  },
+  "031e349cdb67148757bc9c6bd25bac990f346a6f": {
+   "H": "031e349cdb67148757bc9c6bd25bac990f346a6f",
+   "P": [
+    "47a78172a91e07d395322aee9525815ea3d76c11"
+   ],
+   "encoding": "",
+   "signed": true,
+   "T": "fe554ae4319034a3a57d6e2deb9f485659d2be86",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700349150,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700349150,
+    "tz": "-0400"
+   },
+   "gpgsig": "-----BEGIN PGP SIGNATURE-----\n \n iHUEABYKAB0WIQRp8haypMz+brLmsfkWY9It6P3xFAUCaqH/0AAKCRAWY9It6P3x\n FJK4AP9xeWP6GHQS+OAsyffzuPoRclY+SlFUnKzqBW8FHWz8AgD/Qfs7xF80JMrL\n I8xT60iInIzrpx5RNKn9CNrqa1+FeA4=\n =+/EF\n -----END PGP SIGNATURE-----",
+   "message": "chore: signed commit for %%G placeholder coverage\n",
+   "abbrev": 7,
+   "h": "031e349",
+   "t": "fe554ae",
+   "p": [
+    "47a7817"
+   ],
+   "host": {
+    "decoration_short": " (signed-overlay)",
+    "decoration_bare": "signed-overlay",
+    "decoration_full_bare": "refs/heads/signed-overlay",
+    "describe": "v0.1.0-5-g031e349",
+    "describe_tags": "v0.1.0-5-g031e349",
+    "describe_abbrev8": "v0.1.0-5-g031e349c",
+    "describe_match": "v0.1.0-5-g031e349",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "G",
+    "sig_signer": "Fixture Signer <signer@example.org>",
+    "sig_key": "1663D22DE8FDF114",
+    "sig_fingerprint": "69F216B2A4CCFE6EB2E6B1F91663D22DE8FDF114",
+    "sig_primary_fingerprint": "69F216B2A4CCFE6EB2E6B1F91663D22DE8FDF114",
+    "sig_trust": "ultimate",
+    "sig_raw": "gpg: Signature made Thu Sep 10 00:54:40 2026 UTC\ngpg:                using EDDSA key 69F216B2A4CCFE6EB2E6B1F91663D22DE8FDF114\ngpg: Good signature from \"Fixture Signer <signer@example.org>\" [ultimate]",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 19 2023",
+    "ch": "Nov 18 2023",
+    "ref_name": "031e349cdb67148757bc9c6bd25bac990f346a6f",
+    "mark": ">"
+   }
+  },
+  "47a78172a91e07d395322aee9525815ea3d76c11": {
+   "H": "47a78172a91e07d395322aee9525815ea3d76c11",
+   "P": [
+    "b6343ed6ebbb652f5eeb595cd7c7b96c032825bb"
+   ],
+   "encoding": "ISO-8859-1",
+   "signed": false,
+   "T": "b5efbc03d455dcff1f87a498f9112f7689db9b36",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700349100,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700349100,
+    "tz": "-0400"
+   },
+   "message": "chore: commit carrying an explicit encoding header\n",
+   "abbrev": 7,
+   "h": "47a7817",
+   "t": "b5efbc0",
+   "p": [
+    "b6343ed"
+   ],
+   "host": {
+    "decoration_short": " (HEAD -> main)",
+    "decoration_bare": "HEAD -> main",
+    "decoration_full_bare": "HEAD -> refs/heads/main",
+    "describe": "v0.1.0-4-g47a7817",
+    "describe_tags": "v0.1.0-4-g47a7817",
+    "describe_abbrev8": "v0.1.0-4-g47a78172",
+    "describe_match": "v0.1.0-4-g47a7817",
+    "describe_exclude": "",
+    "notes": "benchmarked: 3.1x faster on the 10k-commit corpus",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 19 2023",
+    "ch": "Nov 18 2023",
+    "ref_name": "47a78172a91e07d395322aee9525815ea3d76c11",
+    "mark": ">"
+   }
+  },
+  "b6343ed6ebbb652f5eeb595cd7c7b96c032825bb": {
+   "H": "b6343ed6ebbb652f5eeb595cd7c7b96c032825bb",
+   "P": [
+    "56c9c0b6671f9978ddc741c9f4c04b72b09563db",
+    "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "eb0fb6448726df0c705d393306111d6550c98f7e",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700349200,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700349290,
+    "tz": "-0400"
+   },
+   "message": "Merge branch 'feature/verbose' into main\n",
+   "abbrev": 7,
+   "h": "b6343ed",
+   "t": "eb0fb64",
+   "p": [
+    "56c9c0b",
+    "2bd351d"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "v0.1.0-3-gb6343ed",
+    "describe_tags": "v0.1.0-3-gb6343ed",
+    "describe_abbrev8": "v0.1.0-3-gb6343ed6",
+    "describe_match": "v0.1.0-3-gb6343ed",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 19 2023",
+    "ch": "Nov 18 2023",
+    "ref_name": "b6343ed6ebbb652f5eeb595cd7c7b96c032825bb",
+    "mark": ">"
+   }
+  },
+  "56c9c0b6671f9978ddc741c9f4c04b72b09563db": {
+   "H": "56c9c0b6671f9978ddc741c9f4c04b72b09563db",
+   "P": [
+    "f34a4a38ac4c84e376771e4888e6c2c09456cd82"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "fa4c9ec4f2be519717c7be5e2e165de712d66dd3",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700300000,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700300090,
+    "tz": "-0400"
+   },
+   "message": "fix(i18n): 日本語の幅を正しく数える 🌍\n",
+   "abbrev": 7,
+   "h": "56c9c0b",
+   "t": "fa4c9ec",
+   "p": [
+    "f34a4a3"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "v0.1.0-1-g56c9c0b",
+    "describe_tags": "v0.1.0-1-g56c9c0b",
+    "describe_abbrev8": "v0.1.0-1-g56c9c0b6",
+    "describe_match": "v0.1.0-1-g56c9c0b",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 18 2023",
+    "ch": "Nov 18 2023",
+    "ref_name": "56c9c0b6671f9978ddc741c9f4c04b72b09563db",
+    "mark": ">"
+   }
+  },
+  "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541": {
+   "H": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+   "P": [
+    "f34a4a38ac4c84e376771e4888e6c2c09456cd82"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "89858489685d9285daa5f5885fd8730569510a35",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700262800,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700262890,
+    "tz": "-0400"
+   },
+   "message": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span\n\nThe previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat attribution is load-bearing for reverse propagation, so the scanner is\nnow split into two phases.\n\nPhase one produces a span table: each entry records (start, end, kind, source\noffset). Phase two evaluates spans against a commit record. Because phase one\nis independent of commit data, the span table can be computed once per\ntemplate and reused across every previewed commit.\n\nUnicode note: offsets are byte offsets, not codepoint offsets, because git's\npadding directives count display columns while truncation counts bytes.\nMixing the two silently corrupts CJK and emoji output. Test vectors cover\n日本語テキスト and 🌍 explicitly.\n\nBREAKING CHANGE: TokenScanner.next() no longer returns evaluated text.\n\nRefs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+   "abbrev": 7,
+   "h": "2bd351d",
+   "t": "8985848",
+   "p": [
+    "f34a4a3"
+   ],
+   "host": {
+    "decoration_short": " (feature/verbose)",
+    "decoration_bare": "feature/verbose",
+    "decoration_full_bare": "refs/heads/feature/verbose",
+    "describe": "v0.1.0-1-g2bd351d",
+    "describe_tags": "v0.1.0-1-g2bd351d",
+    "describe_abbrev8": "v0.1.0-1-g2bd351db",
+    "describe_match": "v0.1.0-1-g2bd351d",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 18 2023",
+    "ch": "Nov 17 2023",
+    "ref_name": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "mark": ">"
+   }
+  },
+  "f34a4a38ac4c84e376771e4888e6c2c09456cd82": {
+   "H": "f34a4a38ac4c84e376771e4888e6c2c09456cd82",
+   "P": [
+    "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "baa3e3a2293b2f4ebd06e39ee069768cf35e2a21",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700176400,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700176490,
+    "tz": "-0400"
+   },
+   "message": "docs: clarify padding semantics\n",
+   "abbrev": 7,
+   "h": "f34a4a3",
+   "t": "baa3e3a",
+   "p": [
+    "c9e77e7"
+   ],
+   "host": {
+    "decoration_short": " (tag: v0.1.0)",
+    "decoration_bare": "tag: v0.1.0",
+    "decoration_full_bare": "tag: refs/tags/v0.1.0",
+    "describe": "v0.1.0",
+    "describe_tags": "v0.1.0",
+    "describe_abbrev8": "v0.1.0",
+    "describe_match": "v0.1.0",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 17 2023",
+    "ch": "Nov 16 2023",
+    "ref_name": "f34a4a38ac4c84e376771e4888e6c2c09456cd82",
+    "mark": ">"
+   }
+  },
+  "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278": {
+   "H": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+   "P": [
+    "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "0781ff4c0054066ace611f8dd91f22fcb42ef40c",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700090000,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700090090,
+    "tz": "-0400"
+   },
+   "message": "feat(parser): support nested placeholder groups\n\nAdds a recursive descent path for %(...) forms so that option lists can\nthemselves contain commas inside quoted values.\n\nRefs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>\n",
+   "abbrev": 7,
+   "h": "c9e77e7",
+   "t": "0781ff4",
+   "p": [
+    "3b69fe8"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 16 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "mark": ">"
+   }
+  },
+  "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910": {
+   "H": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+   "P": [
+    "3f46e9d2ef645ac20f5414d7ac21baf287208220"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "f693609bca33f1ec39f2f2b0c0fe698f88aa6162",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700003600,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700003690,
+    "tz": "-0400"
+   },
+   "message": "fix typo\n",
+   "abbrev": 7,
+   "h": "3b69fe8",
+   "t": "f693609",
+   "p": [
+    "3f46e9d"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 14 2023",
+    "ref_name": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "mark": ">"
+   }
+  },
+  "3f46e9d2ef645ac20f5414d7ac21baf287208220": {
+   "H": "3f46e9d2ef645ac20f5414d7ac21baf287208220",
+   "P": [],
+   "encoding": "",
+   "signed": false,
+   "T": "2d2805be0106da973023879415a3ba82b35018ab",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700000000,
+    "tz": "+0100"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700000090,
+    "tz": "-0400"
+   },
+   "message": "init\n",
+   "abbrev": 7,
+   "h": "3f46e9d",
+   "t": "2d2805b",
+   "p": [],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 10 months ago",
+    "cr": "2 years, 10 months ago",
+    "ah": "Nov 14 2023",
+    "ch": "Nov 14 2023",
+    "ref_name": "3f46e9d2ef645ac20f5414d7ac21baf287208220",
+    "mark": ">"
+   }
+  }
+ }
+}

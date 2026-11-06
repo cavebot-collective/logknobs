@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 832 150" role="img"><title>logknobs</title>
+  <text x="52.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#e8eaed" text-anchor="middle" letter-spacing="0">l</text>
+  <g transform="translate(106.0,0)"><circle cx="50.00" cy="82.00" r="35.28" fill="none" stroke="#e8eaed" stroke-width="9.24"/>
+    <line x1="50.00" y1="82.00" x2="33.67" y2="98.33" stroke="#e8b04a" stroke-width="7.85" stroke-linecap="round"/>
+    <circle cx="50.00" cy="82.00" r="4.20" fill="#e8b04a"/></g>
+  <text x="260.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#e8eaed" text-anchor="middle" letter-spacing="0">g</text>
+  <text x="364.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#e8eaed" text-anchor="middle" letter-spacing="0">k</text>
+  <text x="468.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#e8eaed" text-anchor="middle" letter-spacing="0">n</text>
+  <g transform="translate(522.0,0)"><circle cx="50.00" cy="82.00" r="35.28" fill="none" stroke="#e8eaed" stroke-width="9.24"/>
+    <line x1="50.00" y1="82.00" x2="71.42" y2="73.35" stroke="#e8b04a" stroke-width="7.85" stroke-linecap="round"/>
+    <circle cx="50.00" cy="82.00" r="4.20" fill="#e8b04a"/></g>
+  <text x="676.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#e8eaed" text-anchor="middle" letter-spacing="0">b</text>
+  <text x="780.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#e8eaed" text-anchor="middle" letter-spacing="0">s</text>
+</svg>

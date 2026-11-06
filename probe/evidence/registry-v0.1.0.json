@@ -1,0 +1,2961 @@
+{
+ "schema": "gitlog-format-registry/1",
+ "git_version": "git version 2.43.0",
+ "config": {
+  "pad.width.min": 1,
+  "pad.width.max": 200,
+  "pad.width.default": 20,
+  "wrap.width.max": 500,
+  "wrap.indent.max": 64,
+  "abbrev.min": 4,
+  "abbrev.max": 40,
+  "describe.abbrev.max": 40,
+  "preview.commit.count": 4
+ },
+ "controls": {
+  "commit-hash": {
+   "label": "Commit hash",
+   "kind": "enum",
+   "setter": "setCommitHashForm(form: 'none'|'full'|'abbrev')",
+   "directives": [
+    "%H",
+    "%h"
+   ]
+  },
+  "tree-hash": {
+   "label": "Tree hash",
+   "kind": "enum",
+   "setter": "setTreeHashForm(form: 'none'|'full'|'abbrev')",
+   "directives": [
+    "%T",
+    "%t"
+   ]
+  },
+  "parent-hashes": {
+   "label": "Parent hashes",
+   "kind": "enum",
+   "setter": "setParentHashForm(form: 'none'|'full'|'abbrev')",
+   "directives": [
+    "%P",
+    "%p"
+   ]
+  },
+  "author-name": {
+   "label": "Author name",
+   "kind": "enum",
+   "setter": "setAuthorNameForm(form: 'none'|'raw'|'mailmap')",
+   "directives": [
+    "%aN",
+    "%an"
+   ]
+  },
+  "author-email": {
+   "label": "Author email",
+   "kind": "enum",
+   "setter": "setAuthorEmailForm(form: 'none'|'full'|'full-mailmap'|'local'|'local-mailmap')",
+   "directives": [
+    "%aE",
+    "%aL",
+    "%ae",
+    "%al"
+   ]
+  },
+  "author-date": {
+   "label": "Author date",
+   "kind": "enum",
+   "setter": "setAuthorDateForm(form: DateForm)",
+   "directives": [
+    "%aD",
+    "%aI",
+    "%ad",
+    "%ah",
+    "%ai",
+    "%ar",
+    "%as",
+    "%at"
+   ]
+  },
+  "committer-name": {
+   "label": "Committer name",
+   "kind": "enum",
+   "setter": "setCommitterNameForm(form: 'none'|'raw'|'mailmap')",
+   "directives": [
+    "%cN",
+    "%cn"
+   ]
+  },
+  "committer-email": {
+   "label": "Committer email",
+   "kind": "enum",
+   "setter": "setCommitterEmailForm(form: 'none'|'full'|'full-mailmap'|'local'|'local-mailmap')",
+   "directives": [
+    "%cE",
+    "%cL",
+    "%ce",
+    "%cl"
+   ]
+  },
+  "committer-date": {
+   "label": "Committer date",
+   "kind": "enum",
+   "setter": "setCommitterDateForm(form: DateForm)",
+   "directives": [
+    "%cD",
+    "%cI",
+    "%cd",
+    "%ch",
+    "%ci",
+    "%cr",
+    "%cs",
+    "%ct"
+   ]
+  },
+  "subject": {
+   "label": "Subject",
+   "kind": "enum",
+   "setter": "setSubjectForm(form: 'none'|'raw'|'sanitized')",
+   "directives": [
+    "%f",
+    "%s"
+   ]
+  },
+  "body": {
+   "label": "Body",
+   "kind": "enum",
+   "setter": "setBodyForm(form: 'none'|'body'|'raw')",
+   "directives": [
+    "%B",
+    "%b"
+   ]
+  },
+  "encoding": {
+   "label": "Encoding",
+   "kind": "enum",
+   "setter": "setEncodingIncluded(v: 'omit'|'include')",
+   "directives": [
+    "%e"
+   ]
+  },
+  "notes": {
+   "label": "Notes",
+   "kind": "enum",
+   "setter": "setNotesIncluded(v: 'omit'|'include')",
+   "directives": [
+    "%N"
+   ]
+  },
+  "decoration": {
+   "label": "Ref decoration",
+   "kind": "composite",
+   "setter": "setDecoration(cfg: DecorationConfig)",
+   "directives": [
+    "%(decorate)",
+    "%D",
+    "%d"
+   ]
+  },
+  "ref-name": {
+   "label": "Ref reached by",
+   "kind": "enum",
+   "setter": "setRefNameIncluded(v: 'omit'|'include')",
+   "directives": [
+    "%S"
+   ]
+  },
+  "describe": {
+   "label": "Describe",
+   "kind": "composite",
+   "setter": "setDescribe(cfg: DescribeConfig)",
+   "directives": [
+    "%(describe)"
+   ]
+  },
+  "trailers": {
+   "label": "Trailers",
+   "kind": "composite",
+   "setter": "setTrailers(cfg: TrailersConfig)",
+   "directives": [
+    "%(trailers)"
+   ]
+  },
+  "signature": {
+   "label": "Signature fields",
+   "kind": "multi",
+   "setter": "setSignatureFields(fields: SigField[])",
+   "directives": [
+    "%G?",
+    "%GF",
+    "%GG",
+    "%GK",
+    "%GP",
+    "%GS",
+    "%GT"
+   ]
+  },
+  "reflog": {
+   "label": "Reflog fields",
+   "kind": "multi",
+   "setter": "setReflogFields(fields: ReflogField[])",
+   "directives": [
+    "%gD",
+    "%gE",
+    "%gN",
+    "%gd",
+    "%ge",
+    "%gn",
+    "%gs"
+   ]
+  },
+  "mark": {
+   "label": "Left/right mark",
+   "kind": "enum",
+   "setter": "setMarkIncluded(v: 'omit'|'include')",
+   "directives": [
+    "%m"
+   ]
+  },
+  "escape": {
+   "label": "Literals and escapes",
+   "kind": "composite",
+   "setter": "setEscape(cfg: EscapeConfig)",
+   "directives": [
+    "%%",
+    "%n",
+    "%xNN"
+   ]
+  },
+  "color": {
+   "label": "Colour",
+   "kind": "composite",
+   "setter": "setColor(span: SpanRef, cfg: ColorConfig)",
+   "directives": [
+    "%C(<spec>)",
+    "%Cblue",
+    "%Cgreen",
+    "%Cred",
+    "%Creset"
+   ]
+  },
+  "padding": {
+   "label": "Padding",
+   "kind": "composite",
+   "setter": "setPadding(span: SpanRef, cfg: PadConfig)",
+   "directives": [
+    "%<(<n>)",
+    "%<|(<n>)",
+    "%>(<n>)",
+    "%><(<n>)",
+    "%><|(<n>)",
+    "%>>(<n>)",
+    "%>|(<n>)"
+   ]
+  },
+  "wrapping": {
+   "label": "Wrapping",
+   "kind": "composite",
+   "setter": "setWrapping(cfg: WrapConfig)",
+   "directives": [
+    "%w(<w>,<i1>,<i2>)"
+   ]
+  },
+  "spacing-modifier": {
+   "label": "Spacing modifier",
+   "kind": "enum",
+   "setter": "setSpacingModifier(span: SpanRef, m: 'none'|'newline'|'space'|'strip')",
+   "directives": [
+    "% <X>",
+    "%+<X>",
+    "%-<X>"
+   ]
+  }
+ },
+ "directives": [
+  {
+   "directive": "%H",
+   "control": "commit-hash",
+   "arity": "value",
+   "summary": "Full commit hash",
+   "detail": "The complete 40-character SHA-1 object name of the commit.",
+   "gotchas": [
+    "Unaffected by --abbrev; use %h for the shortened form."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%H"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910"
+    },
+    {
+     "case": "conventional",
+     "output": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278"
+    },
+    {
+     "case": "verbose",
+     "output": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%h",
+   "control": "commit-hash",
+   "arity": "value",
+   "summary": "Abbreviated commit hash",
+   "detail": "The commit hash shortened to the minimum unambiguous length.",
+   "gotchas": [
+    "Length is not fixed. It varies with repository size, the core.abbrev config value, and the --abbrev=<n> flag. The fixture pins core.abbrev=7 so golden vectors stay stable; a user's own repo will differ.",
+    "Because the length is environment-dependent, a template that aligns columns against %h will misalign on a different repository."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%h"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "3b69fe8"
+    },
+    {
+     "case": "conventional",
+     "output": "c9e77e7"
+    },
+    {
+     "case": "verbose",
+     "output": "2bd351d"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%T",
+   "control": "tree-hash",
+   "arity": "value",
+   "summary": "Full tree hash",
+   "detail": "SHA-1 of the tree object this commit points at.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%T"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "f693609bca33f1ec39f2f2b0c0fe698f88aa6162"
+    },
+    {
+     "case": "conventional",
+     "output": "0781ff4c0054066ace611f8dd91f22fcb42ef40c"
+    },
+    {
+     "case": "verbose",
+     "output": "89858489685d9285daa5f5885fd8730569510a35"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%t",
+   "control": "tree-hash",
+   "arity": "value",
+   "summary": "Abbreviated tree hash",
+   "detail": "Shortened tree object name.",
+   "gotchas": [
+    "Same length caveat as %h."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%t"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "f693609"
+    },
+    {
+     "case": "conventional",
+     "output": "0781ff4"
+    },
+    {
+     "case": "verbose",
+     "output": "8985848"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%P",
+   "control": "parent-hashes",
+   "arity": "value",
+   "summary": "Full parent hashes",
+   "detail": "Space-separated SHA-1s of every parent.",
+   "gotchas": [
+    "Empty for a root commit; two or more entries for a merge. A template assuming exactly one parent will render inconsistently across history."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%P"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "3f46e9d2ef645ac20f5414d7ac21baf287208220"
+    },
+    {
+     "case": "conventional",
+     "output": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910"
+    },
+    {
+     "case": "verbose",
+     "output": "f34a4a38ac4c84e376771e4888e6c2c09456cd82"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%p",
+   "control": "parent-hashes",
+   "arity": "value",
+   "summary": "Abbreviated parent hashes",
+   "detail": "Shortened parent object names, space separated.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%p"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "3f46e9d"
+    },
+    {
+     "case": "conventional",
+     "output": "3b69fe8"
+    },
+    {
+     "case": "verbose",
+     "output": "f34a4a3"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%an",
+   "control": "author-name",
+   "arity": "value",
+   "summary": "Author name",
+   "detail": "The author's name exactly as recorded in the commit object.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%an"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Ada Lovelace"
+    },
+    {
+     "case": "conventional",
+     "output": "Ada Lovelace"
+    },
+    {
+     "case": "verbose",
+     "output": "Ada Lovelace"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%aN",
+   "control": "author-name",
+   "arity": "value",
+   "summary": "Author name (mailmap)",
+   "detail": "The name after .mailmap substitution.",
+   "gotchas": [
+    "Resolves to the raw name when no .mailmap entry matches, so the two forms are indistinguishable in a repo without a mailmap."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%aN"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Ada Lovelace"
+    },
+    {
+     "case": "conventional",
+     "output": "Ada Lovelace"
+    },
+    {
+     "case": "verbose",
+     "output": "Ada Lovelace"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ae",
+   "control": "author-email",
+   "arity": "value",
+   "summary": "Author email",
+   "detail": "The author's full email address.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ae"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "ada@example.org"
+    },
+    {
+     "case": "conventional",
+     "output": "ada@example.org"
+    },
+    {
+     "case": "verbose",
+     "output": "ada@example.org"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%aE",
+   "control": "author-email",
+   "arity": "value",
+   "summary": "Author email (mailmap)",
+   "detail": "Full email after .mailmap substitution.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%aE"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "ada@example.org"
+    },
+    {
+     "case": "conventional",
+     "output": "ada@example.org"
+    },
+    {
+     "case": "verbose",
+     "output": "ada@example.org"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%al",
+   "control": "author-email",
+   "arity": "value",
+   "summary": "Author email local-part",
+   "detail": "The portion before the @.",
+   "gotchas": [
+    "Observed: ada@example.org renders as 'ada'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%al"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "ada"
+    },
+    {
+     "case": "conventional",
+     "output": "ada"
+    },
+    {
+     "case": "verbose",
+     "output": "ada"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%aL",
+   "control": "author-email",
+   "arity": "value",
+   "summary": "Author email local-part (mailmap)",
+   "detail": "Local-part after .mailmap substitution.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%aL"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "ada"
+    },
+    {
+     "case": "conventional",
+     "output": "ada"
+    },
+    {
+     "case": "verbose",
+     "output": "ada"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ad",
+   "control": "author-date",
+   "arity": "value",
+   "summary": "Author date",
+   "detail": "Date rendered in whatever format --date= selects.",
+   "gotchas": [
+    "This is the only date placeholder that honours --date=. The others below are fixed formats and ignore it entirely.",
+    "Because its output depends on a flag rather than the template, two identical templates can render differently. The configurator must surface --date= alongside this control, not in a separate panel."
+   ],
+   "params": {
+    "date_format": {
+     "kind": "enum",
+     "source": "date-format-registry",
+     "default": "default"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%ad"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Wed Nov 15 00:13:20 2023 +0100"
+    },
+    {
+     "case": "conventional",
+     "output": "Thu Nov 16 00:13:20 2023 +0100"
+    },
+    {
+     "case": "verbose",
+     "output": "Sat Nov 18 00:13:20 2023 +0100"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%aD",
+   "control": "author-date",
+   "arity": "value",
+   "summary": "Author date, RFC 2822",
+   "detail": "",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%aD"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Wed, 15 Nov 2023 00:13:20 +0100"
+    },
+    {
+     "case": "conventional",
+     "output": "Thu, 16 Nov 2023 00:13:20 +0100"
+    },
+    {
+     "case": "verbose",
+     "output": "Sat, 18 Nov 2023 00:13:20 +0100"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ar",
+   "control": "author-date",
+   "arity": "value",
+   "summary": "Author date, relative",
+   "detail": "Human phrasing such as '2 years ago'.",
+   "gotchas": [
+    "Output changes with wall-clock time, so it can never be pinned by a golden vector. Oracle A must exclude it or freeze the clock."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ar"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "2 years, 10 months ago"
+    },
+    {
+     "case": "conventional",
+     "output": "2 years, 10 months ago"
+    },
+    {
+     "case": "verbose",
+     "output": "2 years, 10 months ago"
+    }
+   ],
+   "clock_dependent": true,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%at",
+   "control": "author-date",
+   "arity": "value",
+   "summary": "Author date, UNIX timestamp",
+   "detail": "",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%at"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "1700003600"
+    },
+    {
+     "case": "conventional",
+     "output": "1700090000"
+    },
+    {
+     "case": "verbose",
+     "output": "1700262800"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ai",
+   "control": "author-date",
+   "arity": "value",
+   "summary": "Author date, ISO 8601-like",
+   "detail": "Space-separated, close to but not exactly ISO 8601.",
+   "gotchas": [
+    "Not strict ISO 8601 -- use the strict form if a machine parses it."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ai"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "2023-11-15 00:13:20 +0100"
+    },
+    {
+     "case": "conventional",
+     "output": "2023-11-16 00:13:20 +0100"
+    },
+    {
+     "case": "verbose",
+     "output": "2023-11-18 00:13:20 +0100"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%aI",
+   "control": "author-date",
+   "arity": "value",
+   "summary": "Author date, strict ISO 8601",
+   "detail": "",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%aI"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "2023-11-15T00:13:20+01:00"
+    },
+    {
+     "case": "conventional",
+     "output": "2023-11-16T00:13:20+01:00"
+    },
+    {
+     "case": "verbose",
+     "output": "2023-11-18T00:13:20+01:00"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%as",
+   "control": "author-date",
+   "arity": "value",
+   "summary": "Author date, short",
+   "detail": "YYYY-MM-DD.",
+   "gotchas": [
+    "Observed: '2023-11-16'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%as"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "2023-11-15"
+    },
+    {
+     "case": "conventional",
+     "output": "2023-11-16"
+    },
+    {
+     "case": "verbose",
+     "output": "2023-11-18"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ah",
+   "control": "author-date",
+   "arity": "value",
+   "summary": "Author date, human",
+   "detail": "Abbreviated, context-dependent phrasing.",
+   "gotchas": [
+    "Observed: 'Nov 16 2023'. Omits parts that are obvious relative to now, so its output is clock-dependent like %ar."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ah"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Nov 15 2023"
+    },
+    {
+     "case": "conventional",
+     "output": "Nov 16 2023"
+    },
+    {
+     "case": "verbose",
+     "output": "Nov 18 2023"
+    }
+   ],
+   "clock_dependent": true,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cn",
+   "control": "committer-name",
+   "arity": "value",
+   "summary": "Committer name",
+   "detail": "The committer's name exactly as recorded in the commit object.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cn"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Grace Hopper"
+    },
+    {
+     "case": "conventional",
+     "output": "Grace Hopper"
+    },
+    {
+     "case": "verbose",
+     "output": "Grace Hopper"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cN",
+   "control": "committer-name",
+   "arity": "value",
+   "summary": "Committer name (mailmap)",
+   "detail": "The name after .mailmap substitution.",
+   "gotchas": [
+    "Resolves to the raw name when no .mailmap entry matches, so the two forms are indistinguishable in a repo without a mailmap."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cN"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Grace Hopper"
+    },
+    {
+     "case": "conventional",
+     "output": "Grace Hopper"
+    },
+    {
+     "case": "verbose",
+     "output": "Grace Hopper"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ce",
+   "control": "committer-email",
+   "arity": "value",
+   "summary": "Committer email",
+   "detail": "The committer's full email address.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ce"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "grace@example.org"
+    },
+    {
+     "case": "conventional",
+     "output": "grace@example.org"
+    },
+    {
+     "case": "verbose",
+     "output": "grace@example.org"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cE",
+   "control": "committer-email",
+   "arity": "value",
+   "summary": "Committer email (mailmap)",
+   "detail": "Full email after .mailmap substitution.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cE"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "grace@example.org"
+    },
+    {
+     "case": "conventional",
+     "output": "grace@example.org"
+    },
+    {
+     "case": "verbose",
+     "output": "grace@example.org"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cl",
+   "control": "committer-email",
+   "arity": "value",
+   "summary": "Committer email local-part",
+   "detail": "The portion before the @.",
+   "gotchas": [
+    "Observed: ada@example.org renders as 'ada'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cl"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "grace"
+    },
+    {
+     "case": "conventional",
+     "output": "grace"
+    },
+    {
+     "case": "verbose",
+     "output": "grace"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cL",
+   "control": "committer-email",
+   "arity": "value",
+   "summary": "Committer email local-part (mailmap)",
+   "detail": "Local-part after .mailmap substitution.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cL"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "grace"
+    },
+    {
+     "case": "conventional",
+     "output": "grace"
+    },
+    {
+     "case": "verbose",
+     "output": "grace"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cd",
+   "control": "committer-date",
+   "arity": "value",
+   "summary": "Committer date",
+   "detail": "Date rendered in whatever format --date= selects.",
+   "gotchas": [
+    "This is the only date placeholder that honours --date=. The others below are fixed formats and ignore it entirely.",
+    "Because its output depends on a flag rather than the template, two identical templates can render differently. The configurator must surface --date= alongside this control, not in a separate panel."
+   ],
+   "params": {
+    "date_format": {
+     "kind": "enum",
+     "source": "date-format-registry",
+     "default": "default"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%cd"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Tue Nov 14 19:14:50 2023 -0400"
+    },
+    {
+     "case": "conventional",
+     "output": "Wed Nov 15 19:14:50 2023 -0400"
+    },
+    {
+     "case": "verbose",
+     "output": "Fri Nov 17 19:14:50 2023 -0400"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cD",
+   "control": "committer-date",
+   "arity": "value",
+   "summary": "Committer date, RFC 2822",
+   "detail": "",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cD"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Tue, 14 Nov 2023 19:14:50 -0400"
+    },
+    {
+     "case": "conventional",
+     "output": "Wed, 15 Nov 2023 19:14:50 -0400"
+    },
+    {
+     "case": "verbose",
+     "output": "Fri, 17 Nov 2023 19:14:50 -0400"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cr",
+   "control": "committer-date",
+   "arity": "value",
+   "summary": "Committer date, relative",
+   "detail": "Human phrasing such as '2 years ago'.",
+   "gotchas": [
+    "Output changes with wall-clock time, so it can never be pinned by a golden vector. Oracle A must exclude it or freeze the clock."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cr"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "2 years, 10 months ago"
+    },
+    {
+     "case": "conventional",
+     "output": "2 years, 10 months ago"
+    },
+    {
+     "case": "verbose",
+     "output": "2 years, 10 months ago"
+    }
+   ],
+   "clock_dependent": true,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ct",
+   "control": "committer-date",
+   "arity": "value",
+   "summary": "Committer date, UNIX timestamp",
+   "detail": "",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ct"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "1700003690"
+    },
+    {
+     "case": "conventional",
+     "output": "1700090090"
+    },
+    {
+     "case": "verbose",
+     "output": "1700262890"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ci",
+   "control": "committer-date",
+   "arity": "value",
+   "summary": "Committer date, ISO 8601-like",
+   "detail": "Space-separated, close to but not exactly ISO 8601.",
+   "gotchas": [
+    "Not strict ISO 8601 -- use the strict form if a machine parses it."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ci"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "2023-11-14 19:14:50 -0400"
+    },
+    {
+     "case": "conventional",
+     "output": "2023-11-15 19:14:50 -0400"
+    },
+    {
+     "case": "verbose",
+     "output": "2023-11-17 19:14:50 -0400"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cI",
+   "control": "committer-date",
+   "arity": "value",
+   "summary": "Committer date, strict ISO 8601",
+   "detail": "",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cI"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "2023-11-14T19:14:50-04:00"
+    },
+    {
+     "case": "conventional",
+     "output": "2023-11-15T19:14:50-04:00"
+    },
+    {
+     "case": "verbose",
+     "output": "2023-11-17T19:14:50-04:00"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%cs",
+   "control": "committer-date",
+   "arity": "value",
+   "summary": "Committer date, short",
+   "detail": "YYYY-MM-DD.",
+   "gotchas": [
+    "Observed: '2023-11-16'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%cs"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "2023-11-14"
+    },
+    {
+     "case": "conventional",
+     "output": "2023-11-15"
+    },
+    {
+     "case": "verbose",
+     "output": "2023-11-17"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ch",
+   "control": "committer-date",
+   "arity": "value",
+   "summary": "Committer date, human",
+   "detail": "Abbreviated, context-dependent phrasing.",
+   "gotchas": [
+    "Observed: 'Nov 16 2023'. Omits parts that are obvious relative to now, so its output is clock-dependent like %ar."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ch"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "Nov 14 2023"
+    },
+    {
+     "case": "conventional",
+     "output": "Nov 15 2023"
+    },
+    {
+     "case": "verbose",
+     "output": "Nov 17 2023"
+    }
+   ],
+   "clock_dependent": true,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%s",
+   "control": "subject",
+   "arity": "value",
+   "summary": "Subject line",
+   "detail": "The first line of the commit message.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%s"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "fix typo"
+    },
+    {
+     "case": "conventional",
+     "output": "feat(parser): support nested placeholder groups"
+    },
+    {
+     "case": "verbose",
+     "output": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%f",
+   "control": "subject",
+   "arity": "value",
+   "summary": "Sanitized subject",
+   "detail": "Subject reduced to a filename-safe slug.",
+   "gotchas": [
+    "Observed: 'feat(parser): support nested placeholder groups' becomes 'feat-parser-support-nested-placeholder-groups'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%f"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "fix-typo"
+    },
+    {
+     "case": "conventional",
+     "output": "feat-parser-support-nested-placeholder-groups"
+    },
+    {
+     "case": "verbose",
+     "output": "refactor-core-replace-the-ad-hoc-token-scanner-with-a-table-driven-lexer-that-preserves-byte-offsets-for-every-emitted-span"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%b",
+   "control": "body",
+   "arity": "value",
+   "summary": "Body",
+   "detail": "The message after the subject and its blank separator line.",
+   "gotchas": [
+    "Includes trailers. Use the trailers control to separate them.",
+    "Observed to end with a trailing newline."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%b"
+   ],
+   "examples": [
+    {
+     "case": "conventional",
+     "output": "Adds a recursive descent path for %(...) forms so that option lists can\nthemselves contain commas inside quoted values.\n\nRefs: #412\nSigned-off-by: Ada Lovelace "
+    },
+    {
+     "case": "verbose",
+     "output": "The previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat "
+    },
+    {
+     "case": "w(0,0,0)",
+     "output": "The previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat "
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%B",
+   "control": "body",
+   "arity": "value",
+   "summary": "Raw body",
+   "detail": "The entire message, subject included, unmodified.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%B"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "fix typo"
+    },
+    {
+     "case": "conventional",
+     "output": "feat(parser): support nested placeholder groups\n\nAdds a recursive descent path for %(...) forms so that option lists can\nthemselves contain commas inside quoted"
+    },
+    {
+     "case": "verbose",
+     "output": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span\n\nThe previous scanner conflated l"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%e",
+   "control": "encoding",
+   "arity": "value",
+   "summary": "Encoding",
+   "detail": "The commit's encoding header.",
+   "gotchas": [
+    "Empty whenever no explicit encoding header is present, which is the common case. Observed empty across the whole fixture."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%e"
+   ],
+   "examples": [
+    {
+     "case": "encoded",
+     "output": "ISO-8859-1"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%N",
+   "control": "notes",
+   "arity": "value",
+   "summary": "Commit notes",
+   "detail": "Notes attached to the commit.",
+   "gotchas": [
+    "Empty unless a note exists and notes are being shown. Interacts with --notes / --no-notes."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%N"
+   ],
+   "examples": [
+    {
+     "case": "encoded",
+     "output": "benchmarked: 3.1x faster on the 10k-commit corpus"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%d",
+   "control": "decoration",
+   "arity": "value",
+   "summary": "Ref names, parenthesised",
+   "detail": "Branch, tag and HEAD names, wrapped in parentheses with a leading space.",
+   "gotchas": [
+    "Renders empty on an undecorated commit -- including the leading space, so no stray whitespace is left behind."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%d"
+   ],
+   "examples": [
+    {
+     "case": "verbose",
+     "output": " (feature/verbose)"
+    },
+    {
+     "case": "tagged",
+     "output": " (tag: v0.1.0)"
+    },
+    {
+     "case": "encoded",
+     "output": " (HEAD -> main)"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%D",
+   "control": "decoration",
+   "arity": "value",
+   "summary": "Ref names, bare",
+   "detail": "The same names without the surrounding parentheses.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%D"
+   ],
+   "examples": [
+    {
+     "case": "verbose",
+     "output": "feature/verbose"
+    },
+    {
+     "case": "tagged",
+     "output": "tag: v0.1.0"
+    },
+    {
+     "case": "encoded",
+     "output": "HEAD -> main"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%(decorate)",
+   "control": "decoration",
+   "arity": "value",
+   "summary": "Ref names, configurable",
+   "detail": "Decoration with caller-supplied punctuation.",
+   "gotchas": [
+    "Every option is optional and order-independent."
+   ],
+   "params": {
+    "prefix": {
+     "kind": "text",
+     "default": " ("
+    },
+    "suffix": {
+     "kind": "text",
+     "default": ")"
+    },
+    "separator": {
+     "kind": "text",
+     "default": ", "
+    },
+    "pointer": {
+     "kind": "text",
+     "default": " -> "
+    },
+    "tag": {
+     "kind": "text",
+     "default": "tag: "
+    }
+   },
+   "alternates": [
+    "%(decorate:prefix=,suffix=,separator=,pointer=,tag=)"
+   ],
+   "instances": [
+    "%(decorate)",
+    "%(decorate:prefix=[,suffix=],separator=|,pointer=->,tag=#)"
+   ],
+   "examples": [
+    {
+     "case": "verbose",
+     "output": " (feature/verbose)"
+    },
+    {
+     "case": "tagged",
+     "output": " (tag: v0.1.0)"
+    },
+    {
+     "case": "encoded",
+     "output": " (HEAD -> main)"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%S",
+   "control": "ref-name",
+   "arity": "value",
+   "summary": "Ref name reached by",
+   "detail": "The ref named on the command line through which this commit was reached.",
+   "gotchas": [
+    "Observed to echo a raw object name verbatim when the commit was requested by OID rather than by ref, so it is only meaningful when the walk started from named refs."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%S"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910"
+    },
+    {
+     "case": "conventional",
+     "output": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278"
+    },
+    {
+     "case": "verbose",
+     "output": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%(describe)",
+   "control": "describe",
+   "arity": "value",
+   "summary": "git describe output",
+   "detail": "The describe string for this commit.",
+   "gotchas": [
+    "Empty when no matching tag is reachable from the commit. Reachability is backwards-looking: a tag on a later commit does not describe an earlier one. Observed empty on fixture commits preceding the v0.1.0 tag."
+   ],
+   "params": {
+    "tags": {
+     "kind": "enum",
+     "values": [
+      "annotated-only",
+      "tags"
+     ],
+     "default": "annotated-only"
+    },
+    "abbrev": {
+     "kind": "int",
+     "min": 0,
+     "max": 40,
+     "optional": true
+    },
+    "match": {
+     "kind": "text",
+     "optional": true,
+     "hint": "glob"
+    },
+    "exclude": {
+     "kind": "text",
+     "optional": true,
+     "hint": "glob"
+    }
+   },
+   "alternates": [
+    "%(describe:tags)",
+    "%(describe:abbrev=<n>)",
+    "%(describe:match=<glob>)",
+    "%(describe:exclude=<glob>)"
+   ],
+   "instances": [
+    "%(describe)",
+    "%(describe:abbrev=8)",
+    "%(describe:exclude=v0*)",
+    "%(describe:match=v*)",
+    "%(describe:tags)"
+   ],
+   "examples": [
+    {
+     "case": "verbose",
+     "output": "v0.1.0-1-g2bd351d"
+    },
+    {
+     "case": "tagged",
+     "output": "v0.1.0"
+    },
+    {
+     "case": "wide",
+     "output": "v0.1.0-1-g56c9c0b"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%(trailers)",
+   "control": "trailers",
+   "arity": "value",
+   "summary": "Message trailers",
+   "detail": "Trailer lines from the end of the commit message.",
+   "gotchas": [
+    "Default output ends with a trailing newline. Supplying separator= removes it -- observed, and a common source of an unexpected blank line.",
+    "key= filters and is repeatable; valueonly and keyonly are mutually exclusive in practice though git accepts both."
+   ],
+   "params": {
+    "key": {
+     "kind": "text",
+     "repeatable": true,
+     "optional": true
+    },
+    "only": {
+     "kind": "bool",
+     "default": false
+    },
+    "unfold": {
+     "kind": "bool",
+     "default": false
+    },
+    "keyonly": {
+     "kind": "bool",
+     "default": false
+    },
+    "valueonly": {
+     "kind": "bool",
+     "default": false
+    },
+    "separator": {
+     "kind": "text",
+     "optional": true,
+     "hint": "accepts %x-escapes, e.g. %x2C"
+    },
+    "key_value_separator": {
+     "kind": "text",
+     "optional": true
+    }
+   },
+   "alternates": [
+    "%(trailers:only)",
+    "%(trailers:unfold)",
+    "%(trailers:keyonly)",
+    "%(trailers:valueonly)",
+    "%(trailers:key=<k>)",
+    "%(trailers:separator=<s>)",
+    "%(trailers:key_value_separator=<s>)"
+   ],
+   "instances": [
+    "%(trailers)",
+    "%(trailers:key=Signed-off-by)",
+    "%(trailers:key=Signed-off-by,valueonly)",
+    "%(trailers:key_value_separator==)",
+    "%(trailers:keyonly)",
+    "%(trailers:only)",
+    "%(trailers:separator=%x2C)",
+    "%(trailers:unfold)",
+    "%(trailers:valueonly)"
+   ],
+   "examples": [
+    {
+     "case": "conventional",
+     "output": "Refs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>"
+    },
+    {
+     "case": "verbose",
+     "output": "Refs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>"
+    },
+    {
+     "case": "conventional",
+     "output": "Refs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%GG",
+   "control": "signature",
+   "arity": "value",
+   "summary": "Signature: raw verification message",
+   "detail": "Full raw output from the signature check.",
+   "gotchas": [
+    "Unsigned commits render N for %G? and empty for the rest -- the state observed across the entire fixture, since it has no signing key. This is a declared coverage gap (spec D-5), not verified behaviour."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%GG"
+   ],
+   "examples": [
+    {
+     "case": "signed",
+     "output": "gpg: Signature made Thu Sep 10 00:54:40 2026 UTC\ngpg:                using EDDSA key 69F216B2A4CCFE6EB2E6B1F91663D22DE8FDF114\ngpg: Good signature from \"Fixture "
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%G?",
+   "control": "signature",
+   "arity": "value",
+   "summary": "Signature: validity code",
+   "detail": "One letter: G good, B bad, U untrusted, X expired, Y expired key, R revoked, E cannot check, N unsigned.",
+   "gotchas": [
+    "Unsigned commits render N for %G? and empty for the rest -- the state observed across the entire fixture, since it has no signing key. This is a declared coverage gap (spec D-5), not verified behaviour."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%G?"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "N"
+    },
+    {
+     "case": "conventional",
+     "output": "N"
+    },
+    {
+     "case": "verbose",
+     "output": "N"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%GS",
+   "control": "signature",
+   "arity": "value",
+   "summary": "Signature: signer name",
+   "detail": "Name of the signer.",
+   "gotchas": [
+    "Unsigned commits render N for %G? and empty for the rest -- the state observed across the entire fixture, since it has no signing key. This is a declared coverage gap (spec D-5), not verified behaviour."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%GS"
+   ],
+   "examples": [
+    {
+     "case": "signed",
+     "output": "Fixture Signer <signer@example.org>"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%GK",
+   "control": "signature",
+   "arity": "value",
+   "summary": "Signature: signing key",
+   "detail": "Key used to sign.",
+   "gotchas": [
+    "Unsigned commits render N for %G? and empty for the rest -- the state observed across the entire fixture, since it has no signing key. This is a declared coverage gap (spec D-5), not verified behaviour."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%GK"
+   ],
+   "examples": [
+    {
+     "case": "signed",
+     "output": "1663D22DE8FDF114"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%GF",
+   "control": "signature",
+   "arity": "value",
+   "summary": "Signature: key fingerprint",
+   "detail": "Fingerprint of the signing key.",
+   "gotchas": [
+    "Unsigned commits render N for %G? and empty for the rest -- the state observed across the entire fixture, since it has no signing key. This is a declared coverage gap (spec D-5), not verified behaviour."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%GF"
+   ],
+   "examples": [
+    {
+     "case": "signed",
+     "output": "69F216B2A4CCFE6EB2E6B1F91663D22DE8FDF114"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%GP",
+   "control": "signature",
+   "arity": "value",
+   "summary": "Signature: primary key fingerprint",
+   "detail": "Fingerprint of the signer's primary key.",
+   "gotchas": [
+    "Unsigned commits render N for %G? and empty for the rest -- the state observed across the entire fixture, since it has no signing key. This is a declared coverage gap (spec D-5), not verified behaviour."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%GP"
+   ],
+   "examples": [
+    {
+     "case": "signed",
+     "output": "69F216B2A4CCFE6EB2E6B1F91663D22DE8FDF114"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%GT",
+   "control": "signature",
+   "arity": "value",
+   "summary": "Signature: trust level",
+   "detail": "Trust level of the signing key.",
+   "gotchas": [
+    "Unsigned commits render N for %G? and empty for the rest -- the state observed across the entire fixture, since it has no signing key. This is a declared coverage gap (spec D-5), not verified behaviour."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%GT"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "undefined"
+    },
+    {
+     "case": "conventional",
+     "output": "undefined"
+    },
+    {
+     "case": "verbose",
+     "output": "undefined"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%gD",
+   "control": "reflog",
+   "arity": "value",
+   "summary": "Reflog: full reflog selector",
+   "detail": "Reflog information for the entry being walked.",
+   "gotchas": [
+    "Meaningless without --walk-reflogs / -g. The configurator must enable that flag when any reflog control is active, or the whole family renders empty and the user cannot tell why.",
+    "Observed under -g: %gd renders 'HEAD@{0}'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%gD"
+   ],
+   "examples": [
+    {
+     "case": "%gD",
+     "output": "HEAD@{0}"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%gd",
+   "control": "reflog",
+   "arity": "value",
+   "summary": "Reflog: short reflog selector",
+   "detail": "Reflog information for the entry being walked.",
+   "gotchas": [
+    "Meaningless without --walk-reflogs / -g. The configurator must enable that flag when any reflog control is active, or the whole family renders empty and the user cannot tell why.",
+    "Observed under -g: %gd renders 'HEAD@{0}'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%gd"
+   ],
+   "examples": [
+    {
+     "case": "%gd",
+     "output": "HEAD@{0}"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%gn",
+   "control": "reflog",
+   "arity": "value",
+   "summary": "Reflog: reflog identity name",
+   "detail": "Reflog information for the entry being walked.",
+   "gotchas": [
+    "Meaningless without --walk-reflogs / -g. The configurator must enable that flag when any reflog control is active, or the whole family renders empty and the user cannot tell why.",
+    "Observed under -g: %gd renders 'HEAD@{0}'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%gn"
+   ],
+   "examples": [
+    {
+     "case": "%gn",
+     "output": "Ada Lovelace"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%gN",
+   "control": "reflog",
+   "arity": "value",
+   "summary": "Reflog: reflog identity name (mailmap)",
+   "detail": "Reflog information for the entry being walked.",
+   "gotchas": [
+    "Meaningless without --walk-reflogs / -g. The configurator must enable that flag when any reflog control is active, or the whole family renders empty and the user cannot tell why.",
+    "Observed under -g: %gd renders 'HEAD@{0}'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%gN"
+   ],
+   "examples": [
+    {
+     "case": "%gN",
+     "output": "Ada Lovelace"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%ge",
+   "control": "reflog",
+   "arity": "value",
+   "summary": "Reflog: reflog identity email",
+   "detail": "Reflog information for the entry being walked.",
+   "gotchas": [
+    "Meaningless without --walk-reflogs / -g. The configurator must enable that flag when any reflog control is active, or the whole family renders empty and the user cannot tell why.",
+    "Observed under -g: %gd renders 'HEAD@{0}'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%ge"
+   ],
+   "examples": [
+    {
+     "case": "%ge",
+     "output": "ada@example.org"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%gE",
+   "control": "reflog",
+   "arity": "value",
+   "summary": "Reflog: reflog identity email (mailmap)",
+   "detail": "Reflog information for the entry being walked.",
+   "gotchas": [
+    "Meaningless without --walk-reflogs / -g. The configurator must enable that flag when any reflog control is active, or the whole family renders empty and the user cannot tell why.",
+    "Observed under -g: %gd renders 'HEAD@{0}'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%gE"
+   ],
+   "examples": [
+    {
+     "case": "%gE",
+     "output": "ada@example.org"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%gs",
+   "control": "reflog",
+   "arity": "value",
+   "summary": "Reflog: reflog subject",
+   "detail": "Reflog information for the entry being walked.",
+   "gotchas": [
+    "Meaningless without --walk-reflogs / -g. The configurator must enable that flag when any reflog control is active, or the whole family renders empty and the user cannot tell why.",
+    "Observed under -g: %gd renders 'HEAD@{0}'."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%gs"
+   ],
+   "examples": [
+    {
+     "case": "%gs",
+     "output": "checkout: moving from signed-overlay to main"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%m",
+   "control": "mark",
+   "arity": "value",
+   "summary": "Left/right/boundary mark",
+   "detail": "A single character marking which side of a range the commit came from.",
+   "gotchas": [
+    "Observed to render '>' even without --left-right, so its presence does not imply a range walk is active."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%m"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": ">"
+    },
+    {
+     "case": "conventional",
+     "output": ">"
+    },
+    {
+     "case": "verbose",
+     "output": ">"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%n",
+   "control": "escape",
+   "arity": "value",
+   "summary": "Newline",
+   "detail": "Emits a line feed.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%n"
+   ],
+   "examples": [],
+   "clock_dependent": false,
+   "evidence_gap": "expands to a line feed, which the example extractor strips"
+  },
+  {
+   "directive": "%%",
+   "control": "escape",
+   "arity": "value",
+   "summary": "Literal percent",
+   "detail": "Emits one % character.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%%"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "%"
+    },
+    {
+     "case": "conventional",
+     "output": "%"
+    },
+    {
+     "case": "verbose",
+     "output": "%"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%xNN",
+   "control": "escape",
+   "arity": "value",
+   "summary": "Literal byte from hex",
+   "detail": "Emits the single byte given by two hex digits.",
+   "gotchas": [
+    "Operates on bytes, not characters. %x41 is 'A'; multi-byte characters require one escape per byte and an invalid partial sequence is emitted verbatim."
+   ],
+   "params": {
+    "hex": {
+     "kind": "text",
+     "pattern": "^[0-9a-fA-F]{2}$"
+    }
+   },
+   "alternates": [
+    "%x41",
+    "%x0a"
+   ],
+   "instances": [
+    "%x0a",
+    "%x41"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "A"
+    },
+    {
+     "case": "conventional",
+     "output": "A"
+    },
+    {
+     "case": "verbose",
+     "output": "A"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%Cred",
+   "control": "color",
+   "arity": "operator",
+   "summary": "Colour: red (shorthand)",
+   "detail": "Switches subsequent output to red.",
+   "gotchas": [
+    "Emits nothing at all unless colour is enabled. Under the non-TTY default (--color=never) this is silently a no-op -- verified: %Cred produced empty output, while --color=always produced ESC[31m."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%Cred"
+   ],
+   "examples": [
+    {
+     "case": "%Cred/always",
+     "output": "\u001b[31mc9e77e7\u001b[m|"
+    },
+    {
+     "case": "%Cred/never",
+     "output": "c9e77e7|"
+    },
+    {
+     "case": "%Cred/auto",
+     "output": "c9e77e7|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%Cgreen",
+   "control": "color",
+   "arity": "operator",
+   "summary": "Colour: green (shorthand)",
+   "detail": "Switches subsequent output to green.",
+   "gotchas": [
+    "Emits nothing at all unless colour is enabled. Under the non-TTY default (--color=never) this is silently a no-op -- verified: %Cred produced empty output, while --color=always produced ESC[31m."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%Cgreen"
+   ],
+   "examples": [
+    {
+     "case": "%Cgreen/always",
+     "output": "\u001b[32mc9e77e7\u001b[m|"
+    },
+    {
+     "case": "%Cgreen/never",
+     "output": "c9e77e7|"
+    },
+    {
+     "case": "%Cgreen/auto",
+     "output": "c9e77e7|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%Cblue",
+   "control": "color",
+   "arity": "operator",
+   "summary": "Colour: blue (shorthand)",
+   "detail": "Switches subsequent output to blue.",
+   "gotchas": [
+    "Emits nothing at all unless colour is enabled. Under the non-TTY default (--color=never) this is silently a no-op -- verified: %Cred produced empty output, while --color=always produced ESC[31m."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%Cblue"
+   ],
+   "examples": [
+    {
+     "case": "%Cblue/always",
+     "output": "\u001b[34mc9e77e7\u001b[m|"
+    },
+    {
+     "case": "%Cblue/never",
+     "output": "c9e77e7|"
+    },
+    {
+     "case": "%Cblue/auto",
+     "output": "c9e77e7|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%Creset",
+   "control": "color",
+   "arity": "operator",
+   "summary": "Colour: reset",
+   "detail": "Returns to default rendering.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%Creset"
+   ],
+   "examples": [
+    {
+     "case": "%Cred/always",
+     "output": "\u001b[31mc9e77e7\u001b[m|"
+    },
+    {
+     "case": "%Cred/never",
+     "output": "c9e77e7|"
+    },
+    {
+     "case": "%Cred/auto",
+     "output": "c9e77e7|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": "emits a reset sequence only; no visible glyph to sample"
+  },
+  {
+   "directive": "%C(<spec>)",
+   "control": "color",
+   "arity": "operator",
+   "summary": "Colour: full specification",
+   "detail": "Colour and attributes for subsequent output.",
+   "gotchas": [
+    "Accepts named colours, 256-colour indices (%C(226)), 24-bit hex (%C(#ff8800)), and space-separated attributes (%C(bold ul italic)).",
+    "The leading auto/always token is a mode, not an attribute: auto defers to the --color setting, always forces emission regardless.",
+    "%C(auto) alone was observed to emit the default attribute for whatever placeholder follows, not a no-op."
+   ],
+   "params": {
+    "mode": {
+     "kind": "enum",
+     "values": [
+      "auto",
+      "always"
+     ],
+     "default": "auto",
+     "note": "enumeration by convention; never a boolean"
+    },
+    "color": {
+     "kind": "color",
+     "optional": true,
+     "accepts": [
+      "named",
+      "index-0-255",
+      "hex-rrggbb",
+      "normal"
+     ]
+    },
+    "attributes": {
+     "kind": "multi",
+     "optional": true,
+     "values": [
+      "bold",
+      "dim",
+      "ul",
+      "blink",
+      "reverse",
+      "italic",
+      "strike"
+     ]
+    }
+   },
+   "alternates": [
+    "%C(bold)",
+    "%C(auto,blue)",
+    "%C(always,red)",
+    "%C(226)",
+    "%C(#ff8800)",
+    "%C(bold ul italic)",
+    "%C(reverse)",
+    "%C(dim)",
+    "%C(strike)",
+    "%C(blink)",
+    "%C(normal)",
+    "%C(brightred)"
+   ],
+   "instances": [
+    "%C(#ff8800)",
+    "%C(226)",
+    "%C(always,red)",
+    "%C(auto)",
+    "%C(auto,blue)",
+    "%C(blink)",
+    "%C(bold ul italic)",
+    "%C(bold)",
+    "%C(dim)",
+    "%C(normal)",
+    "%C(reverse)",
+    "%C(strike)"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "\u001b[31m"
+    },
+    {
+     "case": "conventional",
+     "output": "\u001b[31m"
+    },
+    {
+     "case": "verbose",
+     "output": "\u001b[31m"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%<(<n>)",
+   "control": "padding",
+   "arity": "operator",
+   "summary": "Pad: left-align",
+   "detail": "Pads on the right so the next value occupies n columns.",
+   "gotchas": [
+    "Padding counts terminal display columns, not bytes and not characters. SGR escape sequences contribute zero columns -- verified: a pad of 20 over a coloured 8-character subject produced exactly 12 spaces.",
+    "Without a truncation option, padding never shortens: an over-long value is emitted in full and the column budget is simply exceeded.",
+    "Truncation is character-aligned and can OVERSHOOT the requested width on wide glyphs. Verified across N=1..40: a 14-column request on a CJK subject yields 15 columns, and 16 yields 17. git never splits a UTF-8 sequence. No simple rule is stated here because none was found; the behaviour is pinned by golden vectors instead (spec F-6).",
+    "Minimum output is the ellipsis itself -- N of 1 or 2 both render '..'."
+   ],
+   "params": {
+    "width": {
+     "kind": "int",
+     "min": 1,
+     "max": 200,
+     "default": 20
+    },
+    "truncate": {
+     "kind": "enum",
+     "values": [
+      "none",
+      "trunc",
+      "ltrunc",
+      "mtrunc"
+     ],
+     "default": "none",
+     "note": "enumeration by convention; 'none' is a member, not an absence"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%<(20)",
+    "%<(20,ltrunc)",
+    "%<(20,mtrunc)",
+    "%<(20,trunc)"
+   ],
+   "examples": [
+    {
+     "case": "left/terse/N1",
+     "output": "fix typo|"
+    },
+    {
+     "case": "left/terse/N2",
+     "output": "fix typo|"
+    },
+    {
+     "case": "left/terse/N3",
+     "output": "fix typo|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%>(<n>)",
+   "control": "padding",
+   "arity": "operator",
+   "summary": "Pad: right-align",
+   "detail": "Pads on the left.",
+   "gotchas": [
+    "Padding counts terminal display columns, not bytes and not characters. SGR escape sequences contribute zero columns -- verified: a pad of 20 over a coloured 8-character subject produced exactly 12 spaces.",
+    "Without a truncation option, padding never shortens: an over-long value is emitted in full and the column budget is simply exceeded.",
+    "Truncation is character-aligned and can OVERSHOOT the requested width on wide glyphs. Verified across N=1..40: a 14-column request on a CJK subject yields 15 columns, and 16 yields 17. git never splits a UTF-8 sequence. No simple rule is stated here because none was found; the behaviour is pinned by golden vectors instead (spec F-6).",
+    "Minimum output is the ellipsis itself -- N of 1 or 2 both render '..'."
+   ],
+   "params": {
+    "width": {
+     "kind": "int",
+     "min": 1,
+     "max": 200,
+     "default": 20
+    },
+    "truncate": {
+     "kind": "enum",
+     "values": [
+      "none",
+      "trunc",
+      "ltrunc",
+      "mtrunc"
+     ],
+     "default": "none",
+     "note": "enumeration by convention; 'none' is a member, not an absence"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%>(20)"
+   ],
+   "examples": [
+    {
+     "case": "right/terse/N1",
+     "output": "fix typo|"
+    },
+    {
+     "case": "right/terse/N2",
+     "output": "fix typo|"
+    },
+    {
+     "case": "right/terse/N3",
+     "output": "fix typo|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%>>(<n>)",
+   "control": "padding",
+   "arity": "operator",
+   "summary": "Pad: right-align, steal",
+   "detail": "Pads on the left, consuming adjacent spaces.",
+   "gotchas": [
+    "Padding counts terminal display columns, not bytes and not characters. SGR escape sequences contribute zero columns -- verified: a pad of 20 over a coloured 8-character subject produced exactly 12 spaces.",
+    "Without a truncation option, padding never shortens: an over-long value is emitted in full and the column budget is simply exceeded.",
+    "Truncation is character-aligned and can OVERSHOOT the requested width on wide glyphs. Verified across N=1..40: a 14-column request on a CJK subject yields 15 columns, and 16 yields 17. git never splits a UTF-8 sequence. No simple rule is stated here because none was found; the behaviour is pinned by golden vectors instead (spec F-6).",
+    "Minimum output is the ellipsis itself -- N of 1 or 2 both render '..'."
+   ],
+   "params": {
+    "width": {
+     "kind": "int",
+     "min": 1,
+     "max": 200,
+     "default": 20
+    },
+    "truncate": {
+     "kind": "enum",
+     "values": [
+      "none",
+      "trunc",
+      "ltrunc",
+      "mtrunc"
+     ],
+     "default": "none",
+     "note": "enumeration by convention; 'none' is a member, not an absence"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%>>(20)"
+   ],
+   "examples": [
+    {
+     "case": "steal/terse/N1",
+     "output": "fix typo|"
+    },
+    {
+     "case": "steal/terse/N2",
+     "output": "fix typo|"
+    },
+    {
+     "case": "steal/terse/N3",
+     "output": "fix typo|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%><(<n>)",
+   "control": "padding",
+   "arity": "operator",
+   "summary": "Pad: centre",
+   "detail": "Pads on both sides.",
+   "gotchas": [
+    "Padding counts terminal display columns, not bytes and not characters. SGR escape sequences contribute zero columns -- verified: a pad of 20 over a coloured 8-character subject produced exactly 12 spaces.",
+    "Without a truncation option, padding never shortens: an over-long value is emitted in full and the column budget is simply exceeded.",
+    "Truncation is character-aligned and can OVERSHOOT the requested width on wide glyphs. Verified across N=1..40: a 14-column request on a CJK subject yields 15 columns, and 16 yields 17. git never splits a UTF-8 sequence. No simple rule is stated here because none was found; the behaviour is pinned by golden vectors instead (spec F-6).",
+    "Minimum output is the ellipsis itself -- N of 1 or 2 both render '..'."
+   ],
+   "params": {
+    "width": {
+     "kind": "int",
+     "min": 1,
+     "max": 200,
+     "default": 20
+    },
+    "truncate": {
+     "kind": "enum",
+     "values": [
+      "none",
+      "trunc",
+      "ltrunc",
+      "mtrunc"
+     ],
+     "default": "none",
+     "note": "enumeration by convention; 'none' is a member, not an absence"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%><(20)"
+   ],
+   "examples": [
+    {
+     "case": "centre/terse/N1",
+     "output": "fix typo|"
+    },
+    {
+     "case": "centre/terse/N2",
+     "output": "fix typo|"
+    },
+    {
+     "case": "centre/terse/N3",
+     "output": "fix typo|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%<|(<n>)",
+   "control": "padding",
+   "arity": "operator",
+   "summary": "Pad: left-align to column",
+   "detail": "Pads until the output reaches absolute column n.",
+   "gotchas": [
+    "Padding counts terminal display columns, not bytes and not characters. SGR escape sequences contribute zero columns -- verified: a pad of 20 over a coloured 8-character subject produced exactly 12 spaces.",
+    "Without a truncation option, padding never shortens: an over-long value is emitted in full and the column budget is simply exceeded.",
+    "Truncation is character-aligned and can OVERSHOOT the requested width on wide glyphs. Verified across N=1..40: a 14-column request on a CJK subject yields 15 columns, and 16 yields 17. git never splits a UTF-8 sequence. No simple rule is stated here because none was found; the behaviour is pinned by golden vectors instead (spec F-6).",
+    "Minimum output is the ellipsis itself -- N of 1 or 2 both render '..'.",
+    "Column-relative: the result depends on everything rendered earlier on the line, so this directive is not independently previewable."
+   ],
+   "params": {
+    "width": {
+     "kind": "int",
+     "min": 1,
+     "max": 200,
+     "default": 20
+    },
+    "truncate": {
+     "kind": "enum",
+     "values": [
+      "none",
+      "trunc",
+      "ltrunc",
+      "mtrunc"
+     ],
+     "default": "none",
+     "note": "enumeration by convention; 'none' is a member, not an absence"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%<|(40)"
+   ],
+   "examples": [
+    {
+     "case": "col-left/pre=empty/N10",
+     "output": "c9e77e7   |"
+    },
+    {
+     "case": "col-left/pre=empty/N20",
+     "output": "c9e77e7             |"
+    },
+    {
+     "case": "col-left/pre=empty/N40",
+     "output": "c9e77e7                                 |"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%>|(<n>)",
+   "control": "padding",
+   "arity": "operator",
+   "summary": "Pad: right-align to column",
+   "detail": "Right-aligns against absolute column n.",
+   "gotchas": [
+    "Padding counts terminal display columns, not bytes and not characters. SGR escape sequences contribute zero columns -- verified: a pad of 20 over a coloured 8-character subject produced exactly 12 spaces.",
+    "Without a truncation option, padding never shortens: an over-long value is emitted in full and the column budget is simply exceeded.",
+    "Truncation is character-aligned and can OVERSHOOT the requested width on wide glyphs. Verified across N=1..40: a 14-column request on a CJK subject yields 15 columns, and 16 yields 17. git never splits a UTF-8 sequence. No simple rule is stated here because none was found; the behaviour is pinned by golden vectors instead (spec F-6).",
+    "Minimum output is the ellipsis itself -- N of 1 or 2 both render '..'.",
+    "Column-relative: the result depends on everything rendered earlier on the line, so this directive is not independently previewable."
+   ],
+   "params": {
+    "width": {
+     "kind": "int",
+     "min": 1,
+     "max": 200,
+     "default": 20
+    },
+    "truncate": {
+     "kind": "enum",
+     "values": [
+      "none",
+      "trunc",
+      "ltrunc",
+      "mtrunc"
+     ],
+     "default": "none",
+     "note": "enumeration by convention; 'none' is a member, not an absence"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%>|(40)"
+   ],
+   "examples": [
+    {
+     "case": "col-right/pre=empty/N10",
+     "output": "   c9e77e7|"
+    },
+    {
+     "case": "col-right/pre=empty/N20",
+     "output": "             c9e77e7|"
+    },
+    {
+     "case": "col-right/pre=empty/N40",
+     "output": "                                 c9e77e7|"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%><|(<n>)",
+   "control": "padding",
+   "arity": "operator",
+   "summary": "Pad: centre to column",
+   "detail": "Centres against absolute column n.",
+   "gotchas": [
+    "Padding counts terminal display columns, not bytes and not characters. SGR escape sequences contribute zero columns -- verified: a pad of 20 over a coloured 8-character subject produced exactly 12 spaces.",
+    "Without a truncation option, padding never shortens: an over-long value is emitted in full and the column budget is simply exceeded.",
+    "Truncation is character-aligned and can OVERSHOOT the requested width on wide glyphs. Verified across N=1..40: a 14-column request on a CJK subject yields 15 columns, and 16 yields 17. git never splits a UTF-8 sequence. No simple rule is stated here because none was found; the behaviour is pinned by golden vectors instead (spec F-6).",
+    "Minimum output is the ellipsis itself -- N of 1 or 2 both render '..'.",
+    "Column-relative: the result depends on everything rendered earlier on the line, so this directive is not independently previewable."
+   ],
+   "params": {
+    "width": {
+     "kind": "int",
+     "min": 1,
+     "max": 200,
+     "default": 20
+    },
+    "truncate": {
+     "kind": "enum",
+     "values": [
+      "none",
+      "trunc",
+      "ltrunc",
+      "mtrunc"
+     ],
+     "default": "none",
+     "note": "enumeration by convention; 'none' is a member, not an absence"
+    }
+   },
+   "alternates": [],
+   "instances": [
+    "%><|(40)"
+   ],
+   "examples": [
+    {
+     "case": "col-centre/pre=empty/N10",
+     "output": " c9e77e7  |"
+    },
+    {
+     "case": "col-centre/pre=empty/N20",
+     "output": "      c9e77e7       |"
+    },
+    {
+     "case": "col-centre/pre=empty/N40",
+     "output": "                c9e77e7                 |"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%w(<w>,<i1>,<i2>)",
+   "control": "wrapping",
+   "arity": "operator",
+   "summary": "Line wrapping",
+   "detail": "Re-wraps subsequent output to width w, indenting the first line of each paragraph by i1 and continuation lines by i2.",
+   "gotchas": [
+    "Width 0 disables wrapping.",
+    "Re-flows paragraphs, which destroys the line structure of trailers -- verified: 'Refs: #500, #501' and 'Reviewed-by: ...' were merged onto one line. Wrap the body and render trailers separately if that matters.",
+    "Trailing spaces before a wrap point were observed to survive into the output, so wrapped text is not whitespace-clean."
+   ],
+   "params": {
+    "width": {
+     "kind": "int",
+     "min": 0,
+     "max": 500,
+     "default": 0
+    },
+    "indent1": {
+     "kind": "int",
+     "min": 0,
+     "max": 64,
+     "default": 0
+    },
+    "indent2": {
+     "kind": "int",
+     "min": 0,
+     "max": 64,
+     "default": 0
+    }
+   },
+   "alternates": [
+    "%w(60)",
+    "%w(60,2,4)",
+    "%w(0,0,0)"
+   ],
+   "instances": [
+    "%w(0,0,0)",
+    "%w(60)",
+    "%w(60,2,4)"
+   ],
+   "examples": [
+    {
+     "case": "w(0,0,0)",
+     "output": "The previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat "
+    },
+    {
+     "case": "w(0,0,4)",
+     "output": "The previous scanner conflated lexing and evaluation, which made it impossible\n    to attribute an output byte range back to the placeholder that produced it.\n "
+    },
+    {
+     "case": "w(0,0,8)",
+     "output": "The previous scanner conflated lexing and evaluation, which made it impossible\n        to attribute an output byte range back to the placeholder that produced i"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%+<X>",
+   "control": "spacing-modifier",
+   "arity": "modifier",
+   "summary": "Prefix newline if non-empty",
+   "detail": "Inserts a line feed before the placeholder, but only when it expands to something.",
+   "gotchas": [
+    "The point is empty-value suppression: a plain %n would leave a blank line on commits with no body. Verified: %+s emitted a leading newline."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%+b",
+    "%+s"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": "\nfix typo"
+    },
+    {
+     "case": "conventional",
+     "output": "\nfeat(parser): support nested placeholder groups"
+    },
+    {
+     "case": "verbose",
+     "output": "\nrefactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "%-<X>",
+   "control": "spacing-modifier",
+   "arity": "modifier",
+   "summary": "Strip preceding blank lines if empty",
+   "detail": "Deletes preceding line feeds when the placeholder expands to nothing.",
+   "gotchas": [],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "%-b"
+   ],
+   "examples": [
+    {
+     "case": "conventional",
+     "output": "Adds a recursive descent path for %(...) forms so that option lists can\nthemselves contain commas inside quoted values.\n\nRefs: #412\nSigned-off-by: Ada Lovelace "
+    },
+    {
+     "case": "verbose",
+     "output": "The previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat "
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  },
+  {
+   "directive": "% <X>",
+   "control": "spacing-modifier",
+   "arity": "modifier",
+   "summary": "Prefix space if non-empty",
+   "detail": "Inserts one space before a non-empty expansion.",
+   "gotchas": [
+    "Verified: '% s' produced a leading space."
+   ],
+   "params": {},
+   "alternates": [],
+   "instances": [
+    "% s"
+   ],
+   "examples": [
+    {
+     "case": "terse",
+     "output": " fix typo"
+    },
+    {
+     "case": "conventional",
+     "output": " feat(parser): support nested placeholder groups"
+    },
+    {
+     "case": "verbose",
+     "output": " refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span"
+    }
+   ],
+   "clock_dependent": false,
+   "evidence_gap": null
+  }
+ ],
+ "gates": {
+  "T1_instance_mapping": "PASS",
+  "T8_propagation_tests": "PENDING — activates when UI exists"
+ }
+}

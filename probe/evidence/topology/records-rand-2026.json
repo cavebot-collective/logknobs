@@ -1,0 +1,2201 @@
+{
+ "repo": "/home/claude/rand/rand-2026",
+ "core_abbrev": 7,
+ "head": "6e0f7d5538321ccbdd439f564e6ad0b73427d4f2",
+ "refs": [
+  {
+   "name": "refs/heads/b0",
+   "oid": "6e0f7d5538321ccbdd439f564e6ad0b73427d4f2"
+  },
+  {
+   "name": "refs/heads/b1",
+   "oid": "c16cc2320b3e5d74a5598ed0b59de155f0d151f1"
+  },
+  {
+   "name": "refs/heads/b2",
+   "oid": "a5de18c07d858a9233ddac33754e904fd4b263c3"
+  },
+  {
+   "name": "refs/heads/b3",
+   "oid": "6ec16a4dd2279efb9c9b285017fc107b8f7ad978"
+  },
+  {
+   "name": "refs/heads/b4",
+   "oid": "1b760c3da9b97958ef650eb0ef98406ad9f8d291"
+  },
+  {
+   "name": "refs/heads/b5",
+   "oid": "5212f2532c99eecfeecdf029544c0506be087018"
+  },
+  {
+   "name": "refs/heads/b6",
+   "oid": "98acbcff01fb6b7efcef656895adf4069eace188"
+  },
+  {
+   "name": "refs/heads/b7",
+   "oid": "cd3c500743bf756ff1cf667ca26df47592134f83"
+  },
+  {
+   "name": "refs/heads/b8",
+   "oid": "8e93fe7678a5125c3d00b2d399e8e456286b97eb"
+  },
+  {
+   "name": "refs/heads/orphan",
+   "oid": "7aa8aa23d7c1ea8a5921d780c8d0ca07fc597b3d"
+  }
+ ],
+ "host_supplied_fields": [
+  "decoration_short",
+  "decoration_full",
+  "describe",
+  "notes",
+  "sig_status",
+  "sig_signer",
+  "sig_key",
+  "sig_fingerprint",
+  "sig_primary_fingerprint",
+  "sig_trust",
+  "sig_raw",
+  "date_relative_author",
+  "date_relative_committer",
+  "date_human_author",
+  "date_human_committer",
+  "ref_name"
+ ],
+ "records": {
+  "7aa8aa23d7c1ea8a5921d780c8d0ca07fc597b3d": {
+   "H": "7aa8aa23d7c1ea8a5921d780c8d0ca07fc597b3d",
+   "P": [],
+   "encoding": "",
+   "signed": false,
+   "T": "6b61ebb7e5b25b07df0e96ecfe308d1ea061c932",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710007443,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710007860,
+    "tz": "+0000"
+   },
+   "message": "orphan root\n",
+   "abbrev": 7,
+   "h": "7aa8aa2",
+   "t": "6b61ebb",
+   "p": [],
+   "host": {
+    "decoration_short": " (orphan)",
+    "decoration_bare": "orphan",
+    "decoration_full_bare": "refs/heads/orphan",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "7aa8aa23d7c1ea8a5921d780c8d0ca07fc597b3d",
+    "mark": ">"
+   }
+  },
+  "8e93fe7678a5125c3d00b2d399e8e456286b97eb": {
+   "H": "8e93fe7678a5125c3d00b2d399e8e456286b97eb",
+   "P": [
+    "c16cc2320b3e5d74a5598ed0b59de155f0d151f1"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "9548de60e6b0a13baf2a2a256bc5f0a8543864be",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710007401,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710007620,
+    "tz": "+0000"
+   },
+   "message": "start b8\n",
+   "abbrev": 7,
+   "h": "8e93fe7",
+   "t": "9548de6",
+   "p": [
+    "c16cc23"
+   ],
+   "host": {
+    "decoration_short": " (b8)",
+    "decoration_bare": "b8",
+    "decoration_full_bare": "refs/heads/b8",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "8e93fe7678a5125c3d00b2d399e8e456286b97eb",
+    "mark": ">"
+   }
+  },
+  "cd3c500743bf756ff1cf667ca26df47592134f83": {
+   "H": "cd3c500743bf756ff1cf667ca26df47592134f83",
+   "P": [
+    "c16cc2320b3e5d74a5598ed0b59de155f0d151f1"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "d58ddb7229f2f093a42ec10e37d1ef04692c704f",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006842,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710007320,
+    "tz": "+0000"
+   },
+   "message": "start b7\n",
+   "abbrev": 7,
+   "h": "cd3c500",
+   "t": "d58ddb7",
+   "p": [
+    "c16cc23"
+   ],
+   "host": {
+    "decoration_short": " (b7)",
+    "decoration_bare": "b7",
+    "decoration_full_bare": "refs/heads/b7",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "cd3c500743bf756ff1cf667ca26df47592134f83",
+    "mark": ">"
+   }
+  },
+  "98acbcff01fb6b7efcef656895adf4069eace188": {
+   "H": "98acbcff01fb6b7efcef656895adf4069eace188",
+   "P": [
+    "e2e26208c5bebf5c578b9bd8887fc41d3158f934"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "acd1a8b3e168225f5b6e06475fbf474803e081e2",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006768,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710007080,
+    "tz": "+0000"
+   },
+   "message": "work on b6 #36\n",
+   "abbrev": 7,
+   "h": "98acbcf",
+   "t": "acd1a8b",
+   "p": [
+    "e2e2620"
+   ],
+   "host": {
+    "decoration_short": " (b6)",
+    "decoration_bare": "b6",
+    "decoration_full_bare": "refs/heads/b6",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "98acbcff01fb6b7efcef656895adf4069eace188",
+    "mark": ">"
+   }
+  },
+  "e2e26208c5bebf5c578b9bd8887fc41d3158f934": {
+   "H": "e2e26208c5bebf5c578b9bd8887fc41d3158f934",
+   "P": [
+    "af0d44e865b892258500a43db1ce5ccb9ee79dbc"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "60a7253efde3348f5d80f44df31fe9e727ace886",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006465,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006900,
+    "tz": "+0000"
+   },
+   "message": "start b6\n",
+   "abbrev": 7,
+   "h": "e2e2620",
+   "t": "60a7253",
+   "p": [
+    "af0d44e"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "e2e26208c5bebf5c578b9bd8887fc41d3158f934",
+    "mark": ">"
+   }
+  },
+  "5212f2532c99eecfeecdf029544c0506be087018": {
+   "H": "5212f2532c99eecfeecdf029544c0506be087018",
+   "P": [
+    "d178c88947e42006b813e896b0c8a46591cda5e7"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "4e8890d309432cc5229bad01940387a64947df08",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006058,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006600,
+    "tz": "+0000"
+   },
+   "message": "work on b5 #34\n",
+   "abbrev": 7,
+   "h": "5212f25",
+   "t": "4e8890d",
+   "p": [
+    "d178c88"
+   ],
+   "host": {
+    "decoration_short": " (b5)",
+    "decoration_bare": "b5",
+    "decoration_full_bare": "refs/heads/b5",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "5212f2532c99eecfeecdf029544c0506be087018",
+    "mark": ">"
+   }
+  },
+  "d178c88947e42006b813e896b0c8a46591cda5e7": {
+   "H": "d178c88947e42006b813e896b0c8a46591cda5e7",
+   "P": [
+    "c16cc2320b3e5d74a5598ed0b59de155f0d151f1"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "cc0a1afc3e4e0a4efeddad4ed2673627b0d316ed",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006227,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006420,
+    "tz": "+0000"
+   },
+   "message": "start b5\n",
+   "abbrev": 7,
+   "h": "d178c88",
+   "t": "cc0a1af",
+   "p": [
+    "c16cc23"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "d178c88947e42006b813e896b0c8a46591cda5e7",
+    "mark": ">"
+   }
+  },
+  "6e0f7d5538321ccbdd439f564e6ad0b73427d4f2": {
+   "H": "6e0f7d5538321ccbdd439f564e6ad0b73427d4f2",
+   "P": [
+    "fa8e4380ac56da935388afb9097a35bb07458a81"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "16ce3bc3fd8a9a98679ce2aae5f2fd19cdf36c80",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006146,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006180,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #32\n",
+   "abbrev": 7,
+   "h": "6e0f7d5",
+   "t": "16ce3bc",
+   "p": [
+    "fa8e438"
+   ],
+   "host": {
+    "decoration_short": " (HEAD -> b0)",
+    "decoration_bare": "HEAD -> b0",
+    "decoration_full_bare": "HEAD -> refs/heads/b0",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "6e0f7d5538321ccbdd439f564e6ad0b73427d4f2",
+    "mark": ">"
+   }
+  },
+  "c16cc2320b3e5d74a5598ed0b59de155f0d151f1": {
+   "H": "c16cc2320b3e5d74a5598ed0b59de155f0d151f1",
+   "P": [
+    "0f50ee370f7cceb3516817519b297f28cc786682"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "156716ee5f9d107859fd7f97ec1cabe800a579af",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005531,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710006000,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #31\n",
+   "abbrev": 7,
+   "h": "c16cc23",
+   "t": "156716e",
+   "p": [
+    "0f50ee3"
+   ],
+   "host": {
+    "decoration_short": " (b1)",
+    "decoration_bare": "b1",
+    "decoration_full_bare": "refs/heads/b1",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "c16cc2320b3e5d74a5598ed0b59de155f0d151f1",
+    "mark": ">"
+   }
+  },
+  "6ec16a4dd2279efb9c9b285017fc107b8f7ad978": {
+   "H": "6ec16a4dd2279efb9c9b285017fc107b8f7ad978",
+   "P": [
+    "af0d44e865b892258500a43db1ce5ccb9ee79dbc"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "1ddc81a2be45c0fabc5f2afb0fa8f6c9be6741e4",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005663,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005820,
+    "tz": "+0000"
+   },
+   "message": "work on b3 #30\n",
+   "abbrev": 7,
+   "h": "6ec16a4",
+   "t": "1ddc81a",
+   "p": [
+    "af0d44e"
+   ],
+   "host": {
+    "decoration_short": " (b3)",
+    "decoration_bare": "b3",
+    "decoration_full_bare": "refs/heads/b3",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "6ec16a4dd2279efb9c9b285017fc107b8f7ad978",
+    "mark": ">"
+   }
+  },
+  "1b760c3da9b97958ef650eb0ef98406ad9f8d291": {
+   "H": "1b760c3da9b97958ef650eb0ef98406ad9f8d291",
+   "P": [
+    "af0d44e865b892258500a43db1ce5ccb9ee79dbc"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "af48d881d54f7157058cd1986e714dcd43c88088",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005516,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005640,
+    "tz": "+0000"
+   },
+   "message": "start b4\n",
+   "abbrev": 7,
+   "h": "1b760c3",
+   "t": "af48d88",
+   "p": [
+    "af0d44e"
+   ],
+   "host": {
+    "decoration_short": " (b4)",
+    "decoration_bare": "b4",
+    "decoration_full_bare": "refs/heads/b4",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "1b760c3da9b97958ef650eb0ef98406ad9f8d291",
+    "mark": ">"
+   }
+  },
+  "fa8e4380ac56da935388afb9097a35bb07458a81": {
+   "H": "fa8e4380ac56da935388afb9097a35bb07458a81",
+   "P": [
+    "a42c9314228378c83d02015cd4bb14494176e67e",
+    "a5de18c07d858a9233ddac33754e904fd4b263c3"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "9a6f422dcfc926e2eb9e205665e1ba4316c443f8",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005374,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005400,
+    "tz": "+0000"
+   },
+   "message": "merge b2 into b0\n",
+   "abbrev": 7,
+   "h": "fa8e438",
+   "t": "9a6f422",
+   "p": [
+    "a42c931",
+    "a5de18c"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "fa8e4380ac56da935388afb9097a35bb07458a81",
+    "mark": ">"
+   }
+  },
+  "0f50ee370f7cceb3516817519b297f28cc786682": {
+   "H": "0f50ee370f7cceb3516817519b297f28cc786682",
+   "P": [
+    "7f5a3bd3ad85b69da64fc2e59907c5764a46ad18"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "f3dd9f5ea9f389ca3d383c2bf730b2317953c33c",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005172,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005280,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #27\n",
+   "abbrev": 7,
+   "h": "0f50ee3",
+   "t": "f3dd9f5",
+   "p": [
+    "7f5a3bd"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "0f50ee370f7cceb3516817519b297f28cc786682",
+    "mark": ">"
+   }
+  },
+  "a5de18c07d858a9233ddac33754e904fd4b263c3": {
+   "H": "a5de18c07d858a9233ddac33754e904fd4b263c3",
+   "P": [
+    "0ddcbb1bf8a11094bfa473859864257d6b6abdc0"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "0c20f36ff96325683dd19076845206ae1a710b15",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004701,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710005100,
+    "tz": "+0000"
+   },
+   "message": "work on b2 #26\n",
+   "abbrev": 7,
+   "h": "a5de18c",
+   "t": "0c20f36",
+   "p": [
+    "0ddcbb1"
+   ],
+   "host": {
+    "decoration_short": " (b2)",
+    "decoration_bare": "b2",
+    "decoration_full_bare": "refs/heads/b2",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "a5de18c07d858a9233ddac33754e904fd4b263c3",
+    "mark": ">"
+   }
+  },
+  "0ddcbb1bf8a11094bfa473859864257d6b6abdc0": {
+   "H": "0ddcbb1bf8a11094bfa473859864257d6b6abdc0",
+   "P": [
+    "48669ffc3e4204513cc6ea65bcaa5530d6cfc4bc"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "cb3e3ca3020134a4d20d0c0859789cf88fd650f6",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004757,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004920,
+    "tz": "+0000"
+   },
+   "message": "work on b2 #25\n",
+   "abbrev": 7,
+   "h": "0ddcbb1",
+   "t": "cb3e3ca",
+   "p": [
+    "48669ff"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "0ddcbb1bf8a11094bfa473859864257d6b6abdc0",
+    "mark": ">"
+   }
+  },
+  "af0d44e865b892258500a43db1ce5ccb9ee79dbc": {
+   "H": "af0d44e865b892258500a43db1ce5ccb9ee79dbc",
+   "P": [
+    "73049c79c790c7a878182b9969a725a4f8bb3054",
+    "48669ffc3e4204513cc6ea65bcaa5530d6cfc4bc"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "1bfc7daed85f7a8716ba6e84cfdb619f9b940227",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004606,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004740,
+    "tz": "+0000"
+   },
+   "message": "merge b2+b0+b1 into b3\n",
+   "abbrev": 7,
+   "h": "af0d44e",
+   "t": "1bfc7da",
+   "p": [
+    "73049c7",
+    "48669ff"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "af0d44e865b892258500a43db1ce5ccb9ee79dbc",
+    "mark": ">"
+   }
+  },
+  "73049c79c790c7a878182b9969a725a4f8bb3054": {
+   "H": "73049c79c790c7a878182b9969a725a4f8bb3054",
+   "P": [
+    "a42c9314228378c83d02015cd4bb14494176e67e"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "444127cdfada238ea73b5103f416f4def903beaa",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004615,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004620,
+    "tz": "+0000"
+   },
+   "message": "start b3\n",
+   "abbrev": 7,
+   "h": "73049c7",
+   "t": "444127c",
+   "p": [
+    "a42c931"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "73049c79c790c7a878182b9969a725a4f8bb3054",
+    "mark": ">"
+   }
+  },
+  "48669ffc3e4204513cc6ea65bcaa5530d6cfc4bc": {
+   "H": "48669ffc3e4204513cc6ea65bcaa5530d6cfc4bc",
+   "P": [
+    "7f5a3bd3ad85b69da64fc2e59907c5764a46ad18"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "9663e2d86c5caf68dee436f237d2c8d3f2de0909",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004127,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004380,
+    "tz": "+0000"
+   },
+   "message": "start b2\n",
+   "abbrev": 7,
+   "h": "48669ff",
+   "t": "9663e2d",
+   "p": [
+    "7f5a3bd"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "48669ffc3e4204513cc6ea65bcaa5530d6cfc4bc",
+    "mark": ">"
+   }
+  },
+  "7f5a3bd3ad85b69da64fc2e59907c5764a46ad18": {
+   "H": "7f5a3bd3ad85b69da64fc2e59907c5764a46ad18",
+   "P": [
+    "a9ed500be4568a68ae872cd3255770b113031133"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "bf7b39358e290b2f53d15d6ba0468f6ef0186a62",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004126,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710004140,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #21\n",
+   "abbrev": 7,
+   "h": "7f5a3bd",
+   "t": "bf7b393",
+   "p": [
+    "a9ed500"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "7f5a3bd3ad85b69da64fc2e59907c5764a46ad18",
+    "mark": ">"
+   }
+  },
+  "a9ed500be4568a68ae872cd3255770b113031133": {
+   "H": "a9ed500be4568a68ae872cd3255770b113031133",
+   "P": [
+    "dbbd069ba19a5ab657da22cc041de1e33e0e8653"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "644d8991cece2b015380987b7b5c7f9d00748dbe",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003761,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003960,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #20\n",
+   "abbrev": 7,
+   "h": "a9ed500",
+   "t": "644d899",
+   "p": [
+    "dbbd069"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "a9ed500be4568a68ae872cd3255770b113031133",
+    "mark": ">"
+   }
+  },
+  "a42c9314228378c83d02015cd4bb14494176e67e": {
+   "H": "a42c9314228378c83d02015cd4bb14494176e67e",
+   "P": [
+    "a46707ca2abfc236ac7b91f79617634e5f9d6965"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "ae91d746d267a3346fdd6c5ac73542c5a60d258e",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003715,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003780,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #19\n",
+   "abbrev": 7,
+   "h": "a42c931",
+   "t": "ae91d74",
+   "p": [
+    "a46707c"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "a42c9314228378c83d02015cd4bb14494176e67e",
+    "mark": ">"
+   }
+  },
+  "a46707ca2abfc236ac7b91f79617634e5f9d6965": {
+   "H": "a46707ca2abfc236ac7b91f79617634e5f9d6965",
+   "P": [
+    "12e7c195f7d6dadbca2362a0c7a5d2fffc58d5ca"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "96ee6f2b9bf797fcd9719f0b5b132b76b0f02d76",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003335,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003600,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #18\n",
+   "abbrev": 7,
+   "h": "a46707c",
+   "t": "96ee6f2",
+   "p": [
+    "12e7c19"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "a46707ca2abfc236ac7b91f79617634e5f9d6965",
+    "mark": ">"
+   }
+  },
+  "12e7c195f7d6dadbca2362a0c7a5d2fffc58d5ca": {
+   "H": "12e7c195f7d6dadbca2362a0c7a5d2fffc58d5ca",
+   "P": [
+    "0ac7e317cac1d2c6c176c834dd35bae72e1ea3c1"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "c3e1252aa81bf0a14fc7ec041300f3ecaa90fa70",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002952,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003420,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #17\n",
+   "abbrev": 7,
+   "h": "12e7c19",
+   "t": "c3e1252",
+   "p": [
+    "0ac7e31"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "12e7c195f7d6dadbca2362a0c7a5d2fffc58d5ca",
+    "mark": ">"
+   }
+  },
+  "dbbd069ba19a5ab657da22cc041de1e33e0e8653": {
+   "H": "dbbd069ba19a5ab657da22cc041de1e33e0e8653",
+   "P": [
+    "a7776612d16e49675b6e4e99430d1413244781d4"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "59d9c33dac2c62152b3bb56544237d9615f053c9",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002796,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003240,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #16\n",
+   "abbrev": 7,
+   "h": "dbbd069",
+   "t": "59d9c33",
+   "p": [
+    "a777661"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "dbbd069ba19a5ab657da22cc041de1e33e0e8653",
+    "mark": ">"
+   }
+  },
+  "a7776612d16e49675b6e4e99430d1413244781d4": {
+   "H": "a7776612d16e49675b6e4e99430d1413244781d4",
+   "P": [
+    "a802ac7fef1b789ba5e959ebd3a4196c8d717f45"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "88a2cc6736ddc15727495b3ccfe88216efd99366",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002794,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710003060,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #15\n",
+   "abbrev": 7,
+   "h": "a777661",
+   "t": "88a2cc6",
+   "p": [
+    "a802ac7"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "a7776612d16e49675b6e4e99430d1413244781d4",
+    "mark": ">"
+   }
+  },
+  "a802ac7fef1b789ba5e959ebd3a4196c8d717f45": {
+   "H": "a802ac7fef1b789ba5e959ebd3a4196c8d717f45",
+   "P": [
+    "eaed186960ff0a17bb24a404e5b4d78cb82316e1",
+    "0ac7e317cac1d2c6c176c834dd35bae72e1ea3c1"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "a9bbd79de708d72aed7cb29da3027a50d3740b23",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002411,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002880,
+    "tz": "+0000"
+   },
+   "message": "merge b0 into b1\n",
+   "abbrev": 7,
+   "h": "a802ac7",
+   "t": "a9bbd79",
+   "p": [
+    "eaed186",
+    "0ac7e31"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "a802ac7fef1b789ba5e959ebd3a4196c8d717f45",
+    "mark": ">"
+   }
+  },
+  "eaed186960ff0a17bb24a404e5b4d78cb82316e1": {
+   "H": "eaed186960ff0a17bb24a404e5b4d78cb82316e1",
+   "P": [
+    "313f7544e62746f12b11f3c1946190f77018529d"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "718c58d710b5736102c8a475d488a7838be8db81",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002553,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002760,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #13\n",
+   "abbrev": 7,
+   "h": "eaed186",
+   "t": "718c58d",
+   "p": [
+    "313f754"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "eaed186960ff0a17bb24a404e5b4d78cb82316e1",
+    "mark": ">"
+   }
+  },
+  "313f7544e62746f12b11f3c1946190f77018529d": {
+   "H": "313f7544e62746f12b11f3c1946190f77018529d",
+   "P": [
+    "738d4c6b2cfd37b5d77831988457ac8155e4f172"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "1520ea0ea03c9adb9b00a29d427b7751219f65bb",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002265,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002580,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #12\n",
+   "abbrev": 7,
+   "h": "313f754",
+   "t": "1520ea0",
+   "p": [
+    "738d4c6"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "313f7544e62746f12b11f3c1946190f77018529d",
+    "mark": ">"
+   }
+  },
+  "0ac7e317cac1d2c6c176c834dd35bae72e1ea3c1": {
+   "H": "0ac7e317cac1d2c6c176c834dd35bae72e1ea3c1",
+   "P": [
+    "c812335f1a98f62f834716754ccc61d0e949119c"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "edc3d7662830c8d03fb80828e3a1e796dfe01179",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001920,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002400,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #11\n",
+   "abbrev": 7,
+   "h": "0ac7e31",
+   "t": "edc3d76",
+   "p": [
+    "c812335"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "0ac7e317cac1d2c6c176c834dd35bae72e1ea3c1",
+    "mark": ">"
+   }
+  },
+  "c812335f1a98f62f834716754ccc61d0e949119c": {
+   "H": "c812335f1a98f62f834716754ccc61d0e949119c",
+   "P": [
+    "0632a8c9c894750a4e5e59541b3c11e93cfc0fbe"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "f5cfef975ac8076d49d077c8a3cea736bcc2b1b4",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002075,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002220,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #10\n",
+   "abbrev": 7,
+   "h": "c812335",
+   "t": "f5cfef9",
+   "p": [
+    "0632a8c"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "c812335f1a98f62f834716754ccc61d0e949119c",
+    "mark": ">"
+   }
+  },
+  "0632a8c9c894750a4e5e59541b3c11e93cfc0fbe": {
+   "H": "0632a8c9c894750a4e5e59541b3c11e93cfc0fbe",
+   "P": [
+    "7eb8bd56ea0d77bcd20e8db59f885d344a044826"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "95eca1bc6fd6de22a4955d2bbd9cb87c7855d4a0",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001505,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710002040,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #9\n",
+   "abbrev": 7,
+   "h": "0632a8c",
+   "t": "95eca1b",
+   "p": [
+    "7eb8bd5"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "0632a8c9c894750a4e5e59541b3c11e93cfc0fbe",
+    "mark": ">"
+   }
+  },
+  "738d4c6b2cfd37b5d77831988457ac8155e4f172": {
+   "H": "738d4c6b2cfd37b5d77831988457ac8155e4f172",
+   "P": [
+    "25a08dc74fbc85a3753192a5861179a1fd0efd48",
+    "7eb8bd56ea0d77bcd20e8db59f885d344a044826"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "ddb69d88d74519c1dbfc078cbc13993c33bc3a2f",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001330,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001860,
+    "tz": "+0000"
+   },
+   "message": "merge b0 into b1\n",
+   "abbrev": 7,
+   "h": "738d4c6",
+   "t": "ddb69d8",
+   "p": [
+    "25a08dc",
+    "7eb8bd5"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "738d4c6b2cfd37b5d77831988457ac8155e4f172",
+    "mark": ">"
+   }
+  },
+  "7eb8bd56ea0d77bcd20e8db59f885d344a044826": {
+   "H": "7eb8bd56ea0d77bcd20e8db59f885d344a044826",
+   "P": [
+    "99dd521c2519af5e3937af7fad8abd272a146829"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "32238592d0ecd739c2fdb7972f47da1523e6e6c3",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001238,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001740,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #7\n",
+   "abbrev": 7,
+   "h": "7eb8bd5",
+   "t": "3223859",
+   "p": [
+    "99dd521"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "7eb8bd56ea0d77bcd20e8db59f885d344a044826",
+    "mark": ">"
+   }
+  },
+  "99dd521c2519af5e3937af7fad8abd272a146829": {
+   "H": "99dd521c2519af5e3937af7fad8abd272a146829",
+   "P": [
+    "dcc792e4d2097363ff5b2393e78329245affbcfd"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "80772fba57b5bfa85ca77a2a48d3f9c9cc198f2d",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710000993,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001560,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #6\n",
+   "abbrev": 7,
+   "h": "99dd521",
+   "t": "80772fb",
+   "p": [
+    "dcc792e"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "99dd521c2519af5e3937af7fad8abd272a146829",
+    "mark": ">"
+   }
+  },
+  "25a08dc74fbc85a3753192a5861179a1fd0efd48": {
+   "H": "25a08dc74fbc85a3753192a5861179a1fd0efd48",
+   "P": [
+    "072ea54ed3dca1132eadb9335e48a9bf2d363f4c"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "e8381ff747cd46f31096eae307800520d226155b",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001008,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001380,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #5\n",
+   "abbrev": 7,
+   "h": "25a08dc",
+   "t": "e8381ff",
+   "p": [
+    "072ea54"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "25a08dc74fbc85a3753192a5861179a1fd0efd48",
+    "mark": ">"
+   }
+  },
+  "072ea54ed3dca1132eadb9335e48a9bf2d363f4c": {
+   "H": "072ea54ed3dca1132eadb9335e48a9bf2d363f4c",
+   "P": [
+    "03cf3be3763a517a78781b60f7a6881b5713e8df"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "fe23b5fcf494961338fabf1623a819d07aa46a70",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001056,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001200,
+    "tz": "+0000"
+   },
+   "message": "work on b1 #4\n",
+   "abbrev": 7,
+   "h": "072ea54",
+   "t": "fe23b5f",
+   "p": [
+    "03cf3be"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "072ea54ed3dca1132eadb9335e48a9bf2d363f4c",
+    "mark": ">"
+   }
+  },
+  "03cf3be3763a517a78781b60f7a6881b5713e8df": {
+   "H": "03cf3be3763a517a78781b60f7a6881b5713e8df",
+   "P": [
+    "f4e5637767b44d7388dcd3e4881b7589631ceeeb",
+    "dcc792e4d2097363ff5b2393e78329245affbcfd"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "d9535bc379cf486221007199d8ec92b0b94d4434",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710000929,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710001020,
+    "tz": "+0000"
+   },
+   "message": "merge b0 into b1\n",
+   "abbrev": 7,
+   "h": "03cf3be",
+   "t": "d9535bc",
+   "p": [
+    "f4e5637",
+    "dcc792e"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "03cf3be3763a517a78781b60f7a6881b5713e8df",
+    "mark": ">"
+   }
+  },
+  "f4e5637767b44d7388dcd3e4881b7589631ceeeb": {
+   "H": "f4e5637767b44d7388dcd3e4881b7589631ceeeb",
+   "P": [
+    "532abc7f41bd2165060a3a18f35d128766523f6f"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "e14edc373604154983d91338414c34153930bafb",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710000494,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710000900,
+    "tz": "+0000"
+   },
+   "message": "start b1\n",
+   "abbrev": 7,
+   "h": "f4e5637",
+   "t": "e14edc3",
+   "p": [
+    "532abc7"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "f4e5637767b44d7388dcd3e4881b7589631ceeeb",
+    "mark": ">"
+   }
+  },
+  "dcc792e4d2097363ff5b2393e78329245affbcfd": {
+   "H": "dcc792e4d2097363ff5b2393e78329245affbcfd",
+   "P": [
+    "532abc7f41bd2165060a3a18f35d128766523f6f"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "ba5468281247e39c28fa481bbc6e4af828ebd602",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710000518,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710000600,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #1\n",
+   "abbrev": 7,
+   "h": "dcc792e",
+   "t": "ba54682",
+   "p": [
+    "532abc7"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "dcc792e4d2097363ff5b2393e78329245affbcfd",
+    "mark": ">"
+   }
+  },
+  "532abc7f41bd2165060a3a18f35d128766523f6f": {
+   "H": "532abc7f41bd2165060a3a18f35d128766523f6f",
+   "P": [
+    "159c943409aed90fbbdd9bc3f62e9967cd8b6ffd"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "8dae55e13a41d027b46c2789ef3010aba7c56695",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1709999918,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710000420,
+    "tz": "+0000"
+   },
+   "message": "work on b0 #0\n",
+   "abbrev": 7,
+   "h": "532abc7",
+   "t": "8dae55e",
+   "p": [
+    "159c943"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "532abc7f41bd2165060a3a18f35d128766523f6f",
+    "mark": ">"
+   }
+  },
+  "159c943409aed90fbbdd9bc3f62e9967cd8b6ffd": {
+   "H": "159c943409aed90fbbdd9bc3f62e9967cd8b6ffd",
+   "P": [],
+   "encoding": "",
+   "signed": false,
+   "T": "50b7b5fed24306191e67f3e2e754fab4978633da",
+   "author": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1709999716,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "R",
+    "email": "r@x",
+    "ts": 1710000240,
+    "tz": "+0000"
+   },
+   "message": "root\n",
+   "abbrev": 7,
+   "h": "159c943",
+   "t": "50b7b5f",
+   "p": [],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "2 years, 8 months ago",
+    "cr": "2 years, 8 months ago",
+    "ah": "Mar 9 2024",
+    "ch": "Mar 9 2024",
+    "ref_name": "159c943409aed90fbbdd9bc3f62e9967cd8b6ffd",
+    "mark": ">"
+   }
+  }
+ }
+}

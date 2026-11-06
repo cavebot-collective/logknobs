@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 832 150" role="img"><title>logknobs</title>
+  <text x="52.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#000" text-anchor="middle" letter-spacing="0">l</text>
+  <g transform="translate(106.0,0)"><circle cx="50.00" cy="82.00" r="35.28" fill="none" stroke="#000" stroke-width="9.24"/>
+    <line x1="16.44" y1="115.56" x2="12.28" y2="119.72" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="2.54" y1="82.00" x2="-3.34" y2="82.00" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="16.44" y1="48.44" x2="12.28" y2="44.28" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="50.00" y1="34.54" x2="50.00" y2="28.66" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="83.56" y1="48.44" x2="87.72" y2="44.28" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="97.46" y1="82.00" x2="103.34" y2="82.00" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="83.56" y1="115.56" x2="87.72" y2="119.72" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="50.00" y1="82.00" x2="33.67" y2="98.33" stroke="#000" stroke-width="7.85" stroke-linecap="round"/>
+    <circle cx="50.00" cy="82.00" r="4.20" fill="#000"/></g>
+  <text x="260.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#000" text-anchor="middle" letter-spacing="0">g</text>
+  <text x="364.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#000" text-anchor="middle" letter-spacing="0">k</text>
+  <text x="468.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#000" text-anchor="middle" letter-spacing="0">n</text>
+  <g transform="translate(522.0,0)"><circle cx="50.00" cy="82.00" r="35.28" fill="none" stroke="#000" stroke-width="9.24"/>
+    <line x1="16.44" y1="115.56" x2="12.28" y2="119.72" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="2.54" y1="82.00" x2="-3.34" y2="82.00" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="16.44" y1="48.44" x2="12.28" y2="44.28" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="50.00" y1="34.54" x2="50.00" y2="28.66" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="83.56" y1="48.44" x2="87.72" y2="44.28" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="97.46" y1="82.00" x2="103.34" y2="82.00" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="83.56" y1="115.56" x2="87.72" y2="119.72" stroke="#000" stroke-width="3.88" stroke-linecap="round"/>
+    <line x1="50.00" y1="82.00" x2="71.42" y2="73.35" stroke="#000" stroke-width="7.85" stroke-linecap="round"/>
+    <circle cx="50.00" cy="82.00" r="4.20" fill="#000"/></g>
+  <text x="676.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#000" text-anchor="middle" letter-spacing="0">b</text>
+  <text x="780.0" y="116" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="132" font-weight="500" fill="#000" text-anchor="middle" letter-spacing="0">s</text>
+</svg>

@@ -1,0 +1,4012 @@
+{
+  "git_version": "git version 2.43.0",
+  "fixture": "/home/claude/fixture",
+  "placeholders": [
+    {
+      "group": "identity",
+      "token": "%H",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "f34a4a38ac4c84e376771e4888e6c2c09456cd82",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "47a78172a91e07d395322aee9525815ea3d76c11",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "identity",
+      "token": "%h",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "3b69fe8",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "c9e77e7",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2bd351d",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "f34a4a3",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "47a7817",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "identity",
+      "token": "%T",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "f693609bca33f1ec39f2f2b0c0fe698f88aa6162",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "0781ff4c0054066ace611f8dd91f22fcb42ef40c",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "89858489685d9285daa5f5885fd8730569510a35",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "baa3e3a2293b2f4ebd06e39ee069768cf35e2a21",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "b5efbc03d455dcff1f87a498f9112f7689db9b36",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "identity",
+      "token": "%t",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "f693609",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "0781ff4",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "8985848",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "baa3e3a",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "b5efbc0",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "identity",
+      "token": "%P",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "3f46e9d2ef645ac20f5414d7ac21baf287208220",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "f34a4a38ac4c84e376771e4888e6c2c09456cd82",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "b6343ed6ebbb652f5eeb595cd7c7b96c032825bb",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "identity",
+      "token": "%p",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "3f46e9d",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "3b69fe8",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "f34a4a3",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "c9e77e7",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "b6343ed",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%an",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Alan Turing",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%aN",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Alan Turing",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%ae",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "alan@example.org",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%aE",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "alan@example.org",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%al",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "ada",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "ada",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "ada",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "alan",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "ada",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%aL",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "ada",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "ada",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "ada",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "alan",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "ada",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%ad",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Wed Nov 15 00:13:20 2023 +0100",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Thu Nov 16 00:13:20 2023 +0100",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Sat Nov 18 00:13:20 2023 +0100",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Fri Nov 17 00:13:20 2023 +0100",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Sun Nov 19 00:11:40 2023 +0100",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%aD",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Wed, 15 Nov 2023 00:13:20 +0100",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Thu, 16 Nov 2023 00:13:20 +0100",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Sat, 18 Nov 2023 00:13:20 +0100",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Fri, 17 Nov 2023 00:13:20 +0100",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Sun, 19 Nov 2023 00:11:40 +0100",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%ar",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%at",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "1700003600",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "1700090000",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "1700262800",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "1700176400",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "1700349100",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%ai",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-15 00:13:20 +0100",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-16 00:13:20 +0100",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-18 00:13:20 +0100",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-17 00:13:20 +0100",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-19 00:11:40 +0100",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%aI",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-15T00:13:20+01:00",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-16T00:13:20+01:00",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-18T00:13:20+01:00",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-17T00:13:20+01:00",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-19T00:11:40+01:00",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%as",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-15",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-16",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-18",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-17",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-19",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "author",
+      "token": "%ah",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Nov 15 2023",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Nov 16 2023",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Nov 18 2023",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Nov 17 2023",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Nov 19 2023",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cn",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cN",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Grace Hopper",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%ce",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cE",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "grace@example.org",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cl",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cL",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "grace",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cd",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Tue Nov 14 19:14:50 2023 -0400",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Wed Nov 15 19:14:50 2023 -0400",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Fri Nov 17 19:14:50 2023 -0400",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Thu Nov 16 19:14:50 2023 -0400",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Sat Nov 18 19:11:40 2023 -0400",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cD",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Tue, 14 Nov 2023 19:14:50 -0400",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Wed, 15 Nov 2023 19:14:50 -0400",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Fri, 17 Nov 2023 19:14:50 -0400",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Thu, 16 Nov 2023 19:14:50 -0400",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Sat, 18 Nov 2023 19:11:40 -0400",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cr",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "2 years, 10 months ago",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%ct",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "1700003690",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "1700090090",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "1700262890",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "1700176490",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "1700349100",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%ci",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-14 19:14:50 -0400",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-15 19:14:50 -0400",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-17 19:14:50 -0400",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-16 19:14:50 -0400",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-18 19:11:40 -0400",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cI",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-14T19:14:50-04:00",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-15T19:14:50-04:00",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-17T19:14:50-04:00",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-16T19:14:50-04:00",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-18T19:11:40-04:00",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%cs",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-14",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-15",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-17",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-16",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "2023-11-18",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "committer",
+      "token": "%ch",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Nov 14 2023",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Nov 15 2023",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Nov 17 2023",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "Nov 16 2023",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "Nov 18 2023",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "decoration",
+      "token": "%d",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": " (feature/verbose)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": " (tag: v0.1.0)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": " (HEAD -> main)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "decoration",
+      "token": "%D",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "feature/verbose",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "tag: v0.1.0",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "HEAD -> main",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "decoration",
+      "token": "%S",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "f34a4a38ac4c84e376771e4888e6c2c09456cd82",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "HEAD",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "decoration",
+      "token": "%(decorate)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": " (feature/verbose)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": " (tag: v0.1.0)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": " (HEAD -> main)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "decoration",
+      "token": "%(decorate:prefix=[,suffix=],separator=|,pointer=->,tag=#)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "[feature/verbose]",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "[#v0.1.0]",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "[HEAD->main]",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "message",
+      "token": "%e",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "ISO-8859-1",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "message",
+      "token": "%s",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "fix typo",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "feat(parser): support nested placeholder groups",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "docs: clarify padding semantics",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "chore: commit carrying an explicit encoding header",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "message",
+      "token": "%f",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "fix-typo",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "feat-parser-support-nested-placeholder-groups",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "refactor-core-replace-the-ad-hoc-token-scanner-with-a-table-driven-lexer-that-preserves-byte-offsets-for-every-emitted-span",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "docs-clarify-padding-semantics",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "chore-commit-carrying-an-explicit-encoding-header",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "message",
+      "token": "%b",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Adds a recursive descent path for %(...) forms so that option lists can\nthemselves contain commas inside quoted values.\n\nRefs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "The previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat attribution is load-bearing for reverse propagation, so the scanner is\nnow split into two phases.\n\nPhase one produces a span table: each entry records (start, end, kind, source\noffset). Phase two evaluates spans against a commit record. Because phase one\nis independent of commit data, the span table can be computed once per\ntemplate and reused across every previewed commit.\n\nUnicode note: offsets are byte offsets, not codepoint offsets, because git's\npadding directives count display columns while truncation counts bytes.\nMixing the two silently corrupts CJK and emoji output. Test vectors cover\n日本語テキスト and 🌍 explicitly.\n\nBREAKING CHANGE: TokenScanner.next() no longer returns evaluated text.\n\nRefs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "message",
+      "token": "%B",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "fix typo\n",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "feat(parser): support nested placeholder groups\n\nAdds a recursive descent path for %(...) forms so that option lists can\nthemselves contain commas inside quoted values.\n\nRefs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span\n\nThe previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat attribution is load-bearing for reverse propagation, so the scanner is\nnow split into two phases.\n\nPhase one produces a span table: each entry records (start, end, kind, source\noffset). Phase two evaluates spans against a commit record. Because phase one\nis independent of commit data, the span table can be computed once per\ntemplate and reused across every previewed commit.\n\nUnicode note: offsets are byte offsets, not codepoint offsets, because git's\npadding directives count display columns while truncation counts bytes.\nMixing the two silently corrupts CJK and emoji output. Test vectors cover\n日本語テキスト and 🌍 explicitly.\n\nBREAKING CHANGE: TokenScanner.next() no longer returns evaluated text.\n\nRefs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "docs: clarify padding semantics\n",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "chore: commit carrying an explicit encoding header\n",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "message",
+      "token": "%N",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "benchmarked: 3.1x faster on the 10k-commit corpus\n",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "signature",
+      "token": "%GG",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "signature",
+      "token": "%G?",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "N",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "N",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "N",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "N",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "N",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "signature",
+      "token": "%GS",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "signature",
+      "token": "%GK",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "signature",
+      "token": "%GF",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "signature",
+      "token": "%GP",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "signature",
+      "token": "%GT",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "undefined",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "undefined",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "undefined",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "undefined",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "undefined",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "reflog",
+      "token": "%gD",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "HEAD@{0}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "reflog",
+      "token": "%gd",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "HEAD@{0}",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "reflog",
+      "token": "%gn",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "reflog",
+      "token": "%gN",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "reflog",
+      "token": "%ge",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "reflog",
+      "token": "%gE",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "ada@example.org",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "reflog",
+      "token": "%gs",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "checkout: moving from signed-overlay to main",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Refs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Refs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers:only)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Refs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Refs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers:unfold)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Refs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Refs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers:keyonly)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Refs\nSigned-off-by\nCo-authored-by\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Refs\nReviewed-by\nSigned-off-by\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers:valueonly)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "#412\nAda Lovelace <ada@example.org>\nAlan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "#500, #501\nGrace Hopper <grace@example.org>\nAda Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers:key=Signed-off-by)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Signed-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Signed-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers:key=Signed-off-by,valueonly)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers:separator=%x2C)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Refs: #412,Signed-off-by: Ada Lovelace <ada@example.org>,Co-authored-by: Alan Turing <alan@example.org>",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Refs: #500, #501,Reviewed-by: Grace Hopper <grace@example.org>,Signed-off-by: Ada Lovelace <ada@example.org>",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "trailers",
+      "token": "%(trailers:key_value_separator==)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Refs=#412\nSigned-off-by=Ada Lovelace <ada@example.org>\nCo-authored-by=Alan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "Refs=#500, #501\nReviewed-by=Grace Hopper <grace@example.org>\nSigned-off-by=Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "describe",
+      "token": "%(describe)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0-1-g2bd351d",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0-4-g47a7817",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "describe",
+      "token": "%(describe:tags)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0-1-g2bd351d",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0-4-g47a7817",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "describe",
+      "token": "%(describe:abbrev=8)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0-1-g2bd351db",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0-4-g47a78172",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "describe",
+      "token": "%(describe:match=v*)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0-1-g2bd351d",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "v0.1.0-4-g47a7817",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "describe",
+      "token": "%(describe:exclude=v0*)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "relation",
+      "token": "%(ahead-behind:HEAD)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(ahead-behind:HEAD)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(ahead-behind:HEAD)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(ahead-behind:HEAD)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(ahead-behind:HEAD)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(ahead-behind:HEAD)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%Cred",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%Cgreen",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%Cblue",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%Creset",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(bold)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(auto)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(always,red)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "\u001b[31m",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "\u001b[31m",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "\u001b[31m",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "\u001b[31m",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "\u001b[31m",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(auto,blue)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(#ff8800)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(bold ul italic)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(reverse)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(strike)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(dim)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(blink)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(226)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "color",
+      "token": "%C(normal)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "mark",
+      "token": "%m",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": ">",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": ">",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": ">",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": ">",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": ">",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "escape",
+      "token": "%n",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "escape",
+      "token": "%%",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "%",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "%",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "%",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "%",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "%",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "escape",
+      "token": "%x41",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "A",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "A",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "A",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "A",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "A",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "escape",
+      "token": "%x0a",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "\n",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "wrap",
+      "token": "%w(60,2,4)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "wrap",
+      "token": "%w(0,0,0)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "wrap",
+      "token": "%w(60)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%<(20)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%<(20,trunc)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%<(20,ltrunc)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%<(20,mtrunc)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%>(20)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%>>(20)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%><(20)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%<|(40)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%>|(40)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "pad",
+      "token": "%><|(40)",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "conditional",
+      "token": "%+s",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "\nfix typo",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "\nfeat(parser): support nested placeholder groups",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "\nrefactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "\ndocs: clarify padding semantics",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "\nchore: commit carrying an explicit encoding header",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "conditional",
+      "token": "%-b",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "Adds a recursive descent path for %(...) forms so that option lists can\nthemselves contain commas inside quoted values.\n\nRefs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "The previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat attribution is load-bearing for reverse propagation, so the scanner is\nnow split into two phases.\n\nPhase one produces a span table: each entry records (start, end, kind, source\noffset). Phase two evaluates spans against a commit record. Because phase one\nis independent of commit data, the span table can be computed once per\ntemplate and reused across every previewed commit.\n\nUnicode note: offsets are byte offsets, not codepoint offsets, because git's\npadding directives count display columns while truncation counts bytes.\nMixing the two silently corrupts CJK and emoji output. Test vectors cover\n日本語テキスト and 🌍 explicitly.\n\nBREAKING CHANGE: TokenScanner.next() no longer returns evaluated text.\n\nRefs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "conditional",
+      "token": "% s",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": " fix typo",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": " feat(parser): support nested placeholder groups",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": " refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": " docs: clarify padding semantics",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": " chore: commit carrying an explicit encoding header",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "conditional",
+      "token": "%+b",
+      "class": "EXPANDS",
+      "observations": {
+        "terse": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "EXPANDS",
+          "stdout": "\nAdds a recursive descent path for %(...) forms so that option lists can\nthemselves contain commas inside quoted values.\n\nRefs: #412\nSigned-off-by: Ada Lovelace <ada@example.org>\nCo-authored-by: Alan Turing <alan@example.org>\n",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "EXPANDS",
+          "stdout": "\nThe previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat attribution is load-bearing for reverse propagation, so the scanner is\nnow split into two phases.\n\nPhase one produces a span table: each entry records (start, end, kind, source\noffset). Phase two evaluates spans against a commit record. Because phase one\nis independent of commit data, the span table can be computed once per\ntemplate and reused across every previewed commit.\n\nUnicode note: offsets are byte offsets, not codepoint offsets, because git's\npadding directives count display columns while truncation counts bytes.\nMixing the two silently corrupts CJK and emoji output. Test vectors cover\n日本語テキスト and 🌍 explicitly.\n\nBREAKING CHANGE: TokenScanner.next() no longer returns evaluated text.\n\nRefs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "EXPANDS",
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%q",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%q",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%q",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%q",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%q",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%q",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%z",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%z",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%z",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%z",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%z",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%z",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(if)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(if)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(if)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(if)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(if)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(if)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(then)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(then)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(then)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(then)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(then)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(then)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(else)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(else)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(else)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(else)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(else)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(else)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(end)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(end)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(end)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(end)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(end)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(end)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(objectname)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(objectname)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(objectname)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(objectname)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(objectname)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(objectname)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(refname)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(refname)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(refname)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(refname)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(refname)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(refname)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(upstream)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(upstream)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(upstream)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(upstream)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(upstream)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(upstream)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(contents:subject)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(contents:subject)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(contents:subject)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(contents:subject)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(contents:subject)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(contents:subject)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(is-base:HEAD)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(is-base:HEAD)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(is-base:HEAD)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(is-base:HEAD)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(is-base:HEAD)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(is-base:HEAD)",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "group": "negative-control",
+      "token": "%(HEAD)",
+      "class": "PASSTHROUGH",
+      "observations": {
+        "terse": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(HEAD)",
+          "stderr": ""
+        },
+        "conventional": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(HEAD)",
+          "stderr": ""
+        },
+        "verbose": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(HEAD)",
+          "stderr": ""
+        },
+        "tagged": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(HEAD)",
+          "stderr": ""
+        },
+        "merge_notes": {
+          "class": "PASSTHROUGH",
+          "stdout": "%(HEAD)",
+          "stderr": ""
+        }
+      }
+    }
+  ],
+  "named_formats": [
+    {
+      "name": "oneline",
+      "class": "ACCEPTED",
+      "sample": "47a78172a91e07d395322aee9525815ea3d76c11 chore: commit carrying an explicit encoding header",
+      "stderr": ""
+    },
+    {
+      "name": "short",
+      "class": "ACCEPTED",
+      "sample": "commit 47a78172a91e07d395322aee9525815ea3d76c11\nAuthor: Ada Lovelace <ada@example.org>\n\n    chore: commit carrying an explicit encoding header",
+      "stderr": ""
+    },
+    {
+      "name": "medium",
+      "class": "ACCEPTED",
+      "sample": "commit 47a78172a91e07d395322aee9525815ea3d76c11\nAuthor: Ada Lovelace <ada@example.org>\nDate:   Sun Nov 19 00:11:40 2023 +0100\n\n    chore: commit carrying an explicit encoding header",
+      "stderr": ""
+    },
+    {
+      "name": "full",
+      "class": "ACCEPTED",
+      "sample": "commit 47a78172a91e07d395322aee9525815ea3d76c11\nAuthor: Ada Lovelace <ada@example.org>\nCommit: Grace Hopper <grace@example.org>\n\n    chore: commit carrying an explicit encoding header",
+      "stderr": ""
+    },
+    {
+      "name": "fuller",
+      "class": "ACCEPTED",
+      "sample": "commit 47a78172a91e07d395322aee9525815ea3d76c11\nAuthor:     Ada Lovelace <ada@example.org>\nAuthorDate: Sun Nov 19 00:11:40 2023 +0100\nCommit:     Grace Hopper <grace@example.org>\nCommitDate: Sat Nov 18 19:11:40 2023 -0400\n\n    chore: commit carrying an explicit encoding header",
+      "stderr": ""
+    },
+    {
+      "name": "reference",
+      "class": "ACCEPTED",
+      "sample": "47a7817 (chore: commit carrying an explicit encoding header, 2023-11-19)",
+      "stderr": ""
+    },
+    {
+      "name": "email",
+      "class": "ACCEPTED",
+      "sample": "From 47a78172a91e07d395322aee9525815ea3d76c11 Mon Sep 17 00:00:00 2001\nFrom: Ada Lovelace <ada@example.org>\nDate: Sun, 19 Nov 2023 00:11:40 +0100\nSubject: [PATCH] chore: commit carrying an explicit encoding header",
+      "stderr": ""
+    },
+    {
+      "name": "mboxrd",
+      "class": "ACCEPTED",
+      "sample": "From 47a78172a91e07d395322aee9525815ea3d76c11 Mon Sep 17 00:00:00 2001\nFrom: Ada Lovelace <ada@example.org>\nDate: Sun, 19 Nov 2023 00:11:40 +0100\nSubject: [PATCH] chore: commit carrying an explicit encoding header",
+      "stderr": ""
+    },
+    {
+      "name": "raw",
+      "class": "ACCEPTED",
+      "sample": "commit 47a78172a91e07d395322aee9525815ea3d76c11\ntree b5efbc03d455dcff1f87a498f9112f7689db9b36\nparent b6343ed6ebbb652f5eeb595cd7c7b96c032825bb\nauthor Ada Lovelace <ada@example.org> 1700349100 +0100\ncommitter Grace Hopper <grace@example.org> 1700349100 -0400\n\n    chore: commit carrying an explicit encoding header",
+      "stderr": ""
+    },
+    {
+      "name": "tformat:%h",
+      "class": "ACCEPTED",
+      "sample": "47a7817",
+      "stderr": ""
+    },
+    {
+      "name": "format:%h",
+      "class": "ACCEPTED",
+      "sample": "47a7817",
+      "stderr": ""
+    }
+  ],
+  "date_formats": [
+    {
+      "name": "default",
+      "class": "ACCEPTED",
+      "sample": "Sun Nov 19 00:11:40 2023 +0100",
+      "stderr": ""
+    },
+    {
+      "name": "relative",
+      "class": "ACCEPTED",
+      "sample": "2 years, 10 months ago",
+      "stderr": ""
+    },
+    {
+      "name": "local",
+      "class": "ACCEPTED",
+      "sample": "Sat Nov 18 23:11:40 2023",
+      "stderr": ""
+    },
+    {
+      "name": "iso",
+      "class": "ACCEPTED",
+      "sample": "2023-11-19 00:11:40 +0100",
+      "stderr": ""
+    },
+    {
+      "name": "iso-strict",
+      "class": "ACCEPTED",
+      "sample": "2023-11-19T00:11:40+01:00",
+      "stderr": ""
+    },
+    {
+      "name": "rfc",
+      "class": "ACCEPTED",
+      "sample": "Sun, 19 Nov 2023 00:11:40 +0100",
+      "stderr": ""
+    },
+    {
+      "name": "short",
+      "class": "ACCEPTED",
+      "sample": "2023-11-19",
+      "stderr": ""
+    },
+    {
+      "name": "raw",
+      "class": "ACCEPTED",
+      "sample": "1700349100 +0100",
+      "stderr": ""
+    },
+    {
+      "name": "human",
+      "class": "ACCEPTED",
+      "sample": "Nov 19 2023",
+      "stderr": ""
+    },
+    {
+      "name": "unix",
+      "class": "ACCEPTED",
+      "sample": "1700349100",
+      "stderr": ""
+    },
+    {
+      "name": "iso-local",
+      "class": "ACCEPTED",
+      "sample": "2023-11-18 23:11:40 +0000",
+      "stderr": ""
+    },
+    {
+      "name": "iso-strict-local",
+      "class": "ACCEPTED",
+      "sample": "2023-11-18T23:11:40+00:00",
+      "stderr": ""
+    },
+    {
+      "name": "rfc-local",
+      "class": "ACCEPTED",
+      "sample": "Sat, 18 Nov 2023 23:11:40 +0000",
+      "stderr": ""
+    },
+    {
+      "name": "default-local",
+      "class": "ACCEPTED",
+      "sample": "Sat Nov 18 23:11:40 2023",
+      "stderr": ""
+    },
+    {
+      "name": "short-local",
+      "class": "ACCEPTED",
+      "sample": "2023-11-18",
+      "stderr": ""
+    },
+    {
+      "name": "format:%Y-%m-%d %H:%M",
+      "class": "ACCEPTED",
+      "sample": "2023-11-19 00:11",
+      "stderr": ""
+    },
+    {
+      "name": "format-local:%Y-%m-%dT%H",
+      "class": "ACCEPTED",
+      "sample": "2023-11-18T23",
+      "stderr": ""
+    },
+    {
+      "name": "auto:human",
+      "class": "ACCEPTED",
+      "sample": "Sun Nov 19 00:11:40 2023 +0100",
+      "stderr": ""
+    }
+  ]
+}

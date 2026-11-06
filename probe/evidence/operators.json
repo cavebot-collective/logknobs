@@ -1,0 +1,692 @@
+[
+  {
+    "group": "pad",
+    "name": "left-pad-20/ascii-long",
+    "format": "%<(20)%s|",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "left-pad-20/ascii-short",
+    "format": "%<(20)%s|",
+    "rev": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "color": false,
+    "rc": 0,
+    "out": "fix typo            |",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "left-pad-20/cjk-emoji",
+    "format": "%<(20)%s|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-right/ascii-long",
+    "format": "%<(20,trunc)%s|",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "refactor(core)!: r..|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-right/ascii-short",
+    "format": "%<(20,trunc)%s|",
+    "rev": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "color": false,
+    "rc": 0,
+    "out": "fix typo            |",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-right/cjk-emoji",
+    "format": "%<(20,trunc)%s|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã..|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-left/ascii-long",
+    "format": "%<(20,ltrunc)%s|",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "..every emitted span|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-left/ascii-short",
+    "format": "%<(20,ltrunc)%s|",
+    "rev": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "color": false,
+    "rc": 0,
+    "out": "fix typo            |",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-left/cjk-emoji",
+    "format": "%<(20,ltrunc)%s|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "..èªã®å¹ãæ­£ããæ°ãã ð|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-mid/ascii-long",
+    "format": "%<(20,mtrunc)%s|",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "refactor(..tted span|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-mid/ascii-short",
+    "format": "%<(20,mtrunc)%s|",
+    "rev": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "color": false,
+    "rc": 0,
+    "out": "fix typo            |",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "trunc-mid/cjk-emoji",
+    "format": "%<(20,mtrunc)%s|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n)..£ããæ°ãã ð|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "right-pad-20/ascii-long",
+    "format": "%>(20)%s|",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "right-pad-20/ascii-short",
+    "format": "%>(20)%s|",
+    "rev": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "color": false,
+    "rc": 0,
+    "out": "            fix typo|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "right-pad-20/cjk-emoji",
+    "format": "%>(20)%s|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "right-pad-steal/ascii-long",
+    "format": "%>>(20)%s|",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "right-pad-steal/ascii-short",
+    "format": "%>>(20)%s|",
+    "rev": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "color": false,
+    "rc": 0,
+    "out": "            fix typo|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "right-pad-steal/cjk-emoji",
+    "format": "%>>(20)%s|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "centre-20/ascii-long",
+    "format": "%><(20)%s|",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "refactor(core)!: replace the ad-hoc token scanner with a table-driven lexer that preserves byte offsets for every emitted span|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "centre-20/ascii-short",
+    "format": "%><(20)%s|",
+    "rev": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "color": false,
+    "rc": 0,
+    "out": "      fix typo      |",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "centre-20/cjk-emoji",
+    "format": "%><(20)%s|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "col-left-40/ascii",
+    "format": "abc%<|(40)%h|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "abcc9e77e7                              |",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "col-left-40/cjk",
+    "format": "%s%<|(40)%h|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð51367c2|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "col-right-40/ascii",
+    "format": "abc%>|(40)%h|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "abc                              c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "col-right-40/cjk",
+    "format": "%s%>|(40)%h|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð51367c2|",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "col-centre-40/ascii",
+    "format": "abc%><|(40)%h|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "abc               c9e77e7               |",
+    "err": ""
+  },
+  {
+    "group": "pad",
+    "name": "col-centre-40/cjk",
+    "format": "%s%><|(40)%h|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð51367c2|",
+    "err": ""
+  },
+  {
+    "group": "wrap",
+    "name": "w60-2-4/verbose-body",
+    "format": "%w(60,2,4)%b",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "  The previous scanner conflated lexing and evaluation,\n    which made it impossible to attribute an output byte\n    range back to the placeholder that produced it. That\n    attribution is load-bearing for reverse propagation, so\n    the scanner is now split into two phases.\n\n    Phase one produces a span table: each entry records\n    (start, end, kind, source offset). Phase two evaluates\n    spans against a commit record. Because phase one is\n    independent of commit data, the span table can be\n    computed once per template and reused across every\n    previewed commit.\n\n    Unicode note: offsets are byte offsets, not codepoint\n    offsets, because git's padding directives count display\n    columns while truncation counts bytes. Mixing the two\n    silently corrupts CJK and emoji output. Test vectors\n    cover\n    日本語テキスト and 🌍 explicitly.\n\n    BREAKING CHANGE: TokenScanner.next() no longer returns\n    evaluated text.\n\n    Refs: #500, #501 Reviewed-by: Grace Hopper\n    <grace@example.org> Signed-off-by: Ada Lovelace\n    <ada@example.org>\n",
+    "err": ""
+  },
+  {
+    "group": "wrap",
+    "name": "w40-0-8/verbose-body",
+    "format": "%w(40,0,8)%b",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "The previous scanner conflated lexing\n        and evaluation, which made it\n        impossible to attribute an\n        output byte range back to the\n        placeholder that produced it. \n        That attribution is load-bearing\n        for reverse propagation, so the\n        scanner is now split into two\n        phases.\n\n        Phase one produces a span table:\n        each entry records (start, end,\n        kind, source offset). Phase two\n        evaluates spans against a commit\n        record. Because phase one is\n        independent of commit data, the\n        span table can be computed once\n        per template and reused across\n        every previewed commit.\n\n        Unicode note: offsets are byte\n        offsets, not codepoint offsets,\n        because git's padding directives\n        count display columns while\n        truncation counts bytes. Mixing\n        the two silently corrupts CJK\n        and emoji output. Test vectors\n        cover\n        日本語テキスト and 🌍\n        explicitly.\n\n        BREAKING CHANGE:\n        TokenScanner.next() no longer\n        returns evaluated text.\n\n        Refs: #500, #501 Reviewed-by:\n        Grace Hopper <grace@example.org> \n        Signed-off-by: Ada Lovelace\n        <ada@example.org>\n",
+    "err": ""
+  },
+  {
+    "group": "wrap",
+    "name": "w0-0-0/verbose-body",
+    "format": "%w(0,0,0)%b",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": false,
+    "rc": 0,
+    "out": "The previous scanner conflated lexing and evaluation, which made it impossible\nto attribute an output byte range back to the placeholder that produced it.\nThat attribution is load-bearing for reverse propagation, so the scanner is\nnow split into two phases.\n\nPhase one produces a span table: each entry records (start, end, kind, source\noffset). Phase two evaluates spans against a commit record. Because phase one\nis independent of commit data, the span table can be computed once per\ntemplate and reused across every previewed commit.\n\nUnicode note: offsets are byte offsets, not codepoint offsets, because git's\npadding directives count display columns while truncation counts bytes.\nMixing the two silently corrupts CJK and emoji output. Test vectors cover\n日本語テキスト and 🌍 explicitly.\n\nBREAKING CHANGE: TokenScanner.next() no longer returns evaluated text.\n\nRefs: #500, #501\nReviewed-by: Grace Hopper <grace@example.org>\nSigned-off-by: Ada Lovelace <ada@example.org>\n",
+    "err": ""
+  },
+  {
+    "group": "wrap",
+    "name": "w60/cjk-subject",
+    "format": "%w(20)%s",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": false,
+    "rc": 0,
+    "out": "fix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%Cred/color=always",
+    "format": "%Cred%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[31mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%Cred/color=never",
+    "format": "%Cred%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%Cgreen/color=always",
+    "format": "%Cgreen%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[32mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%Cgreen/color=never",
+    "format": "%Cgreen%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%Cblue/color=always",
+    "format": "%Cblue%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[34mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%Cblue/color=never",
+    "format": "%Cblue%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(auto)/color=always",
+    "format": "%C(auto)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[33mc9e77e7\u001b[m\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(auto)/color=never",
+    "format": "%C(auto)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(auto,blue)/color=always",
+    "format": "%C(auto,blue)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[34mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(auto,blue)/color=never",
+    "format": "%C(auto,blue)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(always,red)/color=always",
+    "format": "%C(always,red)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[31mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(always,red)/color=never",
+    "format": "%C(always,red)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "\u001b[31mc9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(bold)/color=always",
+    "format": "%C(bold)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[1mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(bold)/color=never",
+    "format": "%C(bold)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(bold ul italic)/color=always",
+    "format": "%C(bold ul italic)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[1;3;4mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(bold ul italic)/color=never",
+    "format": "%C(bold ul italic)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(reverse)/color=always",
+    "format": "%C(reverse)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[7mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(reverse)/color=never",
+    "format": "%C(reverse)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(dim)/color=always",
+    "format": "%C(dim)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[2mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(dim)/color=never",
+    "format": "%C(dim)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(strike)/color=always",
+    "format": "%C(strike)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[9mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(strike)/color=never",
+    "format": "%C(strike)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(blink)/color=always",
+    "format": "%C(blink)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[5mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(blink)/color=never",
+    "format": "%C(blink)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(226)/color=always",
+    "format": "%C(226)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[38;5;226mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(226)/color=never",
+    "format": "%C(226)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(#ff8800)/color=always",
+    "format": "%C(#ff8800)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[38;2;255;136;0mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(#ff8800)/color=never",
+    "format": "%C(#ff8800)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(normal)/color=always",
+    "format": "%C(normal)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "c9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(normal)/color=never",
+    "format": "%C(normal)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(brightred)/color=always",
+    "format": "%C(brightred)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[91mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(brightred)/color=never",
+    "format": "%C(brightred)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(bold red ul)/color=always",
+    "format": "%C(bold red ul)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[1;4;31mc9e77e7\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "color",
+    "name": "%C(bold red ul)/color=never",
+    "format": "%C(bold red ul)%h%Creset|",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "c9e77e7|",
+    "err": ""
+  },
+  {
+    "group": "interaction",
+    "name": "pad-over-colored",
+    "format": "%<(20)%C(always,red)%s%Creset|",
+    "rev": "3b69fe8c7f5b7190dbb6db47de4c2c4da7d1b910",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[31mfix typo            \u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "interaction",
+    "name": "color-inside-pad-cjk",
+    "format": "%<(20)%C(always,green)%s%Creset|",
+    "rev": "51367c21647289316bf3c417652451af9b754a1d",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[32mfix(i18n): æ¥æ¬èªã®å¹ãæ­£ããæ°ãã ð\u001b[m|",
+    "err": ""
+  },
+  {
+    "group": "interaction",
+    "name": "wrap-over-colored",
+    "format": "%w(40,0,4)%C(always,blue)%b%Creset",
+    "rev": "2bd351db33f7b82f3ac16dd81f1d79b3fdf19541",
+    "color": true,
+    "rc": 0,
+    "out": "\u001b[34mThe previous scanner conflated lexing\n    and evaluation, which made it\n    impossible to attribute an output\n    byte range back to the placeholder\n    that produced it. That attribution\n    is load-bearing for reverse\n    propagation, so the scanner is now\n    split into two phases.\n\n    Phase one produces a span table:\n    each entry records (start, end,\n    kind, source offset). Phase two\n    evaluates spans against a commit\n    record. Because phase one is\n    independent of commit data, the span\n    table can be computed once per \n    template and reused across every\n    previewed commit.\n\n    Unicode note: offsets are byte\n    offsets, not codepoint offsets,\n    because git's padding directives\n    count display columns while\n    truncation counts bytes. Mixing the\n    two silently corrupts CJK and emoji\n    output. Test vectors cover\n    日本語テキスト and 🌍 explicitly.\n\n    BREAKING CHANGE: TokenScanner.next()\n    no longer returns evaluated text.\n\n    Refs: #500, #501 Reviewed-by: Grace\n    Hopper <grace@example.org> \n    Signed-off-by: Ada Lovelace\n    <ada@example.org>\n    \u001b[m",
+    "err": ""
+  },
+  {
+    "group": "interaction",
+    "name": "pad-then-wrap",
+    "format": "%w(50,0,2)%<(15)%s|%b",
+    "rev": "c9e77e7fc50f6bb51bf8c72c3c27589bafa1c278",
+    "color": false,
+    "rc": 0,
+    "out": "feat(parser): support nested placeholder\n  groups|Adds a recursive descent path for %(...)\n  forms so that option lists can themselves\n  contain commas inside quoted values.\n\n  Refs: #412 Signed-off-by: Ada Lovelace\n  <ada@example.org> Co-authored-by: Alan Turing\n  <alan@example.org>\n",
+    "err": ""
+  }
+]
