@@ -89,6 +89,23 @@ for (const shell of SHELLS.filter(s => s !== "bash")) {
     rows.push({ shell, name: c.name, ok, line, note }); if (!ok) fail++;
   }
 }
+// Negative controls: naive quoting MUST fail on the cases built to catch it.
+// If one passes, the traps are not live (e.g. the variable was not expanded)
+// and the passes above prove nothing.
+const naive = {
+  "cmd: bash-style double quotes let %cd% expand": ["cmd", `git -C "${REPO}" log -3 --color=always "--format=%h %cd%n%s"`, "cd-trap"],
+  "cmd: unescaped %an% expands to the trap value": ["cmd", `git -C "${REPO}" log -3 --color=always "--format=%h %an%n%s %ad%d%"`, "an-trap"],
+  "cmd-batch: prompt quoting loses % in a .bat": ["cmd-batch", commandLine("cmd", "git", cases.find(c => c.name === "cd-trap").args), "cd-trap"],
+  "powershell-5.1: 7.3+ quoting breaks embedded quotes": ["powershell-5.1", commandLine("powershell", "git", cases.find(c => c.name === "quotes").args), "quotes"],
+};
+for (const [name, [shell, line, caseName]] of Object.entries(naive)) {
+  if (!available[shell]) continue;
+  const want = execFileSync("git", cases.find(c => c.name === caseName).args, { env, maxBuffer: 1 << 26 });
+  const r = RUNNERS[shell](line);
+  const differs = r.status !== 0 || Buffer.compare(r.stdout || Buffer.alloc(0), want) !== 0;
+  rows.push({ shell: "negative control", name, ok: differs, line, note: differs ? "" : "naive quoting was NOT caught: the trap is not live" });
+  if (!differs) fail++;
+}
 const by = {};
 for (const r of rows) { const b = (by[r.shell] ||= [0, 0]); b[r.ok ? 0 : 1]++; }
 let md = `### Windows quoting — generated commands run through each shell vs git invoked directly\n\n| shell | pass | fail |\n|---|---|---|\n`;
