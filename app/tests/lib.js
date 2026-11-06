@@ -9,7 +9,7 @@ const path = require("node:path");
 // scripts/setup-work.sh (deterministic: OIDs are checked there).
 const ROOT = path.resolve(__dirname, "..", "..");
 const WORK = process.env.LK_WORK || path.join(ROOT, ".work");
-const REG = JSON.parse(fs.readFileSync(path.join(ROOT, "probe/evidence/registry-v0.3.0.json"), "utf8"));
+const REG = JSON.parse(fs.readFileSync(path.join(ROOT, "probe/evidence/registry-v0.4.0.json"), "utf8"));
 const TOPO = s => path.join(WORK, `topo-${s}`);
 const FIXTURE = path.join(WORK, "fixture");
 const STYLES = ["terse", "conventional", "verbose"];

@@ -23,6 +23,7 @@
  */
 const { launch, call, state, gate, REG } = require("./lib");
 const G = gate("T8 v2 — controls, applicability, scope");
+const r_scope = id => !!REG.options[id].scope;
 
 (async () => {
   const { app, win, errors } = await launch();
@@ -30,7 +31,15 @@ const G = gate("T8 v2 — controls, applicability, scope");
   const sections = () => win.evaluate(() => [...document.querySelectorAll("#insp .isec .ih")].map(h => ({ name: h.querySelector("b").textContent, chip: !!h.querySelector(".scope") })));
 
   // ---------------------------------------------------------------- palette
-  const chips = await win.evaluate(() => [...document.querySelectorAll("#palette .chip-ins")].map(b => b.dataset.insert));
+  // the cascade (spec section 62): every form is a leaf of group -> control -> form
+  const leaves = await win.evaluate(() => window.__logknobs.TREE.flatMap(g => g.children.flatMap(c => c.children.map(f => ({ g: g.label, c: c.label, n: c.children.length, tok: f.tok })))));
+  const chips = leaves.map(l => l.tok);
+  // open the path with the mouse and click the form, as a user would
+  const clickLeaf = async l => {
+    await win.click(`#pal-groups [data-branch="${l.g}"]`);
+    if (l.n > 1) await win.click(`.flyout[data-level="2"] [data-branch="${l.c}"]`);
+    await win.locator(`.flyout [data-insert="${l.tok.replace(/"/g, '\\"')}"]`).first().click();
+  };
   const notIns = await win.evaluate(() => window.__logknobs.NOT_INSERTABLE);
   const dirOf = await win.evaluate(toks => toks.map(t => window.__logknobs.directiveOf(t)), chips);
   for (const d of REG.directives) {
@@ -43,9 +52,10 @@ const G = gate("T8 v2 — controls, applicability, scope");
   }
   for (const [ctl, list] of Object.entries(REG.micro_templates)) for (const m of list) G.ck("palette: micro-templates", `${ctl}/${m.id}`, chips.includes(m.token));
   // click every chip: inserts after the selection, preview shows it
-  for (const tok of chips) {
+  for (const l of leaves) {
+    const tok = l.tok;
     await reset("%H", 0);
-    await win.locator(`#palette .chip-ins[data-insert="${tok.replace(/"/g, '\\"')}"]`).first().click();
+    await clickLeaf(l);
     const s = await state(win);
     const sel = s.sel;
     const ok = s.C.template === "%H" + tok;
@@ -56,7 +66,7 @@ const G = gate("T8 v2 — controls, applicability, scope");
     G.ck("palette: click inserts after selection", tok, ok && sel === 1, `got ${s.C.template} sel=${sel}${empty ? " (empty on every sample, declared)" : ""}`);
   }
   await reset("%h %s", -1);
-  await win.locator('#palette .chip-ins[data-insert="%an"]').click();
+  await clickLeaf(leaves.find(l => l.tok === "%an"));
   G.ck("palette: no selection appends", "%an", (await state(win)).C.template === "%h %s%an");
   await reset("%h", -1); await win.fill("#lit-text", "50% ["); await win.click("#lit-add");
   G.ck("palette: literal escapes %", "50% [", (await state(win)).C.template === "%h50%% [" && (await state(win)).term.includes("50% ["));
@@ -246,7 +256,37 @@ const G = gate("T8 v2 — controls, applicability, scope");
 
   // ----------------------------------------------------------------- config
   await reset("%C(auto)%h%d %s", -1); await call(win, "setRefs", "all");
-  for (const [k, v] of [["log.graphColors", "blue, 208"], ["color.decorate.branch", "blue"], ["color.decorate.remoteBranch", "magenta"],
+  // graph colors through the Graph section's swatch editor. On the sample, the
+  // first color git hands out to a drawn edge is the second in the list (the
+  // first goes to a column that draws no edge), so the visible edit is entry 2.
+  { const before = await state(win);
+    await win.fill('#graphopts [data-key="g-spec-1"]', "blue"); await win.dispatchEvent('#graphopts [data-key="g-spec-1"]', "change");
+    const after = await state(win);
+    G.ck("graph: a swatch edit writes log.graphColors", "entry 2", after.C.options.config["log.graphColors"]?.startsWith("red, blue, yellow") && after.html !== before.html, after.C.options.config["log.graphColors"]);
+    await win.click('#graphopts [data-key="g-add"]');
+    G.ck("graph: add a color", "+", (await state(win)).C.options.config["log.graphColors"].split(",").length === 13);
+    await win.click('#graphopts [data-key="g-↓-0"]');
+    G.ck("graph: reorder", "↓", (await state(win)).C.options.config["log.graphColors"].startsWith("blue, red"));
+    await win.click('#graphopts [data-key="g-rm-0"]');
+    G.ck("graph: remove", "×", (await state(win)).C.options.config["log.graphColors"].startsWith("red, yellow"));
+    await win.fill('#graphopts [data-key="g-spec-0"]', "#f80"); await win.dispatchEvent('#graphopts [data-key="g-spec-0"]', "change");
+    G.ck("graph: invalid spec refused", "#f80", (await state(win)).C.options.config["log.graphColors"].startsWith("red, yellow"));
+    await win.click('#graphopts [data-key="g-reset"]');
+    G.ck("graph: reset to git default", "reset", !(await state(win)).C.options.config["log.graphColors"]);
+    await win.locator('#graphopts [data-key="g-pick-2"]').evaluate(e => { e.value = "#336699"; e.dispatchEvent(new Event("change")); });
+    G.ck("graph: color picker writes #rrggbb", "picker", (await state(win)).C.options.config["log.graphColors"] === "red, green, #336699, blue, magenta, cyan, bold red, bold green, bold yellow, bold blue, bold magenta, bold cyan");
+    await call(win, "setConfig", "log.graphColors", "");
+    const tplBefore = (await state(win)).C.template;
+    await win.click('#graphopts [data-key="g-space-blank"]');
+    G.ck("graph: entry spacing adds a trailing %n", "blank", (await state(win)).C.template === tplBefore + "%n");
+    await win.click('#graphopts [data-key="g-space-none"]');
+    G.ck("graph: entry spacing removes it", "none", (await state(win)).C.template === tplBefore);
+    await win.click('#graphopts [data-key="g-first_parent"]');
+    G.ck("graph: shape toggles share the setters", "--first-parent", (await state(win)).C.options.first_parent === "on"
+         && (await win.getAttribute('#toggles [data-toggle="first_parent"]', "aria-checked")) === "true");
+    await win.click('#graphopts [data-key="g-first_parent"]');
+  }
+  for (const [k, v] of [["color.decorate.branch", "blue"], ["color.decorate.remoteBranch", "magenta"],
                         ["color.decorate.tag", "reverse yellow"], ["color.decorate.HEAD", "bold #ff8800"], ["color.diff.commit", "cyan"]]) {
     const before = await state(win);
     const id = "#cfg-" + k.replace(/\./g, "-");
@@ -285,8 +325,11 @@ const G = gate("T8 v2 — controls, applicability, scope");
   await win.selectOption("#theme", REG.theme_default);
 
   // ------------------------------------------------------------------ scope
-  const rows = await win.evaluate(() => [...document.querySelectorAll("#opts .orow")].map(r => [r.dataset.opt, !!r.querySelector(".scope")]));
-  for (const [id, chip] of rows) G.ck("scope: every output row has a chip", id, chip && !!REG.options[id].scope);
+  // one scope heading per scope; every row sits under the heading of its own scope
+  const rows = await win.evaluate(() => [...document.querySelectorAll("#opts .orow")].map(r => {
+    let h = r.previousElementSibling; while (h && !h.classList.contains("scopehead")) h = h.previousElementSibling;
+    return [r.dataset.opt, h && h.dataset.scope === r.dataset.scope && !!h.querySelector(".scope")]; }));
+  for (const [id, ok] of rows) G.ck("scope: every output row is under its scope heading", id, ok && r_scope(id));
   for (const o of Object.keys(REG.options)) G.ck("scope: every option is reachable", o, rows.some(r => r[0] === o) || await win.locator(`#toggles [data-toggle="${o === "pretty" ? "oneline" : o}"]`).count() === 1);
 
   // ------------------------------------------------------------- shells

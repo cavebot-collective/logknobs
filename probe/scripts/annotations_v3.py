@@ -215,4 +215,16 @@ CONFIG_V3 = {
     "preview.history.max_commits": 40,
     "templates.storage_key": "logknobs.templates.v1",
     "insert.color.spec": "yellow",   # the spec a freshly inserted %C(...) starts with
+    # v0.10.0 (spec sections 61-66): every size, delay and step is a dial
+    "layout.left.default": 260, "layout.left.min": 180, "layout.left.max": 560,
+    "layout.right.default": 360, "layout.right.min": 280, "layout.right.max": 680,
+    "layout.docs.default": 118, "layout.docs.min": 48, "layout.docs.max": 480,
+    "layout.parts.default": 220, "layout.parts.min": 120, "layout.parts.max": 640,
+    "layout.step_px": 16,            # one arrow-key press on a separator; Shift is four steps
+    "layout.storage_key": "logknobs.layout.v1",
+    "palette.hover_open_ms": 160,    # hover intent before a cascade level opens
+    "palette.hover_close_ms": 450,   # grace period after the pointer leaves every level
+    "palette.flyout.max_px": 460,
+    "focus.format.font_px": 40,      # feature-lab-002: size of the format string in the focus layout
+    "graph.colors.max": 16,          # swatches in the log.graphColors editor
 }

@@ -6,9 +6,19 @@
 :root{--bg:#1b2430;--panel:#232d3b;--panel2:#1f2835;--line:#33404f;--fg:#d5dbe3;--mute:#8592a3;--acc:#e8b04a;--sel:rgba(232,176,74,.18);
   --ins:#5fc4a8;--ins-bg:rgba(95,196,168,.10);--err:#ff6b6b;--term-bg:#0c0c0c;--term-fg:#cccccc}
 *{box-sizing:border-box}html,body{height:100%;margin:0}
+[hidden]{display:none!important}   /* author display rules must not resurrect hidden regions */
+/* Regions are sized by custom properties that the separator handles set
+   (spec section 62); defaults, limits and step are registry config keys. */
+:root{--w-left:260px;--w-right:360px;--h-docs:118px;--h-parts:150px;--fmt-px:40px}
 body{background:var(--bg);color:var(--fg);font:13px/1.45 ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
-  display:grid;grid-template-columns:250px minmax(0,1fr) 350px;grid-template-rows:auto minmax(0,1fr) auto;height:100vh}
-@media(max-width:1000px){body{grid-template-columns:1fr;grid-template-rows:auto auto auto auto auto;height:auto}}
+  display:grid;grid-template-columns:var(--w-left) 6px minmax(0,1fr) 6px var(--w-right);
+  grid-template-rows:auto minmax(0,1fr) 6px var(--h-docs);height:100vh}
+#insert{grid-column:1;grid-row:2}#rz-left{grid-column:2;grid-row:2}#center{grid-column:3;grid-row:2}
+#rz-right{grid-column:4;grid-row:2}#right{grid-column:5;grid-row:2}#rz-docs{grid-column:1/-1;grid-row:3}#docs{grid-row:4}
+.rz{background:var(--line);opacity:.5;touch-action:none}.rz:hover,.rz:focus-visible,.rz.drag{opacity:1;background:var(--acc)}
+.rz[aria-orientation=vertical]{cursor:col-resize}.rz[aria-orientation=horizontal]{cursor:row-resize}
+body{overflow:hidden}   /* every region scrolls itself; the page never does */
+@media(max-width:1000px){body{display:block;height:auto;overflow:auto}.rz{display:none}}
 button,select,input,textarea{font:inherit;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:3px 6px}
 button{cursor:pointer}button:hover:not(:disabled){border-color:var(--acc)}button:disabled{opacity:.4;cursor:default}
 :focus-visible{outline:2px solid var(--acc);outline-offset:1px}
@@ -20,6 +30,7 @@ code{color:var(--acc)}
 /* ---- top bar */
 #top{grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:8px 14px;border-bottom:1px solid var(--line)}
 #lockup{display:block;width:118px;flex:0 0 auto}#lockup svg{display:block;width:100%;height:auto}
+#fmt-top{flex:1;display:flex;gap:6px;align-items:center;min-width:0}
 #tpl{flex:1;min-width:0;font-size:14px;padding:6px 8px;background:#121821}
 #tpl.bad{border-color:var(--err)}
 #cmdbox{display:flex;gap:6px;align-items:center}
@@ -32,21 +43,29 @@ aside,#center{min-height:0;overflow:auto}
 /* Insert: adds new parts. Dashed, mint, every item marked + */
 #insert{border-right:1px dashed var(--ins);background:var(--ins-bg)}
 #insert h2{color:var(--ins)}
-.pal-group{margin:8px 0 2px;color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
-.chip-ins{display:flex;gap:6px;align-items:baseline;width:100%;text-align:left;margin:2px 0;padding:2px 6px;
-  border:1px dashed color-mix(in srgb,var(--ins) 55%,transparent);background:transparent;border-radius:4px;cursor:grab}
+.pal-group{margin:10px 0 2px;color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+/* cascade (spec section 62): rows wrap, never clip */
+.mrow{display:flex;gap:8px;align-items:baseline;width:100%;text-align:left;margin:1px 0;padding:4px 8px;
+  border:1px solid transparent;background:transparent;border-radius:4px;white-space:normal;overflow-wrap:anywhere}
+.mrow:hover,.mrow:focus-visible,.mrow.open{border-color:color-mix(in srgb,var(--ins) 60%,transparent);background:rgba(95,196,168,.12)}
+.mrow .ml{flex:1;min-width:0}.mrow .mc{color:var(--mute);font-size:11px}.mrow .arrow{color:var(--ins)}
+.mrow.leaf{cursor:grab}.mrow.leaf::before{content:"+";color:var(--ins);font-weight:700}
+.mrow .tok{color:var(--ins);white-space:nowrap}.mrow .desc{display:block;color:var(--mute);font-size:12px}
+.flyout{position:fixed;z-index:50;min-width:220px;max-width:var(--fly-max,460px);max-height:calc(100vh - 16px);overflow:auto;
+  padding:4px;background:var(--panel2);border:1px dashed var(--ins);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.flyout.dragging,#palette.dragging .flyout{opacity:0;pointer-events:none}
+#pal-search{width:100%;margin-bottom:4px}#pal-results:empty{display:none}
+.chip-ins{display:inline-flex;gap:6px;align-items:baseline;padding:2px 8px;border:1px dashed var(--ins);background:transparent;border-radius:4px}
 .chip-ins::before{content:"+";color:var(--ins);font-weight:700}
-.chip-ins:hover{border-color:var(--ins);background:rgba(95,196,168,.12)}
-.chip-ins .tok{color:var(--ins)}.chip-ins .lbl{color:var(--mute);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.chip-ins.micro{margin-left:12px}
 #lit-row{display:flex;gap:4px;margin-top:6px}#lit-row input{flex:1;min-width:0}
 /* Inspector: modifies the selected part. Solid, amber */
 #inspector{border-left:3px solid var(--acc);background:var(--panel2)}
 #inspector h2{color:var(--acc)}
 .isec{border-top:1px solid var(--line);padding:7px 0}
-.isec>.ih{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}.isec>.ih b{font-weight:600}
+.isec>.ih{display:flex;align-items:baseline;gap:6px;margin-bottom:4px;flex-wrap:wrap}.isec>.ih b{font-weight:600}
 .irow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:3px 0}
-.irow label{display:inline-flex;gap:4px;align-items:center;color:var(--mute)}
+.irow label{display:inline-flex;gap:4px;align-items:center;color:var(--mute);flex-wrap:wrap;max-width:100%}
+aside select{max-width:100%}.scope{white-space:normal;max-width:100%}
 .irow input[type=number]{width:62px}.irow input[type=text]{width:120px}
 .na{color:var(--mute);font-size:12px;border-top:1px dotted var(--line);padding-top:6px;margin-top:4px}
 .err{color:var(--err)}
@@ -62,11 +81,11 @@ aside,#center{min-height:0;overflow:auto}
 /* Output: global */
 #output h2{color:var(--fg)}
 .orow{display:flex;align-items:center;gap:8px;margin:4px 0;flex-wrap:wrap}
-.orow>.olab{min-width:96px;color:var(--mute)}.orow>.scope{margin-left:auto}
+.orow>.olab{min-width:96px;color:var(--mute)}.orow>.scope{margin-left:auto}.scopehead{text-transform:none;letter-spacing:0}
 .orow input[type=text]{width:150px}.orow input[type=number]{width:58px}
 #templates details{margin:4px 0}#templates summary{cursor:pointer;color:var(--mute)}
 .tlist{max-height:200px;overflow:auto;margin:4px 0}
-.titem{display:flex;gap:6px;align-items:center;padding:2px 0}.titem .tname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.titem{display:flex;gap:6px;align-items:center;padding:2px 0;flex-wrap:wrap}.titem .tname{flex:1 1 140px;min-width:0;overflow-wrap:anywhere}
 .cls{font-size:10px;padding:0 5px;border-radius:8px;border:1px solid var(--line);color:var(--mute)}
 .cls[data-cls=verbatim]{border-color:#98c379}.cls[data-cls=after-source]{border-color:#e8b04a}.cls[data-cls=original]{border-color:#61afef}
 textarea{width:100%;min-height:70px;resize:vertical;background:#121821;font-size:12px}
@@ -80,20 +99,36 @@ textarea{width:100%;min-height:70px;resize:vertical;background:#121821;font-size
 .sw[aria-checked=true]::before{background:var(--acc)}
 #notice{color:var(--acc);font-size:12px;min-height:1em}
 /* token view (feature-lab-001 renders inside #tokens) */
-#tokwrap{flex:0 0 auto;padding:8px 14px;border-bottom:1px solid var(--line)}
+#tokwrap{flex:0 0 auto;height:var(--h-parts);display:flex;flex-direction:column;padding:8px 14px;border-bottom:1px solid var(--line);min-height:0}
+#tokwrap>header{flex:0 0 auto;flex-wrap:wrap}
+#scopeline{flex:0 0 auto;min-height:1.45em;color:var(--fg);font-size:12px;padding-top:4px}#scopeline code{color:var(--acc)}
+#rz-parts{flex:0 0 6px}
 #tokwrap>header{display:flex;gap:8px;align-items:center;margin-bottom:6px}
-#tokens{overflow:auto;max-height:34vh;padding-bottom:4px}
-.tv-blocks{display:grid;align-items:center;row-gap:2px;width:max-content}
+#tokens{flex:1;overflow-y:auto;overflow-x:hidden;min-height:0;padding-bottom:4px}
+.tv-blocks{display:flex;flex-wrap:wrap;align-items:stretch;row-gap:10px;padding-top:10px;padding-right:10px}
+.pair{display:flex;align-items:stretch}.cell{display:flex;flex-direction:column}.gap{display:flex;flex-direction:column;width:8px}.gz{flex:1;min-height:22px}
+.stripes{display:flex;flex-direction:column;gap:2px;margin-top:3px}.stripe{height:5px}.stripe.on{background:var(--bar);cursor:pointer}
+.stripe.on:not(.g){border-radius:1px}.stripe.on:hover,.stripe.hi{box-shadow:0 0 0 1px var(--fg)}
 .tk{padding:2px 6px;border:1px solid var(--line);border-radius:4px;background:var(--panel);cursor:grab;white-space:pre;user-select:none}
 .tk.k-literal{border-style:dotted;color:#c8ced6}.tk.k-color{border-color:#c678dd}.tk.k-pad{border-color:#61afef}.tk.k-wrap{border-color:#56b6c2}
 .tk.sel{background:var(--sel);border-color:var(--acc);outline:1px solid var(--acc)}
 .tk.bad{border-color:var(--err);color:var(--err)}
+.tk{position:relative}.tk .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:middle;border:1px solid rgba(255,255,255,.25)}
+/* the × overlays the part's corner: showing it on hover must not shift the
+   layout under the pointer (it did, and drops landed one gap off) */
+.bl{position:relative}
+.tk .x,.bl .x{visibility:hidden;position:absolute;top:-9px;right:-8px;width:18px;height:18px;padding:0;line-height:16px;text-align:center;
+  border:1px solid var(--line);background:var(--panel2);color:var(--fg);font:12px/16px inherit;cursor:pointer;border-radius:50%;z-index:2}
+.bl .x{top:1px;right:4px}
+.tk:hover .x,.tk.sel .x,.bl:hover .x,.bl.sel .x{visibility:visible}.tk .x:hover,.bl .x:hover{color:#fff;background:var(--err);border-color:var(--err)}
+.tk.aff,.bl.aff{outline:2px solid var(--aff,var(--acc));outline-offset:1px}
 .gap{width:8px;align-self:stretch;min-height:22px;border-radius:2px}
-.gap.over{background:var(--ins);width:8px}
-.br{height:16px;min-width:0;border:2px solid;border-top:none;border-radius:0 0 4px 4px;margin:0 2px;overflow:hidden}
-.br{position:relative}.br>span{position:absolute;left:0;right:0;top:0;padding:0 4px;font-size:10px;line-height:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.br[data-scope=until-reset]{border-color:#c678dd;color:#d9a6ec}.br[data-scope=next-placeholder]{border-color:#61afef;color:#9ccdf5}.br[data-scope=until-next-wrap]{border-color:#56b6c2;color:#8fd3db}
-.br.hi{border-width:3px}
+.gap.over .gz{background:var(--ins);border-radius:2px}
+/* scope bars (spec section 61): the operator's own color, no text */
+.br{height:7px;min-width:0;border-radius:3px;margin:1px 2px;cursor:pointer;background:var(--bar)}
+.br:hover,.br.hi{outline:2px solid var(--fg);outline-offset:1px}
+
+
 .tv-bnf{font-size:12px;line-height:1.5}
 .tv-bnf .rule{color:var(--mute)}
 .tv-bnf .bl{display:block;padding:0 4px;border-radius:3px;cursor:grab;white-space:pre}
@@ -116,16 +151,36 @@ textarea{width:100%;min-height:70px;resize:vertical;background:#121821;font-size
 .knobctl svg:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:50%}
 /* docs */
 /* fixed height: content changing on hover must not shift the layout under the pointer */
-#docs{grid-column:1/-1;border-top:1px solid var(--line);padding:8px 14px;height:118px;overflow:auto;background:var(--panel)}
+#docs{grid-column:1/-1;border-top:1px solid var(--line);padding:8px 14px;overflow:auto;background:var(--panel);min-height:0}
 #docs h3{font-size:13px;margin:0 0 3px}#docs p{margin:3px 0}#docs ul{margin:3px 0 0 18px;padding:0}
 #docs .tag{color:var(--mute)}
 .git-off{display:none!important}
+/* context menu (spec section 63) */
+.ctx{position:fixed;z-index:60;min-width:180px;padding:4px;background:var(--panel2);border:1px solid var(--acc);border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+.ctx button{display:block;width:100%;text-align:left;border:1px solid transparent;background:transparent;padding:4px 8px}
+.ctx button:hover,.ctx button:focus-visible{border-color:var(--acc);background:var(--sel)}
+/* feature-lab-002 focus layout: the big format editor (spec section 64) */
+#fmtbig{position:relative;margin:10px 14px;border:1px solid var(--line);border-radius:6px;background:#121821;flex:0 0 auto}
+#fmtbig .hl,#tplbig{font:var(--fmt-px)/1.35 ui-monospace,"SF Mono","Cascadia Mono",Menlo,Consolas,monospace;padding:12px 16px;margin:0;
+  white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-all;letter-spacing:0}
+#fmtbig .hl{min-height:calc(var(--fmt-px) * 1.35 + 24px);color:var(--fg)}
+#tplbig{position:absolute;inset:0;width:100%;height:100%;resize:none;overflow:hidden;border:none;background:transparent;color:transparent;caret-color:var(--acc);border-radius:6px}
+#fmtbig.bad{border-color:var(--err)}
+.hl .k-literal{color:#c8ced6}.hl .k-value{color:#9ccdf5}.hl .k-modifier{color:#9ccdf5}.hl .k-color{color:#d9a6ec}.hl .k-pad{color:#8fb8f0}.hl .k-wrap{color:#8fd3db}
+.hl .sel{background:var(--sel);border-radius:4px}.hl .bad{color:var(--err)}
+#vtabs{display:flex;gap:4px;padding:0 14px;flex:0 0 auto}#vtabs button[aria-selected=true]{border-color:var(--acc);background:var(--sel)}
+/* graph section (spec section 66) */
+.gcol{display:flex;gap:6px;align-items:center;margin:3px 0;flex-wrap:wrap}.gcol input[type=color]{width:30px;height:24px;padding:0;border:none;background:none}
+.gcol input[type=text]{width:130px}.gcol .def{color:var(--mute)}
+#graphsec[aria-disabled=true] #graphopts{opacity:.5}
+#cx-cmds,#cx-frag{overflow:hidden;white-space:pre-wrap;overflow-wrap:anywhere;resize:none}   /* every character visible; the copy is still exact */
 </style></head><body>
 
 <div id="top">
   <span id="lockup" aria-label="logknobs"></span>
-  <span class="mini">--format=</span>
-  <input id="tpl" spellcheck="false" autocomplete="off" aria-label="format template">
+  <span id="fmt-top"><span class="mini">--format=</span>
+  <input id="tpl" spellcheck="false" autocomplete="off" aria-label="format template"></span>
+  <span class="seg" id="layout" title="feature-lab-002: two layouts, compared side by side"><button data-l="classic">classic</button><button data-l="focus">focus</button></span>
   <button id="undo" title="Undo (Ctrl+Z)">↶ undo</button><button id="redo" title="Redo (Ctrl+Shift+Z)">↷ redo</button>
   <span id="cmdbox"><select id="shell" aria-label="shell quoting"></select>
   <button id="copy" title="Copy the git command">copy command</button></span>
@@ -134,11 +189,13 @@ textarea{width:100%;min-height:70px;resize:vertical;background:#121821;font-size
 <aside id="insert" aria-label="Insert">
   <section class="region" style="border:none">
     <header><h2>Insert</h2><span class="what">adds a new part — after the selection, or at the end; or drag into the parts row</span></header>
-    <div id="palette"></div>
+    <div id="palette"><input id="pal-search" type="search" placeholder="find a part…" title="search every part by token, name or description" aria-label="find a part to insert">
+      <div id="pal-results" role="menu" aria-label="search results"></div><div id="pal-groups" role="menu" aria-label="part groups"></div></div>
     <div class="pal-group">literal text</div>
-    <div id="lit-row"><input id="lit-text" type="text" placeholder="text, e.g.  ·  or [" aria-label="literal text to insert"><button id="lit-add" class="chip-ins" style="width:auto">add</button></div>
+    <div id="lit-row"><input id="lit-text" type="text" placeholder="text" aria-label="literal text to insert"><button id="lit-add" class="chip-ins" style="width:auto">add</button></div>
   </section>
 </aside>
+<div class="rz" id="rz-left" data-rz="left" role="separator" aria-orientation="vertical" aria-label="resize Insert column" tabindex="0"></div>
 
 <div id="center">
   <div id="toolbar">
@@ -151,15 +208,20 @@ textarea{width:100%;min-height:70px;resize:vertical;background:#121821;font-size
     <label class="mini git-off" id="gitmode"><input type="checkbox" id="realgit"> real git</label>
     <span id="notice" role="status"></span>
   </div>
+  <div id="fmtbig" hidden><div class="hl" aria-hidden="true"></div><textarea id="tplbig" spellcheck="false" rows="1" aria-label="format template (large)"></textarea></div>
+  <div id="vtabs" role="tablist" hidden><button role="tab" data-tab="preview">preview</button><button role="tab" data-tab="parts">parts</button></div>
   <div id="tokwrap">
-    <header><h2>Parts</h2><span class="hint">click to select · drag to reorder · Alt+←/→ moves · Delete removes</span>
+    <header><h2>Parts</h2><span class="hint" title="click to select · drag or Alt+←/→ to reorder · × or Delete removes · right-click or Shift+F10 for more">select · drag · × · right-click</span>
       <span style="flex:1"></span><span class="mini">view</span>
       <span class="seg" id="tview" title="feature-lab-001: two token views, compared side by side"><button data-v="blocks">blocks</button><button data-v="bnf">grammar</button></span></header>
     <div id="tokens" aria-label="template parts"></div>
+    <div id="scopeline" role="status" aria-live="polite"></div>
   </div>
+  <div class="rz" id="rz-parts" data-rz="parts" role="separator" aria-orientation="horizontal" aria-label="resize parts and preview" tabindex="0"></div>
   <div id="termwrap"><pre id="term" tabindex="0" aria-label="preview"></pre>
   <div id="status"></div></div>
 </div>
+<div class="rz" id="rz-right" data-rz="right" role="separator" aria-orientation="vertical" aria-label="resize right column" tabindex="0"></div>
 
 <aside id="right">
   <section class="region" id="inspector" aria-label="Edit selected part">
@@ -169,7 +231,8 @@ textarea{width:100%;min-height:70px;resize:vertical;background:#121821;font-size
   <section class="region" id="output" aria-label="Output options">
     <header><h2>Output</h2><span class="what">global — applies to every entry or the whole output</span></header>
     <div id="opts"></div>
-    <details id="cfgsec"><summary class="hint">git config colors</summary><div id="cfgopts"></div></details>
+    <section id="graphsec" aria-label="Graph"><div class="pal-group">graph</div><div id="graphopts"></div></section>
+    <details id="cfgsec" open><summary class="hint">decoration colors (git config)</summary><div id="cfgopts"></div></details>
   </section>
   <section class="region" id="templates" aria-label="Templates">
     <header><h2>Templates</h2><span class="what">presets, your saved templates, config export</span></header>
@@ -182,13 +245,14 @@ textarea{width:100%;min-height:70px;resize:vertical;background:#121821;font-size
     <details id="cfgexp"><summary>export as git config</summary>
       <div class="orow"><span class="olab">pretty name</span><input id="cx-name" type="text" value="lk"></div>
       <div class="orow"><span class="olab">alias name</span><input id="cx-alias" type="text" value="lk"></div>
-      <div class="orow"><label class="mini"><input type="checkbox" id="cx-default"> also make it plain git log's default (format.pretty)</label></div>
-      <div class="hint">commands</div><textarea id="cx-cmds" readonly aria-label="git config commands"></textarea>
-      <div class="hint">.gitconfig fragment</div><textarea id="cx-frag" readonly aria-label="gitconfig fragment"></textarea>
+      <div class="orow"><label class="hint"><input type="checkbox" id="cx-default"> also make it plain git log's default (format.pretty)</label></div>
+      <div class="orow"><span class="hint">commands</span><button id="cx-copy-cmds">copy commands</button></div><textarea id="cx-cmds" readonly aria-label="git config commands"></textarea>
+      <div class="orow"><span class="hint">.gitconfig fragment</span><button id="cx-copy-frag">copy fragment</button></div><textarea id="cx-frag" readonly aria-label="gitconfig fragment"></textarea>
     </details>
   </section>
 </aside>
 
+<div class="rz" id="rz-docs" data-rz="docs" role="separator" aria-orientation="horizontal" aria-label="resize documentation pane" tabindex="0"></div>
 <div id="docs"><p class="hint">Hover anything for its documentation.</p></div>
 
 <script type="module">
@@ -207,13 +271,15 @@ const LAB_001 = (() => {
   function wireItem(ext, el, i) {
     el.draggable = true; el.tabIndex = 0; el.dataset.i = i;
     el.setAttribute("role", "option"); el.setAttribute("aria-selected", String(i === ext.sel));
-    el.onclick = () => ext.onSelect(i);
+    el.onclick = e => { if (e.target.closest(".x")) return; ext.onSelect(i); };
+    el.oncontextmenu = e => { e.preventDefault(); ext.onContext(i, e.clientX, e.clientY, el); };
     el.onmouseenter = () => ext.onHover(i, true); el.onmouseleave = () => ext.onHover(i, false);
     el.ondragstart = e => { e.dataTransfer.setData(ext.dragTypes.move, String(i)); e.dataTransfer.effectAllowed = "move"; };
     el.onkeydown = e => {
       if (e.altKey && e.key === "ArrowLeft") { ext.onMove(i, i - 1); e.preventDefault(); }
       else if (e.altKey && e.key === "ArrowRight") { ext.onMove(i, i + 2); e.preventDefault(); }
       else if (e.key === "Delete" || e.key === "Backspace") { ext.onRemove(i); e.preventDefault(); }
+      else if (e.key === "ContextMenu" || (e.shiftKey && e.key === "F10")) { const r = el.getBoundingClientRect(); ext.onContext(i, r.left, r.bottom, el); e.preventDefault(); }
       else if (e.key === "Enter" || e.key === " ") { ext.onSelect(i); e.preventDefault(); }
     };
   }
@@ -227,6 +293,11 @@ const LAB_001 = (() => {
       if (mv !== "") ext.onMove(+mv, at); else if (ins) ext.onInsert(ins, at);
     };
   }
+  // the mouse path for remove (spec section 63): a × on the hovered/selected part
+  function removeButton(ext, i) {
+    const x = h("button", "x", "×"); x.tabIndex = -1; x.title = "remove this part"; x.setAttribute("aria-label", "remove");
+    x.onclick = e => { e.stopPropagation(); ext.onRemove(i); }; return x;
+  }
   // A drop on an item lands before or after it, by which half it hits
   function wireItemDrop(ext, el, i, horizontal) {
     el.ondragover = e => { if ([...e.dataTransfer.types].some(t => t === ext.dragTypes.move || t === ext.dragTypes.insert)) e.preventDefault(); };
@@ -239,35 +310,47 @@ const LAB_001 = (() => {
     };
   }
 
-  // option a: blocks -- chips in a row, operator scopes drawn as brackets under
-  // exactly the parts they affect
+  // option a: blocks -- chips that WRAP onto as many rows as the template
+  // needs (nothing scrolls out of sight), each with a stripe per operator
+  // lane under it: an operator's stripes, in its own color, run under exactly
+  // the parts it affects, and continue across a row break
   function blocks(ext) {
     const root = ext.root; root.textContent = ""; root.setAttribute("role", "listbox");
     const g = h("div", "tv-blocks"); const n = ext.nodes.length;
-    g.style.gridTemplateColumns = `repeat(${2 * n + 1}, auto)`;
-    const col = k => 2 * k + 2;                 // grid column of item k (gaps are odd columns)
-    for (let k = 0; k <= n; k++) {
-      const gap = h("div", "gap"); gap.style.gridColumn = String(2 * k + 1); gap.style.gridRow = "1"; wireGap(ext, gap, k); g.append(gap);
-      if (k === n) break;
-      const nd = ext.nodes[k];
-      const el = h("div", `tk k-${nd.kind}${k === ext.sel ? " sel" : ""}${nd.error ? " bad" : ""}`, nd.label);
-      el.title = nd.describe; el.style.gridColumn = String(col(k)); el.style.gridRow = "1";
-      wireItem(ext, el, k); wireItemDrop(ext, el, k, true); g.append(el);
-    }
-    // brackets, greedy row assignment so overlapping scopes stack
-    const rows = [];
+    // lanes: greedy assignment, so overlapping scopes stack and line up
+    const lanes = [], laneOf = new Map();
     for (const r of ext.ranges) {
       if (r.to < r.from) continue;
-      let row = rows.findIndex(end => end < r.op);
-      if (row < 0) { rows.push(-1); row = rows.length - 1; }
-      rows[row] = r.to;
-      const b = h("div", `br${r.op === ext.sel ? " hi" : ""}`); b.dataset.scope = r.scope; b.dataset.op = r.op;
-      b.style.gridColumn = `${col(r.from)} / ${col(r.to) + 1}`; b.style.gridRow = String(2 + row);
-      b.append(h("span", null, `${ext.nodes[r.op].short} · ${ext.scopeLabel(r.scope)}`));
-      b.title = `${ext.nodes[r.op].label} applies to ${r.to - r.from + 1} part(s): ${ext.scopeText(r.scope)}`;
-      g.append(b);
+      let L = lanes.findIndex(end => end < r.op); if (L < 0) { lanes.push(-1); L = lanes.length - 1; }
+      lanes[L] = r.to; laneOf.set(r, L);
     }
-    if (!n) g.append(Object.assign(h("div", "hint", "no parts yet — insert one, or type a template above"), { style: "grid-column:2" }));
+    const live = ext.ranges.filter(r => laneOf.has(r));
+    const stripes = (covers, isGap) => {
+      const box = h("div", "stripes");
+      for (let L = 0; L < lanes.length; L++) {
+        const r = live.find(x => laneOf.get(x) === L && covers(x));
+        const s = h("div", "stripe" + (r ? " on" : "") + (isGap ? " g" : ""));
+        if (r) { s.dataset.op = r.op; s.style.setProperty("--bar", r.bar); s.title = r.sentence;
+          if (r.op === ext.sel) s.classList.add("hi");
+          s.onmouseenter = () => ext.onHover(r.op, true); s.onmouseleave = () => ext.onHover(r.op, false); s.onclick = () => ext.onSelect(r.op); }
+        box.append(s);
+      }
+      return box;
+    };
+    for (let k = 0; k <= n; k++) {
+      const gap = h("div", "gap"); gap.append(h("div", "gz")); gap.append(stripes(r => r.from < k && k <= r.to, true)); wireGap(ext, gap, k);
+      if (k === n) { g.append(gap); break; }
+      const nd = ext.nodes[k];
+      const cell = h("div", "cell");
+      const el = h("div", `tk k-${nd.kind}${k === ext.sel ? " sel" : ""}${nd.error ? " bad" : ""}`);
+      if (nd.swatch) { const s = h("span", "sw"); s.style.background = nd.swatch; el.append(s); }
+      el.append(nd.label, removeButton(ext, k));
+      el.title = nd.describe;
+      wireItem(ext, el, k); wireItemDrop(ext, el, k, true);
+      cell.append(el, stripes(r => r.from <= k && k <= r.to, false));
+      const pair = h("div", "pair"); pair.append(gap, cell); g.append(pair);   // a gap stays with the part after it
+    }
+    if (!n) g.append(h("div", "hint", "no parts yet — insert one, or type a template above"));
     root.append(g);
   }
 
@@ -283,9 +366,12 @@ const LAB_001 = (() => {
       if (k === ext.nodes.length) break;
       const nd = ext.nodes[k];
       const el = h("span", `bl${k === ext.sel ? " sel" : ""}${nd.error ? " bad" : ""}`);
-      el.append("  ".repeat(depth(k)), Object.assign(h("span", "prod", nd.production), {}), "⟨", h("span", "arg", nd.arg), "⟩");
+      el.append("  ".repeat(depth(k)));
+      if (nd.swatch) { const s = h("span", "sw"); s.style.cssText = `display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;background:${nd.swatch}`; el.append(s); }
+      el.append(Object.assign(h("span", "prod", nd.production), {}), "⟨", h("span", "arg", nd.arg), "⟩");
       const own = ext.ranges.find(r => r.op === k);
       if (own) el.append(h("span", "sc", `   ⟵ ${ext.scopeText(own.scope)}${own.to < own.from ? " (nothing follows)" : ""}`));
+      el.append(removeButton(ext, k));
       el.title = nd.describe; wireItem(ext, el, k); wireItemDrop(ext, el, k, false); w.append(el);
     }
     root.append(w);
@@ -294,9 +380,32 @@ const LAB_001 = (() => {
 })();
 
 // ======================================================================
+// feature-lab-002 -- layout. Same isolation as feature-lab-001: each option
+// receives one extension point (the region elements and the current view
+// tab) and arranges them; it cannot see the core or the other option.
+// ======================================================================
+const LAB_002 = (() => {
+  // classic: the v0.4 arrangement
+  function classic(ext) {
+    const r = ext.regions;
+    r.fmtTop.hidden = false; r.fmtbig.hidden = true; r.vtabs.hidden = true;
+    r.tokwrap.hidden = false; r.rzParts.hidden = false; r.termwrap.hidden = false;
+    r.tokwrap.style.height = ""; r.tokwrap.style.flex = ""; r.tokwrap.style.minHeight = "";
+  }
+  // focus: the format string dominates the middle; preview and parts are tabs
+  function focus(ext) {
+    const r = ext.regions;
+    r.fmtTop.hidden = true; r.fmtbig.hidden = false; r.vtabs.hidden = false; r.rzParts.hidden = true;
+    r.tokwrap.hidden = ext.tab !== "parts"; r.termwrap.hidden = ext.tab !== "preview";
+    r.tokwrap.style.height = "auto"; r.tokwrap.style.flex = "1 1 auto"; r.tokwrap.style.minHeight = "160px";   // scroll, never collapse
+  }
+  return Object.freeze({ classic, focus });
+})();
+
+// ======================================================================
 // core
 // ======================================================================
-(function core(document, lab001) {
+(function core(document, lab001, lab002) {
 const REGISTRY = /*__REGISTRY__*/;
 const LOCKUP = /*__LOCKUP__*/;
 const RECORDS = /*__RECORDS__*/;     // single-commit cases [terse, conventional, verbose]
@@ -322,7 +431,7 @@ const defaults = () => {
   return o;
 };
 let C = { template: "%C(auto)%h%Creset %<(14,trunc)%an %s%C(auto)%d", options: defaults() };
-const V = { sel: -1, caseIdx: 1, preview: "single", theme: REGISTRY.theme_default, tokenView: "blocks",
+const V = { sel: -1, hover: -1, caseIdx: 1, preview: "single", theme: REGISTRY.theme_default, tokenView: "blocks", layout: "classic", tab: "preview", sizes: {},
             realGit: false, colorScope: "this-part", shell: "bash", prettyBeforeOneline: "tformat", notice: "" };
 const CONFIG_KEYS = ["log.graphColors", "color.decorate.branch", "color.decorate.remoteBranch", "color.decorate.tag",
                      "color.decorate.stash", "color.decorate.HEAD", "color.diff.commit"];
@@ -712,8 +821,71 @@ async function renderPreview() {
     + (V.preview === "single" && C.options.graph === "on" ? `<span>--graph draws in history mode</span>` : "");
 }
 function hover(i, on) {
-  for (const el of document.querySelectorAll(`#term .sp[data-i="${i}"]`)) el.classList.toggle("hov", on);
+  for (const e of document.querySelectorAll(`#term .sp[data-i="${i}"]`)) e.classList.toggle("hov", on);
+  V.hover = on ? i : -1; paintScope();
   const n = nodes()[i]; if (on && n) showNodeDocs(n);
+}
+// ------------------------------------------------- scope, said in words ----
+// (spec section 61) Bars carry the operator's own color; this says what they mean.
+function opColor(n) {
+  const th = theme();
+  if (n.kind === "pad") return "repeating-linear-gradient(135deg,#61afef 0 4px,transparent 4px 7px)";
+  if (n.kind === "wrap") return "#56b6c2";
+  if (n.kind !== "color" || isReset(n)) return null;
+  if (n.spec.form === "auto") return `linear-gradient(90deg,${th.ansi[3]},${th.ansi[2]},${th.ansi[1]},${th.ansi[6]})`;
+  let seq; try { seq = n.spec.form === "short" ? n.spec.seq : colorParse(n.spec.spec); } catch { return "var(--err)"; }
+  const st = parseAnsi((seq || "") + "x").vis[0]?.st || {};
+  return colorOf(st.fg, th) || colorOf(st.bg, th) || th.foreground;
+}
+const partName = n => n.kind === "literal" ? `“${n.text}”` : n.tok;
+const listParts = (ns, a, b) => { const xs = ns.slice(a, b + 1).map(partName); return xs.length > 6 ? xs.slice(0, 6).join(" ") + ` … and ${xs.length - 6} more` : xs.join(" "); };
+function scopeSentence(ns, i) {
+  const n = ns[i]; if (!n) return "";
+  const rs = scopeRanges(ns), own = rs.find(r => r.op === i);
+  if (own) {
+    if (own.to < own.from) return `${n.tok} affects nothing: no part follows it.`;
+    const k = own.to - own.from + 1, list = listParts(ns, own.from, own.to), next = ns[own.to + 1];
+    if (own.scope === "until-reset") return `${n.tok} colors ${k} part${k > 1 ? "s" : ""} — ${list} — until ${next ? next.tok : "the end of the entry"}.`;
+    if (own.scope === "next-placeholder") return `${n.tok} pads ${list} as one unit to ${n.width} columns${n.truncate !== "none" ? `, truncating (${n.truncate})` : ""}.`;
+    if (own.scope === "until-next-wrap") return `${n.tok} wraps ${list} at ${n.width} columns, indents ${n.indent1}/${n.indent2}.`;
+  }
+  if (isReset(n)) return `${n.tok} ends the color in force.`;
+  const by = rs.filter(r => r.from <= i && i <= r.to).map(r => ({ "until-reset": "colored by", "next-placeholder": "padded by", "until-next-wrap": "wrapped by" }[r.scope] + " " + ns[r.op].tok));
+  return by.length ? `${partName(n)} is ${by.join(", ")}.` : `No operator affects ${partName(n)}.`;
+}
+function paintScope() {
+  const ns = nodes(), i = V.hover >= 0 ? V.hover : V.sel, rs = scopeRanges(ns);
+  const line = $("scopeline");
+  line.textContent = i >= 0 && ns[i] ? scopeSentence(ns, i)
+    : rs.length ? "Bars under the parts show what each color, padding or wrap operator affects — hover or select one." : "";
+  for (const e of document.querySelectorAll("#tokens .aff")) e.classList.remove("aff");
+  const own = rs.find(r => r.op === i);
+  if (own) for (let k = own.from; k <= own.to; k++) { const e = document.querySelector(`#tokens [data-i="${k}"]`);
+    if (e) { e.classList.add("aff"); const c = opColor(ns[own.op]); e.style.setProperty("--aff", c && !c.includes("gradient") ? c : "var(--acc)"); } }
+  for (const b of document.querySelectorAll("#tokens .stripe[data-op]")) b.classList.toggle("hi", +b.dataset.op === i);
+}
+// context menu on a part (spec section 63): right-click or Shift+F10
+function openContext(i, x, y, origin) {
+  document.querySelector(".ctx")?.remove();
+  const ns = nodes(); if (!ns[i]) return;
+  select(i);
+  const m = el("div", "ctx"); m.setAttribute("role", "menu"); m.setAttribute("aria-label", `actions for ${partName(ns[i])}`);
+  const items = [
+    ["remove", () => removeNode(i)], ["move left", () => moveNode(i, i - 1), i === 0], ["move right", () => moveNode(i, i + 2), i === ns.length - 1],
+    ["duplicate", () => insertToken(srcOf(ns[i]), i + 1)], ["edit…", () => $("insp").querySelector("input,select,button")?.focus()],
+  ];
+  for (const [label, fn, disabled] of items) {
+    const b = el("button", null, esc(label)); b.setAttribute("role", "menuitem"); b.dataset.act = label; b.disabled = !!disabled;
+    b.onclick = () => { m.remove(); fn(); }; m.append(b);
+  }
+  m.onkeydown = e => { const bs = [...m.querySelectorAll("button:not(:disabled)")], k = bs.indexOf(document.activeElement);
+    if (e.key === "ArrowDown") { bs[(k + 1) % bs.length].focus(); e.preventDefault(); }
+    else if (e.key === "ArrowUp") { bs[(k - 1 + bs.length) % bs.length].focus(); e.preventDefault(); }
+    else if (e.key === "Escape" || e.key === "Tab") { m.remove(); document.querySelector(`#tokens [data-i="${i}"]`)?.focus(); e.preventDefault(); } };
+  document.body.append(m);
+  m.style.left = Math.min(x, innerWidth - m.offsetWidth - 6) + "px"; m.style.top = Math.min(y, innerHeight - m.offsetHeight - 6) + "px";
+  m.querySelector("button:not(:disabled)").focus();
+  setTimeout(() => document.addEventListener("pointerdown", function off(e) { if (!e.target.closest(".ctx")) { m.remove(); document.removeEventListener("pointerdown", off); } }), 0);
 }
 
 // ------------------------------------------------------- token view ----
@@ -729,14 +901,20 @@ function nodeView(n, i, ns) {
 function renderTokens() {
   const ns = nodes();
   const ext = {
-    root: $("tokens"), nodes: ns.map((n, i) => nodeView(n, i, ns)), ranges: scopeRanges(ns), sel: V.sel, dragTypes: DRAG,
+    root: $("tokens"), nodes: ns.map((n, i) => ({ ...nodeView(n, i, ns), swatch: opColor(n) })),
+    ranges: scopeRanges(ns).map(r => ({ ...r, bar: opColor(ns[r.op]), sentence: scopeSentence(ns, r.op) })), sel: V.sel, dragTypes: DRAG,
+    onContext: (i, x, y, origin) => openContext(i, x, y, origin),
     scopeLabel, scopeText: s => REGISTRY.scopes[s],
     onSelect: i => select(i === V.sel ? -1 : i), onHover: (i, on) => hover(i, on),
     onMove: (from, gap) => moveNode(from, gap), onInsert: (tok, gap) => tok.startsWith("literal:") ? insertLiteral(tok.slice(8), gap) : insertToken(tok, gap),
     onRemove: i => removeNode(i),
   };
-  const opt = lab001(V.tokenView); opt(ext);
-  if (V.sel >= 0) { const el = $("tokens").querySelector(`[data-i="${V.sel}"]`); if (el && document.activeElement?.closest?.("#tokens")) el.focus(); }
+  V.hover = -1;            // re-rendered elements fire no mouseleave: a hover never outlives its element
+  // keyboard focus survives the re-render: if a part had focus, the selected
+  // part gets it back, so Alt+←/→ can be pressed repeatedly (T17 found this)
+  const hadFocus = $("tokens").contains(document.activeElement);
+  const opt = lab001(V.tokenView); opt(ext); paintScope();
+  if (V.sel >= 0 && hadFocus) $("tokens").querySelector(`[data-i="${V.sel}"]`)?.focus();
 }
 
 // ------------------------------------------------------ insert palette ----
@@ -765,32 +943,100 @@ function defaultToken(d) {
   if (d.startsWith("%w(")) return `%w(${p.width.default},${p.indent1.default},${p.indent2.default})`;
   return d;
 }
-function buildPalette() {
-  const pal = $("palette");
-  for (const [g, cs] of GROUPS) {
-    pal.append(Object.assign(document.createElement("div"), { className: "pal-group", textContent: g }));
-    for (const c of cs) {
-      const ctl = REGISTRY.controls[c];
-      const mts = REGISTRY.micro_templates[c];
-      const dirs = mts ? [] : ctl.directives;
-      for (const d of dirs) addChip(pal, defaultToken(d), DIR[d].summary, d);
-      if (mts) {
-        pal.append(Object.assign(document.createElement("div"), { className: "hint", textContent: ctl.label.toLowerCase() + ":" }));
-        for (const m of mts) addChip(pal, m.token, m.label, directiveOf(m.token), true);
-      }
-    }
+// The Insert cascade (spec section 62): group -> control -> form. One tree,
+// rendered three ways: the group column, flyouts, and search results.
+const TREE = GROUPS.map(([g, cs]) => ({ label: g, children: cs.map(c => {
+  const ctl = REGISTRY.controls[c], mts = REGISTRY.micro_templates[c];
+  const forms = mts ? mts.map(m => ({ tok: m.token, label: m.label, d: directiveOf(m.token) }))
+                    : ctl.directives.map(d => ({ tok: defaultToken(d), label: DIR[d].summary, d }));
+  return { label: ctl.label, control: c, children: forms };
+}) }));
+const MENU = { levels: [], openTimer: 0, closeTimer: 0 };
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+function leafRow(f) {
+  const b = el("button", "mrow leaf", `<span class="ml"><span class="tok">${esc(f.tok)}</span> ${esc(f.label)}</span>`);
+  b.setAttribute("role", "menuitem"); b.dataset.insert = f.tok; b.draggable = true; b.title = `insert ${f.tok}`;
+  b.onclick = () => { insertToken(f.tok); closeMenus(); };
+  b.ondragstart = e => { e.dataTransfer.setData(DRAG.insert, f.tok); e.dataTransfer.effectAllowed = "copy"; $("palette").classList.add("dragging"); };
+  b.ondragend = () => { $("palette").classList.remove("dragging"); closeMenus(); };
+  b.onfocus = () => { const D = DIR[f.d]; if (D) showDirDocs(D, f.tok); };
+  b.addEventListener("mouseenter", () => { const D = DIR[f.d]; if (D) showDirDocs(D, f.tok); });
+  return b;
+}
+// a branch row: hovering (after hover_open_ms), clicking, Right or Enter opens its level
+function branchRow(node, level) {
+  const single = node.children && node.children.length === 1 && !node.children[0].children;
+  if (single) { const r = leafRow(node.children[0]); r.querySelector(".ml").innerHTML = `${esc(node.label)} <span class="tok">${esc(node.children[0].tok)}</span>`; return r; }
+  const b = el("button", "mrow", `<span class="ml">${esc(node.label)}</span><span class="mc">${node.children.length}</span><span class="arrow">▸</span>`);
+  b.setAttribute("role", "menuitem"); b.setAttribute("aria-haspopup", "menu"); b.setAttribute("aria-expanded", "false");
+  b.dataset.branch = node.label;
+  const open = focusFirst => openLevel(level + 1, node, b, focusFirst);
+  b.onclick = () => open(false);
+  b.addEventListener("mouseenter", () => { clearTimeout(MENU.openTimer); MENU.openTimer = setTimeout(() => open(false), CFG["palette.hover_open_ms"]); });
+  b.addEventListener("mouseleave", () => clearTimeout(MENU.openTimer));
+  b._open = open;
+  return b;
+}
+function openLevel(level, node, anchor, focusFirst) {
+  closeFrom(level);
+  for (const r of anchor.parentElement.querySelectorAll(".mrow.open")) { r.classList.remove("open"); r.setAttribute("aria-expanded", "false"); }
+  anchor.classList.add("open"); anchor.setAttribute("aria-expanded", "true");
+  const f = el("div", "flyout"); f.setAttribute("role", "menu"); f.dataset.level = level; f.setAttribute("aria-label", node.label);
+  f.style.setProperty("--fly-max", CFG["palette.flyout.max_px"] + "px");
+  for (const c of node.children) f.append(c.children ? branchRow(c, level) : leafRow(c));
+  wireMenuKeys(f, anchor);
+  f.addEventListener("mouseenter", () => clearTimeout(MENU.closeTimer));
+  f.addEventListener("mouseleave", scheduleClose);
+  document.body.append(f);
+  const r = anchor.getBoundingClientRect(), w = f.offsetWidth, hgt = f.offsetHeight;
+  let x = r.right + 2; if (x + w > innerWidth - 4) x = Math.max(4, r.left - w - 2);
+  f.style.left = x + "px"; f.style.top = Math.max(4, Math.min(r.top, innerHeight - hgt - 8)) + "px";
+  MENU.levels[level] = { el: f, anchor };
+  if (focusFirst) f.querySelector(".mrow")?.focus();
+}
+function closeFrom(level) {
+  for (let k = MENU.levels.length - 1; k >= level; k--) {
+    const L = MENU.levels[k]; if (!L) continue;
+    L.anchor.classList.remove("open"); L.anchor.setAttribute("aria-expanded", "false"); L.el.remove();
   }
+  MENU.levels.length = Math.min(MENU.levels.length, level);
 }
-function addChip(pal, tok, label, d, micro) {
-  const b = document.createElement("button"); b.className = "chip-ins" + (micro ? " micro" : ""); b.draggable = true;
-  b.dataset.insert = tok; b.innerHTML = `<span class="tok">${esc(tok)}</span><span class="lbl">${esc(label)}</span>`;
-  b.title = `insert ${tok}`;
-  b.onclick = () => insertToken(tok);
-  b.ondragstart = e => { e.dataTransfer.setData(DRAG.insert, tok); e.dataTransfer.effectAllowed = "copy"; };
-  b.onmouseenter = b.onfocus = () => { const D = DIR[d]; if (D) showDirDocs(D, micro ? tok : null); };
-  pal.append(b);
+const closeMenus = () => { clearTimeout(MENU.closeTimer); clearTimeout(MENU.openTimer); closeFrom(2); };
+function scheduleClose() { clearTimeout(MENU.closeTimer); MENU.closeTimer = setTimeout(closeMenus, CFG["palette.hover_close_ms"]); }
+// Up/Down within a level; Right/Enter opens; Left/Escape goes back to the parent row
+function wireMenuKeys(container, parentRow) {
+  container.addEventListener("keydown", e => {
+    const rows = [...container.querySelectorAll(":scope > .mrow")], i = rows.indexOf(document.activeElement);
+    if (i < 0) return;
+    if (e.key === "ArrowDown") { rows[(i + 1) % rows.length].focus(); e.preventDefault(); }
+    else if (e.key === "ArrowUp") { rows[(i - 1 + rows.length) % rows.length].focus(); e.preventDefault(); }
+    else if (e.key === "Home") { rows[0].focus(); e.preventDefault(); }
+    else if (e.key === "End") { rows.at(-1).focus(); e.preventDefault(); }
+    else if ((e.key === "ArrowRight" || e.key === "Enter" || e.key === " ") && rows[i]._open) { rows[i]._open(true); e.preventDefault(); }
+    else if ((e.key === "ArrowLeft" || e.key === "Escape") && parentRow) { const lv = +container.dataset.level; closeFrom(lv); parentRow.focus(); e.preventDefault(); e.stopPropagation(); }
+    else if (e.key === "Escape") { closeMenus(); e.preventDefault(); }
+  });
 }
-
+function buildPalette() {
+  const groups = $("pal-groups");
+  for (const g of TREE) groups.append(branchRow(g, 1));
+  wireMenuKeys(groups, null);
+  groups.addEventListener("mouseleave", scheduleClose);
+  groups.addEventListener("mouseenter", () => clearTimeout(MENU.closeTimer));
+  document.addEventListener("pointerdown", e => { if (!e.target.closest(".flyout,#pal-groups")) closeMenus(); });
+  // search: every form, matched on token, form name, control or group
+  const all = TREE.flatMap(g => g.children.flatMap(c => c.children.map(f => ({ ...f, path: `${g.label} › ${c.label}` }))));
+  const s = $("pal-search"), res = $("pal-results");
+  s.oninput = () => {
+    res.textContent = ""; const q = s.value.trim().toLowerCase(); if (!q) return;
+    const hits = all.filter(f => (f.tok + " " + f.label + " " + f.path + " " + (DIR[f.d]?.detail || "")).toLowerCase().includes(q));
+    for (const f of hits) { const r = leafRow(f); r.querySelector(".ml").insertAdjacentHTML("beforeend", `<span class="desc">${esc(f.path)}</span>`); res.append(r); }
+    if (!hits.length) res.append(el("div", "hint", "no part matches"));
+  };
+  s.onkeydown = e => { if (e.key === "ArrowDown") { res.querySelector(".mrow")?.focus(); e.preventDefault(); }
+    else if (e.key === "Enter") { res.querySelector(".mrow")?.click(); e.preventDefault(); } else if (e.key === "Escape") { s.value = ""; s.oninput(); } };
+  wireMenuKeys(res, s);
+}
 // ---------------------------------------------------------- inspector ----
 // Shows ONLY the sections that apply to the selected part's kind. Sections
 // that do not apply are absent, and one line says which and why.
@@ -837,7 +1083,7 @@ function renderInspector() {
     r.append(rm, ml, mr);
     const rng = scopeRanges(ns).find(x => x.op === V.sel);
     if (rng) s.append(Object.assign(document.createElement("div"), { className: "hint",
-      textContent: rng.to < rng.from ? "affects nothing: no part follows it" : `affects ${rng.to - rng.from + 1} part(s), bracketed in the parts row` }));
+      textContent: rng.to < rng.from ? "affects nothing: no part follows it" : `affects ${rng.to - rng.from + 1} part(s), striped in its color under each one in the parts row` }));
     const err = kind === "color" ? colorDirectiveError(n.tok, effColor()) : null;
     if (err) s.append(Object.assign(document.createElement("div"), { className: "err", textContent: `invalid: ${err} — git aborts the whole command` }));
   }
@@ -924,9 +1170,16 @@ function specEditor(sec, row, ctlEl, lab, init, onApply, applyLabel) {
   const mode = ctlEl("select", "c-mode"); for (const v of ["auto", "always"]) mode.append(new Option(v === "auto" ? "follows --color" : "always, even piped", v));
   mode.value = init.mode || "auto"; lab(r1, "mode", mode);
   const r2 = row(sec);
-  const fg = ctlEl("input", "c-fg", { type: "text", value: cols[0] || "", placeholder: "red · 208 · #ff8800" });
+  const fg = ctlEl("input", "c-fg", { type: "text", value: cols[0] || "", placeholder: "e.g. red" });
   const bg = ctlEl("input", "c-bg", { type: "text", value: cols[1] || "", placeholder: "background" });
   fg.setAttribute("list", "lk-colors"); bg.setAttribute("list", "lk-colors"); lab(r2, "fg", fg); lab(r2, "bg", bg);
+  // swatches: the mouse-only path to a color (spec section 63); each fills fg
+  const rs = row(sec);
+  for (const c of ["red", "green", "yellow", "blue", "magenta", "cyan", "white", "black"]) {
+    const b = ctlEl("button", "c-sw-" + c); b.title = c; b.setAttribute("aria-label", `foreground ${c}`);
+    b.style.cssText = `width:20px;height:20px;padding:0;background:${specCss(c)};border:1px solid var(--line)`;
+    b.onclick = () => { fg.value = c; check(); }; rs.append(b);
+  }
   const r3 = row(sec); const boxes = {};
   for (const a of ATTRS) { boxes[a] = ctlEl("input", "c-" + a, { type: "checkbox", checked: words.includes(a) }); lab(r3, a, boxes[a]); }
   const r4 = row(sec); const msg = document.createElement("span"); msg.className = "hint";
@@ -1000,8 +1253,12 @@ function buildToggles() {
 function buildOptions() {
   const box = $("opts");
   const KNOBBED = ["pretty", "decorate", "date", "color", "order"];
+  // rows are grouped under ONE scope heading per scope, instead of a chip on every row
+  let lastScope = null;
   for (const id of ["pretty", "abbrev", "abbrev_commit", "decorate", "date", "color", "order"]) {
-    const o = OPT[id]; const r = document.createElement("div"); r.className = "orow"; r.dataset.opt = id;
+    const o = OPT[id];
+    if (o.scope !== lastScope) { const hd = el("div", "pal-group scopehead"); hd.dataset.scope = o.scope; hd.innerHTML = scopeChip(o.scope); box.append(hd); lastScope = o.scope; }
+    const r = document.createElement("div"); r.className = "orow"; r.dataset.opt = id; r.dataset.scope = o.scope;
     r.innerHTML = `<span class="olab">${esc(o.label)}</span>`;
     let inp;
     if (o.kind === "enum") { inp = document.createElement("select"); for (const v of o.values) inp.append(new Option(v, v)); }
@@ -1015,27 +1272,98 @@ function buildOptions() {
       const kw = document.createElement("span"); kw.className = "knobctl"; kw.dataset.knob = id; r.append(kw);
       OUT_KNOBS.push(makeKnob(kw, { options: o.values, label: o.label, size: 28, get: () => String(C.options[id]), set: v => setOption(id, v) }));
     }
-    r.insertAdjacentHTML("beforeend", scopeChip(o.scope));
     r.onmouseenter = () => showOptDocs(id);
     box.append(r);
   }
   const cb = $("cfgopts");
-  for (const k of CONFIG_KEYS) {
+  { const hd = el("div", "pal-group scopehead"); hd.dataset.scope = "output"; hd.innerHTML = scopeChip("output"); cb.append(hd); }
+  for (const k of CONFIG_KEYS.filter(k => k !== "log.graphColors")) {     // graph colors live in the Graph section
     const r = document.createElement("div"); r.className = "orow";
     r.innerHTML = `<span class="olab" style="min-width:150px">${esc(k)}</span>`;
     const i = document.createElement("input"); i.type = "text"; i.id = "cfg-" + k.replace(/\./g, "-"); i.placeholder = k === "log.graphColors" ? "red, 208, #00ff00" : "bold green";
     i.onchange = () => { const v = i.value.trim(); if (v && k !== "log.graphColors") { try { colorParse(v); } catch (e) { V.notice = `${k}: ${e.message}`; renderAll("cfgbad"); return; } } setConfig(k, v); };
-    r.append(i); r.insertAdjacentHTML("beforeend", scopeChip("output")); cb.append(r);
+    r.dataset.scope = "output"; r.append(i); cb.append(r);
   }
 }
 function renderOptions() {
   for (const id of Object.keys(OPT)) { const el = $("opt-" + id); if (el && el.value !== String(C.options[id])) el.value = String(C.options[id]); }
   for (const k of OUT_KNOBS) k.render();
   for (const b of $("toggles").children) b.setAttribute("aria-checked", String(toggleMode(b.dataset.toggle) === "on"));
-  for (const k of CONFIG_KEYS) { const el = $("cfg-" + k.replace(/\./g, "-")); if (el !== document.activeElement) el.value = C.options.config[k] || ""; }
+  for (const k of CONFIG_KEYS) { const e = $("cfg-" + k.replace(/\./g, "-")); if (e && e !== document.activeElement) e.value = C.options.config[k] || ""; }
+  renderGraph();
   const builtin = BUILTIN.has(C.options.pretty);
   $("tpl").disabled = builtin; $("tpl").title = builtin ? `--pretty=${C.options.pretty} is built in; the template does not apply` : "";
   for (const el of [$("palette"), $("tokens"), $("insp")]) el.style.opacity = builtin ? .45 : 1;
+}
+
+// -------------------------------------------------------------- graph ----
+// (spec section 66) What git lets you change about the graph: column colors,
+// shape (order, first parent, refs), and rows per commit (entry lines).
+const GIT_GRAPH_DEFAULT = ["red", "green", "yellow", "blue", "magenta", "cyan", "bold red", "bold green", "bold yellow", "bold blue", "bold magenta", "bold cyan"];
+const graphColors = () => C.options.config["log.graphColors"] ? C.options.config["log.graphColors"].split(",").map(s => s.trim()).filter(Boolean) : null;
+function setGraphColors(list) {
+  if (list !== null) {
+    if (!Array.isArray(list) || list.length > CFG["graph.colors.max"]) throw new Error("graph colors: 1.." + CFG["graph.colors.max"] + " specs");
+    for (const s of list) colorParse(s);                  // git skips invalid entries silently; the configurator refuses them
+  }
+  setConfig("log.graphColors", list && list.length ? list.join(", ") : "");
+}
+const entrySpacing = () => { const ns = nodes(); return ns.length && ns.at(-1).tok === "%n" ? "blank" : "none"; };
+function setEntrySpacing(mode) {
+  if (!["none", "blank"].includes(mode)) throw new Error("entry spacing is 'none' or 'blank'");
+  if (mode === entrySpacing()) return;
+  const ns = nodes();
+  if (mode === "blank") insertToken("%n", ns.length); else removeNode(ns.length - 1);
+}
+function cssToHex(c) {
+  if (/^#[0-9a-f]{6}$/i.test(c)) return c.toLowerCase();
+  const m = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/.exec(c || ""); if (!m) return "#808080";
+  return "#" + m.slice(1).map(x => (+x).toString(16).padStart(2, "0")).join("");
+}
+function specCss(spec) { try { const st = parseAnsi(colorParse(spec) + "x").vis[0]?.st || {}; return colorOf(st.fg, theme()) || colorOf(st.bg, theme()) || theme().foreground; } catch { return null; } }
+function renderGraph() {
+  const box = $("graphopts"), keep = document.activeElement?.dataset?.key; box.textContent = "";
+  const on = C.options.graph === "on", custom = graphColors(), list = custom || GIT_GRAPH_DEFAULT;
+  $("graphsec").setAttribute("aria-disabled", String(!on));
+  if (!on) { const r = el("div", "orow", `<span class="hint">These shape the graph in the history preview.</span>`);
+    const b = el("button", null, "turn on --graph"); b.dataset.key = "g-on"; b.onclick = () => setGraph("on"); r.append(b); box.append(r); }
+  box.append(el("div", "hint", `column colors — <code>log.graphColors</code>, cycled per column${custom ? "" : " (git's default; edit any to customize)"}`));
+  list.forEach((spec, k) => {
+    const r = el("div", "gcol"); r.dataset.gcol = k;
+    const pick = el("input"); pick.type = "color"; pick.value = cssToHex(specCss(spec)); pick.dataset.key = `g-pick-${k}`; pick.setAttribute("aria-label", `column ${k + 1} color`);
+    const txt = el("input"); txt.type = "text"; txt.value = spec; txt.dataset.key = `g-spec-${k}`; txt.setAttribute("aria-label", `column ${k + 1} color spec`);
+    const write = v => { const next = list.slice(); next[k] = v; try { setGraphColors(next); } catch (e) { V.notice = `graph color: ${e.message}`; $("notice").textContent = V.notice; } };
+    pick.onchange = () => write(pick.value); txt.onchange = () => write(txt.value.trim());
+    const mv = (d, lab) => { const b = el("button", null, lab); b.dataset.key = `g-${lab}-${k}`; b.setAttribute("aria-label", `move column ${k + 1} color ${d < 0 ? "up" : "down"}`);
+      b.disabled = k + d < 0 || k + d >= list.length; b.onclick = () => { const n = list.slice(); [n[k], n[k + d]] = [n[k + d], n[k]]; setGraphColors(n); }; return b; };
+    const rm = el("button", null, "×"); rm.dataset.key = `g-rm-${k}`; rm.setAttribute("aria-label", `remove column ${k + 1} color`); rm.disabled = list.length <= 1;
+    rm.onclick = () => setGraphColors(list.filter((_, j) => j !== k));
+    r.append(pick, txt, mv(-1, "↑"), mv(+1, "↓"), rm); box.append(r);
+  });
+  const r = el("div", "orow");
+  const add = el("button", null, "+ add color"); add.dataset.key = "g-add"; add.disabled = list.length >= CFG["graph.colors.max"]; add.onclick = () => setGraphColors([...list, "white"]);
+  const rs = el("button", null, "reset to git default"); rs.dataset.key = "g-reset"; rs.disabled = !custom; rs.onclick = () => setGraphColors(null);
+  r.append(add, rs); box.append(r);
+  // shape: the same setters as the toolbar toggles and the order option
+  box.append(el("div", "hint", "shape"));
+  const sh = el("div", "orow");
+  for (const [id, label, setter] of [["first_parent", "--first-parent", setFirstParent], ["refs", "--all", m => setRefs(m === "on" ? "all" : "head")]]) {
+    const b = el("button", "sw", esc(label)); b.setAttribute("role", "switch"); b.dataset.key = "g-" + id; b.setAttribute("aria-checked", String(toggleMode(id) === "on"));
+    b.onclick = () => setter(toggleMode(id) === "on" ? "off" : "on"); sh.append(b);
+  }
+  const ord = el("select"); ord.dataset.key = "g-order"; ord.setAttribute("aria-label", "commit order"); for (const v of OPT.order.values) ord.append(new Option(v, v)); ord.value = C.options.order;
+  ord.onchange = () => setOrder(ord.value); sh.append(ord); box.append(sh);
+  // rows per commit: entry lines; a trailing %n adds a blank row (a template edit)
+  const lines = (() => { try { const rec = Object.values(STORES[V.caseIdx].records)[0]; return render(C.template, rec, simOpts()).text.split("\n").length; } catch { return 1; } })();
+  box.append(el("div", "hint", `rows per commit — each entry line is one graph row (now ${lines} on a sample commit)`));
+  const sp = el("div", "orow"); const seg = el("span", "seg");
+  for (const [v, l] of [["none", "no spacing"], ["blank", "blank line between entries"]]) {
+    const b = el("button", null, l); b.dataset.key = "g-space-" + v; b.setAttribute("aria-pressed", String(entrySpacing() === v)); b.title = v === "blank" ? "adds a trailing %n to the template" : "removes a trailing %n";
+    b.onclick = () => setEntrySpacing(v); seg.append(b);
+  }
+  sp.append(seg); sp.insertAdjacentHTML("beforeend", scopeChip("entry")); box.append(sp);
+  box.append(el("div", "hint", "git draws the graph with fixed characters (* | / \\ _ -); their shape and spacing cannot be changed."));
+  if (keep) box.querySelector(`[data-key="${keep}"]`)?.focus();
 }
 
 // ------------------------------------------------------------ command ----
@@ -1246,8 +1574,94 @@ function gaugeSvg(frac, size = 18) {
     + `<path d="M${sx.toFixed(1)},${sy.toFixed(1)} A42,42 0 ${a - KNOB.sweepStart > 180 ? 1 : 0},1 ${ex.toFixed(1)},${ey.toFixed(1)}" fill="none" stroke="var(--acc)" stroke-width="13" stroke-linecap="round"/></svg>`;
 }
 
+// ------------------------------------------------------------ regions ----
+// Separator handles (spec section 62). setRegionSize is the setter; drag,
+// arrow keys, Home/End and reset are defined atop it. Sizes are view state,
+// kept per viewer in browser storage when it is available.
+const REGIONS = {
+  left:  { prop: "--w-left",  axis: "x", sign: +1 }, right: { prop: "--w-right", axis: "x", sign: -1 },
+  docs:  { prop: "--h-docs",  axis: "y", sign: -1 }, parts: { prop: "--h-parts", axis: "y", sign: +1 },
+};
+const lim = (name, k) => CFG[`layout.${name}.${k}`];
+function setRegionSize(name, px) {
+  if (!REGIONS[name]) throw new Error("unknown region " + name);
+  const v = Math.round(Math.max(lim(name, "min"), Math.min(lim(name, "max"), +px)));
+  V.sizes[name] = v; document.documentElement.style.setProperty(REGIONS[name].prop, v + "px");
+  const h = document.querySelector(`.rz[data-rz="${name}"]`);
+  if (h) { h.setAttribute("aria-valuenow", v); h.setAttribute("aria-valuemin", lim(name, "min")); h.setAttribute("aria-valuemax", lim(name, "max")); }
+  try { localStorage.setItem(CFG["layout.storage_key"], JSON.stringify(V.sizes)); } catch {}
+  closeMenus(); return v;
+}
+function wireRegions() {
+  let saved = {}; try { saved = JSON.parse(localStorage.getItem(CFG["layout.storage_key"]) || "{}") || {}; } catch {}
+  for (const name of Object.keys(REGIONS)) setRegionSize(name, saved[name] ?? lim(name, "default"));
+  for (const h of document.querySelectorAll(".rz")) {
+    const name = h.dataset.rz, R = REGIONS[name];
+    let from = null, base = 0;
+    h.onpointerdown = e => { from = R.axis === "x" ? e.clientX : e.clientY; base = V.sizes[name]; h.setPointerCapture(e.pointerId); h.classList.add("drag"); e.preventDefault(); };
+    h.onpointermove = e => { if (from === null) return; const d = (R.axis === "x" ? e.clientX : e.clientY) - from; setRegionSize(name, base + R.sign * d); };
+    h.onpointerup = h.onpointercancel = e => { from = null; h.classList.remove("drag"); try { h.releasePointerCapture(e.pointerId); } catch {} };
+    h.ondblclick = () => setRegionSize(name, lim(name, "default"));
+    h.onkeydown = e => {
+      const step = CFG["layout.step_px"] * (e.shiftKey ? 4 : 1);
+      const grow = R.axis === "x" ? { ArrowRight: R.sign, ArrowLeft: -R.sign } : { ArrowDown: R.sign, ArrowUp: -R.sign };
+      if (e.key in grow) setRegionSize(name, V.sizes[name] + grow[e.key] * step);
+      else if (e.key === "Home") setRegionSize(name, lim(name, "min"));
+      else if (e.key === "End") setRegionSize(name, lim(name, "max"));
+      else if (e.key === "Enter") setRegionSize(name, lim(name, "default"));
+      else return;
+      e.preventDefault();
+    };
+  }
+}
+
+// ------------------------------------------------------- copy to clipboard ----
+// The async clipboard API where the page may use it; a selected hidden
+// textarea and execCommand otherwise. Both copy exactly the text given.
+async function copyText(text, what) {
+  let ok = false;
+  try { if (navigator.clipboard?.writeText) { await navigator.clipboard.writeText(text); ok = true; } } catch {}
+  if (!ok) { const ta = el("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.append(ta); ta.select();
+    try { ok = document.execCommand("copy"); } catch {} ta.remove(); }
+  V.notice = ok ? `copied ${what}` : `could not copy ${what}: select it and copy by hand`; $("notice").textContent = V.notice;
+  return ok;
+}
+const autosize = ta => { ta.style.height = "auto"; ta.style.height = (ta.scrollHeight + 2) + "px"; };
+
 // ------------------------------------------------------------- update ----
+// ----------------------------------------- the big format editor (focus) ----
+// A transparent textarea over a highlighted copy of the same text, same font
+// and wrapping, so every character lines up. The caret selects the part under
+// it (spec section 64); that works in the classic field too.
+function caretSelect(field) {
+  const pos = field.selectionStart, ns = nodes(); if (!ns.length) return;
+  let i = ns.findIndex(n => n.at <= pos && pos < n.at + srcOf(n).length); if (i < 0) i = ns.length - 1;
+  if (i !== V.sel) { V.sel = i; V.notice = ""; renderAll("caret"); }
+}
+function renderFormatEditor() {
+  const box = $("fmtbig"); if (box.hidden) return;
+  const ta = $("tplbig"); if (document.activeElement !== ta && ta.value !== C.template) ta.value = C.template;
+  if (document.activeElement === ta && ta.value !== C.template) ta.value = C.template;
+  const ns = nodes(), rs = scopeRanges(ns), solid = c => !c ? null : c.includes("gradient") ? (c.includes("135deg") ? "#61afef" : theme().ansi[3]) : c;
+  let html = "";
+  ns.forEach((n, i) => {
+    const under = rs.filter(r => r.from <= i && i <= r.to).map(r => solid(opColor(ns[r.op]))).filter(Boolean);
+    const shadow = under.map((c, k) => `inset 0 -${3 * (k + 1)}px 0 ${c}`).join(",");
+    const own = solid(opColor(n)); const err = n.kind === "color" && colorDirectiveError(n.tok, effColor());
+    html += `<span class="k-${n.kind}${i === V.sel ? " sel" : ""}${err ? " bad" : ""}" style="${shadow ? `box-shadow:${shadow};` : ""}${own && n.kind === "color" ? `color:${own}` : ""}">${esc(srcOf(n))}</span>`;
+  });
+  box.querySelector(".hl").innerHTML = html + "\u200b";      // keeps the line box when empty
+  box.classList.toggle("bad", ns.some(n => n.kind === "color" && colorDirectiveError(n.tok, effColor())));
+}
+function setLayout(name) { if (!lab002(name)) throw new Error("unknown layout " + name); V.layout = name; closeMenus(); renderAll("layout"); }
+function setTab(name) { if (!["preview", "parts"].includes(name)) throw new Error("unknown tab " + name); V.tab = name; renderAll("tab"); }
+function applyLayout() {
+  lab002(V.layout)({ tab: V.tab, regions: { fmtTop: $("fmt-top"), fmtbig: $("fmtbig"), vtabs: $("vtabs"), tokwrap: $("tokwrap"), rzParts: $("rz-parts"), termwrap: $("termwrap") } });
+  for (const b of $("layout").children) b.setAttribute("aria-pressed", String(b.dataset.l === V.layout));
+  for (const b of $("vtabs").children) { b.setAttribute("aria-selected", String(b.dataset.tab === V.tab)); b.tabIndex = 0; }
+}
 function renderAll(why) {
+  applyLayout();
   const tpl = $("tpl");
   if (document.activeElement !== tpl || tpl.value !== C.template) tpl.value = C.template;
   const bad = tokenize(C.template).some(n => n.kind === "color" && colorDirectiveError(n.tok, effColor()));
@@ -1258,7 +1672,8 @@ function renderAll(why) {
   for (const b of $("tview").children) b.setAttribute("aria-pressed", String(b.dataset.v === V.tokenView));
   $("theme").value = V.theme; $("shell").value = V.shell; $("notice").textContent = V.notice;
   renderOptions(); renderTokens(); renderInspector();
-  if ($("cfgexp").open) { const x = configExport(); $("cx-cmds").value = x.commands; $("cx-frag").value = x.fragment; }
+  if ($("cfgexp").open) { const x = configExport(); $("cx-cmds").value = x.commands; $("cx-frag").value = x.fragment; autosize($("cx-cmds")); autosize($("cx-frag")); }
+  renderFormatEditor();
   renderPreview();
   document.dispatchEvent(new CustomEvent("logknobs:update", { detail: { why, template: C.template } }));
 }
@@ -1268,14 +1683,24 @@ $("lockup").innerHTML = LOCKUP;
 for (const s of SHELLS) $("shell").append(new Option(SHELL_LABELS[s], s));
 for (const name of Object.keys(REGISTRY.themes)) $("theme").append(new Option(name + (REGISTRY.themes[name].source === "original" ? " (logknobs)" : ""), name));
 const dl = document.createElement("datalist"); dl.id = "lk-colors"; for (const c of COLOR_NAMES.filter(Boolean)) dl.append(new Option(c)); document.body.append(dl);
-buildPalette(); buildToggles(); buildOptions(); renderTemplates();
+buildPalette(); buildToggles(); buildOptions(); renderTemplates(); wireRegions();
 $("tpl").oninput = e => { C.template = e.target.value; V.sel = -1; commit("typing", true); V.notice = ""; renderAll("template"); };
+$("tplbig").oninput = e => { const v = e.target.value.replace(/[\r\n]/g, ""); if (v !== e.target.value) e.target.value = v;
+  C.template = v; commit("typing", true); V.notice = ""; caretSelect(e.target); renderAll("template"); };
+$("tplbig").onkeydown = e => { if (e.key === "Enter") e.preventDefault(); };
+for (const f of [$("tpl"), $("tplbig")]) for (const ev of ["click", "keyup", "select", "focus"]) f.addEventListener(ev, () => caretSelect(f));
+for (const b of $("layout").children) b.onclick = () => setLayout(b.dataset.l);
+for (const b of $("vtabs").children) b.onclick = () => setTab(b.dataset.tab);
+$("vtabs").onkeydown = e => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { const n = V.tab === "preview" ? "parts" : "preview"; setTab(n); $("vtabs").querySelector(`[data-tab="${n}"]`).focus(); e.preventDefault(); } };
+document.documentElement.style.setProperty("--fmt-px", CFG["focus.format.font_px"] + "px");
+$("cx-copy-cmds").onclick = () => copyText(configExport().commands, "config commands");
+$("cx-copy-frag").onclick = () => copyText(configExport().fragment, ".gitconfig fragment");
 $("undo").onclick = undo; $("redo").onclick = redo;
 $("case").onclick = () => setCase(V.caseIdx + 1);
 for (const b of $("pmode").children) b.onclick = () => setPreviewMode(b.dataset.mode);
 for (const b of $("tview").children) b.onclick = () => setTokenView(b.dataset.v);
 $("theme").onchange = e => setTheme(e.target.value); $("shell").onchange = e => setShell(e.target.value);
-$("copy").onclick = () => navigator.clipboard?.writeText(command());
+$("copy").onclick = () => copyText(command(), "command");
 $("copy").onmouseenter = () => { $("docs").innerHTML = `<h3>the command</h3><p><code>${esc(command())}</code></p><p class="tag">quoted for ${esc(V.shell)}. --color is omitted under auto, git's default; the preview shows what a terminal shows.</p>`; };
 $("lit-add").onclick = () => { if (insertLiteral($("lit-text").value)) $("lit-text").value = ""; };
 $("lit-text").onkeydown = e => { if (e.key === "Enter") $("lit-add").click(); };
@@ -1302,8 +1727,9 @@ window.__logknobs = Object.freeze({
   setHistoryIndex, undo, redo, select, setPreviewMode, setCase, setTheme, setTokenView, setColorScope, setShell,
   insertToken, insertLiteral, removeNode, moveNode, replaceNode, setLiteralText, setSpacingModifier, setColor, setPadding, setParam,
   saveTemplate, loadTemplate, deleteTemplate, renameTemplate, exportTemplates, importTemplates, applyPreset,
+  setRegionSize, setLayout, setTab, setGraphColors, setEntrySpacing, openContext, closeMenus, copyText, scopeSentence, TREE,
   configExport, command, gitArgs, nodes, scopeRanges, renderModel, ansiToHtml, paintSegs, onelineMode, GROUPS, NOT_INSERTABLE, directiveOf,
 });
 renderAll("init");
-})(document, name => LAB_001[name]);
+})(document, name => LAB_001[name], name => LAB_002[name]);
 </script></body></html>

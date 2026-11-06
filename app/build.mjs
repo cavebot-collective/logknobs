@@ -10,7 +10,7 @@ const HERE = fileURLToPath(new URL(".", import.meta.url));
 process.chdir(HERE);
 const SIM = process.env.LK_SIM || fileURLToPath(new URL("../probe/sim/", import.meta.url));
 const EV = process.env.LK_EVIDENCE || fileURLToPath(new URL("../probe/evidence/", import.meta.url));
-const REGISTRY_FILE = "registry-v0.3.0.json";
+const REGISTRY_FILE = "registry-v0.4.0.json";
 
 // Modules in dependency order. Their imports are satisfied by concatenation, so
 // import lines are dropped and "export" keywords stripped. A name defined twice

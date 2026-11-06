@@ -98,6 +98,23 @@ const cleanEnv = { GIT_CONFIG_GLOBAL: "/dev/null", GIT_CONFIG_SYSTEM: "/dev/null
     await win.evaluate(() => { const g = window.__logknobs; for (const k of Object.keys(g.C.options.config)) g.setConfig(k, "");
       for (const [k, d] of Object.entries(g.REGISTRY.options)) g.setOption(k, d.default); });
   }
+  // copy buttons (spec section 65): the clipboard receives exactly the generated text
+  await win.evaluate(() => { const g = window.__logknobs; g.setTemplate(`%h "%s" it's`, "t13"); g.setGraph("on"); document.getElementById("cfgexp").open = true; });
+  for (const [btn, key] of [["#cx-copy-cmds", "commands"], ["#cx-copy-frag", "fragment"]]) {
+    await app.evaluate(({ clipboard }) => clipboard.writeText("")); await win.evaluate(() => document.getElementById("notice").textContent = "");
+    await win.click(btn);
+    await win.waitForFunction(() => /^(copied|could not copy)/.test(document.getElementById("notice").textContent));
+    G.ck("config: copy reports success", key, (await win.textContent("#notice")).startsWith("copied"), await win.textContent("#notice"));
+    const clip = await app.evaluate(({ clipboard }) => clipboard.readText());
+    const want = (await win.evaluate(() => window.__logknobs.configExport()))[key];
+    G.ck("config: copy button copies exactly", key, clip === want && clip.length > 0);
+    const fits = await win.evaluate(k => { const ta = document.getElementById(k === "commands" ? "cx-cmds" : "cx-frag");
+      return ta.scrollHeight <= ta.clientHeight + 2 && ta.scrollWidth <= ta.clientWidth + 1; }, key);
+    G.ck("config: box shows every character, no scrolling", key, fits);
+  }
+  await app.evaluate(({ clipboard }) => clipboard.writeText("")); await win.evaluate(() => document.getElementById("notice").textContent = "");
+  await win.click("#copy"); await win.waitForFunction(() => /^(copied|could not copy)/.test(document.getElementById("notice").textContent));
+  G.ck("command: copy button copies exactly", "copy command", (await app.evaluate(({ clipboard }) => clipboard.readText())) === await call(win, "command"));
   G.ck("runtime", "no page errors", !errors.length, errors.join(" | "));
   await app.close(); fs.rmSync(tmp, { recursive: true, force: true });
   process.exit(G.report() ? 1 : 0);

@@ -17,6 +17,9 @@ const TPL = "%C(red)%h%Creset -%<(8,trunc)%an [%s]";
   const tpl = () => win.evaluate(() => window.__logknobs.C.template);
   const item = (v, i) => v === "blocks" ? `#tokens .tk[data-i="${i}"]` : `#tokens .bl[data-i="${i}"]`;
   const gap = (v, g) => v === "blocks" ? `#tokens .gap[data-at="${g}"]` : `#tokens .bgap[data-at="${g}"]`;
+  // the drag semantics are under test here, not the region size (T16 covers
+  // sizes): give the parts region room so every gap is on screen
+  await call(win, "setRegionSize", "parts", 640);
   for (const view of ["blocks", "bnf"]) {
     await call(win, "setTokenView", view);
     await call(win, "setTemplate", TPL, "t12");
@@ -34,7 +37,10 @@ const TPL = "%C(red)%h%Creset -%<(8,trunc)%an [%s]";
     }
     for (const [tok, g] of [["%ae", 0], ["%n", 3], ["%(trailers:key=Signed-off-by,valueonly)", base.length]]) {
       await call(win, "setTemplate", TPL, "t12");
-      await win.dragAndDrop(`#palette .chip-ins[data-insert="${tok}"]`, gap(view, g));
+      // drag a form out of the Insert search results (the cascade's flat view)
+      await win.fill("#pal-search", tok);
+      await win.dragAndDrop(`#pal-results [data-insert="${tok}"]`, gap(view, g));
+      await win.fill("#pal-search", "");
       const want = base.slice(); want.splice(g, 0, tok);
       G.ck(`${view}: drag from Insert`, `${tok}@${g}`, (await tpl()) === want.join(""), await tpl());
     }
@@ -52,6 +58,24 @@ const TPL = "%C(red)%h%Creset -%<(8,trunc)%an [%s]";
     G.ck(`${view}: keyboard`, "Alt+Right", (await tpl()) === TPL);
     await win.locator(item(view, 4)).focus(); await win.keyboard.press("Delete");
     { const want = base.slice(); want.splice(4, 1); G.ck(`${view}: keyboard`, "Delete", (await tpl()) === want.join("")); }
+    // mouse path for remove: the × on the hovered part
+    await call(win, "setTemplate", TPL, "t12");
+    await win.hover(item(view, 4)); await win.click(`${item(view, 4)} .x`);
+    { const want = base.slice(); want.splice(4, 1); G.ck(`${view}: × removes (mouse)`, "part 4", (await tpl()) === want.join(""), await tpl()); }
+    // context menu: right-click (mouse) and Shift+F10 (keyboard)
+    for (const [act, fn] of [["move right", w => { const [x] = w.splice(1, 1); w.splice(2, 0, x); }], ["move left", w => { const [x] = w.splice(1, 1); w.splice(0, 0, x); }],
+                             ["duplicate", w => w.splice(2, 0, w[1])], ["remove", w => w.splice(1, 1)]]) {
+      await call(win, "setTemplate", TPL, "t12");
+      await win.click(item(view, 1), { button: "right" });
+      await win.click(`.ctx [data-act="${act}"]`);
+      const want = base.slice(); fn(want);
+      G.ck(`${view}: context menu (mouse)`, act, (await tpl()) === want.join(""), await tpl());
+    }
+    await call(win, "setTemplate", TPL, "t12"); await win.locator(item(view, 1)).focus(); await win.keyboard.press("Shift+F10");
+    G.ck(`${view}: context menu (keyboard)`, "opens, focused", await win.evaluate(() => document.activeElement?.closest(".ctx") !== null));
+    await win.keyboard.press("ArrowDown"); await win.keyboard.press("ArrowDown"); await win.keyboard.press("Enter");   // remove, move left (disabled? no: index 1), move right
+    { const want = base.slice(); const [x] = want.splice(1, 1); want.splice(2, 0, x);
+      G.ck(`${view}: context menu (keyboard)`, "move right by arrows + Enter", (await tpl()) === want.join(""), await tpl()); }
     // refusal: "%a" followed by literal "n..." would read as %an
     await call(win, "setTemplate", "%h %ad|n|", "t12");
     await call(win, "replaceNode", 2, "%ad");
@@ -60,9 +84,26 @@ const TPL = "%C(red)%h%Creset -%<(8,trunc)%an [%s]";
     const ranges = await win.evaluate(() => window.__logknobs.scopeRanges(window.__logknobs.nodes()));
     const want = [{ op: 0, from: 1, to: 5, scope: "until-reset" }, { op: 3, from: 4, to: 5, scope: "next-placeholder" }, { op: 7, from: 8, to: 8, scope: "until-next-wrap" }];
     G.ck(`${view}: scope ranges`, "color / pad / wrap", JSON.stringify(ranges) === JSON.stringify(want), JSON.stringify(ranges));
+    // scope line: says what the selected operator does, and what affects a part.
+    // A hovered part takes precedence over the selection (spec section 61), so
+    // the pointer is parked off the parts first.
+    await win.mouse.move(2, 2);
+    await call(win, "select", 0);
+    G.ck(`${view}: scope line for an operator`, "%C(blue)", (await win.textContent("#scopeline")) === "%C(blue) colors 5 parts — %h “ ” %<(9) “-” %an — until %Creset.", await win.textContent("#scopeline"));
+    await call(win, "select", 5);
+    G.ck(`${view}: scope line for a part`, "%an", (await win.textContent("#scopeline")) === "%an is colored by %C(blue), padded by %<(9).", await win.textContent("#scopeline"));
+    G.ck(`${view}: affected parts are outlined`, "%C(blue)", await win.evaluate(() => { window.__logknobs.select(0); return [...document.querySelectorAll("#tokens .aff")].map(e => +e.dataset.i).join(); }) === "1,2,3,4,5");
     if (view === "blocks") {
-      const brs = await win.evaluate(() => [...document.querySelectorAll("#tokens .br")].map(b => [+b.dataset.op, b.style.gridColumn]));
-      G.ck("blocks: brackets cover exactly the affected parts", "grid columns", JSON.stringify(brs) === JSON.stringify([[0, "4 / 13"], [3, "10 / 13"], [7, "18 / 19"]]), JSON.stringify(brs));
+      // each operator's stripes sit under exactly the parts in its range (no more, no fewer)
+      const cover = await win.evaluate(() => { const out = {};
+        for (const cell of document.querySelectorAll("#tokens .cell")) { const i = +cell.querySelector(".tk").dataset.i;
+          for (const s of cell.querySelectorAll(".stripe[data-op]")) (out[s.dataset.op] ||= []).push(i); }
+        return out; });
+      G.ck("blocks: stripes cover exactly the affected parts", "per operator", JSON.stringify(cover) === JSON.stringify({ 0: [1, 2, 3, 4, 5], 3: [4, 5], 7: [8] }), JSON.stringify(cover));
+      // a long template wraps instead of scrolling sideways
+      await call(win, "setTemplate", "%h %s %an %ae %ad %cn %ce %cd %d %D %b %N %G? %gs %T %P %e %x41 %m %S %h %s %an %ae %ad", "t12");
+      G.ck("blocks: long templates wrap, nothing scrolls out of sight", "wrap", await win.evaluate(() => { const t = document.getElementById("tokens");
+        const tops = new Set([...t.querySelectorAll(".tk")].map(e => Math.round(e.getBoundingClientRect().top))); return t.scrollWidth <= t.clientWidth + 1 && tops.size > 1; }));
     } else {
       const ind = await win.evaluate(() => [...document.querySelectorAll("#tokens .bl")].map(b => b.textContent.match(/^ */)[0].length / 2));
       G.ck("bnf: indentation is scope depth", "depths", JSON.stringify(ind) === JSON.stringify([0, 1, 1, 1, 2, 2, 0, 0, 1]), JSON.stringify(ind));
