@@ -1,4 +1,4 @@
-# logknobs v0.4.0 — configurator for git log formats (browser + Electron)
+# logknobs v0.4.1 — configurator for git log formats (browser + Electron)
 
     node build.mjs                 # -> dist/index.html (single file, no runtime deps)
     open dist/index.html           # browser: simulated preview
@@ -55,12 +55,12 @@
 
 tests/legacy/ holds the v0.3.0 gates for reference; they drive the v0.3.0 UI.
 
-## Not covered
+## Shell targets
 
-- PowerShell quoting is generated but not executed by any gate (no pwsh here).
-  bash quoting is executed by T13.
-- cmd.exe quoting is not offered: % handling differs between the prompt and
-  batch files, so one quoting cannot be right for both.
+The copied command is quoted for bash, PowerShell 7.3+, Windows PowerShell 5.1,
+cmd at the prompt, or cmd in a .bat file (src/quoting.mjs). bash is executed by
+T13 and tests/quoting.mjs; the Windows targets are executed by the
+windows-quoting workflow, with negative controls (spec §58).
 
 ## Brand (v0.3.0)
 

@@ -289,6 +289,18 @@ const G = gate("T8 v2 — controls, applicability, scope");
   for (const [id, chip] of rows) G.ck("scope: every output row has a chip", id, chip && !!REG.options[id].scope);
   for (const o of Object.keys(REG.options)) G.ck("scope: every option is reachable", o, rows.some(r => r[0] === o) || await win.locator(`#toggles [data-toggle="${o === "pretty" ? "oneline" : o}"]`).count() === 1);
 
+  // ------------------------------------------------------------- shells
+  // every quoting target is selectable and changes the copied command; the
+  // targets themselves are executed by tests/quoting.mjs and windows-quoting
+  // a template where every target must differ: ' (bash vs PowerShell), " (7.3+ vs 5.1), %cd% (prompt vs .bat)
+  await reset(`%h "%s" it's %cd%n`, -1);
+  const shells = await win.evaluate(() => [...document.querySelectorAll("#shell option")].map(o => o.value));
+  G.ck("shells: every target offered", "selector", JSON.stringify(shells) === JSON.stringify(["bash", "powershell", "powershell-5.1", "cmd", "cmd-batch"]), JSON.stringify(shells));
+  const cmds = new Set();
+  for (const sh of shells) { await win.selectOption("#shell", sh); cmds.add(await call(win, "command")); }
+  G.ck("shells: each target quotes differently", "%cd% template", cmds.size === shells.length, [...cmds].join(" || "));
+  await win.selectOption("#shell", "bash");
+
   G.ck("runtime: no page errors", "pageerror", errors.length === 0, errors.join(" | "));
   await app.close();
   process.exit(G.report() ? 1 : 0);
