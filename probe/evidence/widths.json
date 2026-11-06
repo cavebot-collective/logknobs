@@ -1,0 +1,392 @@
+{
+ "U+00A0": {
+  "char": " ",
+  "git_width": 1,
+  "eaw": "N",
+  "name": "NO-BREAK SPACE"
+ },
+ "U+00E0": {
+  "char": "à",
+  "git_width": 1,
+  "eaw": "A",
+  "name": "LATIN SMALL LETTER A WITH GRAVE"
+ },
+ "U+00E7": {
+  "char": "ç",
+  "git_width": 1,
+  "eaw": "N",
+  "name": "LATIN SMALL LETTER C WITH CEDILLA"
+ },
+ "U+00E9": {
+  "char": "é",
+  "git_width": 1,
+  "eaw": "A",
+  "name": "LATIN SMALL LETTER E WITH ACUTE"
+ },
+ "U+00EF": {
+  "char": "ï",
+  "git_width": 1,
+  "eaw": "N",
+  "name": "LATIN SMALL LETTER I WITH DIAERESIS"
+ },
+ "U+00F6": {
+  "char": "ö",
+  "git_width": 1,
+  "eaw": "N",
+  "name": "LATIN SMALL LETTER O WITH DIAERESIS"
+ },
+ "U+0301": {
+  "char": "́",
+  "git_width": 0,
+  "eaw": "A",
+  "name": "COMBINING ACUTE ACCENT"
+ },
+ "U+3048": {
+  "char": "え",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER E"
+ },
+ "U+304F": {
+  "char": "く",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER KU"
+ },
+ "U+3057": {
+  "char": "し",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER SI"
+ },
+ "U+3059": {
+  "char": "す",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER SU"
+ },
+ "U+306E": {
+  "char": "の",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER NO"
+ },
+ "U+3081": {
+  "char": "め",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER ME"
+ },
+ "U+308A": {
+  "char": "り",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER RI"
+ },
+ "U+308B": {
+  "char": "る",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER RU"
+ },
+ "U+3092": {
+  "char": "を",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HIRAGANA LETTER WO"
+ },
+ "U+30AD": {
+  "char": "キ",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "KATAKANA LETTER KI"
+ },
+ "U+30B9": {
+  "char": "ス",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "KATAKANA LETTER SU"
+ },
+ "U+30C6": {
+  "char": "テ",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "KATAKANA LETTER TE"
+ },
+ "U+30C8": {
+  "char": "ト",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "KATAKANA LETTER TO"
+ },
+ "U+51E6": {
+  "char": "処",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-51E6"
+ },
+ "U+5207": {
+  "char": "切",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-5207"
+ },
+ "U+5E45": {
+  "char": "幅",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-5E45"
+ },
+ "U+6570": {
+  "char": "数",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-6570"
+ },
+ "U+6587": {
+  "char": "文",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-6587"
+ },
+ "U+65E5": {
+  "char": "日",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-65E5"
+ },
+ "U+672C": {
+  "char": "本",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-672C"
+ },
+ "U+691C": {
+  "char": "検",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-691C"
+ },
+ "U+6B63": {
+  "char": "正",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-6B63"
+ },
+ "U+7406": {
+  "char": "理",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-7406"
+ },
+ "U+78BA": {
+  "char": "確",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-78BA"
+ },
+ "U+7AE0": {
+  "char": "章",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-7AE0"
+ },
+ "U+8A3C": {
+  "char": "証",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-8A3C"
+ },
+ "U+8A70": {
+  "char": "詰",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-8A70"
+ },
+ "U+8A9E": {
+  "char": "語",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CJK UNIFIED IDEOGRAPH-8A9E"
+ },
+ "U+ACC4": {
+  "char": "계",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE GYE"
+ },
+ "U+AD6D": {
+  "char": "국",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE GUG"
+ },
+ "U+ADDC": {
+  "char": "규",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE GYU"
+ },
+ "U+B155": {
+  "char": "녕",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE NYEONG"
+ },
+ "U+B294": {
+  "char": "는",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE NEUN"
+ },
+ "U+B2C8": {
+  "char": "니",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE NI"
+ },
+ "U+B2E4": {
+  "char": "다",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE DA"
+ },
+ "U+B974": {
+  "char": "르",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE REU"
+ },
+ "U+BB38": {
+  "char": "문",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE MUN"
+ },
+ "U+C138": {
+  "char": "세",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE SE"
+ },
+ "U+C2A4": {
+  "char": "스",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE SEU"
+ },
+ "U+C548": {
+  "char": "안",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE AN"
+ },
+ "U+C5B4": {
+  "char": "어",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE EO"
+ },
+ "U+C5F4": {
+  "char": "열",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE YEOL"
+ },
+ "U+C744": {
+  "char": "을",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE EUL"
+ },
+ "U+C778": {
+  "char": "인",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE IN"
+ },
+ "U+C790": {
+  "char": "자",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE JA"
+ },
+ "U+CE59": {
+  "char": "칙",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE CIG"
+ },
+ "U+D14C": {
+  "char": "테",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE TE"
+ },
+ "U+D2B8": {
+  "char": "트",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE TEU"
+ },
+ "U+D55C": {
+  "char": "한",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE HAN"
+ },
+ "U+D569": {
+  "char": "합",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE HAB"
+ },
+ "U+D655": {
+  "char": "확",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "HANGUL SYLLABLE HWAG"
+ },
+ "U+1F30D": {
+  "char": "🌍",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "EARTH GLOBE EUROPE-AFRICA"
+ },
+ "U+1F30E": {
+  "char": "🌎",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "EARTH GLOBE AMERICAS"
+ },
+ "U+1F30F": {
+  "char": "🌏",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "EARTH GLOBE ASIA-AUSTRALIA"
+ },
+ "U+1F389": {
+  "char": "🎉",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "PARTY POPPER"
+ },
+ "U+1F40D": {
+  "char": "🐍",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "SNAKE"
+ },
+ "U+1F680": {
+  "char": "🚀",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "ROCKET"
+ },
+ "U+1F980": {
+  "char": "🦀",
+  "git_width": 2,
+  "eaw": "W",
+  "name": "CRAB"
+ }
+}

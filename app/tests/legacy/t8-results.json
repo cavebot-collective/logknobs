@@ -1,0 +1,992 @@
+[
+ [
+  "commit-hash",
+  "%H",
+  true,
+  "tpl=%s %H"
+ ],
+ [
+  "commit-hash",
+  "%h",
+  true,
+  "tpl=%s %h"
+ ],
+ [
+  "commit-hash",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "commit-hash",
+  "none",
+  true,
+  "tpl= %s"
+ ],
+ [
+  "tree-hash",
+  "%T",
+  true,
+  "tpl=%H %T"
+ ],
+ [
+  "tree-hash",
+  "%t",
+  true,
+  "tpl=%H %t"
+ ],
+ [
+  "tree-hash",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "tree-hash",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "parent-hashes",
+  "%P",
+  true,
+  "tpl=%H %P"
+ ],
+ [
+  "parent-hashes",
+  "%p",
+  true,
+  "tpl=%H %p"
+ ],
+ [
+  "parent-hashes",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "parent-hashes",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "author-name",
+  "%aN",
+  true,
+  "tpl=%H %aN"
+ ],
+ [
+  "author-name",
+  "%an",
+  true,
+  "tpl=%H %an"
+ ],
+ [
+  "author-name",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "author-name",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "author-email",
+  "%aE",
+  true,
+  "tpl=%H %aE"
+ ],
+ [
+  "author-email",
+  "%aL",
+  true,
+  "tpl=%H %aL"
+ ],
+ [
+  "author-email",
+  "%ae",
+  true,
+  "tpl=%H %ae"
+ ],
+ [
+  "author-email",
+  "%al",
+  true,
+  "tpl=%H %al"
+ ],
+ [
+  "author-email",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "author-email",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "author-date",
+  "%aD",
+  true,
+  "tpl=%H %aD"
+ ],
+ [
+  "author-date",
+  "%aI",
+  true,
+  "tpl=%H %aI"
+ ],
+ [
+  "author-date",
+  "%ad",
+  true,
+  "tpl=%H %ad"
+ ],
+ [
+  "author-date",
+  "%ah",
+  true,
+  "tpl=%H %ah"
+ ],
+ [
+  "author-date",
+  "%ai",
+  true,
+  "tpl=%H %ai"
+ ],
+ [
+  "author-date",
+  "%ar",
+  true,
+  "tpl=%H %ar"
+ ],
+ [
+  "author-date",
+  "%as",
+  true,
+  "tpl=%H %as"
+ ],
+ [
+  "author-date",
+  "%at",
+  true,
+  "tpl=%H %at"
+ ],
+ [
+  "author-date",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "author-date",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "committer-name",
+  "%cN",
+  true,
+  "tpl=%H %cN"
+ ],
+ [
+  "committer-name",
+  "%cn",
+  true,
+  "tpl=%H %cn"
+ ],
+ [
+  "committer-name",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "committer-name",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "committer-email",
+  "%cE",
+  true,
+  "tpl=%H %cE"
+ ],
+ [
+  "committer-email",
+  "%cL",
+  true,
+  "tpl=%H %cL"
+ ],
+ [
+  "committer-email",
+  "%ce",
+  true,
+  "tpl=%H %ce"
+ ],
+ [
+  "committer-email",
+  "%cl",
+  true,
+  "tpl=%H %cl"
+ ],
+ [
+  "committer-email",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "committer-email",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "committer-date",
+  "%cD",
+  true,
+  "tpl=%H %cD"
+ ],
+ [
+  "committer-date",
+  "%cI",
+  true,
+  "tpl=%H %cI"
+ ],
+ [
+  "committer-date",
+  "%cd",
+  true,
+  "tpl=%H %cd"
+ ],
+ [
+  "committer-date",
+  "%ch",
+  true,
+  "tpl=%H %ch"
+ ],
+ [
+  "committer-date",
+  "%ci",
+  true,
+  "tpl=%H %ci"
+ ],
+ [
+  "committer-date",
+  "%cr",
+  true,
+  "tpl=%H %cr"
+ ],
+ [
+  "committer-date",
+  "%cs",
+  true,
+  "tpl=%H %cs"
+ ],
+ [
+  "committer-date",
+  "%ct",
+  true,
+  "tpl=%H %ct"
+ ],
+ [
+  "committer-date",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "committer-date",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "subject",
+  "%f",
+  true,
+  "tpl=%H %f"
+ ],
+ [
+  "subject",
+  "%s",
+  true,
+  "tpl=%H %s"
+ ],
+ [
+  "subject",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "subject",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "body",
+  "%B",
+  true,
+  "tpl=%H %B"
+ ],
+ [
+  "body",
+  "%b",
+  true,
+  "tpl=%H %b"
+ ],
+ [
+  "body",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "body",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "encoding",
+  "%e",
+  true,
+  "tpl=%H %e"
+ ],
+ [
+  "encoding",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "encoding",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "notes",
+  "%N",
+  true,
+  "tpl=%H %N"
+ ],
+ [
+  "notes",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "notes",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "decoration",
+  "%(decorate)",
+  true,
+  "tpl=%s %(decorate)"
+ ],
+ [
+  "decoration",
+  "%D",
+  true,
+  "tpl=%s %D"
+ ],
+ [
+  "decoration",
+  "%d",
+  true,
+  "tpl=%s %d"
+ ],
+ [
+  "decoration",
+  "%(decorate) param=prefix",
+  true,
+  "tpl=%s %(decorate:prefix=Z)"
+ ],
+ [
+  "decoration",
+  "none",
+  true,
+  "tpl=%s "
+ ],
+ [
+  "ref-name",
+  "%S",
+  true,
+  "tpl=%H %S"
+ ],
+ [
+  "ref-name",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "ref-name",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "describe",
+  "%(describe)",
+  true,
+  "tpl=%s %(describe)"
+ ],
+ [
+  "describe",
+  "%(describe) param=tags",
+  true,
+  "tpl=%s %(describe:tags)"
+ ],
+ [
+  "describe",
+  "none",
+  true,
+  "tpl=%s "
+ ],
+ [
+  "trailers",
+  "%(trailers)",
+  true,
+  "tpl=%s %(trailers)"
+ ],
+ [
+  "trailers",
+  "%(trailers) param=key",
+  true,
+  "tpl=%s %(trailers:key=Z)"
+ ],
+ [
+  "trailers",
+  "none",
+  true,
+  "tpl=%s "
+ ],
+ [
+  "signature",
+  "%G?",
+  true,
+  ""
+ ],
+ [
+  "signature",
+  "%G? off",
+  true,
+  null
+ ],
+ [
+  "signature",
+  "%GF",
+  true,
+  ""
+ ],
+ [
+  "signature",
+  "%GF off",
+  true,
+  null
+ ],
+ [
+  "signature",
+  "%GG",
+  true,
+  ""
+ ],
+ [
+  "signature",
+  "%GG off",
+  true,
+  null
+ ],
+ [
+  "signature",
+  "%GK",
+  true,
+  ""
+ ],
+ [
+  "signature",
+  "%GK off",
+  true,
+  null
+ ],
+ [
+  "signature",
+  "%GP",
+  true,
+  ""
+ ],
+ [
+  "signature",
+  "%GP off",
+  true,
+  null
+ ],
+ [
+  "signature",
+  "%GS",
+  true,
+  ""
+ ],
+ [
+  "signature",
+  "%GS off",
+  true,
+  null
+ ],
+ [
+  "signature",
+  "%GT",
+  true,
+  ""
+ ],
+ [
+  "signature",
+  "%GT off",
+  true,
+  null
+ ],
+ [
+  "reflog",
+  "%gD",
+  true,
+  ""
+ ],
+ [
+  "reflog",
+  "%gD off",
+  true,
+  null
+ ],
+ [
+  "reflog",
+  "%gE",
+  true,
+  ""
+ ],
+ [
+  "reflog",
+  "%gE off",
+  true,
+  null
+ ],
+ [
+  "reflog",
+  "%gN",
+  true,
+  ""
+ ],
+ [
+  "reflog",
+  "%gN off",
+  true,
+  null
+ ],
+ [
+  "reflog",
+  "%gd",
+  true,
+  ""
+ ],
+ [
+  "reflog",
+  "%gd off",
+  true,
+  null
+ ],
+ [
+  "reflog",
+  "%ge",
+  true,
+  ""
+ ],
+ [
+  "reflog",
+  "%ge off",
+  true,
+  null
+ ],
+ [
+  "reflog",
+  "%gn",
+  true,
+  ""
+ ],
+ [
+  "reflog",
+  "%gn off",
+  true,
+  null
+ ],
+ [
+  "reflog",
+  "%gs",
+  true,
+  ""
+ ],
+ [
+  "reflog",
+  "%gs off",
+  true,
+  null
+ ],
+ [
+  "mark",
+  "%m",
+  true,
+  "tpl=%H %m"
+ ],
+ [
+  "mark",
+  "none",
+  true,
+  ""
+ ],
+ [
+  "mark",
+  "none",
+  true,
+  "tpl= %H"
+ ],
+ [
+  "escape",
+  "%n",
+  true,
+  null
+ ],
+ [
+  "escape",
+  "%%",
+  true,
+  null
+ ],
+ [
+  "escape",
+  "%xNN",
+  true,
+  "tpl=%s%x41"
+ ],
+ [
+  "color",
+  "%Cred",
+  true,
+  "tpl=%Cred%h|"
+ ],
+ [
+  "color",
+  "%Cgreen",
+  true,
+  "tpl=%Cgreen%h|"
+ ],
+ [
+  "color",
+  "%Cblue",
+  true,
+  "tpl=%Cblue%h|"
+ ],
+ [
+  "color",
+  "%Creset",
+  true,
+  "tpl=%Creset%h|"
+ ],
+ [
+  "color",
+  "%C(<spec>)",
+  true,
+  "tpl=%C(226 bold)%h|"
+ ],
+ [
+  "color",
+  "none",
+  true,
+  null
+ ],
+ [
+  "padding",
+  "%<(<n>)",
+  true,
+  "tpl=%<(20)%an|"
+ ],
+ [
+  "padding",
+  "%<|(<n>)",
+  true,
+  "tpl=%<|(20)%an|"
+ ],
+ [
+  "padding",
+  "%>(<n>)",
+  true,
+  "tpl=%>(20)%an|"
+ ],
+ [
+  "padding",
+  "%><(<n>)",
+  true,
+  "tpl=%><(20)%an|"
+ ],
+ [
+  "padding",
+  "%><|(<n>)",
+  true,
+  "tpl=%><|(20)%an|"
+ ],
+ [
+  "padding",
+  "%>>(<n>)",
+  true,
+  "tpl=%>>(20)%an|"
+ ],
+ [
+  "padding",
+  "%>|(<n>)",
+  true,
+  "tpl=%>|(20)%an|"
+ ],
+ [
+  "padding",
+  "truncate=trunc width=5",
+  true,
+  "tpl=%>|(5,trunc)%an|"
+ ],
+ [
+  "padding",
+  "none",
+  true,
+  null
+ ],
+ [
+  "wrapping",
+  "%w(30,0,0)",
+  true,
+  "tpl=%w(30,0,0)%b"
+ ],
+ [
+  "wrapping",
+  "none",
+  true,
+  null
+ ],
+ [
+  "spacing-modifier",
+  "newline",
+  true,
+  "tpl=%s%+b"
+ ],
+ [
+  "spacing-modifier",
+  "space",
+  true,
+  "tpl=%s% b"
+ ],
+ [
+  "spacing-modifier",
+  "strip",
+  true,
+  "tpl=%s%-b"
+ ],
+ [
+  "spacing-modifier",
+  "none",
+  true,
+  null
+ ],
+ [
+  "option:pretty",
+  "tformat",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s'"
+ ],
+ [
+  "option:pretty",
+  "format",
+  true,
+  "cmd=git log --pretty=format:'%C(auto)%h %t %p %ad %d %s'"
+ ],
+ [
+  "option:pretty",
+  "oneline",
+  true,
+  "cmd=git log --pretty=oneline"
+ ],
+ [
+  "option:pretty",
+  "short",
+  true,
+  "cmd=git log --pretty=short"
+ ],
+ [
+  "option:pretty",
+  "medium",
+  true,
+  "cmd=git log --pretty=medium"
+ ],
+ [
+  "option:pretty",
+  "full",
+  true,
+  "cmd=git log --pretty=full"
+ ],
+ [
+  "option:pretty",
+  "fuller",
+  true,
+  "cmd=git log --pretty=fuller"
+ ],
+ [
+  "option:pretty",
+  "reference",
+  true,
+  "cmd=git log --pretty=reference"
+ ],
+ [
+  "option:pretty",
+  "email",
+  true,
+  "cmd=git log --pretty=email"
+ ],
+ [
+  "option:pretty",
+  "mboxrd",
+  true,
+  "cmd=git log --pretty=mboxrd"
+ ],
+ [
+  "option:pretty",
+  "raw",
+  true,
+  "cmd=git log --pretty=raw"
+ ],
+ [
+  "option:abbrev",
+  "4",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --abbrev=4"
+ ],
+ [
+  "option:abbrev",
+  "40",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --abbrev=40"
+ ],
+ [
+  "option:decorate",
+  "auto",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s'"
+ ],
+ [
+  "option:decorate",
+  "short",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --decorate=short"
+ ],
+ [
+  "option:decorate",
+  "full",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --decorate=full"
+ ],
+ [
+  "option:decorate",
+  "no",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --decorate=no"
+ ],
+ [
+  "option:date",
+  "default",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s'"
+ ],
+ [
+  "option:date",
+  "rfc2822",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --date=rfc2822"
+ ],
+ [
+  "option:date",
+  "iso",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --date=iso"
+ ],
+ [
+  "option:date",
+  "iso-strict",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --date=iso-strict"
+ ],
+ [
+  "option:date",
+  "short",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --date=short"
+ ],
+ [
+  "option:date",
+  "unix",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --date=unix"
+ ],
+ [
+  "option:date",
+  "raw",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --date=raw"
+ ],
+ [
+  "option:color",
+  "never",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s'"
+ ],
+ [
+  "option:color",
+  "always",
+  true,
+  "cmd=git log --pretty=tformat:'%C(auto)%h %t %p %ad %d %s' --color=always"
+ ],
+ [
+  "template->controls",
+  "%H %cn %(trailers:only)",
+  true,
+  "{\"hash\":\"%H\",\"cn\":\"%cn\",\"tr\":\"%(trailers)\",\"only\":true}"
+ ],
+ [
+  "preview->template",
+  "edit literal span",
+  true,
+  "tpl=%h :: %s"
+ ],
+ [
+  "preview->template",
+  "remove selected span",
+  true,
+  "tpl=%h  %s"
+ ],
+ [
+  "preview",
+  "case cycling changes output",
+  true,
+  null
+ ]
+]

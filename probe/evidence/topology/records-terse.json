@@ -1,0 +1,1005 @@
+{
+ "repo": "/home/claude/topo-terse",
+ "core_abbrev": 7,
+ "head": "d7d72d7aac649cc144a2de40970e35203d83e86c",
+ "refs": [
+  {
+   "name": "refs/heads/feature/a",
+   "oid": "0186523a5a01440da1794a9c6856378911a8be16"
+  },
+  {
+   "name": "refs/heads/feature/b",
+   "oid": "7861174c74fcb8f3ea4de8c3dd0cbad2d7555865"
+  },
+  {
+   "name": "refs/heads/feature/c",
+   "oid": "bbea2d93c2f87331b467ecbeb94d87c468fc6f01"
+  },
+  {
+   "name": "refs/heads/feature/wip",
+   "oid": "d4eaba244ce3ffd84d55adadb1f39cc65a5b869f"
+  },
+  {
+   "name": "refs/heads/gh-pages",
+   "oid": "30e78aeadc19e7f750c85aa1d6e2f1bf50f63ed4"
+  },
+  {
+   "name": "refs/heads/hotfix",
+   "oid": "d3303d067318829dc6690ffa6054301aeb5035b2"
+  },
+  {
+   "name": "refs/heads/main",
+   "oid": "d7d72d7aac649cc144a2de40970e35203d83e86c"
+  },
+  {
+   "name": "refs/remotes/origin/main",
+   "oid": "4fb046b0be21f1ef23faf4238d8be49b4e267858"
+  },
+  {
+   "name": "refs/tags/v1.0",
+   "oid": "47ade17b347bce04ce6756926ea92f0793049f21"
+  },
+  {
+   "name": "refs/tags/v2.0",
+   "oid": "4fb046b0be21f1ef23faf4238d8be49b4e267858"
+  }
+ ],
+ "host_supplied_fields": [
+  "decoration_short",
+  "decoration_full",
+  "describe",
+  "notes",
+  "sig_status",
+  "sig_signer",
+  "sig_key",
+  "sig_fingerprint",
+  "sig_primary_fingerprint",
+  "sig_trust",
+  "sig_raw",
+  "date_relative_author",
+  "date_relative_committer",
+  "date_human_author",
+  "date_human_committer",
+  "ref_name"
+ ],
+ "records": {
+  "30e78aeadc19e7f750c85aa1d6e2f1bf50f63ed4": {
+   "H": "30e78aeadc19e7f750c85aa1d6e2f1bf50f63ed4",
+   "P": [
+    "f7f6541c7a036ccd9f26e9f492b23f5ba91d0e56"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "5f8252fabfaa1e5a242b21fb1cea28ce3992a7cd",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700061200,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700061200,
+    "tz": "+0000"
+   },
+   "message": "pages 2\n",
+   "abbrev": 7,
+   "h": "30e78ae",
+   "t": "5f8252f",
+   "p": [
+    "f7f6541"
+   ],
+   "host": {
+    "decoration_short": " (gh-pages)",
+    "decoration_bare": "gh-pages",
+    "decoration_full_bare": "refs/heads/gh-pages",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "30e78aeadc19e7f750c85aa1d6e2f1bf50f63ed4",
+    "mark": ">"
+   }
+  },
+  "f7f6541c7a036ccd9f26e9f492b23f5ba91d0e56": {
+   "H": "f7f6541c7a036ccd9f26e9f492b23f5ba91d0e56",
+   "P": [],
+   "encoding": "",
+   "signed": false,
+   "T": "cd05f9f71f8289dc90233a19929dd35b7ea7ecca",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700057600,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700057600,
+    "tz": "+0000"
+   },
+   "message": "pages\n",
+   "abbrev": 7,
+   "h": "f7f6541",
+   "t": "cd05f9f",
+   "p": [],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "f7f6541c7a036ccd9f26e9f492b23f5ba91d0e56",
+    "mark": ">"
+   }
+  },
+  "d4eaba244ce3ffd84d55adadb1f39cc65a5b869f": {
+   "H": "d4eaba244ce3ffd84d55adadb1f39cc65a5b869f",
+   "P": [
+    "4fb046b0be21f1ef23faf4238d8be49b4e267858"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "7135fec49dae42d6619157de1cb04d3efaaf4400",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700054000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700054000,
+    "tz": "+0000"
+   },
+   "message": "wip\n",
+   "abbrev": 7,
+   "h": "d4eaba2",
+   "t": "7135fec",
+   "p": [
+    "4fb046b"
+   ],
+   "host": {
+    "decoration_short": " (feature/wip)",
+    "decoration_bare": "feature/wip",
+    "decoration_full_bare": "refs/heads/feature/wip",
+    "describe": "v1.0-9-gd4eaba2",
+    "describe_tags": "v2.0-1-gd4eaba2",
+    "describe_abbrev8": "v1.0-9-gd4eaba24",
+    "describe_match": "v1.0-9-gd4eaba2",
+    "describe_exclude": "v1.0-9-gd4eaba2",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "d4eaba244ce3ffd84d55adadb1f39cc65a5b869f",
+    "mark": ">"
+   }
+  },
+  "d7d72d7aac649cc144a2de40970e35203d83e86c": {
+   "H": "d7d72d7aac649cc144a2de40970e35203d83e86c",
+   "P": [
+    "4fb046b0be21f1ef23faf4238d8be49b4e267858"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "011da358a4fe2bb37298f5e17e7461de780a0864",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700050400,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700050400,
+    "tz": "+0000"
+   },
+   "message": "bump\n",
+   "abbrev": 7,
+   "h": "d7d72d7",
+   "t": "011da35",
+   "p": [
+    "4fb046b"
+   ],
+   "host": {
+    "decoration_short": " (HEAD -> main)",
+    "decoration_bare": "HEAD -> main",
+    "decoration_full_bare": "HEAD -> refs/heads/main",
+    "describe": "v1.0-9-gd7d72d7",
+    "describe_tags": "v2.0-1-gd7d72d7",
+    "describe_abbrev8": "v1.0-9-gd7d72d7a",
+    "describe_match": "v1.0-9-gd7d72d7",
+    "describe_exclude": "v1.0-9-gd7d72d7",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "d7d72d7aac649cc144a2de40970e35203d83e86c",
+    "mark": ">"
+   }
+  },
+  "4fb046b0be21f1ef23faf4238d8be49b4e267858": {
+   "H": "4fb046b0be21f1ef23faf4238d8be49b4e267858",
+   "P": [
+    "40f794893e2fbd07797503c5dd1152dff48b238d",
+    "7861174c74fcb8f3ea4de8c3dd0cbad2d7555865",
+    "bbea2d93c2f87331b467ecbeb94d87c468fc6f01",
+    "d3303d067318829dc6690ffa6054301aeb5035b2"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "584dd5ebfa2094636db43c22a5ca1f931568675b",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700046800,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700046800,
+    "tz": "+0000"
+   },
+   "message": "release\n",
+   "abbrev": 7,
+   "h": "4fb046b",
+   "t": "584dd5e",
+   "p": [
+    "40f7948",
+    "7861174",
+    "bbea2d9",
+    "d3303d0"
+   ],
+   "host": {
+    "decoration_short": " (tag: v2.0, origin/main)",
+    "decoration_bare": "tag: v2.0, origin/main",
+    "decoration_full_bare": "tag: refs/tags/v2.0, refs/remotes/origin/main",
+    "describe": "v1.0-8-g4fb046b",
+    "describe_tags": "v2.0",
+    "describe_abbrev8": "v1.0-8-g4fb046b0",
+    "describe_match": "v1.0-8-g4fb046b",
+    "describe_exclude": "v1.0-8-g4fb046b",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "4fb046b0be21f1ef23faf4238d8be49b4e267858",
+    "mark": ">"
+   }
+  },
+  "40f794893e2fbd07797503c5dd1152dff48b238d": {
+   "H": "40f794893e2fbd07797503c5dd1152dff48b238d",
+   "P": [
+    "47ade17b347bce04ce6756926ea92f0793049f21"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "f2871775ae9b1d28a7b48e897f690049e2d08878",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700043200,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700043200,
+    "tz": "+0000"
+   },
+   "message": "tidy\n",
+   "abbrev": 7,
+   "h": "40f7948",
+   "t": "f287177",
+   "p": [
+    "47ade17"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "v1.0-1-g40f7948",
+    "describe_tags": "v1.0-1-g40f7948",
+    "describe_abbrev8": "v1.0-1-g40f79489",
+    "describe_match": "v1.0-1-g40f7948",
+    "describe_exclude": "v1.0-1-g40f7948",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "40f794893e2fbd07797503c5dd1152dff48b238d",
+    "mark": ">"
+   }
+  },
+  "7861174c74fcb8f3ea4de8c3dd0cbad2d7555865": {
+   "H": "7861174c74fcb8f3ea4de8c3dd0cbad2d7555865",
+   "P": [
+    "c5c1d6729a9319f680190ccacc8ae00ee870b755",
+    "47ade17b347bce04ce6756926ea92f0793049f21"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "578000c99b69dde5a2931c183cf85cb738587ee4",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700039600,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700039600,
+    "tz": "+0000"
+   },
+   "message": "sync main\n",
+   "abbrev": 7,
+   "h": "7861174",
+   "t": "578000c",
+   "p": [
+    "c5c1d67",
+    "47ade17"
+   ],
+   "host": {
+    "decoration_short": " (feature/b)",
+    "decoration_bare": "feature/b",
+    "decoration_full_bare": "refs/heads/feature/b",
+    "describe": "v1.0-3-g7861174",
+    "describe_tags": "v1.0-3-g7861174",
+    "describe_abbrev8": "v1.0-3-g7861174c",
+    "describe_match": "v1.0-3-g7861174",
+    "describe_exclude": "v1.0-3-g7861174",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "7861174c74fcb8f3ea4de8c3dd0cbad2d7555865",
+    "mark": ">"
+   }
+  },
+  "d3303d067318829dc6690ffa6054301aeb5035b2": {
+   "H": "d3303d067318829dc6690ffa6054301aeb5035b2",
+   "P": [
+    "47ade17b347bce04ce6756926ea92f0793049f21"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "7b62b27b844ab8b1b520bf45e05e58feb30513a7",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700012000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700036000,
+    "tz": "+0000"
+   },
+   "message": "hotfix\n",
+   "abbrev": 7,
+   "h": "d3303d0",
+   "t": "7b62b27",
+   "p": [
+    "47ade17"
+   ],
+   "host": {
+    "decoration_short": " (hotfix)",
+    "decoration_bare": "hotfix",
+    "decoration_full_bare": "refs/heads/hotfix",
+    "describe": "v1.0-1-gd3303d0",
+    "describe_tags": "v1.0-1-gd3303d0",
+    "describe_abbrev8": "v1.0-1-gd3303d06",
+    "describe_match": "v1.0-1-gd3303d0",
+    "describe_exclude": "v1.0-1-gd3303d0",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "d3303d067318829dc6690ffa6054301aeb5035b2",
+    "mark": ">"
+   }
+  },
+  "bbea2d93c2f87331b467ecbeb94d87c468fc6f01": {
+   "H": "bbea2d93c2f87331b467ecbeb94d87c468fc6f01",
+   "P": [
+    "b7d261161ab0e579ff9a27682a0d0763f65a4c77"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "c2ceb92739c4e70a3a99300ee6d2c00c0de3d650",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700032400,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700032400,
+    "tz": "+0000"
+   },
+   "message": "more docs\n",
+   "abbrev": 7,
+   "h": "bbea2d9",
+   "t": "c2ceb92",
+   "p": [
+    "b7d2611"
+   ],
+   "host": {
+    "decoration_short": " (feature/c)",
+    "decoration_bare": "feature/c",
+    "decoration_full_bare": "refs/heads/feature/c",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "bbea2d93c2f87331b467ecbeb94d87c468fc6f01",
+    "mark": ">"
+   }
+  },
+  "c5c1d6729a9319f680190ccacc8ae00ee870b755": {
+   "H": "c5c1d6729a9319f680190ccacc8ae00ee870b755",
+   "P": [
+    "85989bc9da316ad40f3b2b4722b8da11de2f7951"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "539eef0a92c6376d378c29868f70262298e11d70",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700028800,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700028800,
+    "tz": "+0000"
+   },
+   "message": "bg colors\n",
+   "abbrev": 7,
+   "h": "c5c1d67",
+   "t": "539eef0",
+   "p": [
+    "85989bc"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "c5c1d6729a9319f680190ccacc8ae00ee870b755",
+    "mark": ">"
+   }
+  },
+  "47ade17b347bce04ce6756926ea92f0793049f21": {
+   "H": "47ade17b347bce04ce6756926ea92f0793049f21",
+   "P": [
+    "c70f0c401f5084b55bb1a64438cbfb4c0ae6dd17",
+    "0186523a5a01440da1794a9c6856378911a8be16"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "fa4bb89026a6820b416efaa62729726055c414a5",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700025200,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700025200,
+    "tz": "+0000"
+   },
+   "message": "merge a\n",
+   "abbrev": 7,
+   "h": "47ade17",
+   "t": "fa4bb89",
+   "p": [
+    "c70f0c4",
+    "0186523"
+   ],
+   "host": {
+    "decoration_short": " (tag: v1.0)",
+    "decoration_bare": "tag: v1.0",
+    "decoration_full_bare": "tag: refs/tags/v1.0",
+    "describe": "v1.0",
+    "describe_tags": "v1.0",
+    "describe_abbrev8": "v1.0",
+    "describe_match": "v1.0",
+    "describe_exclude": "v1.0",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "47ade17b347bce04ce6756926ea92f0793049f21",
+    "mark": ">"
+   }
+  },
+  "b7d261161ab0e579ff9a27682a0d0763f65a4c77": {
+   "H": "b7d261161ab0e579ff9a27682a0d0763f65a4c77",
+   "P": [
+    "c70f0c401f5084b55bb1a64438cbfb4c0ae6dd17"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "ff681273f929b2fbd438030842e54c7bae5797b7",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700009000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700021600,
+    "tz": "+0000"
+   },
+   "message": "docs\n",
+   "abbrev": 7,
+   "h": "b7d2611",
+   "t": "ff68127",
+   "p": [
+    "c70f0c4"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "b7d261161ab0e579ff9a27682a0d0763f65a4c77",
+    "mark": ">"
+   }
+  },
+  "85989bc9da316ad40f3b2b4722b8da11de2f7951": {
+   "H": "85989bc9da316ad40f3b2b4722b8da11de2f7951",
+   "P": [
+    "c70f0c401f5084b55bb1a64438cbfb4c0ae6dd17"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "61ecdb3bc02bc7fbb4278d7eeeb464eb8f153ab8",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700018000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700018000,
+    "tz": "+0000"
+   },
+   "message": "colors\n",
+   "abbrev": 7,
+   "h": "85989bc",
+   "t": "61ecdb3",
+   "p": [
+    "c70f0c4"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "85989bc9da316ad40f3b2b4722b8da11de2f7951",
+    "mark": ">"
+   }
+  },
+  "0186523a5a01440da1794a9c6856378911a8be16": {
+   "H": "0186523a5a01440da1794a9c6856378911a8be16",
+   "P": [
+    "20bb0e74804843957b2b4d956c667c7ca237b05c"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "2f219bd130b2aa200d96126668e98fb8d37a0cd0",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700014400,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700014400,
+    "tz": "+0000"
+   },
+   "message": "parser done\n",
+   "abbrev": 7,
+   "h": "0186523",
+   "t": "2f219bd",
+   "p": [
+    "20bb0e7"
+   ],
+   "host": {
+    "decoration_short": " (feature/a)",
+    "decoration_bare": "feature/a",
+    "decoration_full_bare": "refs/heads/feature/a",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "0186523a5a01440da1794a9c6856378911a8be16",
+    "mark": ">"
+   }
+  },
+  "c70f0c401f5084b55bb1a64438cbfb4c0ae6dd17": {
+   "H": "c70f0c401f5084b55bb1a64438cbfb4c0ae6dd17",
+   "P": [
+    "809840261056dd751d306f4d81f7cf12c054fc33"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "18a2db82796fa2a3c4bebb8cb965bf6847b69281",
+   "author": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700010800,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700010800,
+    "tz": "+0000"
+   },
+   "message": "fix crash\n",
+   "abbrev": 7,
+   "h": "c70f0c4",
+   "t": "18a2db8",
+   "p": [
+    "8098402"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "c70f0c401f5084b55bb1a64438cbfb4c0ae6dd17",
+    "mark": ">"
+   }
+  },
+  "20bb0e74804843957b2b4d956c667c7ca237b05c": {
+   "H": "20bb0e74804843957b2b4d956c667c7ca237b05c",
+   "P": [
+    "809840261056dd751d306f4d81f7cf12c054fc33"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "1d7a22ca1036eab678ca4415dc0513c0ea55c9bb",
+   "author": {
+    "name": "Alan Turing",
+    "email": "alan@example.org",
+    "ts": 1700007200,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700007200,
+    "tz": "+0000"
+   },
+   "message": "parser wip\n",
+   "abbrev": 7,
+   "h": "20bb0e7",
+   "t": "1d7a22c",
+   "p": [
+    "8098402"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 15 2023",
+    "ch": "Nov 15 2023",
+    "ref_name": "20bb0e74804843957b2b4d956c667c7ca237b05c",
+    "mark": ">"
+   }
+  },
+  "809840261056dd751d306f4d81f7cf12c054fc33": {
+   "H": "809840261056dd751d306f4d81f7cf12c054fc33",
+   "P": [
+    "cf98dc350835fb35c39f14b243fd0a3152687cc6"
+   ],
+   "encoding": "",
+   "signed": false,
+   "T": "b63a965e6a06fec4f9cb010549a7e26d64b9e406",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700003600,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700003600,
+    "tz": "+0000"
+   },
+   "message": "add core\n",
+   "abbrev": 7,
+   "h": "8098402",
+   "t": "b63a965",
+   "p": [
+    "cf98dc3"
+   ],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 14 2023",
+    "ch": "Nov 14 2023",
+    "ref_name": "809840261056dd751d306f4d81f7cf12c054fc33",
+    "mark": ">"
+   }
+  },
+  "cf98dc350835fb35c39f14b243fd0a3152687cc6": {
+   "H": "cf98dc350835fb35c39f14b243fd0a3152687cc6",
+   "P": [],
+   "encoding": "",
+   "signed": false,
+   "T": "7f4be4d1d08320ee5f7898496283e65dd9afd83a",
+   "author": {
+    "name": "Ada Lovelace",
+    "email": "ada@example.org",
+    "ts": 1700000000,
+    "tz": "+0000"
+   },
+   "committer": {
+    "name": "Grace Hopper",
+    "email": "grace@example.org",
+    "ts": 1700000000,
+    "tz": "+0000"
+   },
+   "message": "init\n",
+   "abbrev": 7,
+   "h": "cf98dc3",
+   "t": "7f4be4d",
+   "p": [],
+   "host": {
+    "decoration_short": "",
+    "decoration_bare": "",
+    "decoration_full_bare": "",
+    "describe": "",
+    "describe_tags": "",
+    "describe_abbrev8": "",
+    "describe_match": "",
+    "describe_exclude": "",
+    "notes": "",
+    "sig_status": "N",
+    "sig_signer": "",
+    "sig_key": "",
+    "sig_fingerprint": "",
+    "sig_primary_fingerprint": "",
+    "sig_trust": "undefined",
+    "sig_raw": "",
+    "ar": "3 years ago",
+    "cr": "3 years ago",
+    "ah": "Nov 14 2023",
+    "ch": "Nov 14 2023",
+    "ref_name": "cf98dc350835fb35c39f14b243fd0a3152687cc6",
+    "mark": ">"
+   }
+  }
+ }
+}

@@ -1,0 +1,191 @@
+{
+ "fetched_utc": "2026-11-05",
+ "blocked": [
+  {
+   "url": "https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs/9074343#9074343",
+   "via": "WebFetch",
+   "result": "SITE_BLOCKED"
+  },
+  {
+   "url": "https://gist.github.com/samtx/195738f4362cd0bc2e58d0828c6f3fac/raw/...",
+   "via": "shell curl",
+   "result": "egress proxy connect_rejected"
+  },
+  {
+   "url": "https://git-scm.com/docs/git-config",
+   "via": "WebFetch",
+   "result": "truncated before variable reference; page documents git 2.56, binary is 2.43 -- superseded by probing"
+  }
+ ],
+ "windows_terminal_defaults": {
+  "url": "https://raw.githubusercontent.com/microsoft/terminal/main/src/cascadia/TerminalSettingsModel/defaults.json",
+  "sha256": "5b8f30150cfc7604f72673556e56865e1cb7002ab456adb66b676c1941d1aa62",
+  "bytes": 36805
+ },
+ "presets": [
+  {
+   "id": "lg",
+   "class": "verbatim",
+   "sources": [
+    {
+     "who": "filipekiss",
+     "url": "https://scriptagc.wasmer.app/http_coderwall_com/p/euwpig/a-better-git-log",
+     "note": "Coderwall 'A better git log'"
+    },
+    {
+     "who": "Mattias Geniar",
+     "url": "https://ma.ttias.be/pretty-git-log-in-one-line/",
+     "date": "2015-08-25"
+    },
+    {
+     "who": "Tom Limoncelli",
+     "url": "https://everythingsysadmin.com/2016/05/10-git-aliases.html",
+     "date": "2016-05-05",
+     "note": "adds --date=relative"
+    }
+   ],
+   "args": [
+    "--graph",
+    "--abbrev-commit"
+   ],
+   "format": "%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
+  },
+  {
+   "id": "hist",
+   "class": "verbatim",
+   "sources": [
+    {
+     "who": "Git Immersion",
+     "url": "https://gitimmersion.com/lab_11.html"
+    }
+   ],
+   "args": [
+    "--graph",
+    "--date=short"
+   ],
+   "format": "%h %ad | %s%d [%an]"
+  },
+  {
+   "id": "lp",
+   "class": "verbatim",
+   "license": "CC BY-SA 4.0",
+   "sources": [
+    {
+     "who": "Practicalli",
+     "url": "https://practical.li/gitops/git/aliases-for-nicer-git-output/"
+    }
+   ],
+   "args": [
+    "--graph",
+    "--all"
+   ],
+   "format": "%C(cyan)%h%Creset - %C(bold yellow)%d%Creset %s %C(blue)(%ar) %C(magenta)%an%Creset"
+  },
+  {
+   "id": "ld",
+   "class": "verbatim",
+   "sources": [
+    {
+     "who": "Tom Limoncelli",
+     "url": "https://everythingsysadmin.com/2016/05/10-git-aliases.html",
+     "date": "2016-05-05"
+    }
+   ],
+   "args": [
+    "--decorate",
+    "--date=short",
+    "--graph"
+   ],
+   "format_as_written_in_gitconfig": "%C(yellow)%h\\\\ %C(green)%ad%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]",
+   "format": "%C(yellow)%h %C(green)%ad%Cred%d %Creset%s%Cblue [%cn]",
+   "note": "gitconfig '\\\\ ' is unescaped twice (config parser, then alias split_cmdline) to a plain space"
+  },
+  {
+   "id": "ls",
+   "class": "verbatim",
+   "sources": [
+    {
+     "who": "Tom Limoncelli",
+     "url": "https://everythingsysadmin.com/2016/05/10-git-aliases.html",
+     "date": "2016-05-05"
+    }
+   ],
+   "args": [
+    "--decorate",
+    "--date=relative"
+   ],
+   "format": "%C(green)%h %C(yellow)[%ad]%Cred%d %Creset%s%Cblue [%cn]"
+  },
+  {
+   "id": "smartlog",
+   "class": "verbatim-reassembled",
+   "sources": [
+    {
+     "who": "Jesse Squires",
+     "url": "https://www.jessesquires.com/blog/customizing-git-log/",
+     "date": "2017-08-08"
+    }
+   ],
+   "args": [
+    "--graph"
+   ],
+   "format": "commit: %C(bold red)%h%Creset %C(red)<%H>%Creset %C(bold magenta)%d %Creset%ndate: %C(bold yellow)%cd %Creset%C(yellow)%cr%Creset%nauthor: %C(bold blue)%an%Creset %C(blue)<%ae>%Creset%n%C(cyan)%s%n%Creset",
+   "note": "fetcher returned two halves; the join after 'date: ' is the one place a whitespace difference could hide"
+  },
+  {
+   "id": "lg1",
+   "class": "after-source",
+   "license": "CC BY-SA (Stack Overflow)",
+   "sources": [
+    {
+     "who": "Slipp D. Thompson",
+     "url": "https://stackoverflow.com/a/34467298",
+     "note": "unreachable here; structure via gist samtx/195738f4..."
+    }
+   ],
+   "args": [
+    "--graph",
+    "--abbrev-commit",
+    "--decorate",
+    "--all"
+   ],
+   "structure": "hash, relative date, subject, author, ref decorations -- one line"
+  },
+  {
+   "id": "lg2",
+   "class": "after-source",
+   "license": "CC BY-SA (Stack Overflow)",
+   "sources": [
+    {
+     "who": "Slipp D. Thompson",
+     "url": "https://stackoverflow.com/a/34467298"
+    }
+   ],
+   "args": [
+    "--graph",
+    "--abbrev-commit",
+    "--decorate",
+    "--all"
+   ],
+   "structure": "line 1: hash, RFC 2822 author date, relative date, decorations; line 2: subject, author"
+  },
+  {
+   "id": "lg3",
+   "class": "after-source",
+   "license": "CC BY-SA (Stack Overflow)",
+   "sources": [
+    {
+     "who": "Slipp D. Thompson",
+     "url": "https://stackoverflow.com/a/34467298"
+    }
+   ],
+   "args": [
+    "--graph",
+    "--abbrev-commit",
+    "--decorate",
+    "--all"
+   ],
+   "structure": "lg2 plus committed date, author email, committer name and email"
+  }
+ ]
+}

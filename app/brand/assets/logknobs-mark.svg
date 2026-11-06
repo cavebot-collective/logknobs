@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img"><title>logknobs mark</title>
+  <circle cx="64.00" cy="64.00" r="53.76" fill="none" stroke="#e8eaed" stroke-width="14.08"/>
+    <line x1="12.86" y1="115.14" x2="6.53" y2="121.47" stroke="#e8b04a" stroke-width="5.91" stroke-linecap="round"/>
+    <line x1="-8.32" y1="64.00" x2="-17.28" y2="64.00" stroke="#e8b04a" stroke-width="5.91" stroke-linecap="round"/>
+    <line x1="12.86" y1="12.86" x2="6.53" y2="6.53" stroke="#e8b04a" stroke-width="5.91" stroke-linecap="round"/>
+    <line x1="64.00" y1="-8.32" x2="64.00" y2="-17.28" stroke="#e8b04a" stroke-width="5.91" stroke-linecap="round"/>
+    <line x1="115.14" y1="12.86" x2="121.47" y2="6.53" stroke="#e8b04a" stroke-width="5.91" stroke-linecap="round"/>
+    <line x1="136.32" y1="64.00" x2="145.28" y2="64.00" stroke="#7d8a9a" stroke-width="5.91" stroke-linecap="round"/>
+    <line x1="115.14" y1="115.14" x2="121.47" y2="121.47" stroke="#7d8a9a" stroke-width="5.91" stroke-linecap="round"/>
+    <line x1="64.00" y1="64.00" x2="96.64" y2="50.81" stroke="#e8b04a" stroke-width="11.97" stroke-linecap="round"/>
+    <circle cx="64.00" cy="64.00" r="6.40" fill="#e8b04a"/>
+</svg>

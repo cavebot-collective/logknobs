@@ -1,0 +1,82 @@
+[
+  {
+    "name": "%<(20)",
+    "format": "%<(20)%s|",
+    "hex": "666978286931386e293a20e697a5e69cace8aa9ee381aee5b985e38292e6ada3e38197e3818fe695b0e38188e3828b20f09f8c8d7c",
+    "bytes": 53,
+    "valid_utf8": true,
+    "decoded": "fix(i18n): 日本語の幅を正しく数える 🌍|"
+  },
+  {
+    "name": "%<(20,trunc)",
+    "format": "%<(20,trunc)%s|",
+    "hex": "666978286931386e293a20e697a5e69cace8aa9ee381ae2e2e7c",
+    "bytes": 26,
+    "valid_utf8": true,
+    "decoded": "fix(i18n): 日本語の..|"
+  },
+  {
+    "name": "%<(20,ltrunc)",
+    "format": "%<(20,ltrunc)%s|",
+    "hex": "2e2ee38292e6ada3e38197e3818fe695b0e38188e3828b20f09f8c8d7c",
+    "bytes": 29,
+    "valid_utf8": true,
+    "decoded": "..を正しく数える 🌍|"
+  },
+  {
+    "name": "%<(20,mtrunc)",
+    "format": "%<(20,mtrunc)%s|",
+    "hex": "666978286931386e292e2ee695b0e38188e3828b20f09f8c8d7c",
+    "bytes": 26,
+    "valid_utf8": true,
+    "decoded": "fix(i18n)..数える 🌍|"
+  },
+  {
+    "name": "%<(14,trunc)",
+    "format": "%<(14,trunc)%s|",
+    "hex": "666978286931386e293a20e697a52e2e7c",
+    "bytes": 17,
+    "valid_utf8": true,
+    "decoded": "fix(i18n): 日..|"
+  },
+  {
+    "name": "%<(15,trunc)",
+    "format": "%<(15,trunc)%s|",
+    "hex": "666978286931386e293a20e697a52e2e7c",
+    "bytes": 17,
+    "valid_utf8": true,
+    "decoded": "fix(i18n): 日..|"
+  },
+  {
+    "name": "%<(16,trunc)",
+    "format": "%<(16,trunc)%s|",
+    "hex": "666978286931386e293a20e697a5e69cac2e2e7c",
+    "bytes": 20,
+    "valid_utf8": true,
+    "decoded": "fix(i18n): 日本..|"
+  },
+  {
+    "name": "%>(30)",
+    "format": "%>(30)%s|",
+    "hex": "666978286931386e293a20e697a5e69cace8aa9ee381aee5b985e38292e6ada3e38197e3818fe695b0e38188e3828b20f09f8c8d7c",
+    "bytes": 53,
+    "valid_utf8": true,
+    "decoded": "fix(i18n): 日本語の幅を正しく数える 🌍|"
+  },
+  {
+    "name": "%><(30)",
+    "format": "%><(30)%s|",
+    "hex": "666978286931386e293a20e697a5e69cace8aa9ee381aee5b985e38292e6ada3e38197e3818fe695b0e38188e3828b20f09f8c8d7c",
+    "bytes": 53,
+    "valid_utf8": true,
+    "decoded": "fix(i18n): 日本語の幅を正しく数える 🌍|"
+  },
+  {
+    "name": "subject-raw",
+    "format": "%s",
+    "hex": "666978286931386e293a20e697a5e69cace8aa9ee381aee5b985e38292e6ada3e38197e3818fe695b0e38188e3828b20f09f8c8d",
+    "bytes": 52,
+    "valid_utf8": true,
+    "decoded": "fix(i18n): 日本語の幅を正しく数える 🌍"
+  }
+]
